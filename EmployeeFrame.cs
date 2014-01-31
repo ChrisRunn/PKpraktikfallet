@@ -223,7 +223,7 @@ namespace praktikfall
             {
                 DataGridViewRow row = this.dgvObjectShowing.Rows[e.RowIndex];
                 string selectedItem = row.Cells["objNr"].Value.ToString();
-                lblSelectedObjectShowing.Text = selectedItem;
+                lblSelectedObjectShowing.Text = "Valt objekt: " + selectedItem;
                 lblSelectedObjectShowing.Visible = true;
 
             }
@@ -235,7 +235,7 @@ namespace praktikfall
             {
                 DataGridViewRow row = this.dgvProspectiveBuyerShowing.Rows[e.RowIndex];
                 string selectedItem = row.Cells["buyerSsnr"].Value.ToString();
-                lblSelectedBuyerShowing.Text = selectedItem;
+                lblSelectedBuyerShowing.Text = "Vald spekulant: " + selectedItem;
                 lblSelectedBuyerShowing.Visible = true;
 
             }

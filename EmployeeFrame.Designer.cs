@@ -696,12 +696,6 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(699, 538);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "label3";
             this.lblSelectedBuyerShowing.AutoSize = true;
             this.lblSelectedBuyerShowing.Location = new System.Drawing.Point(251, 334);
             this.lblSelectedBuyerShowing.Name = "lblSelectedBuyerShowing";
@@ -709,6 +703,12 @@
             this.lblSelectedBuyerShowing.TabIndex = 11;
             this.lblSelectedBuyerShowing.Text = "selectedBuyer(invisible)";
             this.lblSelectedBuyerShowing.Visible = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(699, 538);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "label3";
             // 
             // EmployeeFrame
             // 
