@@ -20,6 +20,27 @@ namespace praktikfall
             dgvObjectShowing.DataSource = dt;
             DataTable dt2 = controller.GetAllProspectiveBuyers();
             dgvProspectiveBuyerShowing.DataSource = dt2;
+
+            tbObjectArea.ReadOnly = true;
+            tbNrOfRooms.ReadOnly = true;
+            tbUnitType.ReadOnly = true;
+            tbPricePerKvm.ReadOnly = true;
+            richTextBox1.ReadOnly = true;
+
+            lblObjBrokerSsnr.Visible = false;
+            tbObjBrokerSsnr.Visible = false;
+            
+            lblObjNr.Visible = false;
+            tbObjNr.Visible = false;
+            
+            lblObjAddressforTB.Visible = false;
+            tbObjAddress.Visible = false;
+
+            lblObjCityforTB.Visible = false;
+            tbObjCity.Visible = false;
+
+            lblObjPrice.Visible = false;
+            tbObjPrice.Visible = false;
         }
 
         Controller controller = new Controller();
@@ -250,6 +271,30 @@ namespace praktikfall
         private void lblSelectedObjectShowing_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void rbUpdateObject(object sender, EventArgs e)
+        {
+            tbObjectArea.ReadOnly = false;
+            tbNrOfRooms.ReadOnly = false;
+            tbUnitType.ReadOnly = false;
+            tbPricePerKvm.ReadOnly = false;
+            richTextBox1.ReadOnly = false;
+
+            lblObjBrokerSsnr.Visible = true;
+            tbObjBrokerSsnr.Visible = true;
+
+            lblObjNr.Visible = true;
+            tbObjNr.Visible = true;
+
+            lblObjAddressforTB.Visible = true;
+            tbObjAddress.Visible = true;
+
+            lblObjCityforTB.Visible = true;
+            tbObjCity.Visible = true;
+
+            lblObjPrice.Visible = true;
+            tbObjPrice.Visible = true;
         }
 
 

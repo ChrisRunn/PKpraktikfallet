@@ -53,7 +53,7 @@
             this.labelBuyerName = new System.Windows.Forms.Label();
             this.labelBuyerSsn = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rbRegisterNewObj = new System.Windows.Forms.RadioButton();
             this.rbObjDelete = new System.Windows.Forms.RadioButton();
             this.rbObjUpdate = new System.Windows.Forms.RadioButton();
             this.tbObjPrice = new System.Windows.Forms.TextBox();
@@ -337,7 +337,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.radioButton3);
+            this.tabPage2.Controls.Add(this.rbRegisterNewObj);
             this.tabPage2.Controls.Add(this.rbObjDelete);
             this.tabPage2.Controls.Add(this.rbObjUpdate);
             this.tabPage2.Controls.Add(this.tbObjPrice);
@@ -377,16 +377,16 @@
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbRegisterNewObj
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(394, 508);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(97, 17);
-            this.radioButton3.TabIndex = 35;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbRegisterNewObj.AutoSize = true;
+            this.rbRegisterNewObj.Location = new System.Drawing.Point(394, 508);
+            this.rbRegisterNewObj.Name = "rbRegisterNewObj";
+            this.rbRegisterNewObj.Size = new System.Drawing.Size(83, 17);
+            this.rbRegisterNewObj.TabIndex = 35;
+            this.rbRegisterNewObj.TabStop = true;
+            this.rbRegisterNewObj.Text = "Registrera";
+            this.rbRegisterNewObj.UseVisualStyleBackColor = true;
             // 
             // rbObjDelete
             // 
@@ -409,6 +409,7 @@
             this.rbObjUpdate.TabStop = true;
             this.rbObjUpdate.Text = "Uppdatera";
             this.rbObjUpdate.UseVisualStyleBackColor = true;
+            this.rbObjUpdate.CheckedChanged += new System.EventHandler(this.rbUpdateObject);
             // 
             // tbObjPrice
             // 
@@ -492,13 +493,12 @@
             // 
             // btnUpdateSelectedObj
             // 
-            this.btnUpdateSelectedObj.Location = new System.Drawing.Point(394, 556);
+            this.btnUpdateSelectedObj.Location = new System.Drawing.Point(394, 533);
             this.btnUpdateSelectedObj.Name = "btnUpdateSelectedObj";
             this.btnUpdateSelectedObj.Size = new System.Drawing.Size(114, 22);
             this.btnUpdateSelectedObj.TabIndex = 22;
             this.btnUpdateSelectedObj.Text = "Valbar text";
             this.btnUpdateSelectedObj.UseVisualStyleBackColor = true;
-            this.btnUpdateSelectedObj.Visible = false;
             // 
             // lblObjCity
             // 
@@ -851,7 +851,7 @@
         private System.Windows.Forms.Label lblObjPrice;
         private System.Windows.Forms.Label lblObjNr;
         private System.Windows.Forms.Label lblObjBrokerSsnr;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton rbRegisterNewObj;
         private System.Windows.Forms.RadioButton rbObjDelete;
         private System.Windows.Forms.RadioButton rbObjUpdate;
         private System.Windows.Forms.TextBox tbObjPrice;
