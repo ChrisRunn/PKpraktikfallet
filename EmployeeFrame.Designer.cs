@@ -53,7 +53,15 @@
             this.labelBuyerName = new System.Windows.Forms.Label();
             this.labelBuyerSsn = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-        
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rbObjDelete = new System.Windows.Forms.RadioButton();
+            this.rbObjUpdate = new System.Windows.Forms.RadioButton();
+            this.tbObjPrice = new System.Windows.Forms.TextBox();
+            this.tbObjCity = new System.Windows.Forms.TextBox();
+            this.tbObjAddress = new System.Windows.Forms.TextBox();
+            this.tbObjNr = new System.Windows.Forms.TextBox();
+            this.tbObjBrokerSsnr = new System.Windows.Forms.TextBox();
+            this.lblObjCityforTB = new System.Windows.Forms.Label();
             this.lblObjAddressforTB = new System.Windows.Forms.Label();
             this.lblObjPrice = new System.Windows.Forms.Label();
             this.lblObjNr = new System.Windows.Forms.Label();
@@ -160,7 +168,6 @@
             this.lblSelectedObjectShowing.TabIndex = 10;
             this.lblSelectedObjectShowing.Text = "selectedObject(invisible)";
             this.lblSelectedObjectShowing.Visible = false;
-            this.lblSelectedObjectShowing.Click += new System.EventHandler(this.lblSelectedObjectShowing_Click);
             // 
             // dgvObjectShowing
             // 
@@ -379,14 +386,87 @@
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // radioButton3
             // 
-
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(394, 508);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(97, 17);
+            this.radioButton3.TabIndex = 35;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "radioButton3";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // rbObjDelete
+            // 
+            this.rbObjDelete.AutoSize = true;
+            this.rbObjDelete.Location = new System.Drawing.Point(394, 479);
+            this.rbObjDelete.Name = "rbObjDelete";
+            this.rbObjDelete.Size = new System.Drawing.Size(66, 17);
+            this.rbObjDelete.TabIndex = 34;
+            this.rbObjDelete.TabStop = true;
+            this.rbObjDelete.Text = "Ta bort";
+            this.rbObjDelete.UseVisualStyleBackColor = true;
+            // 
+            // rbObjUpdate
+            // 
+            this.rbObjUpdate.AutoSize = true;
+            this.rbObjUpdate.Location = new System.Drawing.Point(394, 451);
+            this.rbObjUpdate.Name = "rbObjUpdate";
+            this.rbObjUpdate.Size = new System.Drawing.Size(84, 17);
+            this.rbObjUpdate.TabIndex = 33;
+            this.rbObjUpdate.TabStop = true;
+            this.rbObjUpdate.Text = "Uppdatera";
+            this.rbObjUpdate.UseVisualStyleBackColor = true;
+            // 
+            // tbObjPrice
+            // 
+            this.tbObjPrice.Location = new System.Drawing.Point(805, 561);
+            this.tbObjPrice.Name = "tbObjPrice";
+            this.tbObjPrice.Size = new System.Drawing.Size(100, 20);
+            this.tbObjPrice.TabIndex = 32;
+            // 
+            // tbObjCity
+            // 
+            this.tbObjCity.Location = new System.Drawing.Point(805, 535);
+            this.tbObjCity.Name = "tbObjCity";
+            this.tbObjCity.Size = new System.Drawing.Size(100, 20);
+            this.tbObjCity.TabIndex = 31;
+            // 
+            // tbObjAddress
+            // 
+            this.tbObjAddress.Location = new System.Drawing.Point(805, 506);
+            this.tbObjAddress.Name = "tbObjAddress";
+            this.tbObjAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbObjAddress.TabIndex = 30;
+            // 
+            // tbObjNr
+            // 
+            this.tbObjNr.Location = new System.Drawing.Point(805, 476);
+            this.tbObjNr.Name = "tbObjNr";
+            this.tbObjNr.Size = new System.Drawing.Size(100, 20);
+            this.tbObjNr.TabIndex = 29;
+            // 
+            // tbObjBrokerSsnr
+            // 
+            this.tbObjBrokerSsnr.Location = new System.Drawing.Point(805, 448);
+            this.tbObjBrokerSsnr.Name = "tbObjBrokerSsnr";
+            this.tbObjBrokerSsnr.Size = new System.Drawing.Size(100, 20);
+            this.tbObjBrokerSsnr.TabIndex = 28;
+            // 
+            // lblObjCityforTB
+            // 
+            this.lblObjCityforTB.AutoSize = true;
+            this.lblObjCityforTB.Location = new System.Drawing.Point(738, 538);
+            this.lblObjCityforTB.Name = "lblObjCityforTB";
+            this.lblObjCityforTB.Size = new System.Drawing.Size(41, 13);
+            this.lblObjCityforTB.TabIndex = 27;
+            this.lblObjCityforTB.Text = "Stad :";
             // 
             // lblObjAddressforTB
             // 
             this.lblObjAddressforTB.AutoSize = true;
-            this.lblObjAddressforTB.Location = new System.Drawing.Point(699, 509);
+            this.lblObjAddressforTB.Location = new System.Drawing.Point(738, 508);
             this.lblObjAddressforTB.Name = "lblObjAddressforTB";
             this.lblObjAddressforTB.Size = new System.Drawing.Size(49, 13);
             this.lblObjAddressforTB.TabIndex = 26;
@@ -395,7 +475,7 @@
             // lblObjPrice
             // 
             this.lblObjPrice.AutoSize = true;
-            this.lblObjPrice.Location = new System.Drawing.Point(699, 565);
+            this.lblObjPrice.Location = new System.Drawing.Point(738, 565);
             this.lblObjPrice.Name = "lblObjPrice";
             this.lblObjPrice.Size = new System.Drawing.Size(32, 13);
             this.lblObjPrice.TabIndex = 25;
@@ -404,7 +484,7 @@
             // lblObjNr
             // 
             this.lblObjNr.AutoSize = true;
-            this.lblObjNr.Location = new System.Drawing.Point(699, 480);
+            this.lblObjNr.Location = new System.Drawing.Point(738, 480);
             this.lblObjNr.Name = "lblObjNr";
             this.lblObjNr.Size = new System.Drawing.Size(65, 13);
             this.lblObjNr.TabIndex = 24;
@@ -413,7 +493,7 @@
             // lblObjBrokerSsnr
             // 
             this.lblObjBrokerSsnr.AutoSize = true;
-            this.lblObjBrokerSsnr.Location = new System.Drawing.Point(699, 451);
+            this.lblObjBrokerSsnr.Location = new System.Drawing.Point(738, 451);
             this.lblObjBrokerSsnr.Name = "lblObjBrokerSsnr";
             this.lblObjBrokerSsnr.Size = new System.Drawing.Size(60, 13);
             this.lblObjBrokerSsnr.TabIndex = 23;
@@ -690,126 +770,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1080, 663);
             this.tabControl.TabIndex = 0;
-            // 
-            // lblObjBrokerSsnr
-            // 
-            this.lblObjBrokerSsnr.AutoSize = true;
-            this.lblObjBrokerSsnr.Location = new System.Drawing.Point(738, 451);
-            this.lblObjBrokerSsnr.Name = "lblObjBrokerSsnr";
-            this.lblObjBrokerSsnr.Size = new System.Drawing.Size(60, 13);
-            this.lblObjBrokerSsnr.TabIndex = 23;
-            this.lblObjBrokerSsnr.Text = "Mäklarnr:";
-            // 
-            // lblObjNr
-            // 
-            this.lblObjNr.AutoSize = true;
-            this.lblObjNr.Location = new System.Drawing.Point(738, 480);
-            this.lblObjNr.Name = "lblObjNr";
-            this.lblObjNr.Size = new System.Drawing.Size(65, 13);
-            this.lblObjNr.TabIndex = 24;
-            this.lblObjNr.Text = "Objektsnr:";
-            // 
-            // lblObjPrice
-            // 
-            this.lblObjPrice.AutoSize = true;
-            this.lblObjPrice.Location = new System.Drawing.Point(738, 565);
-            this.lblObjPrice.Name = "lblObjPrice";
-            this.lblObjPrice.Size = new System.Drawing.Size(32, 13);
-            this.lblObjPrice.TabIndex = 25;
-            this.lblObjPrice.Text = "Pris:";
-            // 
-            // lblObjAddressforTB
-            // 
-            this.lblObjAddressforTB.AutoSize = true;
-            this.lblObjAddressforTB.Location = new System.Drawing.Point(738, 509);
-            this.lblObjAddressforTB.Name = "lblObjAddressforTB";
-            this.lblObjAddressforTB.Size = new System.Drawing.Size(49, 13);
-            this.lblObjAddressforTB.TabIndex = 26;
-            this.lblObjAddressforTB.Text = "Adress:";
-            this.lblSelectedObjectShowing.AutoSize = true;
-            this.lblSelectedObjectShowing.Location = new System.Drawing.Point(7, 334);
-            this.lblSelectedObjectShowing.Name = "lblSelectedObjectShowing";
-            this.lblSelectedObjectShowing.Size = new System.Drawing.Size(146, 13);
-            this.lblSelectedObjectShowing.TabIndex = 10;
-            this.lblSelectedObjectShowing.Text = "selectedObject(invisible)";
-            this.lblSelectedObjectShowing.Visible = false;
-            // 
-            // lblObjCityforTB
-            // 
-            this.lblObjCityforTB.AutoSize = true;
-            this.lblObjCityforTB.Location = new System.Drawing.Point(738, 538);
-            this.lblObjCityforTB.Name = "lblObjCityforTB";
-            this.lblObjCityforTB.Size = new System.Drawing.Size(41, 13);
-            this.lblObjCityforTB.TabIndex = 27;
-            this.lblObjCityforTB.Text = "Stad :";
-            // 
-            // tbObjBrokerSsnr
-            // 
-            this.tbObjBrokerSsnr.Location = new System.Drawing.Point(805, 448);
-            this.tbObjBrokerSsnr.Name = "tbObjBrokerSsnr";
-            this.tbObjBrokerSsnr.Size = new System.Drawing.Size(100, 20);
-            this.tbObjBrokerSsnr.TabIndex = 28;
-            // 
-            // tbObjNr
-            // 
-            this.tbObjNr.Location = new System.Drawing.Point(805, 476);
-            this.tbObjNr.Name = "tbObjNr";
-            this.tbObjNr.Size = new System.Drawing.Size(100, 20);
-            this.tbObjNr.TabIndex = 29;
-            // 
-            // tbObjAddress
-            // 
-            this.tbObjAddress.Location = new System.Drawing.Point(805, 506);
-            this.tbObjAddress.Name = "tbObjAddress";
-            this.tbObjAddress.Size = new System.Drawing.Size(100, 20);
-            this.tbObjAddress.TabIndex = 30;
-            // 
-            // tbObjCity
-            // 
-            this.tbObjCity.Location = new System.Drawing.Point(805, 535);
-            this.tbObjCity.Name = "tbObjCity";
-            this.tbObjCity.Size = new System.Drawing.Size(100, 20);
-            this.tbObjCity.TabIndex = 31;
-            // 
-            // tbObjPrice
-            // 
-            this.tbObjPrice.Location = new System.Drawing.Point(805, 561);
-            this.tbObjPrice.Name = "tbObjPrice";
-            this.tbObjPrice.Size = new System.Drawing.Size(100, 20);
-            this.tbObjPrice.TabIndex = 32;
-            // 
-            // rbObjUpdate
-            // 
-            this.rbObjUpdate.AutoSize = true;
-            this.rbObjUpdate.Location = new System.Drawing.Point(394, 451);
-            this.rbObjUpdate.Name = "rbObjUpdate";
-            this.rbObjUpdate.Size = new System.Drawing.Size(84, 17);
-            this.rbObjUpdate.TabIndex = 33;
-            this.rbObjUpdate.TabStop = true;
-            this.rbObjUpdate.Text = "Uppdatera";
-            this.rbObjUpdate.UseVisualStyleBackColor = true;
-            // 
-            // rbObjDelete
-            // 
-            this.rbObjDelete.AutoSize = true;
-            this.rbObjDelete.Location = new System.Drawing.Point(394, 479);
-            this.rbObjDelete.Name = "rbObjDelete";
-            this.rbObjDelete.Size = new System.Drawing.Size(66, 17);
-            this.rbObjDelete.TabIndex = 34;
-            this.rbObjDelete.TabStop = true;
-            this.rbObjDelete.Text = "Ta bort";
-            this.rbObjDelete.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(394, 508);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(97, 17);
-            this.radioButton3.TabIndex = 35;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // EmployeeFrame
             // 
