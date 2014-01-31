@@ -25,7 +25,7 @@ namespace praktikfall
         Controller controller = new Controller();
 
 
-        private void btnObjAdd_Click(object sender, EventArgs e)
+        /*private void btnObjAdd_Click(object sender, EventArgs e)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace praktikfall
                 MessageBox.Show("Det går inte att registrera objektet\n" + ex);
             }
 
-        }
+        }*/
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -202,11 +202,11 @@ namespace praktikfall
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            string adress = tbObjAdress.Text;
+            //string adress = tbObjAdress.Text;
             StringBuilder queryAddress = new StringBuilder();
             queryAddress.Append("https://maps.google.se/");
-            queryAddress.Append(adress + "," + "+");
-            webBrowser1.Navigate(queryAddress.ToString());
+           // queryAddress.Append(adress + "," + "+");
+           // webBrowser1.Navigate(queryAddress.ToString());
 
         }
 
