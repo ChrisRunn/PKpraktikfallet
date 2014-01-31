@@ -94,8 +94,10 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPageVisning.SuspendLayout();
             this.groupBoxVisning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectShowing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyerShowing)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).BeginInit();
