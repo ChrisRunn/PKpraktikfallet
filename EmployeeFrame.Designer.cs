@@ -86,10 +86,6 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.lblObjBrokerSsnr = new System.Windows.Forms.Label();
-            this.lblObjNr = new System.Windows.Forms.Label();
-            this.lblObjPrice = new System.Windows.Forms.Label();
-            this.lblObjAddressforTB = new System.Windows.Forms.Label();
             this.lblObjCityforTB = new System.Windows.Forms.Label();
             this.tbObjBrokerSsnr = new System.Windows.Forms.TextBox();
             this.tbObjNr = new System.Windows.Forms.TextBox();
