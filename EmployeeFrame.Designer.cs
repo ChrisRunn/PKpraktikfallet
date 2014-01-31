@@ -55,6 +55,11 @@
             this.labelBuyerName = new System.Windows.Forms.Label();
             this.labelBuyerSsn = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblObjAddressforTB = new System.Windows.Forms.Label();
+            this.lblObjPrice = new System.Windows.Forms.Label();
+            this.lblObjNr = new System.Windows.Forms.Label();
+            this.lblObjBrokerSsnr = new System.Windows.Forms.Label();
             this.btnUpdateSelectedObj = new System.Windows.Forms.Button();
             this.lblObjCity = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -83,11 +88,6 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.lblObjBrokerSsnr = new System.Windows.Forms.Label();
-            this.lblObjNr = new System.Windows.Forms.Label();
-            this.lblObjPrice = new System.Windows.Forms.Label();
-            this.lblObjAddressforTB = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabPageVisning.SuspendLayout();
             this.groupBoxVisning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectShowing)).BeginInit();
@@ -109,7 +109,7 @@
             this.tabPageVisning.Location = new System.Drawing.Point(4, 22);
             this.tabPageVisning.Name = "tabPageVisning";
             this.tabPageVisning.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVisning.Size = new System.Drawing.Size(817, 627);
+            this.tabPageVisning.Size = new System.Drawing.Size(1072, 637);
             this.tabPageVisning.TabIndex = 6;
             this.tabPageVisning.Text = "Visnig";
             this.tabPageVisning.UseVisualStyleBackColor = true;
@@ -240,7 +240,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(817, 627);
+            this.tabPage5.Size = new System.Drawing.Size(1072, 637);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Spekulant";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -378,6 +378,51 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(699, 538);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "label3";
+            // 
+            // lblObjAddressforTB
+            // 
+            this.lblObjAddressforTB.AutoSize = true;
+            this.lblObjAddressforTB.Location = new System.Drawing.Point(699, 509);
+            this.lblObjAddressforTB.Name = "lblObjAddressforTB";
+            this.lblObjAddressforTB.Size = new System.Drawing.Size(49, 13);
+            this.lblObjAddressforTB.TabIndex = 26;
+            this.lblObjAddressforTB.Text = "Adress:";
+            // 
+            // lblObjPrice
+            // 
+            this.lblObjPrice.AutoSize = true;
+            this.lblObjPrice.Location = new System.Drawing.Point(699, 565);
+            this.lblObjPrice.Name = "lblObjPrice";
+            this.lblObjPrice.Size = new System.Drawing.Size(32, 13);
+            this.lblObjPrice.TabIndex = 25;
+            this.lblObjPrice.Text = "Pris:";
+            // 
+            // lblObjNr
+            // 
+            this.lblObjNr.AutoSize = true;
+            this.lblObjNr.Location = new System.Drawing.Point(699, 480);
+            this.lblObjNr.Name = "lblObjNr";
+            this.lblObjNr.Size = new System.Drawing.Size(65, 13);
+            this.lblObjNr.TabIndex = 24;
+            this.lblObjNr.Text = "Objektsnr:";
+            // 
+            // lblObjBrokerSsnr
+            // 
+            this.lblObjBrokerSsnr.AutoSize = true;
+            this.lblObjBrokerSsnr.Location = new System.Drawing.Point(699, 451);
+            this.lblObjBrokerSsnr.Name = "lblObjBrokerSsnr";
+            this.lblObjBrokerSsnr.Size = new System.Drawing.Size(60, 13);
+            this.lblObjBrokerSsnr.TabIndex = 23;
+            this.lblObjBrokerSsnr.Text = "Mäklarnr:";
             // 
             // btnUpdateSelectedObj
             // 
@@ -567,7 +612,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(817, 627);
+            this.tabPage1.Size = new System.Drawing.Size(1072, 637);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
             // 
