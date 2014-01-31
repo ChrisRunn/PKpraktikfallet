@@ -184,8 +184,13 @@ namespace praktikfall
 
         private void btnAddShowing_Click(object sender, EventArgs e)
         {
-            
-            
+            string objNr = lblSelectedObjectShowing.Text;
+            string buyerSsnr = lblSelectedBuyerShowing.Text;
+            string showingDate = dtpVisningsdatumVisning.Text;
+            int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
+            MessageBox.Show("Visning Registrerad!");
+            lblSelectedBuyerShowing.Visible = false;
+            lblSelectedObjectShowing.Visible = false;
         }
 
         
@@ -212,14 +217,34 @@ namespace praktikfall
 
         }
 
-        private void dgvProspectiveBuyer_CellClicked(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgvObjectShowing_CellClicked(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvObjectShowing.Rows[e.RowIndex];
+                string selectedItem = row.Cells["objNr"].Value.ToString();
+                lblSelectedObjectShowing.Text = selectedItem;
+                lblSelectedObjectShowing.Visible = true;
 
+            }
+        }
+
+        private void dgvProspectiveBuyerShowing_CellClicked(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvProspectiveBuyerShowing.Rows[e.RowIndex];
+                string selectedItem = row.Cells["buyerSsnr"].Value.ToString();
+                lblSelectedBuyerShowing.Text = selectedItem;
+                lblSelectedBuyerShowing.Visible = true;
+
+            }
+        }
+
+        //Avslutar applikationen när användaren stänger EmployeeFrame
+        private void EmployeeFrame_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
 
