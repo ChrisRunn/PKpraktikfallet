@@ -152,11 +152,47 @@ namespace praktikfall
 
         private void btnAddProspectiveBuyer_Click(object sender, EventArgs e)
         {
-            string ssnr = tbBuyerSsn.Text;
-            string name = tbBuyerName.Text;
-            string phonenr = tbBuyerTel.Text;
-            string email = tbProspectiveBuyerEmail.Text;
-            controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
+            try
+            {
+
+                int parsedValue;
+                if (!int.TryParse(tbBuyerSsn.Text, out parsedValue))
+                {
+                    MessageBox.Show("Personnummer får endast innehålla siffror");
+
+                }
+
+                else if (tbBuyerName.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit ett namn");
+                }
+
+                else if (tbBuyerTel.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit ett telefonnummer");
+                }
+
+                else if (tbProspectiveBuyerEmail.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit en email");
+                }
+
+                else
+                {
+                    string ssnr = tbBuyerSsn.Text;
+                    string name = tbBuyerName.Text;
+                    string phonenr = tbBuyerTel.Text;
+                    string email = tbProspectiveBuyerEmail.Text;
+                    controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
+                    MessageBox.Show("Ny spekulant registrerad");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Det går inte att registrera en spekulant/n" + ex);
+            }
+           
 
         }
 
