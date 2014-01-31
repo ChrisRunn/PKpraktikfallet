@@ -38,6 +38,14 @@ namespace praktikfall
             return dt;
              
         }
+
+        //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
+        public DataTable SearchProBuyerByString(string searchString)
+        {
+            DataTable dt = dal.SearchProBuyerByString(searchString);
+            return dt;
+
+        }
         //Söka OBJEKT
         public DataTable GetObject(string objNr)
         {

@@ -337,6 +337,57 @@ namespace praktikfall
 
         }
 
+        private void btnSearchProBuyer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbSearchProBuyer.Text == "" || tbSearchProBuyer.Text == "Sökord")
+                {
+                    tbSearchProBuyer.Text = "";
+                    tbSearchProBuyer.ForeColor = Color.LightSlateGray;
+                    tbSearchProBuyer.Text = "Sökord";
+                    MessageBox.Show("Du har ej angivit ett sökord");
+                }
+
+                else
+                {
+                    string searchString = tbSearchProBuyer.Text;
+                    DataTable dt = controller.SearchProBuyerByString(searchString);
+                    dgvProspectiveBuyer.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem i sökfunktion\n" + ex);
+            }
+        }
+
+        private void tb_clickSearch(object sender, EventArgs e)
+        {
+            tbSearchProBuyer.Text = "";
+            tbSearchProBuyer.ForeColor = Color.Black;
+
+        }
+
+        private void dgvProBuyer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvProspectiveBuyer.Rows[e.RowIndex];
+
+                tbBuyerSsn.Text = row.Cells["buyerSsnr"].Value.ToString();
+                tbBuyerName.Text = row.Cells["name"].Value.ToString();
+                tbBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
+                tbProspectiveBuyerEmail.Text = row.Cells["email"].Value.ToString();
+                
+
+              
+
+            }
+        }
+
+       
+
 
 
 
