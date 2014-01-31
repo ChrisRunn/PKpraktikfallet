@@ -188,10 +188,7 @@ namespace praktikfall
             
         }
 
-        private void dgvObjectShowing_CellClicked(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
       
         private void tbObjSearchClick(object sender, EventArgs e)
@@ -207,6 +204,21 @@ namespace praktikfall
             queryAddress.Append("https://maps.google.se/");
            // queryAddress.Append(adress + "," + "+");
            // webBrowser1.Navigate(queryAddress.ToString());
+
+        }
+
+        private void groupBoxVisning_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProspectiveBuyer_CellClicked(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvObjectShowing_CellClicked(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
 
