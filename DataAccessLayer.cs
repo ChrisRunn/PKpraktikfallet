@@ -108,6 +108,15 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
+        
+        //Sökknapp i Spekulant för att visa objekt med viss sträng
+        public DataTable SearchProBuyerByString(string searchString)
+        {
+            string sqlStr = "Select * from ProspectiveBuyer where buyerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+
        
 
         //Lägg till MÄKLARE
