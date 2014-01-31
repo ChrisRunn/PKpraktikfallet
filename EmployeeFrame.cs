@@ -247,6 +247,11 @@ namespace praktikfall
             Application.Exit();
         }
 
+        private void lblSelectedObjectShowing_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

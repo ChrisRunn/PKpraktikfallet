@@ -142,6 +142,7 @@
             this.lblSelectedBuyerShowing.Size = new System.Drawing.Size(141, 13);
             this.lblSelectedBuyerShowing.TabIndex = 11;
             this.lblSelectedBuyerShowing.Text = "selectedBuyer(invisible)";
+            this.lblSelectedBuyerShowing.Visible = false;
             // 
             // lblSelectedObjectShowing
             // 
@@ -151,6 +152,8 @@
             this.lblSelectedObjectShowing.Size = new System.Drawing.Size(146, 13);
             this.lblSelectedObjectShowing.TabIndex = 10;
             this.lblSelectedObjectShowing.Text = "selectedObject(invisible)";
+            this.lblSelectedObjectShowing.Visible = false;
+            this.lblSelectedObjectShowing.Click += new System.EventHandler(this.lblSelectedObjectShowing_Click);
             // 
             // dgvObjectShowing
             // 
@@ -695,65 +698,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1080, 663);
             this.tabControl.TabIndex = 0;
-            // 
-            // lblObjBrokerSsnr
-            // 
-            this.lblObjBrokerSsnr.AutoSize = true;
-            this.lblObjBrokerSsnr.Location = new System.Drawing.Point(699, 451);
-            this.lblObjBrokerSsnr.Name = "lblObjBrokerSsnr";
-            this.lblObjBrokerSsnr.Size = new System.Drawing.Size(60, 13);
-            this.lblObjBrokerSsnr.TabIndex = 23;
-            this.lblObjBrokerSsnr.Text = "Mäklarnr:";
-            // 
-            // lblObjNr
-            // 
-            this.lblObjNr.AutoSize = true;
-            this.lblObjNr.Location = new System.Drawing.Point(699, 480);
-            this.lblObjNr.Name = "lblObjNr";
-            this.lblObjNr.Size = new System.Drawing.Size(65, 13);
-            this.lblObjNr.TabIndex = 24;
-            this.lblObjNr.Text = "Objektsnr:";
-            // 
-            // lblObjPrice
-            // 
-            this.lblObjPrice.AutoSize = true;
-            this.lblObjPrice.Location = new System.Drawing.Point(699, 565);
-            this.lblObjPrice.Name = "lblObjPrice";
-            this.lblObjPrice.Size = new System.Drawing.Size(32, 13);
-            this.lblObjPrice.TabIndex = 25;
-            this.lblObjPrice.Text = "Pris:";
-            // 
-            // lblObjAddressforTB
-            // 
-            this.lblObjAddressforTB.AutoSize = true;
-            this.lblObjAddressforTB.Location = new System.Drawing.Point(699, 509);
-            this.lblObjAddressforTB.Name = "lblObjAddressforTB";
-            this.lblObjAddressforTB.Size = new System.Drawing.Size(49, 13);
-            this.lblObjAddressforTB.TabIndex = 26;
-            this.lblObjAddressforTB.Text = "Adress:";
-            this.lblSelectedObjectShowing.AutoSize = true;
-            this.lblSelectedObjectShowing.Location = new System.Drawing.Point(7, 334);
-            this.lblSelectedObjectShowing.Name = "lblSelectedObjectShowing";
-            this.lblSelectedObjectShowing.Size = new System.Drawing.Size(146, 13);
-            this.lblSelectedObjectShowing.TabIndex = 10;
-            this.lblSelectedObjectShowing.Text = "selectedObject(invisible)";
-            this.lblSelectedObjectShowing.Visible = false;
-            // 
-            // label3
-            // 
-            this.lblSelectedBuyerShowing.AutoSize = true;
-            this.lblSelectedBuyerShowing.Location = new System.Drawing.Point(251, 334);
-            this.lblSelectedBuyerShowing.Name = "lblSelectedBuyerShowing";
-            this.lblSelectedBuyerShowing.Size = new System.Drawing.Size(141, 13);
-            this.lblSelectedBuyerShowing.TabIndex = 11;
-            this.lblSelectedBuyerShowing.Text = "selectedBuyer(invisible)";
-            this.lblSelectedBuyerShowing.Visible = false;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(699, 538);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "label3";
             // 
             // EmployeeFrame
             // 
