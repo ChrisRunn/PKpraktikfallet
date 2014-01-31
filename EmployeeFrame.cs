@@ -25,7 +25,84 @@ namespace praktikfall
         Controller controller = new Controller();
 
 
-        
+        /*private void btnObjAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int parsedValue;
+                if (!int.TryParse(tbObjNr.Text, out parsedValue))
+                {
+                    MessageBox.Show("Objektnummer får endast innehålla siffror");
+
+                }
+
+                else if (tbObjAdress.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit en adress.");
+                }
+
+                else if (tbObjPrice.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit ett pris.");
+                }
+
+                else if (tbObjArea.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit area");
+                }              
+
+                else if (tbObjRoom.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit antal rum");
+                }
+
+                else if (tbObjUnitType.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit bostadstyp");
+                }
+
+                else if (rtbObjInfo.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit någon beskrivning");
+                }
+
+                else if (tbBrokerNr.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit mäklarnummer.");
+                }
+
+                else
+                {
+                    string objNr = tbObjNr.Text;
+                    string objAdress = tbObjAdress.Text;
+                    int objPrice = int.Parse(tbObjPrice.Text);
+                    string objRooms = tbObjRoom.Text;
+                    string objUnitType = tbObjUnitType.Text;
+                    double objArea = double.Parse(tbObjArea.Text);
+                    string objInfo = rtbObjInfo.Text;
+                    string brokerSsnr = tbBrokerNr.Text;
+                    string objCity = tbObjCity.Text;
+
+                    Controller controller = new Controller();
+
+                    // DateTime result = dateTimePicker1.Value;
+                    //string date = result.ToString();
+
+                    controller.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr);
+                    MessageBox.Show("Objekt registrerat!");
+                    DataTable dt = controller.GetAllObjectsNr();
+                    dgvObject.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Det går inte att registrera objektet\n" + ex);
+            }
+
+        }*/
+
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -125,11 +202,11 @@ namespace praktikfall
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            string adress = tbObjAdress.Text;
+            //string adress = tbObjAdress.Text;
             StringBuilder queryAddress = new StringBuilder();
             queryAddress.Append("https://maps.google.se/");
-            queryAddress.Append(adress + "," + "+");
-            webBrowser1.Navigate(queryAddress.ToString());
+           // queryAddress.Append(adress + "," + "+");
+           // webBrowser1.Navigate(queryAddress.ToString());
 
         }
 
