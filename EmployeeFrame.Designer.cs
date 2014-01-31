@@ -145,7 +145,7 @@
             this.dgvProspectiveBuyerShowing.Name = "dgvProspectiveBuyerShowing";
             this.dgvProspectiveBuyerShowing.Size = new System.Drawing.Size(240, 279);
             this.dgvProspectiveBuyerShowing.TabIndex = 9;
-            this.dgvProspectiveBuyerShowing.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyer_CellClicked);
+            this.dgvProspectiveBuyerShowing.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyerShowing_CellClicked);
             // 
             // dtpVisningsdatumVisning
             // 
@@ -631,6 +631,7 @@
             this.lblSelectedObjectShowing.Size = new System.Drawing.Size(146, 13);
             this.lblSelectedObjectShowing.TabIndex = 10;
             this.lblSelectedObjectShowing.Text = "selectedObject(invisible)";
+            this.lblSelectedObjectShowing.Visible = false;
             // 
             // lblSelectedBuyerShowing
             // 
@@ -640,6 +641,7 @@
             this.lblSelectedBuyerShowing.Size = new System.Drawing.Size(141, 13);
             this.lblSelectedBuyerShowing.TabIndex = 11;
             this.lblSelectedBuyerShowing.Text = "selectedBuyer(invisible)";
+            this.lblSelectedBuyerShowing.Visible = false;
             // 
             // EmployeeFrame
             // 
@@ -649,6 +651,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "EmployeeFrame";
             this.Text = "EmployeeFrame";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeFrame_FormClosed);
             this.tabPageVisning.ResumeLayout(false);
             this.groupBoxVisning.ResumeLayout(false);
             this.groupBoxVisning.PerformLayout();
