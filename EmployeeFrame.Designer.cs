@@ -53,6 +53,11 @@
             this.labelBuyerName = new System.Windows.Forms.Label();
             this.labelBuyerSsn = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+        
+            this.lblObjAddressforTB = new System.Windows.Forms.Label();
+            this.lblObjPrice = new System.Windows.Forms.Label();
+            this.lblObjNr = new System.Windows.Forms.Label();
+            this.lblObjBrokerSsnr = new System.Windows.Forms.Label();
             this.btnUpdateSelectedObj = new System.Windows.Forms.Button();
             this.lblObjCity = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -174,7 +179,7 @@
             this.dgvProspectiveBuyerShowing.Name = "dgvProspectiveBuyerShowing";
             this.dgvProspectiveBuyerShowing.Size = new System.Drawing.Size(240, 279);
             this.dgvProspectiveBuyerShowing.TabIndex = 9;
-            this.dgvProspectiveBuyerShowing.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyer_CellClicked);
+            this.dgvProspectiveBuyerShowing.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyerShowing_CellClicked);
             // 
             // dtpVisningsdatumVisning
             // 
@@ -375,6 +380,46 @@
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+
+            // 
+            // lblObjAddressforTB
+            // 
+            this.lblObjAddressforTB.AutoSize = true;
+            this.lblObjAddressforTB.Location = new System.Drawing.Point(699, 509);
+            this.lblObjAddressforTB.Name = "lblObjAddressforTB";
+            this.lblObjAddressforTB.Size = new System.Drawing.Size(49, 13);
+            this.lblObjAddressforTB.TabIndex = 26;
+            this.lblObjAddressforTB.Text = "Adress:";
+            // 
+            // lblObjPrice
+            // 
+            this.lblObjPrice.AutoSize = true;
+            this.lblObjPrice.Location = new System.Drawing.Point(699, 565);
+            this.lblObjPrice.Name = "lblObjPrice";
+            this.lblObjPrice.Size = new System.Drawing.Size(32, 13);
+            this.lblObjPrice.TabIndex = 25;
+            this.lblObjPrice.Text = "Pris:";
+            // 
+            // lblObjNr
+            // 
+            this.lblObjNr.AutoSize = true;
+            this.lblObjNr.Location = new System.Drawing.Point(699, 480);
+            this.lblObjNr.Name = "lblObjNr";
+            this.lblObjNr.Size = new System.Drawing.Size(65, 13);
+            this.lblObjNr.TabIndex = 24;
+            this.lblObjNr.Text = "Objektsnr:";
+            // 
+            // lblObjBrokerSsnr
+            // 
+            this.lblObjBrokerSsnr.AutoSize = true;
+            this.lblObjBrokerSsnr.Location = new System.Drawing.Point(699, 451);
+            this.lblObjBrokerSsnr.Name = "lblObjBrokerSsnr";
+            this.lblObjBrokerSsnr.Size = new System.Drawing.Size(60, 13);
+            this.lblObjBrokerSsnr.TabIndex = 23;
+            this.lblObjBrokerSsnr.Text = "Mäklarnr:";
+            // 
             // btnUpdateSelectedObj
             // 
             this.btnUpdateSelectedObj.Location = new System.Drawing.Point(394, 556);
@@ -563,7 +608,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(817, 627);
+            this.tabPage1.Size = new System.Drawing.Size(1072, 637);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Start";
             // 
@@ -682,6 +727,13 @@
             this.lblObjAddressforTB.Size = new System.Drawing.Size(49, 13);
             this.lblObjAddressforTB.TabIndex = 26;
             this.lblObjAddressforTB.Text = "Adress:";
+            this.lblSelectedObjectShowing.AutoSize = true;
+            this.lblSelectedObjectShowing.Location = new System.Drawing.Point(7, 334);
+            this.lblSelectedObjectShowing.Name = "lblSelectedObjectShowing";
+            this.lblSelectedObjectShowing.Size = new System.Drawing.Size(146, 13);
+            this.lblSelectedObjectShowing.TabIndex = 10;
+            this.lblSelectedObjectShowing.Text = "selectedObject(invisible)";
+            this.lblSelectedObjectShowing.Visible = false;
             // 
             // lblObjCityforTB
             // 
@@ -768,6 +820,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "EmployeeFrame";
             this.Text = "EmployeeFrame";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeFrame_FormClosed);
             this.tabPageVisning.ResumeLayout(false);
             this.groupBoxVisning.ResumeLayout(false);
             this.groupBoxVisning.PerformLayout();
