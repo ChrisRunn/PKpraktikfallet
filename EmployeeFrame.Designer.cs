@@ -148,6 +148,7 @@
             this.lblSelectedBuyerShowing.Size = new System.Drawing.Size(141, 13);
             this.lblSelectedBuyerShowing.TabIndex = 11;
             this.lblSelectedBuyerShowing.Text = "selectedBuyer(invisible)";
+            this.lblSelectedBuyerShowing.Visible = false;
             // 
             // lblSelectedObjectShowing
             // 
