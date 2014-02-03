@@ -459,17 +459,7 @@ namespace praktikfall
         }
 
 
-       public string TheObjCity
-        {
-            get { return tbObjCity.Text; }
-        }
-
-       public string TheObjAdress
-       {
-           get { return tbObjAddress.Text; }
-
-
-       }
+     
 
     }
 }
