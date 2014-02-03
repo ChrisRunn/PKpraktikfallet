@@ -99,6 +99,7 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.btnShowMap = new System.Windows.Forms.Button();
             this.tabPageVisning.SuspendLayout();
             this.groupBoxVisning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectShowing)).BeginInit();
@@ -403,6 +404,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnShowMap);
             this.tabPage2.Controls.Add(this.rbRegisterNewObj);
             this.tabPage2.Controls.Add(this.rbObjDelete);
             this.tabPage2.Controls.Add(this.rbObjUpdate);
@@ -828,6 +830,15 @@
             this.tabControl.Size = new System.Drawing.Size(1080, 663);
             this.tabControl.TabIndex = 0;
             // 
+            // btnShowMap
+            // 
+            this.btnShowMap.Location = new System.Drawing.Point(509, 379);
+            this.btnShowMap.Name = "btnShowMap";
+            this.btnShowMap.Size = new System.Drawing.Size(75, 23);
+            this.btnShowMap.TabIndex = 36;
+            this.btnShowMap.Text = "Visa karta";
+            this.btnShowMap.UseVisualStyleBackColor = true;
+            // 
             // EmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -931,6 +942,7 @@
         private System.Windows.Forms.DataGridView dgvProspectiveBuyer;
         private System.Windows.Forms.Button btnDeleteProspectiveBuyer;
         private System.Windows.Forms.Button btnUpdateProspectiveBuyer;
+        private System.Windows.Forms.Button btnShowMap;
 
     }
 }
