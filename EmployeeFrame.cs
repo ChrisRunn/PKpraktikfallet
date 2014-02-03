@@ -434,28 +434,24 @@ namespace praktikfall
 
         }
 
-        /*public string TheValue
-        {
-           // lblObjAddress.Text = mapFrame.TextBox1.Text;
-
-        
-        }*/
 
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
 
-
-
-
         }
-        public string TheValue1
+
+
+       public string TheObjCity
         {
             get { return lblObjCity.Text; }
         }
 
+       public string TheObjAdress
+       {
+           get { return lblObjAddress.Text; }
 
 
-
+       }
 
     }
 }
