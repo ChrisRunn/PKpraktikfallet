@@ -228,7 +228,7 @@ namespace praktikfall
 
                 string price = row.Cells["objPrice"].Value.ToString();
                 string area = row.Cells["objArea"].Value.ToString();
-                int priceperkvm = int.Parse(price)/int.Parse(area);
+                int priceperkvm = int.Parse(price) / int.Parse(area);
                 tbPricePerKvm.Text = priceperkvm.ToString();
 
                 tbObjBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
@@ -326,35 +326,35 @@ namespace praktikfall
         public void rbUpdateObject(object sender, EventArgs e)
         {
             
-            if (rb.Checked)
-            {
-                tbObjectArea.ReadOnly = false;
-                tbNrOfRooms.ReadOnly = false;
-                tbUnitType.ReadOnly = false;
-                tbPricePerKvm.ReadOnly = false;
-                richTextBox1.ReadOnly = false;
+            
+            
+            tbObjectArea.ReadOnly = false;
+            tbNrOfRooms.ReadOnly = false;
+            tbUnitType.ReadOnly = false;
+            tbPricePerKvm.ReadOnly = false;
+            richTextBox1.ReadOnly = false;
 
-                lblObjBrokerSsnr.Visible = true;
-                tbObjBrokerSsnr.Width = 100;
-                tbObjBrokerSsnr.Height = 20;
+            lblObjBrokerSsnr.Visible = true;
+            tbObjBrokerSsnr.Width = 100;
+            tbObjBrokerSsnr.Height = 20;
 
-                lblObjNr.Visible = true;
+            lblObjNr.Visible = true;
                 tbObjNr.Width = 100;
                 tbObjNr.Height = 20;
 
-                lblObjAddressforTB.Visible = true;
+            lblObjAddressforTB.Visible = true;
                 tbObjAddress.Width = 100;
                 tbObjAddress.Height = 20;
 
 
-                lblObjCityforTB.Visible = true;
+            lblObjCityforTB.Visible = true;
                 tbObjCity.Width = 100;
                 tbObjCity.Height = 20;
 
-                lblObjPrice.Visible = true;
+            lblObjPrice.Visible = true;
                 tbObjPrice.Width = 100;
                 tbObjPrice.Height = 20;
-            }
+            
 
 
 
@@ -416,6 +416,11 @@ if (e.RowIndex >= 0)
 
         }
 
+        private MapFrame mapFrame;
+        private void GetOtherFormTextBox()
+        {
+           // lblObjAddress.Text = mapFrame.TextBox1.Text;
+
         
         }
        
@@ -424,4 +429,5 @@ if (e.RowIndex >= 0)
 
 
     }
+}
 
