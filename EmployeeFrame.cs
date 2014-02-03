@@ -422,15 +422,22 @@ namespace praktikfall
                 tbProspectiveBuyerEmail.Text = row.Cells["email"].Value.ToString();
 
 
-
-
             }
         }
 
         private void btnShowMap_Click(object sender, EventArgs e)
         {
-            MapFrame mf = new MapFrame();
-            mf.ShowDialog();
+
+            if (tbObjAddress.Text == "" || tbObjCity.Text == "")
+            {
+                MessageBox.Show("Du har ej valt ett objekt");
+            }
+            else
+            {
+                MapFrame mf = new MapFrame(tbObjAddress.Text, tbObjCity.Text);
+                mf.Show();
+            }
+           
 
         }
       
@@ -443,12 +450,12 @@ namespace praktikfall
         
        public string TheObjCity
         {
-            get { return lblObjCity.Text; }
+            get { return tbObjCity.Text; }
         }
 
        public string TheObjAdress
        {
-           get { return lblObjAddress.Text; }
+           get { return tbObjAddress.Text; }
 
 
        }
