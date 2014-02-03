@@ -58,6 +58,9 @@
             this.labelBuyerName = new System.Windows.Forms.Label();
             this.labelBuyerSsn = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbObjRegistrera = new System.Windows.Forms.CheckBox();
+            this.cbObjDelete = new System.Windows.Forms.CheckBox();
+            this.cbObjUpdate = new System.Windows.Forms.CheckBox();
             this.btnShowMap = new System.Windows.Forms.Button();
             this.tbObjPrice = new System.Windows.Forms.TextBox();
             this.tbObjCity = new System.Windows.Forms.TextBox();
@@ -97,9 +100,6 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.cbObjUpdate = new System.Windows.Forms.CheckBox();
-            this.cbObjDelete = new System.Windows.Forms.CheckBox();
-            this.cbObjRegistrera = new System.Windows.Forms.CheckBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBoxVisning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectShowing)).BeginInit();
@@ -444,6 +444,37 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cbObjRegistrera
+            // 
+            this.cbObjRegistrera.AutoSize = true;
+            this.cbObjRegistrera.Location = new System.Drawing.Point(394, 498);
+            this.cbObjRegistrera.Name = "cbObjRegistrera";
+            this.cbObjRegistrera.Size = new System.Drawing.Size(84, 17);
+            this.cbObjRegistrera.TabIndex = 39;
+            this.cbObjRegistrera.Text = "Registrera";
+            this.cbObjRegistrera.UseVisualStyleBackColor = true;
+            // 
+            // cbObjDelete
+            // 
+            this.cbObjDelete.AutoSize = true;
+            this.cbObjDelete.Location = new System.Drawing.Point(394, 474);
+            this.cbObjDelete.Name = "cbObjDelete";
+            this.cbObjDelete.Size = new System.Drawing.Size(67, 17);
+            this.cbObjDelete.TabIndex = 38;
+            this.cbObjDelete.Text = "Ta bort";
+            this.cbObjDelete.UseVisualStyleBackColor = true;
+            // 
+            // cbObjUpdate
+            // 
+            this.cbObjUpdate.AutoSize = true;
+            this.cbObjUpdate.Location = new System.Drawing.Point(394, 450);
+            this.cbObjUpdate.Name = "cbObjUpdate";
+            this.cbObjUpdate.Size = new System.Drawing.Size(85, 17);
+            this.cbObjUpdate.TabIndex = 37;
+            this.cbObjUpdate.Text = "Uppdatera";
+            this.cbObjUpdate.UseVisualStyleBackColor = true;
+            this.cbObjUpdate.Click += new System.EventHandler(this.cbObjUpdate_Click);
             // 
             // btnShowMap
             // 
@@ -805,37 +836,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1080, 663);
             this.tabControl.TabIndex = 0;
-            // 
-            // cbObjUpdate
-            // 
-            this.cbObjUpdate.AutoSize = true;
-            this.cbObjUpdate.Location = new System.Drawing.Point(394, 450);
-            this.cbObjUpdate.Name = "cbObjUpdate";
-            this.cbObjUpdate.Size = new System.Drawing.Size(85, 17);
-            this.cbObjUpdate.TabIndex = 37;
-            this.cbObjUpdate.Text = "Uppdatera";
-            this.cbObjUpdate.UseVisualStyleBackColor = true;
-            this.cbObjUpdate.Click += new System.EventHandler(this.cbObjUpdateClick);
-            // 
-            // cbObjDelete
-            // 
-            this.cbObjDelete.AutoSize = true;
-            this.cbObjDelete.Location = new System.Drawing.Point(394, 474);
-            this.cbObjDelete.Name = "cbObjDelete";
-            this.cbObjDelete.Size = new System.Drawing.Size(67, 17);
-            this.cbObjDelete.TabIndex = 38;
-            this.cbObjDelete.Text = "Ta bort";
-            this.cbObjDelete.UseVisualStyleBackColor = true;
-            // 
-            // cbObjRegistrera
-            // 
-            this.cbObjRegistrera.AutoSize = true;
-            this.cbObjRegistrera.Location = new System.Drawing.Point(394, 498);
-            this.cbObjRegistrera.Name = "cbObjRegistrera";
-            this.cbObjRegistrera.Size = new System.Drawing.Size(84, 17);
-            this.cbObjRegistrera.TabIndex = 39;
-            this.cbObjRegistrera.Text = "Registrera";
-            this.cbObjRegistrera.UseVisualStyleBackColor = true;
             // 
             // EmployeeFrame
             // 

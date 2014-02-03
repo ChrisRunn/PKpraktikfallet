@@ -12,8 +12,6 @@ namespace praktikfall
 {
     public partial class EmployeeFrame : Form
     {
-        int rows;
-        int columns;
         public EmployeeFrame()
         {
            
@@ -24,7 +22,7 @@ namespace praktikfall
             DataTable dt2 = controller.GetAllProspectiveBuyers();
             dgvProspectiveBuyerShowing.DataSource = dt2;
 
-           /* tbObjectArea.ReadOnly = true;
+           tbObjectArea.ReadOnly = true;
             tbNrOfRooms.ReadOnly = true;
             tbUnitType.ReadOnly = true;
             tbPricePerKvm.ReadOnly = true;
@@ -46,7 +44,7 @@ namespace praktikfall
             tbObjCity.Height = 0;
             lblObjPrice.Visible = false;
             tbObjPrice.Width = 0;
-            tbObjPrice.Height = 0;*/
+            tbObjPrice.Height = 0;
         }
 
         Controller controller = new Controller();
@@ -216,9 +214,7 @@ namespace praktikfall
         {
             if (e.RowIndex >= 0 && cbObjUpdate.Checked)
             {
-
-                
-               /* tbObjectArea.ReadOnly = false;
+               tbObjectArea.ReadOnly = false;
                 tbNrOfRooms.ReadOnly = false;
                 tbUnitType.ReadOnly = false;
                 tbPricePerKvm.ReadOnly = false;
@@ -243,7 +239,7 @@ namespace praktikfall
 
                 lblObjPrice.Visible = true;
                 tbObjPrice.Width = 100;
-                tbObjPrice.Height = 20;*/
+                tbObjPrice.Height = 20;
 
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
 
@@ -269,6 +265,7 @@ namespace praktikfall
             }
             else if (e.RowIndex >= 0 && !cbObjUpdate.Checked)
             {
+                
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
 
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
@@ -289,7 +286,7 @@ namespace praktikfall
                 tbObjCity.Text = row.Cells["objCity"].Value.ToString();
                 tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
                 tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-                /*lblObjBrokerSsnr.Visible = false;
+                lblObjBrokerSsnr.Visible = false;
                 lblObjBrokerSsnr.Visible = false;
                 tbObjBrokerSsnr.Width = 0;
                 tbObjBrokerSsnr.Height = 0;
@@ -305,7 +302,7 @@ namespace praktikfall
                 tbObjCity.Height = 0;
                 lblObjPrice.Visible = false;
                 tbObjPrice.Width = 0;
-                tbObjPrice.Height = 0;*/
+                tbObjPrice.Height = 0;
             }
         }
 
@@ -453,10 +450,7 @@ namespace praktikfall
         }
 
 
-        private void cbObjUpdateClick(object sender, EventArgs e)
-        {
-            dgvObject_CellClick(dgvObject, new DataGridViewCellEventArgs(0, 0));
-        }
+ 
 
 
        public string TheObjCity
@@ -469,6 +463,11 @@ namespace praktikfall
            get { return tbObjAddress.Text; }
 
 
+       }
+
+       private void cbObjUpdate_Click( object sender, EventArgs e)
+       {
+          
        }
 
     }
