@@ -436,13 +436,15 @@ namespace praktikfall
 
         public string TheValue
         {
-           // lblObjAddress.Text = mapFrame.TextBox1.Text;
+            get { return lblObjAddress.Text; }
 
         
         }
 
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
+            get { return lblObjAddress.Text; }
+        }
 
         public string TheValue1
         {
