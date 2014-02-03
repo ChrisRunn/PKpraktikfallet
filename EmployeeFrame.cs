@@ -446,6 +446,7 @@ namespace praktikfall
             get { return lblObjAddress.Text; }
         }
 
+        }
         public string TheValue1
         {
             get { return lblObjCity.Text; }
