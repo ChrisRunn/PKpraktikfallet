@@ -12,10 +12,12 @@ namespace praktikfall
 {
     public partial class EmployeeFrame : Form
     {
-        public EmployeeFrame()
+        public EmployeeFrame(string name)
         {
            
             InitializeComponent();
+            string brokerName = name;
+            labelEmpName.Text = brokerName;
 
 
             DataTable dt = controller.GetAllObjectsNr();
