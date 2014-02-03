@@ -12,14 +12,15 @@ namespace praktikfall
 {
     public partial class MapFrame : Form
     {
+        
         public MapFrame()
         {
 
-            
+    
             InitializeComponent();
 
             
-
+            
             //string adress = 
            //string city = getObjCity();
             StringBuilder queryAddress = new StringBuilder();
