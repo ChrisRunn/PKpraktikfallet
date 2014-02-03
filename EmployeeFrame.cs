@@ -433,28 +433,25 @@ namespace praktikfall
             mf.ShowDialog();
 
         }
-
-        public string TheValue
-        {
-            get { return lblObjAddress.Text; }
-
-        
-        }
+      
 
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
-            get { return lblObjAddress.Text; }
+           
         }
 
-        }
-        public string TheValue1
+        
+       public string TheObjCity
         {
             get { return lblObjCity.Text; }
         }
 
+       public string TheObjAdress
+       {
+           get { return lblObjAddress.Text; }
 
 
-
+       }
 
     }
 }
