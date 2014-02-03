@@ -838,6 +838,7 @@
             this.btnShowMap.TabIndex = 36;
             this.btnShowMap.Text = "Visa karta";
             this.btnShowMap.UseVisualStyleBackColor = true;
+            this.btnShowMap.Click += new System.EventHandler(this.btnShowMap_Click);
             // 
             // EmployeeFrame
             // 

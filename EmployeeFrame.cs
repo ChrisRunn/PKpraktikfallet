@@ -386,10 +386,19 @@ if (e.RowIndex >= 0)
             }
         }
 
+        private void btnShowMap_Click(object sender, EventArgs e)
+        {
+            MapFrame mf = new MapFrame();
+            mf.ShowDialog();
+
+        }
+
+        
+        }
        
 
 
 
 
     }
-}
+
