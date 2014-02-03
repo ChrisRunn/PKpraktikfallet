@@ -21,6 +21,8 @@ namespace praktikfall
             dgvObjectShowing.DataSource = dt;
             DataTable dt2 = controller.GetAllProspectiveBuyers();
             dgvProspectiveBuyerShowing.DataSource = dt2;
+            DataTable dt3 = controller.GetShowings();
+            dgvShowingCurrentShowings.DataSource = dt3;
 
            tbObjectArea.ReadOnly = true;
             tbNrOfRooms.ReadOnly = true;
@@ -316,15 +318,15 @@ namespace praktikfall
 
         }
 
-        private void btnAddShowing_Click(object sender, EventArgs e)
+        private void btnAddShowing_Click(object sender, EventArgs e) //Lägg till visning
         {
             string objNr = lblSelectedObjectShowing.Text;
-            string buyerSsnr = lblSelectedBuyerShowing.Text;
             string showingDate = dtpVisningsdatumVisning.Text;
+            string buyerSsnr = lblSelectedBuyerShowing.Text;
             int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
-            MessageBox.Show("Visning Registrerad!");
-            lblSelectedBuyerShowing.Visible = false;
-            lblSelectedObjectShowing.Visible = false;
+            MessageBox.Show("Visning registrerad!");
+            DataTable dt = controller.GetShowings();  //Uppdatera listan
+            dgvShowingCurrentShowings.DataSource = dt;            
         }
 
 
@@ -357,7 +359,7 @@ namespace praktikfall
             {
                 DataGridViewRow row = this.dgvObjectShowing.Rows[e.RowIndex];
                 string selectedItem = row.Cells["objNr"].Value.ToString();
-                lblSelectedObjectShowing.Text = "Valt objekt: " + selectedItem;
+                lblSelectedObjectShowing.Text = selectedItem;
                 lblSelectedObjectShowing.Visible = true;
 
             }
@@ -369,7 +371,7 @@ namespace praktikfall
             {
                 DataGridViewRow row = this.dgvProspectiveBuyerShowing.Rows[e.RowIndex];
                 string selectedItem = row.Cells["buyerSsnr"].Value.ToString();
-                lblSelectedBuyerShowing.Text = "Vald spekulant: " + selectedItem;
+                lblSelectedBuyerShowing.Text = selectedItem;
                 lblSelectedBuyerShowing.Visible = true;
 
             }
@@ -445,30 +447,72 @@ namespace praktikfall
                 MapFrame mf = new MapFrame(tbObjAddress.Text, tbObjCity.Text);
                 mf.Show();
             }
-           
-
         }
 
-
- 
-
-
-       public string TheObjCity
+        private void btnShowingUpdate_Click(object sender, EventArgs e)
         {
-            get { return tbObjCity.Text; }
+            string objNr = lblSelectedObjectShowing.Text;
+            string showingDate = dtpVisningsdatumVisning.Text;
+            string buyerSsnr = lblSelectedBuyerShowing.Text;
+            int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
+            MessageBox.Show("Visning uppdaterad!");
+            DataTable dt = controller.GetShowings();  //Uppdatera listan
+            dgvShowingCurrentShowings.DataSource = dt;
+        }
+           
+        private void dgvShowingCurrentShowings_CellClicked(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = this.dgvShowingCurrentShowings.Rows[e.RowIndex];
+
+            string objNr = row.Cells["objNr"].Value.ToString();
+            string buyerSsnr = row.Cells["buyerSsnr"].Value.ToString();
+            lblShowingSelectedBuyerDelete.Text = buyerSsnr;
+            lblShowingSelectedObjNrDelete.Text = objNr;
+            lblShowingSelectedObjNrDelete.Visible = true;
+            lblShowingSelectedBuyerDelete.Visible = true;
+          
         }
 
-       public string TheObjAdress
-       {
-           get { return tbObjAddress.Text; }
+        private void btnShowingDelete_Click(object sender, EventArgs e) //Ta bort visning/Ta bort spekulant från visning
+        {
+            string buyerSsnr = lblShowingSelectedBuyerDelete.Text;
+            string objNr = lblShowingSelectedObjNrDelete.Text;
+
+            if (rbShowingDeleteShowing.Checked)
+            {               
+                int nrOfRows = controller.DeleteShowing(objNr);
+                MessageBox.Show("Visning borttagen :(");
+                DataTable dt = controller.GetShowings();    //Uppdatera listan
+                dgvShowingCurrentShowings.DataSource = dt;                  
+            }
+            if (rbShowingDeleteBuyer.Checked)
+            {
+                int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
+                MessageBox.Show("Spekulant borttagen från visning :(:(");
+                DataTable dt = controller.GetShowings();    //Uppdatera listan
+                dgvShowingCurrentShowings.DataSource = dt; 
+            }
+            else
+            {
+                MessageBox.Show("Var vänlig gör ett val först");
+            }
+        }
+
+
+
+       
+        private void cbObjUpdateClick(object sender, EventArgs e)
+        {
+            dgvObject_CellClick(dgvObject, new DataGridViewCellEventArgs(0, 0));
+        }
+
 
 
        }
 
        private void cbObjUpdate_Click( object sender, EventArgs e)
        {
-          
-       }
+
 
     }
 }

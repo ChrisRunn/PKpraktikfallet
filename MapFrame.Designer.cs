@@ -29,42 +29,32 @@
         private void InitializeComponent()
         {
             this.webBrowserMap = new System.Windows.Forms.WebBrowser();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // webBrowserMap
             // 
-            this.webBrowserMap.Location = new System.Drawing.Point(1, 0);
+            this.webBrowserMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserMap.Location = new System.Drawing.Point(0, 0);
             this.webBrowserMap.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserMap.Name = "webBrowserMap";
-            this.webBrowserMap.Size = new System.Drawing.Size(596, 397);
+            this.webBrowserMap.Size = new System.Drawing.Size(807, 498);
             this.webBrowserMap.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(627, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
             // 
             // MapFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 498);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.webBrowserMap);
             this.Name = "MapFrame";
             this.Text = "Karta";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.WebBrowser webBrowserMap;
-        private System.Windows.Forms.TextBox textBox1;
 
     }
 }
