@@ -22,11 +22,14 @@ namespace praktikfall
 
             DataTable dt = controller.GetAllObjectsNr();
             dgvObject.DataSource = dt;
-            dgvObjectShowing.DataSource = dt;
             DataTable dt2 = controller.GetAllProspectiveBuyers();
+            dgvObjectShowing.DataSource = dt; //ska denna vara där?
             dgvProspectiveBuyerShowing.DataSource = dt2;
             DataTable dt3 = controller.GetShowings();
             dgvShowingCurrentShowings.DataSource = dt3;
+
+
+           
         }
 
         Controller controller = new Controller();
@@ -187,17 +190,38 @@ namespace praktikfall
 
         }
 
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void dgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 )
-            {
-                DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
+            tbObjOwnerSsnr.Text = "";
+            tbObjOwnerPhoneNr.Text = "";
+            tbObjOwnerEmail.Text = "";
+            tbObjOwnerName.Text = "";
 
+            if (e.RowIndex >= 0 )
+            {  
+                DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
+                string objNr = row.Cells["objNr"].Value.ToString();
+                DataTable ownerSsnr = this.controller.GetObjOwner(objNr);
+                foreach (DataRow row1 in ownerSsnr.Rows)
+                {
+                for (int i = 0; i < ownerSsnr.Columns.Count; i++)
+                {
+                var text = row1[i].ToString();
+                tbObjOwnerSsnr.Text = text;
+                }
+                }
+                DataTable ownerInfo = this.controller.GetObjectOwner(tbObjOwnerSsnr.Text);
+                foreach (DataRow row1 in ownerInfo.Rows)
+                {
+                    for (int i = 0; i < ownerInfo.Columns.Count; i++)
+                    {
+                        tbObjOwnerPhoneNr.Text = row1[1].ToString();
+                        tbObjOwnerEmail.Text = row1[2].ToString();
+                        tbObjOwnerName.Text = row1[3].ToString();   
+                    }
+                }
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
                 lblObjCity.Text = row.Cells["objCity"].Value.ToString();
                 lblPrice.Text = row.Cells["objPrice"].Value.ToString() + " kr";
@@ -205,19 +229,25 @@ namespace praktikfall
                 tbNrOfRooms.Text = row.Cells["objRooms"].Value.ToString();
                 tbUnitType.Text = row.Cells["objUnitType"].Value.ToString();
                 richTextBox1.Text = row.Cells["objInfo"].Value.ToString();
-
+              
                 string price = row.Cells["objPrice"].Value.ToString();
                 string area = row.Cells["objArea"].Value.ToString();
+     
                 int priceperkvm = int.Parse(price) / int.Parse(area);
                 tbPricePerKvm.Text = priceperkvm.ToString();
-
+                
+                
+               
+                
+                
                 tbObjBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
                 tbObjNr.Text = row.Cells["objNr"].Value.ToString();
                 tbObjCity.Text = row.Cells["objCity"].Value.ToString();
                 tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
                 tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-
+        
             }
+
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
@@ -420,6 +450,20 @@ namespace praktikfall
         {
             dgvObject_CellClick(dgvObject, new DataGridViewCellEventArgs(0, 0));
         }
+
+        private void btnObjSubmit_Click(object sender, EventArgs e)
+        {
+            if (cbObjUpdate.Checked)
+            {
+
+            }
+            else if (cbObjRegister.Checked && !cbObjUpdate.Checked)
+            {
+                
+            }
+        }
+
+
 
 
 

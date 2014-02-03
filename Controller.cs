@@ -129,10 +129,26 @@ namespace praktikfall
             int nrOfRows = dal.UpdateObjectOwner(ownerSsnr, phoneNr, email);
             return nrOfRows;
         }
-        //Söka Ägare
+        //Söka Ägare -- BEHÖVS EVENTUELLT INTE
         public DataTable GetObjectOwner (string ownerSsnr)
         {
             DataTable dt = dal.GetObjectOwner(ownerSsnr);
+            return dt;
+        }
+        public DataTable GetObjOwner(string objNr)
+        {
+            DataTable dt = dal.GetObjOwner(objNr);
+            return dt;
+        }
+        //Hämta alla ägare
+        public DataTable GetAllObjectOwners()
+        {
+            DataTable dt = dal.GetAllObjectOwners();
+            return dt;
+        }
+        public DataTable GetAllHasOwner()
+        {
+            DataTable dt = dal.GetAllHasOwner();
             return dt;
         }
         //Registrera givet OBJEKT med given ÄGARE     HÄR registreras ett objekts ägare

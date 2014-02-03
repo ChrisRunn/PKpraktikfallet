@@ -205,10 +205,16 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Söka Ägare
+        //Söka Ägare -- BEHÖVS EVENTUELLT INTE
         public DataTable GetObjectOwner(string ownerSsnr)
         {
             string sqlStr = "select * from ObjectOwner where ownerSsnr = '" + ownerSsnr + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+        public DataTable GetObjOwner(string objNr)
+        {
+            string sqlStr = "select * from HasOwner where objNr ='" + objNr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -218,7 +224,22 @@ namespace praktikfall
             string sqlStr = "insert into HasOwner values ('" + objNr + "','" + ownerSsnr + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
-        }   
+        }
+        // Hämtar alla ägare
+        public DataTable GetAllObjectOwners()
+        {
+            string sqlStr = "select * from ObjectOwner";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+
+        //Hämtar allt från hasowner tabellen
+        public DataTable GetAllHasOwner()
+        { 
+        string sqlStr = "select * from HasOwner";
+        DataTable dt = ExecuteQuery(sqlStr);
+        return dt;
+        }
         //Registrera VISNING
         public int RegisterShowing(string objNr, string buyerSsnr, string showingDate)
         {
