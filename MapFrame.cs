@@ -18,13 +18,13 @@ namespace praktikfall
             
             InitializeComponent();
 
-            
 
-            //string adress = 
-           //string city = getObjCity();
+
+            //string adress = "Erikslustvägen";
+            //string city = "Malmö";
             StringBuilder queryAddress = new StringBuilder();
             queryAddress.Append("maps.google.com");
-            //queryAddress.Append(adress + ",");
+            //queryAddress.Append(adress + "," + city);
             webBrowserMap.Navigate(queryAddress.ToString());
             webBrowserMap.ScriptErrorsSuppressed = true;
         }
