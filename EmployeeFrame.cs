@@ -211,13 +211,37 @@ namespace praktikfall
 
         private void dgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            
-
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && cbObjUpdate.Checked)
             {
+                tbObjectArea.ReadOnly = false;
+                tbNrOfRooms.ReadOnly = false;
+                tbUnitType.ReadOnly = false;
+                tbPricePerKvm.ReadOnly = false;
+                richTextBox1.ReadOnly = false;
+
+                lblObjBrokerSsnr.Visible = true;
+                tbObjBrokerSsnr.Width = 100;
+                tbObjBrokerSsnr.Height = 20;
+
+                lblObjNr.Visible = true;
+                tbObjNr.Width = 100;
+                tbObjNr.Height = 20;
+
+                lblObjAddressforTB.Visible = true;
+                tbObjAddress.Width = 100;
+                tbObjAddress.Height = 20;
+
+
+                lblObjCityforTB.Visible = true;
+                tbObjCity.Width = 100;
+                tbObjCity.Height = 20;
+
+                lblObjPrice.Visible = true;
+                tbObjPrice.Width = 100;
+                tbObjPrice.Height = 20;
+
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
-                
+
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
                 lblObjCity.Text = row.Cells["objCity"].Value.ToString();
                 lblPrice.Text = row.Cells["objPrice"].Value.ToString() + " kr";
@@ -236,10 +260,41 @@ namespace praktikfall
                 tbObjCity.Text = row.Cells["objCity"].Value.ToString();
                 tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
                 tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-                
 
-               
+            }
+            else if(e.RowIndex >=0)
+            {
+                DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
 
+                lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
+                lblObjCity.Text = row.Cells["objCity"].Value.ToString();
+                lblPrice.Text = row.Cells["objPrice"].Value.ToString() + " kr";
+                tbObjectArea.Text = row.Cells["objArea"].Value.ToString();
+                tbNrOfRooms.Text = row.Cells["objRooms"].Value.ToString();
+                tbUnitType.Text = row.Cells["objUnitType"].Value.ToString();
+                richTextBox1.Text = row.Cells["objInfo"].Value.ToString();
+
+                string price = row.Cells["objPrice"].Value.ToString();
+                string area = row.Cells["objArea"].Value.ToString();
+                int priceperkvm = int.Parse(price) / int.Parse(area);
+                tbPricePerKvm.Text = priceperkvm.ToString();
+                lblObjBrokerSsnr.Visible = false;
+                lblObjBrokerSsnr.Visible = false;
+                tbObjBrokerSsnr.Width = 0;
+                tbObjBrokerSsnr.Height = 0;
+
+                lblObjNr.Visible = false;
+                tbObjNr.Width = 0;
+                tbObjNr.Height = 0;
+                lblObjAddressforTB.Visible = false;
+                tbObjAddress.Width = 0;
+                tbObjAddress.Height = 0;
+                lblObjCityforTB.Visible = false;
+                tbObjCity.Width = 0;
+                tbObjCity.Height = 0;
+                lblObjPrice.Visible = false;
+                tbObjPrice.Width = 0;
+                tbObjPrice.Height = 0;
             }
         }
 
@@ -323,43 +378,6 @@ namespace praktikfall
 
         }
 
-        public void rbUpdateObject(object sender, EventArgs e)
-        {
-            
-            
-            
-            tbObjectArea.ReadOnly = false;
-            tbNrOfRooms.ReadOnly = false;
-            tbUnitType.ReadOnly = false;
-            tbPricePerKvm.ReadOnly = false;
-            richTextBox1.ReadOnly = false;
-
-            lblObjBrokerSsnr.Visible = true;
-            tbObjBrokerSsnr.Width = 100;
-            tbObjBrokerSsnr.Height = 20;
-
-            lblObjNr.Visible = true;
-                tbObjNr.Width = 100;
-                tbObjNr.Height = 20;
-
-            lblObjAddressforTB.Visible = true;
-                tbObjAddress.Width = 100;
-                tbObjAddress.Height = 20;
-
-
-            lblObjCityforTB.Visible = true;
-                tbObjCity.Width = 100;
-                tbObjCity.Height = 20;
-
-            lblObjPrice.Visible = true;
-                tbObjPrice.Width = 100;
-                tbObjPrice.Height = 20;
-            
-
-
-
-        }
-
         private void btnSearchProBuyer_Click(object sender, EventArgs e)
         {
             try
@@ -422,6 +440,11 @@ if (e.RowIndex >= 0)
            // lblObjAddress.Text = mapFrame.TextBox1.Text;
 
         
+        }
+
+        private void cbObjUpdateClick(object sender, EventArgs e)
+        {
+            
         }
        
 
