@@ -19,7 +19,7 @@ namespace praktikfall
             InitializeComponent();
             string adress = objAdress;
             string city = objCity;
-    
+
             StringBuilder queryAdress = new StringBuilder();
             queryAdress.Append("http://maps.google.com/maps?q=");
             queryAdress.Append(adress + ", " + city);
@@ -27,13 +27,13 @@ namespace praktikfall
             webBrowserMap.Navigate(queryAdress.ToString());
             webBrowserMap.ScriptErrorsSuppressed = true;
 
-            
+
         }
     }
 }
 
-            
                 
 
    
+    
     
