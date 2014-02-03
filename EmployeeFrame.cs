@@ -24,7 +24,7 @@ namespace praktikfall
             DataTable dt2 = controller.GetAllProspectiveBuyers();
             dgvProspectiveBuyerShowing.DataSource = dt2;
 
-            tbObjectArea.ReadOnly = true;
+           /* tbObjectArea.ReadOnly = true;
             tbNrOfRooms.ReadOnly = true;
             tbUnitType.ReadOnly = true;
             tbPricePerKvm.ReadOnly = true;
@@ -46,7 +46,7 @@ namespace praktikfall
             tbObjCity.Height = 0;
             lblObjPrice.Visible = false;
             tbObjPrice.Width = 0;
-            tbObjPrice.Height = 0;
+            tbObjPrice.Height = 0;*/
         }
 
         Controller controller = new Controller();
@@ -218,7 +218,7 @@ namespace praktikfall
             {
 
                 
-                tbObjectArea.ReadOnly = false;
+               /* tbObjectArea.ReadOnly = false;
                 tbNrOfRooms.ReadOnly = false;
                 tbUnitType.ReadOnly = false;
                 tbPricePerKvm.ReadOnly = false;
@@ -243,7 +243,7 @@ namespace praktikfall
 
                 lblObjPrice.Visible = true;
                 tbObjPrice.Width = 100;
-                tbObjPrice.Height = 20;
+                tbObjPrice.Height = 20;*/
 
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
 
@@ -283,7 +283,13 @@ namespace praktikfall
                 string area = row.Cells["objArea"].Value.ToString();
                 int priceperkvm = int.Parse(price) / int.Parse(area);
                 tbPricePerKvm.Text = priceperkvm.ToString();
-                lblObjBrokerSsnr.Visible = false;
+
+                tbObjBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
+                tbObjNr.Text = row.Cells["objNr"].Value.ToString();
+                tbObjCity.Text = row.Cells["objCity"].Value.ToString();
+                tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
+                tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
+                /*lblObjBrokerSsnr.Visible = false;
                 lblObjBrokerSsnr.Visible = false;
                 tbObjBrokerSsnr.Width = 0;
                 tbObjBrokerSsnr.Height = 0;
@@ -299,7 +305,7 @@ namespace praktikfall
                 tbObjCity.Height = 0;
                 lblObjPrice.Visible = false;
                 tbObjPrice.Width = 0;
-                tbObjPrice.Height = 0;
+                tbObjPrice.Height = 0;*/
             }
         }
 
