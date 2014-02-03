@@ -58,9 +58,7 @@
             this.labelBuyerName = new System.Windows.Forms.Label();
             this.labelBuyerSsn = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.rbRegisterNewObj = new System.Windows.Forms.RadioButton();
-            this.rbObjDelete = new System.Windows.Forms.RadioButton();
-            this.rbObjUpdate = new System.Windows.Forms.RadioButton();
+            this.btnShowMap = new System.Windows.Forms.Button();
             this.tbObjPrice = new System.Windows.Forms.TextBox();
             this.tbObjCity = new System.Windows.Forms.TextBox();
             this.tbObjAddress = new System.Windows.Forms.TextBox();
@@ -99,7 +97,9 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.btnShowMap = new System.Windows.Forms.Button();
+            this.cbObjUpdate = new System.Windows.Forms.CheckBox();
+            this.cbObjDelete = new System.Windows.Forms.CheckBox();
+            this.cbObjRegistrera = new System.Windows.Forms.CheckBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBoxVisning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectShowing)).BeginInit();
@@ -404,10 +404,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cbObjRegistrera);
+            this.tabPage2.Controls.Add(this.cbObjDelete);
+            this.tabPage2.Controls.Add(this.cbObjUpdate);
             this.tabPage2.Controls.Add(this.btnShowMap);
-            this.tabPage2.Controls.Add(this.rbRegisterNewObj);
-            this.tabPage2.Controls.Add(this.rbObjDelete);
-            this.tabPage2.Controls.Add(this.rbObjUpdate);
             this.tabPage2.Controls.Add(this.tbObjPrice);
             this.tabPage2.Controls.Add(this.tbObjCity);
             this.tabPage2.Controls.Add(this.tbObjAddress);
@@ -445,39 +445,15 @@
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // rbRegisterNewObj
+            // btnShowMap
             // 
-            this.rbRegisterNewObj.AutoSize = true;
-            this.rbRegisterNewObj.Location = new System.Drawing.Point(394, 508);
-            this.rbRegisterNewObj.Name = "rbRegisterNewObj";
-            this.rbRegisterNewObj.Size = new System.Drawing.Size(83, 17);
-            this.rbRegisterNewObj.TabIndex = 35;
-            this.rbRegisterNewObj.TabStop = true;
-            this.rbRegisterNewObj.Text = "Registrera";
-            this.rbRegisterNewObj.UseVisualStyleBackColor = true;
-            // 
-            // rbObjDelete
-            // 
-            this.rbObjDelete.AutoSize = true;
-            this.rbObjDelete.Location = new System.Drawing.Point(394, 479);
-            this.rbObjDelete.Name = "rbObjDelete";
-            this.rbObjDelete.Size = new System.Drawing.Size(66, 17);
-            this.rbObjDelete.TabIndex = 34;
-            this.rbObjDelete.TabStop = true;
-            this.rbObjDelete.Text = "Ta bort";
-            this.rbObjDelete.UseVisualStyleBackColor = true;
-            // 
-            // rbObjUpdate
-            // 
-            this.rbObjUpdate.AutoSize = true;
-            this.rbObjUpdate.Location = new System.Drawing.Point(394, 451);
-            this.rbObjUpdate.Name = "rbObjUpdate";
-            this.rbObjUpdate.Size = new System.Drawing.Size(84, 17);
-            this.rbObjUpdate.TabIndex = 33;
-            this.rbObjUpdate.TabStop = true;
-            this.rbObjUpdate.Text = "Uppdatera";
-            this.rbObjUpdate.UseVisualStyleBackColor = true;
-            this.rbObjUpdate.CheckedChanged += new System.EventHandler(this.rbUpdateObject);
+            this.btnShowMap.Location = new System.Drawing.Point(509, 379);
+            this.btnShowMap.Name = "btnShowMap";
+            this.btnShowMap.Size = new System.Drawing.Size(75, 23);
+            this.btnShowMap.TabIndex = 36;
+            this.btnShowMap.Text = "Visa karta";
+            this.btnShowMap.UseVisualStyleBackColor = true;
+            this.btnShowMap.Click += new System.EventHandler(this.btnShowMap_Click);
             // 
             // tbObjPrice
             // 
@@ -830,15 +806,36 @@
             this.tabControl.Size = new System.Drawing.Size(1080, 663);
             this.tabControl.TabIndex = 0;
             // 
-            // btnShowMap
+            // cbObjUpdate
             // 
-            this.btnShowMap.Location = new System.Drawing.Point(509, 379);
-            this.btnShowMap.Name = "btnShowMap";
-            this.btnShowMap.Size = new System.Drawing.Size(75, 23);
-            this.btnShowMap.TabIndex = 36;
-            this.btnShowMap.Text = "Visa karta";
-            this.btnShowMap.UseVisualStyleBackColor = true;
-            this.btnShowMap.Click += new System.EventHandler(this.btnShowMap_Click);
+            this.cbObjUpdate.AutoSize = true;
+            this.cbObjUpdate.Location = new System.Drawing.Point(394, 450);
+            this.cbObjUpdate.Name = "cbObjUpdate";
+            this.cbObjUpdate.Size = new System.Drawing.Size(85, 17);
+            this.cbObjUpdate.TabIndex = 37;
+            this.cbObjUpdate.Text = "Uppdatera";
+            this.cbObjUpdate.UseVisualStyleBackColor = true;
+            this.cbObjUpdate.Click += new System.EventHandler(this.cbObjUpdateClick);
+            // 
+            // cbObjDelete
+            // 
+            this.cbObjDelete.AutoSize = true;
+            this.cbObjDelete.Location = new System.Drawing.Point(394, 474);
+            this.cbObjDelete.Name = "cbObjDelete";
+            this.cbObjDelete.Size = new System.Drawing.Size(67, 17);
+            this.cbObjDelete.TabIndex = 38;
+            this.cbObjDelete.Text = "Ta bort";
+            this.cbObjDelete.UseVisualStyleBackColor = true;
+            // 
+            // cbObjRegistrera
+            // 
+            this.cbObjRegistrera.AutoSize = true;
+            this.cbObjRegistrera.Location = new System.Drawing.Point(394, 498);
+            this.cbObjRegistrera.Name = "cbObjRegistrera";
+            this.cbObjRegistrera.Size = new System.Drawing.Size(84, 17);
+            this.cbObjRegistrera.TabIndex = 39;
+            this.cbObjRegistrera.Text = "Registrera";
+            this.cbObjRegistrera.UseVisualStyleBackColor = true;
             // 
             // EmployeeFrame
             // 
@@ -930,9 +927,6 @@
         private System.Windows.Forms.Label lblObjPrice;
         private System.Windows.Forms.Label lblObjNr;
         private System.Windows.Forms.Label lblObjBrokerSsnr;
-        private System.Windows.Forms.RadioButton rbRegisterNewObj;
-        private System.Windows.Forms.RadioButton rbObjDelete;
-        private System.Windows.Forms.RadioButton rbObjUpdate;
         private System.Windows.Forms.TextBox tbObjPrice;
         private System.Windows.Forms.TextBox tbObjCity;
         private System.Windows.Forms.TextBox tbObjAddress;
@@ -944,6 +938,9 @@
         private System.Windows.Forms.Button btnDeleteProspectiveBuyer;
         private System.Windows.Forms.Button btnUpdateProspectiveBuyer;
         private System.Windows.Forms.Button btnShowMap;
+        private System.Windows.Forms.CheckBox cbObjRegistrera;
+        private System.Windows.Forms.CheckBox cbObjDelete;
+        private System.Windows.Forms.CheckBox cbObjUpdate;
 
     }
 }
