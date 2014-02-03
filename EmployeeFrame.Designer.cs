@@ -31,11 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblShowingSelectedBuyerDelete = new System.Windows.Forms.Label();
+            this.lblShowingChoice = new System.Windows.Forms.Label();
+            this.rbShowingDeleteBuyer = new System.Windows.Forms.RadioButton();
+            this.rbShowingDeleteShowing = new System.Windows.Forms.RadioButton();
             this.btnShowingDelete = new System.Windows.Forms.Button();
             this.lblShowingSelectedObjNrDelete = new System.Windows.Forms.Label();
             this.lblShowingChoose = new System.Windows.Forms.Label();
             this.dgvShowingCurrentShowings = new System.Windows.Forms.DataGridView();
             this.groupBoxVisning = new System.Windows.Forms.GroupBox();
+            this.btnShowingUpdate = new System.Windows.Forms.Button();
             this.lblSelectedBuyerShowing = new System.Windows.Forms.Label();
             this.lblSelectedObjectShowing = new System.Windows.Forms.Label();
             this.dgvObjectShowing = new System.Windows.Forms.DataGridView();
@@ -66,10 +71,6 @@
             this.cbObjDelete = new System.Windows.Forms.CheckBox();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
             this.btnShowMap = new System.Windows.Forms.Button();
-
-
-
-
             this.tbObjPrice = new System.Windows.Forms.TextBox();
             this.tbObjCity = new System.Windows.Forms.TextBox();
             this.tbObjAddress = new System.Windows.Forms.TextBox();
@@ -108,11 +109,6 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.btnShowingUpdate = new System.Windows.Forms.Button();
-            this.rbShowingDeleteShowing = new System.Windows.Forms.RadioButton();
-            this.rbShowingDeleteBuyer = new System.Windows.Forms.RadioButton();
-            this.lblShowingChoice = new System.Windows.Forms.Label();
-            this.lblShowingSelectedBuyerDelete = new System.Windows.Forms.Label();
             this.tabPageVisning.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowingCurrentShowings)).BeginInit();
@@ -159,6 +155,47 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tillagda visningar";
+            // 
+            // lblShowingSelectedBuyerDelete
+            // 
+            this.lblShowingSelectedBuyerDelete.AutoSize = true;
+            this.lblShowingSelectedBuyerDelete.Location = new System.Drawing.Point(189, 294);
+            this.lblShowingSelectedBuyerDelete.Name = "lblShowingSelectedBuyerDelete";
+            this.lblShowingSelectedBuyerDelete.Size = new System.Drawing.Size(164, 13);
+            this.lblShowingSelectedBuyerDelete.TabIndex = 21;
+            this.lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
+            this.lblShowingSelectedBuyerDelete.Visible = false;
+            // 
+            // lblShowingChoice
+            // 
+            this.lblShowingChoice.AutoSize = true;
+            this.lblShowingChoice.Location = new System.Drawing.Point(409, 16);
+            this.lblShowingChoice.Name = "lblShowingChoice";
+            this.lblShowingChoice.Size = new System.Drawing.Size(120, 13);
+            this.lblShowingChoice.TabIndex = 20;
+            this.lblShowingChoice.Text = "Välj vad du vill göra";
+            // 
+            // rbShowingDeleteBuyer
+            // 
+            this.rbShowingDeleteBuyer.AutoSize = true;
+            this.rbShowingDeleteBuyer.Location = new System.Drawing.Point(412, 64);
+            this.rbShowingDeleteBuyer.Name = "rbShowingDeleteBuyer";
+            this.rbShowingDeleteBuyer.Size = new System.Drawing.Size(195, 17);
+            this.rbShowingDeleteBuyer.TabIndex = 19;
+            this.rbShowingDeleteBuyer.TabStop = true;
+            this.rbShowingDeleteBuyer.Text = "Ta bort spekulant från visning";
+            this.rbShowingDeleteBuyer.UseVisualStyleBackColor = true;
+            // 
+            // rbShowingDeleteShowing
+            // 
+            this.rbShowingDeleteShowing.AutoSize = true;
+            this.rbShowingDeleteShowing.Location = new System.Drawing.Point(413, 41);
+            this.rbShowingDeleteShowing.Name = "rbShowingDeleteShowing";
+            this.rbShowingDeleteShowing.Size = new System.Drawing.Size(152, 17);
+            this.rbShowingDeleteShowing.TabIndex = 18;
+            this.rbShowingDeleteShowing.TabStop = true;
+            this.rbShowingDeleteShowing.Text = "Ta bort hela visningen";
+            this.rbShowingDeleteShowing.UseVisualStyleBackColor = true;
             // 
             // btnShowingDelete
             // 
@@ -217,6 +254,16 @@
             this.groupBoxVisning.TabStop = false;
             this.groupBoxVisning.Text = "Spara visning";
             this.groupBoxVisning.Enter += new System.EventHandler(this.groupBoxVisning_Enter);
+            // 
+            // btnShowingUpdate
+            // 
+            this.btnShowingUpdate.Location = new System.Drawing.Point(854, 273);
+            this.btnShowingUpdate.Name = "btnShowingUpdate";
+            this.btnShowingUpdate.Size = new System.Drawing.Size(112, 23);
+            this.btnShowingUpdate.TabIndex = 12;
+            this.btnShowingUpdate.Text = "Uppdatera datum";
+            this.btnShowingUpdate.UseVisualStyleBackColor = true;
+            this.btnShowingUpdate.Click += new System.EventHandler(this.btnShowingUpdate_Click);
             // 
             // lblSelectedBuyerShowing
             // 
@@ -507,46 +554,6 @@
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // cbObjRegistrera
-            // 
-            this.cbObjRegistrera.AutoSize = true;
-            this.cbObjRegistrera.Location = new System.Drawing.Point(394, 498);
-            this.cbObjRegistrera.Name = "cbObjRegistrera";
-            this.cbObjRegistrera.Size = new System.Drawing.Size(84, 17);
-            this.cbObjRegistrera.TabIndex = 39;
-            this.cbObjRegistrera.Text = "Registrera";
-            this.cbObjRegistrera.UseVisualStyleBackColor = true;
-            // 
-            // cbObjDelete
-            // 
-            this.cbObjDelete.AutoSize = true;
-            this.cbObjDelete.Location = new System.Drawing.Point(394, 474);
-            this.cbObjDelete.Name = "cbObjDelete";
-            this.cbObjDelete.Size = new System.Drawing.Size(67, 17);
-            this.cbObjDelete.TabIndex = 38;
-            this.cbObjDelete.Text = "Ta bort";
-            this.cbObjDelete.UseVisualStyleBackColor = true;
-            // 
-            // cbObjUpdate
-            // 
-            this.cbObjUpdate.AutoSize = true;
-            this.cbObjUpdate.Location = new System.Drawing.Point(394, 450);
-            this.cbObjUpdate.Name = "cbObjUpdate";
-            this.cbObjUpdate.Size = new System.Drawing.Size(85, 17);
-            this.cbObjUpdate.TabIndex = 37;
-            this.cbObjUpdate.Text = "Uppdatera";
-            this.cbObjUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnShowMap
-            // 
-            this.btnShowMap.Location = new System.Drawing.Point(509, 379);
-            this.btnShowMap.Name = "btnShowMap";
-            this.btnShowMap.Size = new System.Drawing.Size(75, 23);
-            this.btnShowMap.TabIndex = 36;
-            this.btnShowMap.Text = "Visa karta";
-            this.btnShowMap.UseVisualStyleBackColor = true;
-            // 
-            // rbRegisterNewObj
             // cbObjRegistrera
             // 
             this.cbObjRegistrera.AutoSize = true;
@@ -941,57 +948,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1080, 663);
             this.tabControl.TabIndex = 0;
-            // 
-            // btnShowingUpdate
-            // 
-            this.btnShowingUpdate.Location = new System.Drawing.Point(854, 273);
-            this.btnShowingUpdate.Name = "btnShowingUpdate";
-            this.btnShowingUpdate.Size = new System.Drawing.Size(112, 23);
-            this.btnShowingUpdate.TabIndex = 12;
-            this.btnShowingUpdate.Text = "Uppdatera datum";
-            this.btnShowingUpdate.UseVisualStyleBackColor = true;
-            this.btnShowingUpdate.Click += new System.EventHandler(this.btnShowingUpdate_Click);
-            // 
-            // rbShowingDeleteShowing
-            // 
-            this.rbShowingDeleteShowing.AutoSize = true;
-            this.rbShowingDeleteShowing.Location = new System.Drawing.Point(413, 41);
-            this.rbShowingDeleteShowing.Name = "rbShowingDeleteShowing";
-            this.rbShowingDeleteShowing.Size = new System.Drawing.Size(152, 17);
-            this.rbShowingDeleteShowing.TabIndex = 18;
-            this.rbShowingDeleteShowing.TabStop = true;
-            this.rbShowingDeleteShowing.Text = "Ta bort hela visningen";
-            this.rbShowingDeleteShowing.UseVisualStyleBackColor = true;
-            // 
-            // rbShowingDeleteBuyer
-            // 
-            this.rbShowingDeleteBuyer.AutoSize = true;
-            this.rbShowingDeleteBuyer.Location = new System.Drawing.Point(412, 64);
-            this.rbShowingDeleteBuyer.Name = "rbShowingDeleteBuyer";
-            this.rbShowingDeleteBuyer.Size = new System.Drawing.Size(195, 17);
-            this.rbShowingDeleteBuyer.TabIndex = 19;
-            this.rbShowingDeleteBuyer.TabStop = true;
-            this.rbShowingDeleteBuyer.Text = "Ta bort spekulant från visning";
-            this.rbShowingDeleteBuyer.UseVisualStyleBackColor = true;
-            // 
-            // lblShowingChoice
-            // 
-            this.lblShowingChoice.AutoSize = true;
-            this.lblShowingChoice.Location = new System.Drawing.Point(409, 16);
-            this.lblShowingChoice.Name = "lblShowingChoice";
-            this.lblShowingChoice.Size = new System.Drawing.Size(120, 13);
-            this.lblShowingChoice.TabIndex = 20;
-            this.lblShowingChoice.Text = "Välj vad du vill göra";
-            // 
-            // lblShowingSelectedBuyerDelete
-            // 
-            this.lblShowingSelectedBuyerDelete.AutoSize = true;
-            this.lblShowingSelectedBuyerDelete.Location = new System.Drawing.Point(189, 294);
-            this.lblShowingSelectedBuyerDelete.Name = "lblShowingSelectedBuyerDelete";
-            this.lblShowingSelectedBuyerDelete.Size = new System.Drawing.Size(164, 13);
-            this.lblShowingSelectedBuyerDelete.TabIndex = 21;
-            this.lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
-            this.lblShowingSelectedBuyerDelete.Visible = false;
             // 
             // EmployeeFrame
             // 
