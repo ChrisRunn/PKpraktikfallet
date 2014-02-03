@@ -67,9 +67,6 @@
             this.labelBuyerName = new System.Windows.Forms.Label();
             this.labelBuyerSsn = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.cbObjRegistrera = new System.Windows.Forms.CheckBox();
-            this.cbObjDelete = new System.Windows.Forms.CheckBox();
-            this.cbObjUpdate = new System.Windows.Forms.CheckBox();
             this.btnShowMap = new System.Windows.Forms.Button();
             this.tbObjPrice = new System.Windows.Forms.TextBox();
             this.tbObjCity = new System.Windows.Forms.TextBox();
@@ -81,10 +78,7 @@
             this.lblObjPrice = new System.Windows.Forms.Label();
             this.lblObjNr = new System.Windows.Forms.Label();
             this.lblObjBrokerSsnr = new System.Windows.Forms.Label();
-            this.btnUpdateSelectedObj = new System.Windows.Forms.Button();
             this.lblObjCity = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.btnObjectSearch = new System.Windows.Forms.Button();
             this.tbObjSearch = new System.Windows.Forms.TextBox();
             this.tbPricePerKvm = new System.Windows.Forms.TextBox();
