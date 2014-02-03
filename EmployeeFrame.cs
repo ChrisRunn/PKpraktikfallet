@@ -23,30 +23,6 @@ namespace praktikfall
             dgvProspectiveBuyerShowing.DataSource = dt2;
             DataTable dt3 = controller.GetShowings();
             dgvShowingCurrentShowings.DataSource = dt3;
-
-           tbObjectArea.ReadOnly = true;
-            tbNrOfRooms.ReadOnly = true;
-            tbUnitType.ReadOnly = true;
-            tbPricePerKvm.ReadOnly = true;
-            richTextBox1.ReadOnly = true;
-
-            lblObjBrokerSsnr.Visible = false;
-            lblObjBrokerSsnr.Visible = false;
-            tbObjBrokerSsnr.Width = 0;
-            tbObjBrokerSsnr.Height = 0;
-
-            lblObjNr.Visible = false;
-            tbObjNr.Width = 0;
-            tbObjNr.Height = 0;
-            lblObjAddressforTB.Visible = false;
-            tbObjAddress.Width = 0;
-            tbObjAddress.Height = 0;
-            lblObjCityforTB.Visible = false;
-            tbObjCity.Width = 0;
-            tbObjCity.Height = 0;
-            lblObjPrice.Visible = false;
-            tbObjPrice.Width = 0;
-            tbObjPrice.Height = 0;
         }
 
         Controller controller = new Controller();
@@ -214,35 +190,8 @@ namespace praktikfall
 
         private void dgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && cbObjUpdate.Checked)
+            if (e.RowIndex >= 0 )
             {
-               tbObjectArea.ReadOnly = false;
-                tbNrOfRooms.ReadOnly = false;
-                tbUnitType.ReadOnly = false;
-                tbPricePerKvm.ReadOnly = false;
-                richTextBox1.ReadOnly = false;
-
-                lblObjBrokerSsnr.Visible = true;
-                tbObjBrokerSsnr.Width = 100;
-                tbObjBrokerSsnr.Height = 20;
-
-                lblObjNr.Visible = true;
-                tbObjNr.Width = 100;
-                tbObjNr.Height = 20;
-
-                lblObjAddressforTB.Visible = true;
-                tbObjAddress.Width = 100;
-                tbObjAddress.Height = 20;
-
-
-                lblObjCityforTB.Visible = true;
-                tbObjCity.Width = 100;
-                tbObjCity.Height = 20;
-
-                lblObjPrice.Visible = true;
-                tbObjPrice.Width = 100;
-                tbObjPrice.Height = 20;
-
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
 
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
@@ -264,47 +213,6 @@ namespace praktikfall
                 tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
                 tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
 
-            }
-            else if (e.RowIndex >= 0 && !cbObjUpdate.Checked)
-            {
-                
-                DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
-
-                lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-                lblObjCity.Text = row.Cells["objCity"].Value.ToString();
-                lblPrice.Text = row.Cells["objPrice"].Value.ToString() + " kr";
-                tbObjectArea.Text = row.Cells["objArea"].Value.ToString();
-                tbNrOfRooms.Text = row.Cells["objRooms"].Value.ToString();
-                tbUnitType.Text = row.Cells["objUnitType"].Value.ToString();
-                richTextBox1.Text = row.Cells["objInfo"].Value.ToString();
-
-                string price = row.Cells["objPrice"].Value.ToString();
-                string area = row.Cells["objArea"].Value.ToString();
-                int priceperkvm = int.Parse(price) / int.Parse(area);
-                tbPricePerKvm.Text = priceperkvm.ToString();
-
-                tbObjBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
-                tbObjNr.Text = row.Cells["objNr"].Value.ToString();
-                tbObjCity.Text = row.Cells["objCity"].Value.ToString();
-                tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
-                tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-                lblObjBrokerSsnr.Visible = false;
-                lblObjBrokerSsnr.Visible = false;
-                tbObjBrokerSsnr.Width = 0;
-                tbObjBrokerSsnr.Height = 0;
-
-                lblObjNr.Visible = false;
-                tbObjNr.Width = 0;
-                tbObjNr.Height = 0;
-                lblObjAddressforTB.Visible = false;
-                tbObjAddress.Width = 0;
-                tbObjAddress.Height = 0;
-                lblObjCityforTB.Visible = false;
-                tbObjCity.Width = 0;
-                tbObjCity.Height = 0;
-                lblObjPrice.Visible = false;
-                tbObjPrice.Width = 0;
-                tbObjPrice.Height = 0;
             }
         }
 
