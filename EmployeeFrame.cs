@@ -209,6 +209,8 @@ namespace praktikfall
         private void dgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
+            
+
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
@@ -309,7 +311,7 @@ namespace praktikfall
 
         }
 
-        private void rbUpdateObject(object sender, EventArgs e)
+        public void rbUpdateObject(object sender, EventArgs e)
         {
             tbObjectArea.ReadOnly = false;
             tbNrOfRooms.ReadOnly = false;
@@ -331,6 +333,8 @@ namespace praktikfall
 
             lblObjPrice.Visible = true;
             tbObjPrice.Visible = true;
+
+
         }
 
         private void btnSearchProBuyer_Click(object sender, EventArgs e)
