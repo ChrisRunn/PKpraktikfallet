@@ -28,7 +28,9 @@ namespace praktikfall
             richTextBox1.ReadOnly = true;
 
             lblObjBrokerSsnr.Visible = false;
-            tbObjBrokerSsnr.Visible = false;
+            lblObjBrokerSsnr.Visible = false;
+            tbObjBrokerSsnr.Width = 0;
+            tbObjBrokerSsnr.Height = 0;
             
             lblObjNr.Visible = false;
             tbObjNr.Visible = false;
@@ -228,6 +230,11 @@ namespace praktikfall
                 int priceperkvm = int.Parse(price)/int.Parse(area);
                 tbPricePerKvm.Text = priceperkvm.ToString();
 
+                tbObjBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
+                
+
+               
+
             }
         }
 
@@ -320,7 +327,8 @@ namespace praktikfall
             richTextBox1.ReadOnly = false;
 
             lblObjBrokerSsnr.Visible = true;
-            tbObjBrokerSsnr.Visible = true;
+            tbObjBrokerSsnr.Width = 100;
+            tbObjBrokerSsnr.Height = 20;
 
             lblObjNr.Visible = true;
             tbObjNr.Visible = true;
