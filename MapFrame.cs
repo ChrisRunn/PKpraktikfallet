@@ -15,11 +15,11 @@ namespace praktikfall
         
         public MapFrame()
         {
-
-    
+           
+   
             InitializeComponent();
-
             
+           
             
             //string adress = 
            //string city = getObjCity();
