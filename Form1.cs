@@ -21,12 +21,18 @@ namespace praktikfall
         private void btn_Login_Click(object sender, EventArgs e)
         {
             this.Hide();
+
+
             EmployeeFrame openFrame = new EmployeeFrame();
             openFrame.ShowDialog();
              
            
         }
 
+
+        
+
+        
        
     }
 }

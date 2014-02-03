@@ -16,6 +16,8 @@ namespace praktikfall
         {
            
             InitializeComponent();
+
+
             DataTable dt = controller.GetAllObjectsNr();
             dgvObject.DataSource = dt;
             dgvObjectShowing.DataSource = dt;
@@ -434,6 +436,9 @@ namespace praktikfall
 
             }
         }
+
+
+
 
         private void btnShowMap_Click(object sender, EventArgs e)
         {
