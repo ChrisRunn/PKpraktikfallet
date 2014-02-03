@@ -12,24 +12,27 @@ namespace praktikfall
 {
     public partial class MapFrame : Form
     {
-        
+
         public MapFrame()
         {
-           
-   
+
             InitializeComponent();
-            
-           
-}
-            /*
-            //string adress = 
-           //string city = getObjCity();
-            StringBuilder queryAddress = new StringBuilder();
-            queryAddress.Append("maps.google.com");
-            //queryAddress.Append(adress + ",");
-            webBrowserMap.Navigate(queryAddress.ToString());
+
+
+
+            EmployeeFrame tmp = new EmployeeFrame();
+            string adress = tmp.TheValue;
+            string city = tmp.TheValue1;
+            StringBuilder queryAdress = new StringBuilder();
+            queryAdress.Append("http://maps.google.com/maps?q=");
+            queryAdress.Append(adress + "," + city);
+            webBrowserMap.Navigate(queryAdress.ToString());
             webBrowserMap.ScriptErrorsSuppressed = true;
         }
-             */
+
     }
 }
+                
+
+   
+    

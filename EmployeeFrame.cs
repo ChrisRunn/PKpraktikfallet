@@ -401,12 +401,14 @@ namespace praktikfall
 
         }
 
-        private MapFrame mapFrame;
-        private void GetOtherFormTextBox()
+        public string TheValue
         {
-           // lblObjAddress.Text = mapFrame.TextBox1.Text;
+            get { return lblObjAddress.Text; }
+        }
 
-
+        public string TheValue1
+        {
+            get { return lblObjCity.Text; }
         }
 
 
