@@ -69,10 +69,7 @@
 
 
 
-            this.cbObjRegistrera = new System.Windows.Forms.CheckBox();
-            this.cbObjDelete = new System.Windows.Forms.CheckBox();
-            this.cbObjUpdate = new System.Windows.Forms.CheckBox();
-            this.btnShowMap = new System.Windows.Forms.Button();
+
             this.tbObjPrice = new System.Windows.Forms.TextBox();
             this.tbObjCity = new System.Windows.Forms.TextBox();
             this.tbObjAddress = new System.Windows.Forms.TextBox();
