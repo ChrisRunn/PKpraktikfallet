@@ -12,19 +12,20 @@ namespace praktikfall
 {
     public partial class MapFrame : Form
     {
+        
         public MapFrame()
         {
-
-            
+           
+   
             InitializeComponent();
-
-
-
-            //string adress = "Erikslustvägen";
-            //string city = "Malmö";
+            
+           
+            
+            //string adress = 
+           //string city = getObjCity();
             StringBuilder queryAddress = new StringBuilder();
             queryAddress.Append("maps.google.com");
-            //queryAddress.Append(adress + "," + city);
+            //queryAddress.Append(adress + ",");
             webBrowserMap.Navigate(queryAddress.ToString());
             webBrowserMap.ScriptErrorsSuppressed = true;
         }
