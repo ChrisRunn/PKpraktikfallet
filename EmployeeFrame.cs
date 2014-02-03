@@ -12,8 +12,11 @@ namespace praktikfall
 {
     public partial class EmployeeFrame : Form
     {
+        int rows;
+        int columns;
         public EmployeeFrame()
         {
+           
             InitializeComponent();
             DataTable dt = controller.GetAllObjectsNr();
             dgvObject.DataSource = dt;
@@ -213,6 +216,8 @@ namespace praktikfall
         {
             if (e.RowIndex >= 0 && cbObjUpdate.Checked)
             {
+
+                
                 tbObjectArea.ReadOnly = false;
                 tbNrOfRooms.ReadOnly = false;
                 tbUnitType.ReadOnly = false;
@@ -437,7 +442,7 @@ namespace praktikfall
 
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
-
+            dgvObject_CellClick(dgvObject, new DataGridViewCellEventArgs(0, 0));
         }
 
 
