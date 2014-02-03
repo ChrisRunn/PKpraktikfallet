@@ -109,6 +109,48 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.picBoxShowObj = new System.Windows.Forms.PictureBox();
+            this.lblObjAddress = new System.Windows.Forms.Label();
+            this.lblPricePerKvm = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblNumberOfRooms = new System.Windows.Forms.Label();
+            this.lblArea = new System.Windows.Forms.Label();
+            this.lblUniType = new System.Windows.Forms.Label();
+            this.dgvObject = new System.Windows.Forms.DataGridView();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.tbNrOfRooms = new System.Windows.Forms.TextBox();
+            this.tbUnitType = new System.Windows.Forms.TextBox();
+            this.tbObjectArea = new System.Windows.Forms.TextBox();
+            this.tbPricePerKvm = new System.Windows.Forms.TextBox();
+            this.tbObjSearch = new System.Windows.Forms.TextBox();
+            this.btnObjectSearch = new System.Windows.Forms.Button();
+            this.lblObjCity = new System.Windows.Forms.Label();
+            this.lblObjBrokerSsnr = new System.Windows.Forms.Label();
+            this.lblObjNr = new System.Windows.Forms.Label();
+            this.lblObjPrice = new System.Windows.Forms.Label();
+            this.lblObjAddressforTB = new System.Windows.Forms.Label();
+            this.lblObjCityforTB = new System.Windows.Forms.Label();
+            this.tbObjBrokerSsnr = new System.Windows.Forms.TextBox();
+            this.tbObjNr = new System.Windows.Forms.TextBox();
+            this.tbObjAddress = new System.Windows.Forms.TextBox();
+            this.tbObjCity = new System.Windows.Forms.TextBox();
+            this.tbObjPrice = new System.Windows.Forms.TextBox();
+            this.btnShowMap = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblObjOwnerSsnr = new System.Windows.Forms.Label();
+            this.lblObjOwnerPhonenr = new System.Windows.Forms.Label();
+            this.lblObjOwnerName = new System.Windows.Forms.Label();
+            this.tbObjOwnerSsnr = new System.Windows.Forms.TextBox();
+            this.tbObjOwnerPhoneNr = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cbObjUpdate = new System.Windows.Forms.CheckBox();
+            this.cbObjDelete = new System.Windows.Forms.CheckBox();
+            this.cbObjRegister = new System.Windows.Forms.CheckBox();
+            this.btnObjSubmit = new System.Windows.Forms.Button();
+            this.lblObjOwnerEmail = new System.Windows.Forms.Label();
+            this.tbObjOwnerEmail = new System.Windows.Forms.TextBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowingCurrentShowings)).BeginInit();
@@ -117,14 +159,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyerShowing)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyer)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageStartLogotype)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageVisning
@@ -367,7 +411,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1072, 637);
+            this.tabPage5.Size = new System.Drawing.Size(1072, 713);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Spekulant";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -511,347 +555,6 @@
             this.labelBuyerSsn.TabIndex = 11;
             this.labelBuyerSsn.Text = "Personnummer:";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.cbObjRegistrera);
-            this.tabPage2.Controls.Add(this.cbObjDelete);
-            this.tabPage2.Controls.Add(this.cbObjUpdate);
-            this.tabPage2.Controls.Add(this.btnShowMap);
-            this.tabPage2.Controls.Add(this.tbObjPrice);
-            this.tabPage2.Controls.Add(this.tbObjCity);
-            this.tabPage2.Controls.Add(this.tbObjAddress);
-            this.tabPage2.Controls.Add(this.tbObjNr);
-            this.tabPage2.Controls.Add(this.tbObjBrokerSsnr);
-            this.tabPage2.Controls.Add(this.lblObjCityforTB);
-            this.tabPage2.Controls.Add(this.lblObjAddressforTB);
-            this.tabPage2.Controls.Add(this.lblObjPrice);
-            this.tabPage2.Controls.Add(this.lblObjNr);
-            this.tabPage2.Controls.Add(this.lblObjBrokerSsnr);
-            this.tabPage2.Controls.Add(this.btnUpdateSelectedObj);
-            this.tabPage2.Controls.Add(this.lblObjCity);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.dateTimePicker2);
-            this.tabPage2.Controls.Add(this.btnObjectSearch);
-            this.tabPage2.Controls.Add(this.tbObjSearch);
-            this.tabPage2.Controls.Add(this.tbPricePerKvm);
-            this.tabPage2.Controls.Add(this.tbObjectArea);
-            this.tabPage2.Controls.Add(this.tbUnitType);
-            this.tabPage2.Controls.Add(this.tbNrOfRooms);
-            this.tabPage2.Controls.Add(this.richTextBox1);
-            this.tabPage2.Controls.Add(this.dgvObject);
-            this.tabPage2.Controls.Add(this.lblUniType);
-            this.tabPage2.Controls.Add(this.lblArea);
-            this.tabPage2.Controls.Add(this.lblNumberOfRooms);
-            this.tabPage2.Controls.Add(this.lblPrice);
-            this.tabPage2.Controls.Add(this.lblPricePerKvm);
-            this.tabPage2.Controls.Add(this.lblObjAddress);
-            this.tabPage2.Controls.Add(this.picBoxShowObj);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1072, 637);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Objekt";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // cbObjRegistrera
-            // 
-            this.cbObjRegistrera.AutoSize = true;
-            this.cbObjRegistrera.Location = new System.Drawing.Point(394, 498);
-            this.cbObjRegistrera.Name = "cbObjRegistrera";
-            this.cbObjRegistrera.Size = new System.Drawing.Size(84, 17);
-            this.cbObjRegistrera.TabIndex = 39;
-            this.cbObjRegistrera.Text = "Registrera";
-            this.cbObjRegistrera.UseVisualStyleBackColor = true;
-            // 
-            // cbObjDelete
-            // 
-            this.cbObjDelete.AutoSize = true;
-            this.cbObjDelete.Location = new System.Drawing.Point(394, 474);
-            this.cbObjDelete.Name = "cbObjDelete";
-            this.cbObjDelete.Size = new System.Drawing.Size(67, 17);
-            this.cbObjDelete.TabIndex = 38;
-            this.cbObjDelete.Text = "Ta bort";
-            this.cbObjDelete.UseVisualStyleBackColor = true;
-            // 
-            // cbObjUpdate
-            // 
-            this.cbObjUpdate.AutoSize = true;
-            this.cbObjUpdate.Location = new System.Drawing.Point(394, 450);
-            this.cbObjUpdate.Name = "cbObjUpdate";
-            this.cbObjUpdate.Size = new System.Drawing.Size(85, 17);
-            this.cbObjUpdate.TabIndex = 37;
-            this.cbObjUpdate.Text = "Uppdatera";
-            this.cbObjUpdate.UseVisualStyleBackColor = true;
-            this.cbObjUpdate.Click += new System.EventHandler(this.cbObjUpdateClick);
-            // 
-            // btnShowMap
-            // 
-            this.btnShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnShowMap.Image")));
-            this.btnShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnShowMap.Location = new System.Drawing.Point(518, 370);
-            this.btnShowMap.Name = "btnShowMap";
-            this.btnShowMap.Size = new System.Drawing.Size(65, 23);
-            this.btnShowMap.TabIndex = 36;
-            this.btnShowMap.Text = " Karta";
-            this.btnShowMap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnShowMap.UseVisualStyleBackColor = true;
-            this.btnShowMap.Click += new System.EventHandler(this.btnShowMap_Click);
-            // 
-            // tbObjPrice
-            // 
-            this.tbObjPrice.Location = new System.Drawing.Point(805, 561);
-            this.tbObjPrice.Name = "tbObjPrice";
-            this.tbObjPrice.Size = new System.Drawing.Size(100, 20);
-            this.tbObjPrice.TabIndex = 32;
-            // 
-            // tbObjCity
-            // 
-            this.tbObjCity.Location = new System.Drawing.Point(805, 535);
-            this.tbObjCity.Name = "tbObjCity";
-            this.tbObjCity.Size = new System.Drawing.Size(100, 20);
-            this.tbObjCity.TabIndex = 31;
-            // 
-            // tbObjAddress
-            // 
-            this.tbObjAddress.Location = new System.Drawing.Point(805, 506);
-            this.tbObjAddress.Name = "tbObjAddress";
-            this.tbObjAddress.Size = new System.Drawing.Size(100, 20);
-            this.tbObjAddress.TabIndex = 30;
-            // 
-            // tbObjNr
-            // 
-            this.tbObjNr.Location = new System.Drawing.Point(805, 476);
-            this.tbObjNr.Name = "tbObjNr";
-            this.tbObjNr.Size = new System.Drawing.Size(100, 20);
-            this.tbObjNr.TabIndex = 29;
-            // 
-            // tbObjBrokerSsnr
-            // 
-            this.tbObjBrokerSsnr.Location = new System.Drawing.Point(805, 448);
-            this.tbObjBrokerSsnr.Name = "tbObjBrokerSsnr";
-            this.tbObjBrokerSsnr.Size = new System.Drawing.Size(100, 20);
-            this.tbObjBrokerSsnr.TabIndex = 28;
-            // 
-            // lblObjCityforTB
-            // 
-            this.lblObjCityforTB.AutoSize = true;
-            this.lblObjCityforTB.Location = new System.Drawing.Point(738, 538);
-            this.lblObjCityforTB.Name = "lblObjCityforTB";
-            this.lblObjCityforTB.Size = new System.Drawing.Size(41, 13);
-            this.lblObjCityforTB.TabIndex = 27;
-            this.lblObjCityforTB.Text = "Stad :";
-            // 
-            // lblObjAddressforTB
-            // 
-            this.lblObjAddressforTB.AutoSize = true;
-            this.lblObjAddressforTB.Location = new System.Drawing.Point(738, 508);
-            this.lblObjAddressforTB.Name = "lblObjAddressforTB";
-            this.lblObjAddressforTB.Size = new System.Drawing.Size(49, 13);
-            this.lblObjAddressforTB.TabIndex = 26;
-            this.lblObjAddressforTB.Text = "Adress:";
-            // 
-            // lblObjPrice
-            // 
-            this.lblObjPrice.AutoSize = true;
-            this.lblObjPrice.Location = new System.Drawing.Point(738, 565);
-            this.lblObjPrice.Name = "lblObjPrice";
-            this.lblObjPrice.Size = new System.Drawing.Size(32, 13);
-            this.lblObjPrice.TabIndex = 25;
-            this.lblObjPrice.Text = "Pris:";
-            // 
-            // lblObjNr
-            // 
-            this.lblObjNr.AutoSize = true;
-            this.lblObjNr.Location = new System.Drawing.Point(738, 480);
-            this.lblObjNr.Name = "lblObjNr";
-            this.lblObjNr.Size = new System.Drawing.Size(65, 13);
-            this.lblObjNr.TabIndex = 24;
-            this.lblObjNr.Text = "Objektsnr:";
-            // 
-            // lblObjBrokerSsnr
-            // 
-            this.lblObjBrokerSsnr.AutoSize = true;
-            this.lblObjBrokerSsnr.Location = new System.Drawing.Point(738, 451);
-            this.lblObjBrokerSsnr.Name = "lblObjBrokerSsnr";
-            this.lblObjBrokerSsnr.Size = new System.Drawing.Size(60, 13);
-            this.lblObjBrokerSsnr.TabIndex = 23;
-            this.lblObjBrokerSsnr.Text = "Mäklarnr:";
-            // 
-            // btnUpdateSelectedObj
-            // 
-            this.btnUpdateSelectedObj.Location = new System.Drawing.Point(394, 533);
-            this.btnUpdateSelectedObj.Name = "btnUpdateSelectedObj";
-            this.btnUpdateSelectedObj.Size = new System.Drawing.Size(114, 22);
-            this.btnUpdateSelectedObj.TabIndex = 22;
-            this.btnUpdateSelectedObj.Text = "Valbar text";
-            this.btnUpdateSelectedObj.UseVisualStyleBackColor = true;
-            // 
-            // lblObjCity
-            // 
-            this.lblObjCity.AutoSize = true;
-            this.lblObjCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjCity.Location = new System.Drawing.Point(11, 418);
-            this.lblObjCity.Name = "lblObjCity";
-            this.lblObjCity.Size = new System.Drawing.Size(47, 20);
-            this.lblObjCity.TabIndex = 21;
-            this.lblObjCity.Text = "Stad";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(624, 607);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Visningsdatum";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(718, 601);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 19;
-            // 
-            // btnObjectSearch
-            // 
-            this.btnObjectSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectSearch.Image")));
-            this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectSearch.Location = new System.Drawing.Point(774, 370);
-            this.btnObjectSearch.Name = "btnObjectSearch";
-            this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
-            this.btnObjectSearch.TabIndex = 18;
-            this.btnObjectSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnObjectSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnObjectSearch.UseVisualStyleBackColor = true;
-            this.btnObjectSearch.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // tbObjSearch
-            // 
-            this.tbObjSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbObjSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbObjSearch.Location = new System.Drawing.Point(658, 372);
-            this.tbObjSearch.Name = "tbObjSearch";
-            this.tbObjSearch.Size = new System.Drawing.Size(101, 20);
-            this.tbObjSearch.TabIndex = 17;
-            this.tbObjSearch.Text = "Sökord";
-            this.tbObjSearch.Click += new System.EventHandler(this.tbObjSearchClick);
-            this.tbObjSearch.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
-            // 
-            // tbPricePerKvm
-            // 
-            this.tbPricePerKvm.Location = new System.Drawing.Point(627, 535);
-            this.tbPricePerKvm.Name = "tbPricePerKvm";
-            this.tbPricePerKvm.Size = new System.Drawing.Size(100, 20);
-            this.tbPricePerKvm.TabIndex = 14;
-            // 
-            // tbObjectArea
-            // 
-            this.tbObjectArea.Location = new System.Drawing.Point(627, 448);
-            this.tbObjectArea.Name = "tbObjectArea";
-            this.tbObjectArea.Size = new System.Drawing.Size(100, 20);
-            this.tbObjectArea.TabIndex = 13;
-            // 
-            // tbUnitType
-            // 
-            this.tbUnitType.Location = new System.Drawing.Point(627, 506);
-            this.tbUnitType.Name = "tbUnitType";
-            this.tbUnitType.Size = new System.Drawing.Size(100, 20);
-            this.tbUnitType.TabIndex = 12;
-            // 
-            // tbNrOfRooms
-            // 
-            this.tbNrOfRooms.Location = new System.Drawing.Point(627, 477);
-            this.tbNrOfRooms.Name = "tbNrOfRooms";
-            this.tbNrOfRooms.Size = new System.Drawing.Size(100, 20);
-            this.tbNrOfRooms.TabIndex = 11;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(9, 451);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(360, 169);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
-            // 
-            // dgvObject
-            // 
-            this.dgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObject.Location = new System.Drawing.Point(658, 15);
-            this.dgvObject.Name = "dgvObject";
-            this.dgvObject.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvObject.Size = new System.Drawing.Size(156, 341);
-            this.dgvObject.TabIndex = 16;
-            this.dgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObject_CellClick);
-            // 
-            // lblUniType
-            // 
-            this.lblUniType.AutoSize = true;
-            this.lblUniType.Location = new System.Drawing.Point(533, 509);
-            this.lblUniType.Name = "lblUniType";
-            this.lblUniType.Size = new System.Drawing.Size(73, 13);
-            this.lblUniType.TabIndex = 6;
-            this.lblUniType.Text = "Bostadstyp:";
-            // 
-            // lblArea
-            // 
-            this.lblArea.AutoSize = true;
-            this.lblArea.Location = new System.Drawing.Point(532, 451);
-            this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(51, 13);
-            this.lblArea.TabIndex = 5;
-            this.lblArea.Text = "Boarea:";
-            // 
-            // lblNumberOfRooms
-            // 
-            this.lblNumberOfRooms.AutoSize = true;
-            this.lblNumberOfRooms.Location = new System.Drawing.Point(533, 479);
-            this.lblNumberOfRooms.Name = "lblNumberOfRooms";
-            this.lblNumberOfRooms.Size = new System.Drawing.Size(64, 13);
-            this.lblNumberOfRooms.TabIndex = 4;
-            this.lblNumberOfRooms.Text = "Antal rum:";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(254, 378);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(49, 25);
-            this.lblPrice.TabIndex = 3;
-            this.lblPrice.Text = "Pris";
-            // 
-            // lblPricePerKvm
-            // 
-            this.lblPricePerKvm.AutoSize = true;
-            this.lblPricePerKvm.Location = new System.Drawing.Point(532, 540);
-            this.lblPricePerKvm.Name = "lblPricePerKvm";
-            this.lblPricePerKvm.Size = new System.Drawing.Size(81, 13);
-            this.lblPricePerKvm.TabIndex = 2;
-            this.lblPricePerKvm.Text = "Pris per kvm:";
-            // 
-            // lblObjAddress
-            // 
-            this.lblObjAddress.AutoSize = true;
-            this.lblObjAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjAddress.Location = new System.Drawing.Point(9, 372);
-            this.lblObjAddress.Name = "lblObjAddress";
-            this.lblObjAddress.Size = new System.Drawing.Size(105, 31);
-            this.lblObjAddress.TabIndex = 1;
-            this.lblObjAddress.Text = "Adress";
-            this.lblObjAddress.Click += new System.EventHandler(this.lblObjAddress_Click);
-            // 
-            // picBoxShowObj
-            // 
-            this.picBoxShowObj.ErrorImage = null;
-            this.picBoxShowObj.Image = ((System.Drawing.Image)(resources.GetObject("picBoxShowObj.Image")));
-            this.picBoxShowObj.Location = new System.Drawing.Point(12, 15);
-            this.picBoxShowObj.Name = "picBoxShowObj";
-            this.picBoxShowObj.Size = new System.Drawing.Size(610, 341);
-            this.picBoxShowObj.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxShowObj.TabIndex = 0;
-            this.picBoxShowObj.TabStop = false;
-            // 
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
@@ -946,14 +649,430 @@
             this.tabControl.Location = new System.Drawing.Point(-2, -1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1080, 663);
+            this.tabControl.Size = new System.Drawing.Size(1080, 739);
             this.tabControl.TabIndex = 0;
+            // 
+            // picBoxShowObj
+            // 
+            this.picBoxShowObj.ErrorImage = null;
+            this.picBoxShowObj.Image = ((System.Drawing.Image)(resources.GetObject("picBoxShowObj.Image")));
+            this.picBoxShowObj.Location = new System.Drawing.Point(12, 15);
+            this.picBoxShowObj.Name = "picBoxShowObj";
+            this.picBoxShowObj.Size = new System.Drawing.Size(610, 341);
+            this.picBoxShowObj.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxShowObj.TabIndex = 0;
+            this.picBoxShowObj.TabStop = false;
+            // 
+            // lblObjAddress
+            // 
+            this.lblObjAddress.AutoSize = true;
+            this.lblObjAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObjAddress.Location = new System.Drawing.Point(9, 372);
+            this.lblObjAddress.Name = "lblObjAddress";
+            this.lblObjAddress.Size = new System.Drawing.Size(105, 31);
+            this.lblObjAddress.TabIndex = 1;
+            this.lblObjAddress.Text = "Adress";
+            this.lblObjAddress.Click += new System.EventHandler(this.lblObjAddress_Click);
+            // 
+            // lblPricePerKvm
+            // 
+            this.lblPricePerKvm.AutoSize = true;
+            this.lblPricePerKvm.Location = new System.Drawing.Point(7, 105);
+            this.lblPricePerKvm.Name = "lblPricePerKvm";
+            this.lblPricePerKvm.Size = new System.Drawing.Size(81, 13);
+            this.lblPricePerKvm.TabIndex = 2;
+            this.lblPricePerKvm.Text = "Pris per kvm:";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(254, 378);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(49, 25);
+            this.lblPrice.TabIndex = 3;
+            this.lblPrice.Text = "Pris";
+            // 
+            // lblNumberOfRooms
+            // 
+            this.lblNumberOfRooms.AutoSize = true;
+            this.lblNumberOfRooms.Location = new System.Drawing.Point(7, 46);
+            this.lblNumberOfRooms.Name = "lblNumberOfRooms";
+            this.lblNumberOfRooms.Size = new System.Drawing.Size(64, 13);
+            this.lblNumberOfRooms.TabIndex = 4;
+            this.lblNumberOfRooms.Text = "Antal rum:";
+            // 
+            // lblArea
+            // 
+            this.lblArea.AutoSize = true;
+            this.lblArea.Location = new System.Drawing.Point(7, 21);
+            this.lblArea.Name = "lblArea";
+            this.lblArea.Size = new System.Drawing.Size(51, 13);
+            this.lblArea.TabIndex = 5;
+            this.lblArea.Text = "Boarea:";
+            // 
+            // lblUniType
+            // 
+            this.lblUniType.AutoSize = true;
+            this.lblUniType.Location = new System.Drawing.Point(7, 76);
+            this.lblUniType.Name = "lblUniType";
+            this.lblUniType.Size = new System.Drawing.Size(73, 13);
+            this.lblUniType.TabIndex = 6;
+            this.lblUniType.Text = "Bostadstyp:";
+            // 
+            // dgvObject
+            // 
+            this.dgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObject.Location = new System.Drawing.Point(658, 15);
+            this.dgvObject.Name = "dgvObject";
+            this.dgvObject.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvObject.Size = new System.Drawing.Size(156, 341);
+            this.dgvObject.TabIndex = 16;
+            this.dgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObject_CellClick);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(9, 451);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(360, 169);
+            this.richTextBox1.TabIndex = 10;
+            this.richTextBox1.Text = "";
+            // 
+            // tbNrOfRooms
+            // 
+            this.tbNrOfRooms.Location = new System.Drawing.Point(94, 44);
+            this.tbNrOfRooms.Name = "tbNrOfRooms";
+            this.tbNrOfRooms.Size = new System.Drawing.Size(100, 20);
+            this.tbNrOfRooms.TabIndex = 11;
+            // 
+            // tbUnitType
+            // 
+            this.tbUnitType.Location = new System.Drawing.Point(94, 71);
+            this.tbUnitType.Name = "tbUnitType";
+            this.tbUnitType.Size = new System.Drawing.Size(100, 20);
+            this.tbUnitType.TabIndex = 12;
+            // 
+            // tbObjectArea
+            // 
+            this.tbObjectArea.Location = new System.Drawing.Point(94, 18);
+            this.tbObjectArea.Name = "tbObjectArea";
+            this.tbObjectArea.Size = new System.Drawing.Size(100, 20);
+            this.tbObjectArea.TabIndex = 13;
+            // 
+            // tbPricePerKvm
+            // 
+            this.tbPricePerKvm.Location = new System.Drawing.Point(94, 98);
+            this.tbPricePerKvm.Name = "tbPricePerKvm";
+            this.tbPricePerKvm.Size = new System.Drawing.Size(100, 20);
+            this.tbPricePerKvm.TabIndex = 14;
+            // 
+            // tbObjSearch
+            // 
+            this.tbObjSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbObjSearch.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbObjSearch.Location = new System.Drawing.Point(658, 372);
+            this.tbObjSearch.Name = "tbObjSearch";
+            this.tbObjSearch.Size = new System.Drawing.Size(101, 20);
+            this.tbObjSearch.TabIndex = 17;
+            this.tbObjSearch.Text = "Sökord";
+            this.tbObjSearch.Click += new System.EventHandler(this.tbObjSearchClick);
+            this.tbObjSearch.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
+            // 
+            // btnObjectSearch
+            // 
+            this.btnObjectSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectSearch.Image")));
+            this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnObjectSearch.Location = new System.Drawing.Point(774, 370);
+            this.btnObjectSearch.Name = "btnObjectSearch";
+            this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
+            this.btnObjectSearch.TabIndex = 18;
+            this.btnObjectSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnObjectSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnObjectSearch.UseVisualStyleBackColor = true;
+            this.btnObjectSearch.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lblObjCity
+            // 
+            this.lblObjCity.AutoSize = true;
+            this.lblObjCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObjCity.Location = new System.Drawing.Point(11, 418);
+            this.lblObjCity.Name = "lblObjCity";
+            this.lblObjCity.Size = new System.Drawing.Size(47, 20);
+            this.lblObjCity.TabIndex = 21;
+            this.lblObjCity.Text = "Stad";
+            // 
+            // lblObjBrokerSsnr
+            // 
+            this.lblObjBrokerSsnr.AutoSize = true;
+            this.lblObjBrokerSsnr.Location = new System.Drawing.Point(11, 208);
+            this.lblObjBrokerSsnr.Name = "lblObjBrokerSsnr";
+            this.lblObjBrokerSsnr.Size = new System.Drawing.Size(60, 13);
+            this.lblObjBrokerSsnr.TabIndex = 23;
+            this.lblObjBrokerSsnr.Text = "Mäklarnr:";
+            // 
+            // lblObjNr
+            // 
+            this.lblObjNr.AutoSize = true;
+            this.lblObjNr.Location = new System.Drawing.Point(11, 233);
+            this.lblObjNr.Name = "lblObjNr";
+            this.lblObjNr.Size = new System.Drawing.Size(65, 13);
+            this.lblObjNr.TabIndex = 24;
+            this.lblObjNr.Text = "Objektsnr:";
+            // 
+            // lblObjPrice
+            // 
+            this.lblObjPrice.AutoSize = true;
+            this.lblObjPrice.Location = new System.Drawing.Point(11, 182);
+            this.lblObjPrice.Name = "lblObjPrice";
+            this.lblObjPrice.Size = new System.Drawing.Size(32, 13);
+            this.lblObjPrice.TabIndex = 25;
+            this.lblObjPrice.Text = "Pris:";
+            // 
+            // lblObjAddressforTB
+            // 
+            this.lblObjAddressforTB.AutoSize = true;
+            this.lblObjAddressforTB.Location = new System.Drawing.Point(9, 131);
+            this.lblObjAddressforTB.Name = "lblObjAddressforTB";
+            this.lblObjAddressforTB.Size = new System.Drawing.Size(49, 13);
+            this.lblObjAddressforTB.TabIndex = 26;
+            this.lblObjAddressforTB.Text = "Adress:";
+            // 
+            // lblObjCityforTB
+            // 
+            this.lblObjCityforTB.AutoSize = true;
+            this.lblObjCityforTB.Location = new System.Drawing.Point(9, 154);
+            this.lblObjCityforTB.Name = "lblObjCityforTB";
+            this.lblObjCityforTB.Size = new System.Drawing.Size(41, 13);
+            this.lblObjCityforTB.TabIndex = 27;
+            this.lblObjCityforTB.Text = "Stad :";
+            // 
+            // tbObjBrokerSsnr
+            // 
+            this.tbObjBrokerSsnr.Location = new System.Drawing.Point(94, 201);
+            this.tbObjBrokerSsnr.Name = "tbObjBrokerSsnr";
+            this.tbObjBrokerSsnr.Size = new System.Drawing.Size(100, 20);
+            this.tbObjBrokerSsnr.TabIndex = 28;
+            // 
+            // tbObjNr
+            // 
+            this.tbObjNr.Location = new System.Drawing.Point(94, 227);
+            this.tbObjNr.Name = "tbObjNr";
+            this.tbObjNr.Size = new System.Drawing.Size(100, 20);
+            this.tbObjNr.TabIndex = 29;
+            // 
+            // tbObjAddress
+            // 
+            this.tbObjAddress.Location = new System.Drawing.Point(94, 124);
+            this.tbObjAddress.Name = "tbObjAddress";
+            this.tbObjAddress.Size = new System.Drawing.Size(100, 20);
+            this.tbObjAddress.TabIndex = 30;
+            // 
+            // tbObjCity
+            // 
+            this.tbObjCity.Location = new System.Drawing.Point(94, 150);
+            this.tbObjCity.Name = "tbObjCity";
+            this.tbObjCity.Size = new System.Drawing.Size(100, 20);
+            this.tbObjCity.TabIndex = 31;
+            // 
+            // tbObjPrice
+            // 
+            this.tbObjPrice.Location = new System.Drawing.Point(94, 175);
+            this.tbObjPrice.Name = "tbObjPrice";
+            this.tbObjPrice.Size = new System.Drawing.Size(100, 20);
+            this.tbObjPrice.TabIndex = 32;
+            // 
+            // btnShowMap
+            // 
+            this.btnShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnShowMap.Image")));
+            this.btnShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnShowMap.Location = new System.Drawing.Point(518, 370);
+            this.btnShowMap.Name = "btnShowMap";
+            this.btnShowMap.Size = new System.Drawing.Size(65, 23);
+            this.btnShowMap.TabIndex = 36;
+            this.btnShowMap.Text = " Karta";
+            this.btnShowMap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnShowMap.UseVisualStyleBackColor = true;
+            this.btnShowMap.Click += new System.EventHandler(this.btnShowMap_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.cbObjUpdate);
+            this.tabPage2.Controls.Add(this.cbObjDelete);
+            this.tabPage2.Controls.Add(this.cbObjRegister);
+            this.tabPage2.Controls.Add(this.btnObjSubmit);
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.btnShowMap);
+            this.tabPage2.Controls.Add(this.lblObjCity);
+            this.tabPage2.Controls.Add(this.btnObjectSearch);
+            this.tabPage2.Controls.Add(this.tbObjSearch);
+            this.tabPage2.Controls.Add(this.richTextBox1);
+            this.tabPage2.Controls.Add(this.dgvObject);
+            this.tabPage2.Controls.Add(this.lblPrice);
+            this.tabPage2.Controls.Add(this.lblObjAddress);
+            this.tabPage2.Controls.Add(this.picBoxShowObj);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1072, 713);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Objekt";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbObjOwnerEmail);
+            this.groupBox2.Controls.Add(this.lblObjOwnerEmail);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.tbObjOwnerPhoneNr);
+            this.groupBox2.Controls.Add(this.tbObjOwnerSsnr);
+            this.groupBox2.Controls.Add(this.lblObjOwnerName);
+            this.groupBox2.Controls.Add(this.lblObjOwnerPhonenr);
+            this.groupBox2.Controls.Add(this.lblObjOwnerSsnr);
+            this.groupBox2.Location = new System.Drawing.Point(620, 447);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(218, 144);
+            this.groupBox2.TabIndex = 37;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Objektsägare";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tbObjPrice);
+            this.groupBox3.Controls.Add(this.tbObjCity);
+            this.groupBox3.Controls.Add(this.tbObjAddress);
+            this.groupBox3.Controls.Add(this.tbObjNr);
+            this.groupBox3.Controls.Add(this.tbObjBrokerSsnr);
+            this.groupBox3.Controls.Add(this.lblObjCityforTB);
+            this.groupBox3.Controls.Add(this.lblObjAddressforTB);
+            this.groupBox3.Controls.Add(this.lblObjPrice);
+            this.groupBox3.Controls.Add(this.lblObjNr);
+            this.groupBox3.Controls.Add(this.lblObjBrokerSsnr);
+            this.groupBox3.Controls.Add(this.tbPricePerKvm);
+            this.groupBox3.Controls.Add(this.tbObjectArea);
+            this.groupBox3.Controls.Add(this.tbUnitType);
+            this.groupBox3.Controls.Add(this.tbNrOfRooms);
+            this.groupBox3.Controls.Add(this.lblUniType);
+            this.groupBox3.Controls.Add(this.lblArea);
+            this.groupBox3.Controls.Add(this.lblNumberOfRooms);
+            this.groupBox3.Controls.Add(this.lblPricePerKvm);
+            this.groupBox3.Location = new System.Drawing.Point(386, 447);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(216, 254);
+            this.groupBox3.TabIndex = 38;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Information";
+            // 
+            // lblObjOwnerSsnr
+            // 
+            this.lblObjOwnerSsnr.AccessibleName = "";
+            this.lblObjOwnerSsnr.AutoSize = true;
+            this.lblObjOwnerSsnr.Location = new System.Drawing.Point(6, 28);
+            this.lblObjOwnerSsnr.Name = "lblObjOwnerSsnr";
+            this.lblObjOwnerSsnr.Size = new System.Drawing.Size(93, 13);
+            this.lblObjOwnerSsnr.TabIndex = 0;
+            this.lblObjOwnerSsnr.Text = "Personnummer:";
+            // 
+            // lblObjOwnerPhonenr
+            // 
+            this.lblObjOwnerPhonenr.AutoSize = true;
+            this.lblObjOwnerPhonenr.Location = new System.Drawing.Point(6, 84);
+            this.lblObjOwnerPhonenr.Name = "lblObjOwnerPhonenr";
+            this.lblObjOwnerPhonenr.Size = new System.Drawing.Size(97, 13);
+            this.lblObjOwnerPhonenr.TabIndex = 1;
+            this.lblObjOwnerPhonenr.Text = "Telefonnummer:";
+            // 
+            // lblObjOwnerName
+            // 
+            this.lblObjOwnerName.AutoSize = true;
+            this.lblObjOwnerName.Location = new System.Drawing.Point(6, 58);
+            this.lblObjOwnerName.Name = "lblObjOwnerName";
+            this.lblObjOwnerName.Size = new System.Drawing.Size(47, 13);
+            this.lblObjOwnerName.TabIndex = 2;
+            this.lblObjOwnerName.Text = "Namn :";
+            // 
+            // tbObjOwnerSsnr
+            // 
+            this.tbObjOwnerSsnr.Location = new System.Drawing.Point(105, 25);
+            this.tbObjOwnerSsnr.Name = "tbObjOwnerSsnr";
+            this.tbObjOwnerSsnr.Size = new System.Drawing.Size(100, 20);
+            this.tbObjOwnerSsnr.TabIndex = 3;
+            // 
+            // tbObjOwnerPhoneNr
+            // 
+            this.tbObjOwnerPhoneNr.Location = new System.Drawing.Point(105, 77);
+            this.tbObjOwnerPhoneNr.Name = "tbObjOwnerPhoneNr";
+            this.tbObjOwnerPhoneNr.Size = new System.Drawing.Size(100, 20);
+            this.tbObjOwnerPhoneNr.TabIndex = 4;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(105, 51);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 5;
+            // 
+            // cbObjUpdate
+            // 
+            this.cbObjUpdate.AccessibleName = "cbObjUpdate";
+            this.cbObjUpdate.AutoSize = true;
+            this.cbObjUpdate.Location = new System.Drawing.Point(620, 648);
+            this.cbObjUpdate.Name = "cbObjUpdate";
+            this.cbObjUpdate.Size = new System.Drawing.Size(85, 17);
+            this.cbObjUpdate.TabIndex = 6;
+            this.cbObjUpdate.Text = "Uppdatera";
+            this.cbObjUpdate.UseVisualStyleBackColor = true;
+            // 
+            // cbObjDelete
+            // 
+            this.cbObjDelete.AutoSize = true;
+            this.cbObjDelete.Location = new System.Drawing.Point(620, 626);
+            this.cbObjDelete.Name = "cbObjDelete";
+            this.cbObjDelete.Size = new System.Drawing.Size(67, 17);
+            this.cbObjDelete.TabIndex = 7;
+            this.cbObjDelete.Text = "Ta bort";
+            this.cbObjDelete.UseVisualStyleBackColor = true;
+            // 
+            // cbObjRegister
+            // 
+            this.cbObjRegister.AutoSize = true;
+            this.cbObjRegister.Location = new System.Drawing.Point(620, 603);
+            this.cbObjRegister.Name = "cbObjRegister";
+            this.cbObjRegister.Size = new System.Drawing.Size(84, 17);
+            this.cbObjRegister.TabIndex = 8;
+            this.cbObjRegister.Text = "Registrera";
+            this.cbObjRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnObjSubmit
+            // 
+            this.btnObjSubmit.Location = new System.Drawing.Point(620, 674);
+            this.btnObjSubmit.Name = "btnObjSubmit";
+            this.btnObjSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnObjSubmit.TabIndex = 9;
+            this.btnObjSubmit.Text = "Utför";
+            this.btnObjSubmit.UseVisualStyleBackColor = true;
+            // 
+            // lblObjOwnerEmail
+            // 
+            this.lblObjOwnerEmail.AutoSize = true;
+            this.lblObjOwnerEmail.Location = new System.Drawing.Point(6, 109);
+            this.lblObjOwnerEmail.Name = "lblObjOwnerEmail";
+            this.lblObjOwnerEmail.Size = new System.Drawing.Size(41, 13);
+            this.lblObjOwnerEmail.TabIndex = 6;
+            this.lblObjOwnerEmail.Text = "Email:";
+            // 
+            // tbObjOwnerEmail
+            // 
+            this.tbObjOwnerEmail.Location = new System.Drawing.Point(105, 106);
+            this.tbObjOwnerEmail.Name = "tbObjOwnerEmail";
+            this.tbObjOwnerEmail.Size = new System.Drawing.Size(100, 20);
+            this.tbObjOwnerEmail.TabIndex = 7;
             // 
             // EmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 664);
+            this.ClientSize = new System.Drawing.Size(1078, 734);
             this.Controls.Add(this.tabControl);
             this.Name = "EmployeeFrame";
             this.Text = "EmployeeFrame";
@@ -969,16 +1088,20 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyer)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageStartLogotype)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1005,26 +1128,6 @@
         private System.Windows.Forms.Label labelBuyerTel;
         private System.Windows.Forms.Label labelBuyerName;
         private System.Windows.Forms.Label labelBuyerSsn;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnUpdateSelectedObj;
-        private System.Windows.Forms.Label lblObjCity;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button btnObjectSearch;
-        private System.Windows.Forms.TextBox tbObjSearch;
-        private System.Windows.Forms.TextBox tbPricePerKvm;
-        private System.Windows.Forms.TextBox tbObjectArea;
-        private System.Windows.Forms.TextBox tbUnitType;
-        private System.Windows.Forms.TextBox tbNrOfRooms;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.DataGridView dgvObject;
-        private System.Windows.Forms.Label lblUniType;
-        private System.Windows.Forms.Label lblArea;
-        private System.Windows.Forms.Label lblNumberOfRooms;
-        private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label lblPricePerKvm;
-        private System.Windows.Forms.Label lblObjAddress;
-        private System.Windows.Forms.PictureBox picBoxShowObj;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.PictureBox imageStartLogotype;
         private System.Windows.Forms.Label labelMyShowings;
@@ -1036,22 +1139,11 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Label lblSelectedBuyerShowing;
         private System.Windows.Forms.Label lblSelectedObjectShowing;
-        private System.Windows.Forms.Label lblObjCityforTB;
-        private System.Windows.Forms.Label lblObjAddressforTB;
-        private System.Windows.Forms.Label lblObjPrice;
-        private System.Windows.Forms.Label lblObjNr;
-        private System.Windows.Forms.Label lblObjBrokerSsnr;
-        private System.Windows.Forms.TextBox tbObjPrice;
-        private System.Windows.Forms.TextBox tbObjCity;
-        private System.Windows.Forms.TextBox tbObjAddress;
-        private System.Windows.Forms.TextBox tbObjNr;
-        private System.Windows.Forms.TextBox tbObjBrokerSsnr;
         private System.Windows.Forms.TextBox tbSearchProBuyer;
         private System.Windows.Forms.Button btnSearchProBuyer;
         private System.Windows.Forms.DataGridView dgvProspectiveBuyer;
         private System.Windows.Forms.Button btnDeleteProspectiveBuyer;
         private System.Windows.Forms.Button btnUpdateProspectiveBuyer;
-        private System.Windows.Forms.Button btnShowMap;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvShowingCurrentShowings;
         private System.Windows.Forms.Button btnShowingDelete;
@@ -1062,9 +1154,48 @@
         private System.Windows.Forms.RadioButton rbShowingDeleteBuyer;
         private System.Windows.Forms.RadioButton rbShowingDeleteShowing;
         private System.Windows.Forms.Label lblShowingSelectedBuyerDelete;
-        private System.Windows.Forms.CheckBox cbObjRegistrera;
-        private System.Windows.Forms.CheckBox cbObjDelete;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox tbObjPrice;
+        private System.Windows.Forms.TextBox tbObjCity;
+        private System.Windows.Forms.TextBox tbObjAddress;
+        private System.Windows.Forms.TextBox tbObjNr;
+        private System.Windows.Forms.TextBox tbObjBrokerSsnr;
+        private System.Windows.Forms.Label lblObjCityforTB;
+        private System.Windows.Forms.Label lblObjAddressforTB;
+        private System.Windows.Forms.Label lblObjPrice;
+        private System.Windows.Forms.Label lblObjNr;
+        private System.Windows.Forms.Label lblObjBrokerSsnr;
+        private System.Windows.Forms.TextBox tbPricePerKvm;
+        private System.Windows.Forms.TextBox tbObjectArea;
+        private System.Windows.Forms.TextBox tbUnitType;
+        private System.Windows.Forms.TextBox tbNrOfRooms;
+        private System.Windows.Forms.Label lblUniType;
+        private System.Windows.Forms.Label lblArea;
+        private System.Windows.Forms.Label lblNumberOfRooms;
+        private System.Windows.Forms.Label lblPricePerKvm;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnShowMap;
+        private System.Windows.Forms.Label lblObjCity;
+        private System.Windows.Forms.Button btnObjectSearch;
+        private System.Windows.Forms.TextBox tbObjSearch;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.DataGridView dgvObject;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblObjAddress;
+        private System.Windows.Forms.PictureBox picBoxShowObj;
         private System.Windows.Forms.CheckBox cbObjUpdate;
+        private System.Windows.Forms.CheckBox cbObjDelete;
+        private System.Windows.Forms.CheckBox cbObjRegister;
+        private System.Windows.Forms.Button btnObjSubmit;
+        private System.Windows.Forms.TextBox tbObjOwnerEmail;
+        private System.Windows.Forms.Label lblObjOwnerEmail;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbObjOwnerPhoneNr;
+        private System.Windows.Forms.TextBox tbObjOwnerSsnr;
+        private System.Windows.Forms.Label lblObjOwnerName;
+        private System.Windows.Forms.Label lblObjOwnerPhonenr;
+        private System.Windows.Forms.Label lblObjOwnerSsnr;
 
     }
 }
