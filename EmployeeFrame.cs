@@ -509,11 +509,5 @@ namespace praktikfall
 
 
        }
-
-       private void cbObjUpdate_Click( object sender, EventArgs e)
-       {
-
-
-    }
 }
 

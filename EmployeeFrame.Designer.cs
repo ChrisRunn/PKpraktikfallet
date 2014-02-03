@@ -66,9 +66,9 @@
             this.cbObjDelete = new System.Windows.Forms.CheckBox();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
             this.btnShowMap = new System.Windows.Forms.Button();
-            this.rbRegisterNewObj = new System.Windows.Forms.RadioButton();
-            this.rbObjDelete = new System.Windows.Forms.RadioButton();
-            this.rbObjUpdate = new System.Windows.Forms.RadioButton();
+
+
+
             this.cbObjRegistrera = new System.Windows.Forms.CheckBox();
             this.cbObjDelete = new System.Windows.Forms.CheckBox();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
@@ -539,7 +539,6 @@
             this.cbObjUpdate.TabIndex = 37;
             this.cbObjUpdate.Text = "Uppdatera";
             this.cbObjUpdate.UseVisualStyleBackColor = true;
-            this.cbObjUpdate.Click += new System.EventHandler(this.cbObjUpdate_Click);
             // 
             // btnShowMap
             // 
