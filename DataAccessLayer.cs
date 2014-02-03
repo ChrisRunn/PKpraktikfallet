@@ -226,5 +226,34 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
+        //Uppdatera visningsdatum för VISNING
+        public int UpdateShowing(string objNr, string buyerSsnr, string showingDate)
+        {
+            string sqlStr = "update Showing set showingDate = '" + showingDate + "' where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr +"'";
+            int nrOfRows = ExecuteUpdate(sqlStr);
+            return nrOfRows;
+        }
+        //Visa alla VISNINGAR
+        public DataTable GetShowings()
+        {
+            string sqlStr = "select * from Showing";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+        //Ta bort spekulant från VISNING
+        public int DeleteBuyerFromShowing(string buyerSsnr, string objNr)
+        {
+            string sqlStr = "delete from Showing where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
+            int nrOfRows = ExecuteUpdate(sqlStr);
+            return nrOfRows;
+        }
+        //Ta bort VISNING 
+        public int DeleteShowing(string objNr)
+        {
+            string sqlStr = "delete from Showing where objNr = '" + objNr + "'";
+            int nrOfRows = ExecuteUpdate(sqlStr);
+            return nrOfRows; 
+        }
+        
     }
 }

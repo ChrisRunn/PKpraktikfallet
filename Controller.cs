@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 
 namespace praktikfall
 {
@@ -35,8 +36,7 @@ namespace praktikfall
         public DataTable SearchObjectByString(string searchString)
         {
             DataTable dt = dal.SearchObjectByString(searchString);
-            return dt;
-             
+            return dt;            
         }
 
         //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
@@ -44,7 +44,6 @@ namespace praktikfall
         {
             DataTable dt = dal.SearchProBuyerByString(searchString);
             return dt;
-
         }
         //Söka OBJEKT
         public DataTable GetObject(string objNr)
@@ -142,10 +141,34 @@ namespace praktikfall
             int nrOfRows = dal.RegisterObjectOwner(objNr, ownerSsnr);
             return nrOfRows;
         }
-        //registrera VISNING
+        //Registrera VISNING
         public int RegisterShowing (string objNr, string buyerSsnr, string showingDate)
         {
             int nrOfRows = dal.RegisterShowing(objNr, buyerSsnr, showingDate);
+            return nrOfRows;
+        }
+        //Uppdatera visningsdatum för VISNING
+        public int UpdateShowing(string objNr, string buyerSsnr, string showingDate)
+        {
+            int nrOfRows = dal.UpdateShowing(objNr, buyerSsnr, showingDate);
+            return nrOfRows;
+        }
+        //Hämta alla VISNINGAR
+        public DataTable GetShowings()
+        {
+            DataTable dt = dal.GetShowings();
+            return dt;
+        }
+        //Ta bort spekulant från VISNING
+        public int DeleteBuyerFromShowing(string buyerSsnr, string objNr)
+        {
+            int nrOfRows = dal.DeleteBuyerFromShowing(buyerSsnr, objNr);
+            return nrOfRows;
+        }
+        //Ta bort VISNING
+        public int DeleteShowing(string objNr)
+        {
+            int nrOfRows = dal.DeleteShowing(objNr);
             return nrOfRows;
         }
     }
