@@ -262,7 +262,7 @@ namespace praktikfall
                 tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
 
             }
-            else if(e.RowIndex >=0)
+            else if (e.RowIndex >= 0 && !cbObjUpdate.Checked)
             {
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
 
@@ -434,15 +434,18 @@ namespace praktikfall
 
         }
 
-        public string TheValue
+        /*public string TheValue
         {
            // lblObjAddress.Text = mapFrame.TextBox1.Text;
 
         
-        }
+        }*/
 
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
+
+
+
 
         }
         public string TheValue1
