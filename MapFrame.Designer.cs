@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.webBrowserMap = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
+            // 
+            // webBrowserMap
+            // 
+            this.webBrowserMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserMap.Location = new System.Drawing.Point(0, 0);
+            this.webBrowserMap.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowserMap.Name = "webBrowserMap";
+            this.webBrowserMap.Size = new System.Drawing.Size(807, 498);
+            this.webBrowserMap.TabIndex = 0;
             // 
             // MapFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 341);
+            this.ClientSize = new System.Drawing.Size(807, 498);
+            this.Controls.Add(this.webBrowserMap);
             this.Name = "MapFrame";
-            this.Text = "MapFrame";
+            this.Text = "Karta";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.WebBrowser webBrowserMap;
+
     }
 }
