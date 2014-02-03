@@ -13,18 +13,16 @@ namespace praktikfall
     public partial class MapFrame : Form
     {
 
-        public MapFrame()
+        public MapFrame(string objAdress, string objCity)
         {
 
             InitializeComponent();
+            string adress = objAdress;
+            string city = objCity;
 
-
-            EmployeeFrame tmp = new EmployeeFrame();
-            string adress = tmp.TheObjAdress;
-            string city = tmp.TheObjCity;
             StringBuilder queryAdress = new StringBuilder();
             queryAdress.Append("http://maps.google.com/maps?q=");
-            queryAdress.Append(adress + "," + city);
+            queryAdress.Append(adress + ", " + city);
             MessageBox.Show(queryAdress.ToString());
             webBrowserMap.Navigate(queryAdress.ToString());
             webBrowserMap.ScriptErrorsSuppressed = true;
@@ -33,6 +31,7 @@ namespace praktikfall
         }
     }
 }
+
                 
 
    
