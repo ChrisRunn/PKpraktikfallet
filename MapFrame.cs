@@ -20,7 +20,8 @@ namespace praktikfall
             InitializeComponent();
             
            
-            
+}
+            /*
             //string adress = 
            //string city = getObjCity();
             StringBuilder queryAddress = new StringBuilder();
@@ -29,5 +30,6 @@ namespace praktikfall
             webBrowserMap.Navigate(queryAddress.ToString());
             webBrowserMap.ScriptErrorsSuppressed = true;
         }
+             */
     }
 }

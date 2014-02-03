@@ -31,10 +31,10 @@ namespace praktikfall
             lblObjBrokerSsnr.Visible = false;
             tbObjBrokerSsnr.Width = 0;
             tbObjBrokerSsnr.Height = 0;
-            
+
             lblObjNr.Visible = false;
             tbObjNr.Visible = false;
-            
+
             lblObjAddressforTB.Visible = false;
             tbObjAddress.Visible = false;
 
@@ -135,10 +135,10 @@ namespace praktikfall
                     tbObjSearch.Text = "";
                     tbObjSearch.ForeColor = Color.LightSlateGray;
                     tbObjSearch.Text = "Sökord";
-                    MessageBox.Show("Du har ej angivit ett sökord"); 
+                    MessageBox.Show("Du har ej angivit ett sökord");
                 }
 
-                else 
+                else
                 {
                     string searchString = tbObjSearch.Text;
                     DataTable dt = controller.SearchObjectByString(searchString);
@@ -149,7 +149,7 @@ namespace praktikfall
             {
                 MessageBox.Show("Problem i sökfunktion\n" + ex);
             }
-            
+
         }
 
         private void btnAddProspectiveBuyer_Click(object sender, EventArgs e)
@@ -194,7 +194,7 @@ namespace praktikfall
 
                 MessageBox.Show("Det går inte att registrera en spekulant/n" + ex);
             }
-           
+
 
         }
 
@@ -210,13 +210,13 @@ namespace praktikfall
 
         private void dgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            
+
+
 
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
-                
+
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
                 lblObjCity.Text = row.Cells["objCity"].Value.ToString();
                 lblPrice.Text = row.Cells["objPrice"].Value.ToString() + " kr";
@@ -227,13 +227,13 @@ namespace praktikfall
 
                 string price = row.Cells["objPrice"].Value.ToString();
                 string area = row.Cells["objArea"].Value.ToString();
-                int priceperkvm = int.Parse(price)/int.Parse(area);
+                int priceperkvm = int.Parse(price) / int.Parse(area);
                 tbPricePerKvm.Text = priceperkvm.ToString();
 
                 tbObjBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
-                
 
-               
+
+
 
             }
         }
@@ -259,9 +259,9 @@ namespace praktikfall
             lblSelectedObjectShowing.Visible = false;
         }
 
-        
 
-      
+
+
         private void tbObjSearchClick(object sender, EventArgs e)
         {
             tbObjSearch.Text = "";
@@ -273,8 +273,8 @@ namespace praktikfall
             //string adress = tbObjAdress.Text;
             StringBuilder queryAddress = new StringBuilder();
             queryAddress.Append("https://maps.google.se/");
-           // queryAddress.Append(adress + "," + "+");
-           // webBrowser1.Navigate(queryAddress.ToString());
+            // queryAddress.Append(adress + "," + "+");
+            // webBrowser1.Navigate(queryAddress.ToString());
 
         }
 
@@ -379,7 +379,7 @@ namespace praktikfall
 
         private void dgvProBuyer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvProspectiveBuyer.Rows[e.RowIndex];
 
@@ -387,9 +387,9 @@ if (e.RowIndex >= 0)
                 tbBuyerName.Text = row.Cells["name"].Value.ToString();
                 tbBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
                 tbProspectiveBuyerEmail.Text = row.Cells["email"].Value.ToString();
-                
 
-              
+
+
 
             }
         }
@@ -401,12 +401,18 @@ if (e.RowIndex >= 0)
 
         }
 
-        
+        private MapFrame mapFrame;
+        private void GetOtherFormTextBox()
+        {
+           // lblObjAddress.Text = mapFrame.TextBox1.Text;
+
+
         }
-       
+
 
 
 
 
     }
+}
 
