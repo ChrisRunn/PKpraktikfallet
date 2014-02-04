@@ -187,5 +187,11 @@ namespace praktikfall
             int nrOfRows = dal.DeleteShowing(objNr);
             return nrOfRows;
         }
+        //Kontrollera om VISNING finns
+        public bool ShowingExists(string objNr, string buyerSsnr)
+        {
+            bool showingExists = dal.ShowingExists(objNr, buyerSsnr);
+            return showingExists;
+        }
     }
 }

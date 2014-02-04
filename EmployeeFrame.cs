@@ -265,10 +265,28 @@ namespace praktikfall
             string objNr = lblSelectedObjectShowing.Text;
             string showingDate = dtpVisningsdatumVisning.Text;
             string buyerSsnr = lblSelectedBuyerShowing.Text;
-            int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
-            MessageBox.Show("Visning registrerad!");
-            DataTable dt = controller.GetShowings();  //Uppdatera listan
-            dgvShowingCurrentShowings.DataSource = dt;            
+            bool showingExists = controller.ShowingExists(objNr, buyerSsnr);
+
+            if (showingExists)
+            {
+                MessageBox.Show("Visningen finns redan. Vänligen kontrollera dina val. Använd Uppdatera datum-knappen för att uppdatera visningsdatum.");
+            }
+
+            if (lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)"))
+            {
+                MessageBox.Show("Var vänlig välj spekulant i listan");
+            }
+            if (lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)"))
+            {
+                MessageBox.Show("Var vänlig välj objekt i listan");
+            }
+            if(!showingExists && !(lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)")) && !(lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)")))
+            {              
+                int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
+                MessageBox.Show("Visning registrerad!");
+                DataTable dt = controller.GetShowings();  //Uppdatera listan
+                dgvShowingCurrentShowings.DataSource = dt;
+            }        
         }
 
 
@@ -403,13 +421,29 @@ namespace praktikfall
 
         private void btnShowingUpdate_Click(object sender, EventArgs e)
         {
+
             string objNr = lblSelectedObjectShowing.Text;
             string showingDate = dtpVisningsdatumVisning.Text;
             string buyerSsnr = lblSelectedBuyerShowing.Text;
-            int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
-            MessageBox.Show("Visning uppdaterad!");
-            DataTable dt = controller.GetShowings();  //Uppdatera listan
-            dgvShowingCurrentShowings.DataSource = dt;
+
+            if (lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)"))
+            {
+                MessageBox.Show("Var vänlig välj spekulant i listan");
+            }
+
+            if (lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)"))
+            {
+                MessageBox.Show("Var vänlig välj Objekt i listan");
+            }
+
+            else
+            {
+                int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
+                MessageBox.Show("Visning uppdaterad. Nytt visningsdatum "+showingDate);
+                DataTable dt = controller.GetShowings();  //Uppdatera listan
+                dgvShowingCurrentShowings.DataSource = dt;
+            }
+            
         }
            
         private void dgvShowingCurrentShowings_CellClicked(object sender, DataGridViewCellEventArgs e)
