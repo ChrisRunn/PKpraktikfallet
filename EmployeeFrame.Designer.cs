@@ -373,10 +373,12 @@
             this.dgvShowingCurrentShowings.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvShowingCurrentShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowingCurrentShowings.Location = new System.Drawing.Point(6, 41);
+            this.dgvShowingCurrentShowings.MultiSelect = false;
             this.dgvShowingCurrentShowings.Name = "dgvShowingCurrentShowings";
             this.dgvShowingCurrentShowings.Size = new System.Drawing.Size(400, 250);
             this.dgvShowingCurrentShowings.TabIndex = 12;
             this.dgvShowingCurrentShowings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowingCurrentShowings_CellClicked);
+            this.dgvShowingCurrentShowings.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingCurrentShowings_DBC);
             // 
             // groupBoxVisning
             // 
@@ -462,10 +464,12 @@
             this.dgvObjectShowing.AllowUserToDeleteRows = false;
             this.dgvObjectShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObjectShowing.Location = new System.Drawing.Point(6, 32);
+            this.dgvObjectShowing.MultiSelect = false;
             this.dgvObjectShowing.Name = "dgvObjectShowing";
             this.dgvObjectShowing.Size = new System.Drawing.Size(400, 250);
             this.dgvObjectShowing.TabIndex = 8;
             this.dgvObjectShowing.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectShowing_CellClicked);
+            this.dgvObjectShowing.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingObject_DBC);
             // 
             // dgvProspectiveBuyerShowing
             // 
@@ -474,10 +478,12 @@
             this.dgvProspectiveBuyerShowing.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProspectiveBuyerShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProspectiveBuyerShowing.Location = new System.Drawing.Point(412, 32);
+            this.dgvProspectiveBuyerShowing.MultiSelect = false;
             this.dgvProspectiveBuyerShowing.Name = "dgvProspectiveBuyerShowing";
             this.dgvProspectiveBuyerShowing.Size = new System.Drawing.Size(400, 250);
             this.dgvProspectiveBuyerShowing.TabIndex = 9;
             this.dgvProspectiveBuyerShowing.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyerShowing_CellClicked);
+            this.dgvProspectiveBuyerShowing.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingProspecitveBuyer_DBC);
             // 
             // dtpVisningsdatumVisning
             // 

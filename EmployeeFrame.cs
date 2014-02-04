@@ -29,11 +29,11 @@ namespace praktikfall
 
         Controller controller = new Controller();
 
-        public void Populate()                                                            //Uppdatera ALLA DGVS
+        public void Populate()                                                            //Uppdatera ALLA DGVS (utom Christians)
         {
             DataTable dtAllObjects = controller.GetAllObjectsNr(); 
-            dgvObject.DataSource = dtAllObjects;                                          //Objektfliken, alla objekt i databasen
-            dgvObjectShowing.DataSource = dtAllObjects;                                   //Visningsfliken, alla objekt i databasen
+            dgvObject.DataSource = dtAllObjects;                                          //Objektfliken, alla objekt i databasen          
+            dgvObjectShowing.DataSource = dtAllObjects;                                   //Visningsfliken, alla objekt i databasen            
             DataTable dtAllProspectiveBuyers = controller.GetAllProspectiveBuyers();           
             dgvProspectiveBuyerShowing.DataSource = dtAllProspectiveBuyers;               //Visningsfliken, alla spekulanter i databasen 
             DataTable dtAllShowings = controller.GetShowings();
@@ -638,6 +638,21 @@ namespace praktikfall
         {
             tbSearchProBuyer.Text = "";
             tbSearchProBuyer.ForeColor = Color.Black;
+        }
+
+        private void dgvShowingObject_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        {
+            dgvObjectShowing.ClearSelection();
+        }
+
+        private void dgvShowingProspecitveBuyer_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        {
+            dgvProspectiveBuyerShowing.ClearSelection();
+        }
+
+        private void dgvShowingCurrentShowings_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        {
+            dgvShowingCurrentShowings.ClearSelection();
         }
 
 
