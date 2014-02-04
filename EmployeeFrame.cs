@@ -649,8 +649,8 @@ namespace praktikfall
         private void dgvShowingCurrentShowings_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS /Marcus
         {
             dgvShowingCurrentShowings.ClearSelection();
-        }    
-
+        }
+        #region MAINMENU
         private void menuItem7_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
@@ -710,8 +710,8 @@ namespace praktikfall
             Form1 form = new Form1();
             form.Show();
         }
+        #endregion MAINMENU
 
-
-       }
+    }
 }
 
