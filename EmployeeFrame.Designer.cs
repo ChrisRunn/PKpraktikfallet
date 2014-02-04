@@ -421,11 +421,14 @@
             // 
             // btnShowingUpdate
             // 
+            this.btnShowingUpdate.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnShowingUpdate.Location = new System.Drawing.Point(854, 273);
             this.btnShowingUpdate.Name = "btnShowingUpdate";
             this.btnShowingUpdate.Size = new System.Drawing.Size(112, 23);
             this.btnShowingUpdate.TabIndex = 12;
             this.btnShowingUpdate.Text = "Uppdatera datum";
+            this.btnShowingUpdate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnShowingUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnShowingUpdate.UseVisualStyleBackColor = true;
             this.btnShowingUpdate.Click += new System.EventHandler(this.btnShowingUpdate_Click);
             // 

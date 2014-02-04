@@ -19,6 +19,9 @@ namespace praktikfall
             string brokerName = name;
             labelEmpName.Text = brokerName;
 
+            DataTable dt4 = controller.SearchObjectByBrokerSsnr(brokerName);
+            dataGridView1.DataSource = dt4;
+
 
             DataTable dt = controller.GetAllObjectsNr();
             dgvObject.DataSource = dt;

@@ -110,6 +110,17 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
+
+
+        //Hämta alla objekt med angivet Brokernummer
+        public DataTable SearchObjectByBrokerSsnr(string searchString)
+        {
+            string sqlStr = "select * from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+
+        
         #endregion OBJEKT
         #region MÄKLARE        
         //Lägg till MÄKLARE
