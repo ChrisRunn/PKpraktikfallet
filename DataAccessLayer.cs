@@ -254,6 +254,8 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
+
+        
         //Visa alla VISNINGAR
         public DataTable GetShowings()
         {

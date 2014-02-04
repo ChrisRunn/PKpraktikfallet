@@ -542,6 +542,18 @@ namespace praktikfall
             }
         }
 
+        private void btnUpdateProspectiveBuyer_Click(object sender, EventArgs e)
+        {
+            string buyerSsnr = tbBuyerSsn.Text;
+            string name = tbBuyerName.Text;
+            string phoneNr = tbBuyerTel.Text;
+            string email = tbProspectiveBuyerEmail.Text;
+            int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+            MessageBox.Show("Spekulant " + buyerSsnr + " uppdaterad!");
+            DataTable dt = controller.GetAllProspectiveBuyers();  //Uppdatera listan
+            dgvProspectiveBuyerShowing.DataSource = dt;
+        }
+
 
 
 
