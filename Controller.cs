@@ -70,6 +70,13 @@ namespace praktikfall
             DataTable dt = dal.SearchObjectByBrokerSsnr(searchString);
             return dt;
         }
+
+        ////Hämta alla visningar med angivet Brokernummer
+        public DataTable SearchShowingsByBrokerSsnr(string searchString)
+        {
+            DataTable dt = dal.SearchShowingsByBrokerSsnr(searchString);
+            return dt;
+        }
         #endregion OBJEKT
         #region MÄKLARE
         //Lägg till MÄKLARE

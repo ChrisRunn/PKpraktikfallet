@@ -22,6 +22,9 @@ namespace praktikfall
 
             DataTable dt = controller.SearchObjectByBrokerSsnr(brokerName);
             dataGridView1.DataSource = dt;
+
+            DataTable dt2 = controller.SearchShowingsByBrokerSsnr(brokerName);
+            dataGridView2.DataSource = dt2;
         }
 
         Controller controller = new Controller();

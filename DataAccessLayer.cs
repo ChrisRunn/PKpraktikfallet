@@ -120,6 +120,15 @@ namespace praktikfall
             return dt;
         }
 
+        //Hämta alla visningar med angivet Brokernummer
+        public DataTable SearchShowingsByBrokerSsnr(string searchString)
+        {
+            string sqlStr = "select s.objNr as Objektsnummer, objAdress as Adress, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+
+
        
         #endregion OBJEKT
         #region MÄKLARE        
