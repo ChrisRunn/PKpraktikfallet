@@ -405,6 +405,7 @@
             this.tbSearchProBuyer.Size = new System.Drawing.Size(100, 20);
             this.tbSearchProBuyer.TabIndex = 27;
             this.tbSearchProBuyer.Text = "Sökord";
+            this.tbSearchProBuyer.Click += new System.EventHandler(this.tbSearchProBuyer_Click);
             // 
             // btnSearchProBuyer
             // 
