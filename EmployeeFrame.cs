@@ -653,6 +653,61 @@ namespace praktikfall
         private void dgvShowingCurrentShowings_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
         {
             dgvShowingCurrentShowings.ClearSelection();
+        }    
+
+        private void menuItem7_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Version 1.0 BrokerApplication\n\n\n"
+                + "Denna mjukvara är skapad av\n\n"
+                + "Marcus Jacobsson, marcus.jacobsson@student.lu.se\n"
+                + "Christian Runnström, christian.runnstrom@student.lu.se\n"
+                + "William Svedström, william.svedstrom@student.lu.se\n"
+                + "August Ransnäs, august.ransnas@student.lu.se\n\n"
+                + "Copyright © 2014 Mäklarfirman", 
+                "Om",               
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+                );
+            
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void menuItem9_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Visningar hanteras under fliken Visning. Här kan användaren lägga till, ta bort eller uppdatera visningar. \n\n"
+                + "Hur lägger jag till en visning för ett objekt?\n"
+                + "För att lägga till en visning för ett objekt, gör följande:\n"
+                + "(1) välj ett objekt i listan under \"välj objekt\".\n"
+                + "(2) välj vilken spekulant i listan \"Välj spekulant\" som ska gå på visningen.\n"
+                + "(3) välj vilket datum under \"välj datum\" som visningen kommer äga rum.\n"
+                + "(4) tryck på knappen \"Lägg till\" för att registrera din visning.\n\n"
+                + "Hur tar jag bort en visning för ett objekt?\n"
+                + "För att ta bort en visning från ett objekt, gör följande:\n"
+                + "(1) välj ditt objekts objektnummer i listan under \"Ta bort visningar\".\n"
+                + "(2) välj alternativet \"Ta bort alla visningar\" till höger om listan.\n"
+                + "(3) tryck på knappen \"Ta bort\" för att ta bort alla visningar för objektet.\n\n"
+                + "Hur tar jag bort endast en spekulant från ett objekts visning?\n"
+                + "För att ta bort endast en spekulant från en visning, gör följande:\n"
+                + "(1) välj en spekulanten i listan under \"Ta bort visningar\".\n"
+                + "(2) välj alternativet \"Ta bort spekulant från visning\" till höger om listan.\n"
+                + "(3) tryck på knappen \"Ta bort\" för att ta bort spekulanten från objektets visning.\n\n"
+                + "Hur uppdaterar jag en visnings visningsdatum?\n"
+                + "För att uppdatera en visnings visningsdatum, gör följande:\n"
+                + "(1) välj ett objekt i listan under \"välj objekt\".\n"
+                + "(2) välj vilken spekulant i listan \"Välj spekulant\" som ska uppdateras.\n"
+                + "(3) välj ett nytt datum under \"välj datum\"\n"
+                + "(4) tryck på knappen \"Uppdatera datum\".",
+                "Visning",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+                );
+
         }
 
 
