@@ -482,8 +482,7 @@ namespace praktikfall
 
         private void btnObjSubmit_Click(object sender, EventArgs e)
         {
-            if (cbObjUpdate.Checked && !cbObjDelete.Checked && !cbObjRegister.Checked)
-            {
+            
                 MessageBox.Show("knappen är itryckt");
                 string objArea = tbObjectArea.Text;
                 string objRooms = tbNrOfRooms.Text;
@@ -497,12 +496,13 @@ namespace praktikfall
                 string phoneNr = tbObjOwnerPhoneNr.Text;
                 string email = tbObjOwnerEmail.Text;
                 string name = tbObjOwnerName.Text;
-                this.controller.UpdateObjectFlik(objNr, objAdress, objArea, objCity, objInfo, objPrice, objRooms, objUnitType, phoneNr, email, name, ownerSsnr);
-                DataTable dt = controller.GetAllObjectsNr();
-                dgvObject.DataSource = dt;
+                int nrOfRows = this.controller.UpdateObjectFlik(objNr, objAdress, objArea, objCity, objInfo, objPrice, objRooms, objUnitType, phoneNr, email, name, ownerSsnr);
+                MessageBox.Show(nrOfRows.ToString());
+                Populate();
+                
 
-            }
-            else if (cbObjRegister.Checked && !cbObjUpdate.Checked && !cbObjDelete.Checked)
+            
+             if (cbObjRegister.Checked && !cbObjUpdate.Checked && !cbObjDelete.Checked)
             {
 
             }
