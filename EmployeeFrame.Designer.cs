@@ -178,6 +178,7 @@
             this.btnDeleteProspectiveBuyer.TabIndex = 39;
             this.btnDeleteProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteProspectiveBuyer.UseVisualStyleBackColor = true;
+            this.btnDeleteProspectiveBuyer.Click += new System.EventHandler(this.btnDeleteProspectiveBuyer_Click);
             // 
             // btnUpdateProspectiveBuyer
             // 
@@ -404,6 +405,7 @@
             this.tbSearchProBuyer.Size = new System.Drawing.Size(100, 20);
             this.tbSearchProBuyer.TabIndex = 27;
             this.tbSearchProBuyer.Text = "Sökord";
+            this.tbSearchProBuyer.Click += new System.EventHandler(this.tbSearchProBuyer_Click);
             // 
             // btnSearchProBuyer
             // 

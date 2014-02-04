@@ -462,7 +462,7 @@ namespace praktikfall
             if (rbShowingDeleteShowing.Checked)              //Om "ta bort hela visningen" är valt
             {               
                 int nrOfRows = controller.DeleteShowing(objNr);
-                MessageBox.Show("Visning borttagen :(");
+                MessageBox.Show("Visning borttagen");
                 DataTable dt = controller.GetShowings();    //Uppdatera listan
                 dgvShowingCurrentShowings.DataSource = dt;                  
             }
@@ -573,18 +573,48 @@ namespace praktikfall
 
         private void btnUpdateProspectiveBuyer_Click(object sender, EventArgs e)
         {
-            string buyerSsnr = tbBuyerSsn.Text;
-            string name = tbBuyerName.Text;
-            string phoneNr = tbBuyerTel.Text;
-            string email = tbProspectiveBuyerEmail.Text;
-            int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-            MessageBox.Show("Spekulant " + buyerSsnr + " uppdaterad!");
-            DataTable dt = controller.GetAllProspectiveBuyers();  //Uppdatera listan
-            dgvProspectiveBuyerShowing.DataSource = dt;
+
+            if (tbBuyerSsn.Text == "")
+            {
+                MessageBox.Show("Du har ej valt eller angivit ett personnummer");
+            }
+            else
+            {
+
+                string buyerSsnr = tbBuyerSsn.Text;
+                string name = tbBuyerName.Text;
+                string phoneNr = tbBuyerTel.Text;
+                string email = tbProspectiveBuyerEmail.Text;
+                int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                MessageBox.Show("Spekulant " + buyerSsnr + " uppdaterad!");
+                DataTable dt = controller.GetAllProspectiveBuyers();  //Uppdatera listan
+                dgvProspectiveBuyerShowing.DataSource = dt;
+            }
         }
 
+        private void btnDeleteProspectiveBuyer_Click(object sender, EventArgs e)
+        {
+            if (tbBuyerSsn.Text == "")
+            {
+                MessageBox.Show("Du har ej valt eller angivit ett personnummer");
+            }
+            else
+            {
+                string buyerSsnr = tbBuyerSsn.Text;
+                int nrOfRows = controller.DeleteProspectiveBuyer(buyerSsnr);
+                MessageBox.Show("Spekulant " + buyerSsnr + " raderad!");
+                DataTable dt = controller.GetAllProspectiveBuyers();  //Uppdatera listan
+                dgvProspectiveBuyerShowing.DataSource = dt;
+                DataTable dt2 = controller.GetShowings();
+                dgvShowingCurrentShowings.DataSource = dt2;
+            }
+        }
 
-
+        private void tbSearchProBuyer_Click(object sender, EventArgs e)
+        {
+            tbSearchProBuyer.Text = "";
+            tbSearchProBuyer.ForeColor = Color.Black;
+        }
 
 
        }
