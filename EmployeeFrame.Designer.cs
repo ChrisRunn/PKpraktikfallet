@@ -164,7 +164,7 @@
             this.groupBox4.Controls.Add(this.labelBuyerSsn);
             this.groupBox4.Location = new System.Drawing.Point(624, 315);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(440, 307);
+            this.groupBox4.Size = new System.Drawing.Size(440, 314);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Registrera spekulant";
@@ -290,10 +290,10 @@
             this.groupBox1.Controls.Add(this.dgvShowingCurrentShowings);
             this.groupBox1.Location = new System.Drawing.Point(11, 315);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(607, 309);
+            this.groupBox1.Size = new System.Drawing.Size(607, 314);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tillagda visningar";
+            this.groupBox1.Text = "Ta bort visningar";
             // 
             // lblShowingSelectedBuyerDelete
             // 
@@ -338,7 +338,7 @@
             // 
             // btnShowingDelete
             // 
-            this.btnShowingDelete.Location = new System.Drawing.Point(413, 268);
+            this.btnShowingDelete.Location = new System.Drawing.Point(526, 284);
             this.btnShowingDelete.Name = "btnShowingDelete";
             this.btnShowingDelete.Size = new System.Drawing.Size(75, 23);
             this.btnShowingDelete.TabIndex = 17;
@@ -361,12 +361,16 @@
             this.lblShowingChoose.AutoSize = true;
             this.lblShowingChoose.Location = new System.Drawing.Point(10, 22);
             this.lblShowingChoose.Name = "lblShowingChoose";
-            this.lblShowingChoose.Size = new System.Drawing.Size(214, 13);
+            this.lblShowingChoose.Size = new System.Drawing.Size(251, 13);
             this.lblShowingChoose.TabIndex = 13;
-            this.lblShowingChoose.Text = "Välj objekt eller spekulant från listan";
+            this.lblShowingChoose.Text = "Välj ett objekt eller en spekulant från listan";
             // 
             // dgvShowingCurrentShowings
             // 
+            this.dgvShowingCurrentShowings.AllowUserToAddRows = false;
+            this.dgvShowingCurrentShowings.AllowUserToDeleteRows = false;
+            this.dgvShowingCurrentShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvShowingCurrentShowings.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvShowingCurrentShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowingCurrentShowings.Location = new System.Drawing.Point(6, 41);
             this.dgvShowingCurrentShowings.Name = "dgvShowingCurrentShowings";
@@ -454,6 +458,8 @@
             // 
             // dgvObjectShowing
             // 
+            this.dgvObjectShowing.AllowUserToAddRows = false;
+            this.dgvObjectShowing.AllowUserToDeleteRows = false;
             this.dgvObjectShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObjectShowing.Location = new System.Drawing.Point(6, 32);
             this.dgvObjectShowing.Name = "dgvObjectShowing";
@@ -463,6 +469,9 @@
             // 
             // dgvProspectiveBuyerShowing
             // 
+            this.dgvProspectiveBuyerShowing.AllowUserToAddRows = false;
+            this.dgvProspectiveBuyerShowing.AllowUserToDeleteRows = false;
+            this.dgvProspectiveBuyerShowing.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProspectiveBuyerShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProspectiveBuyerShowing.Location = new System.Drawing.Point(412, 32);
             this.dgvProspectiveBuyerShowing.Name = "dgvProspectiveBuyerShowing";
@@ -978,6 +987,9 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(416, 218);
             this.dataGridView2.Name = "dataGridView2";
@@ -986,6 +998,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(7, 218);
             this.dataGridView1.Name = "dataGridView1";

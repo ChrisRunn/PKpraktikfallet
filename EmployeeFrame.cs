@@ -269,11 +269,11 @@ namespace praktikfall
 
             if (lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)"))
             {
-                MessageBox.Show("Var vänlig välj spekulant i listan");
+                MessageBox.Show("Vänligen välj spekulant i listan.");
             }
             if (lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)"))
             {
-                MessageBox.Show("Var vänlig välj objekt i listan");
+                MessageBox.Show("Vänligen välj objekt i listan.");
             }
             if(!showingExists && !(lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)")) && !(lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)")))
             {              
@@ -314,7 +314,6 @@ namespace praktikfall
                 DataGridViewRow row = this.dgvObjectShowing.Rows[e.RowIndex];
                 string selectedItem = row.Cells["objNr"].Value.ToString();
                 lblSelectedObjectShowing.Text = selectedItem;
-                lblSelectedObjectShowing.Visible = true;
 
             }
         }
@@ -325,11 +324,7 @@ namespace praktikfall
             {
                 DataGridViewRow row = this.dgvProspectiveBuyerShowing.Rows[e.RowIndex];
                 string selectedItem = row.Cells["buyerSsnr"].Value.ToString();
-                lblSelectedBuyerShowing.Text = selectedItem;
-                lblSelectedBuyerShowing.Visible = true;
-
-               
-
+                lblSelectedBuyerShowing.Text = selectedItem;              
                 tbBuyerSsn.Text = row.Cells["buyerSsnr"].Value.ToString();
                 tbBuyerName.Text = row.Cells["name"].Value.ToString();
                 tbBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
@@ -422,12 +417,12 @@ namespace praktikfall
 
             if (lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)"))
             {
-                MessageBox.Show("Var vänlig välj spekulant i listan");
+                MessageBox.Show("Vänligen välj spekulant i listan.");
             }
 
             if (lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)"))
             {
-                MessageBox.Show("Var vänlig välj Objekt i listan");
+                MessageBox.Show("Vänligen välj objekt i listan.");
             }
 
             else
@@ -447,8 +442,6 @@ namespace praktikfall
             string buyerSsnr = row.Cells["buyerSsnr"].Value.ToString();
             lblShowingSelectedBuyerDelete.Text = buyerSsnr;
             lblShowingSelectedObjNrDelete.Text = objNr;
-            lblShowingSelectedObjNrDelete.Visible = true;
-            lblShowingSelectedBuyerDelete.Visible = true;
           
         }
 
@@ -461,13 +454,15 @@ namespace praktikfall
             {
                 if (lblShowingSelectedObjNrDelete.Text.Equals("selectedForDelete(invisible)"))
                 {
-                    MessageBox.Show("Vänligen välj ett objekt i listan först");
+                    MessageBox.Show("Vänligen välj ett objekt i listan först.");
                 }
                 else
                 {
                     int nrOfRows = controller.DeleteShowing(objNr);
                     MessageBox.Show("Visning borttagen");
                     Populate();
+                    lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
+                    lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
                 }                 
             }                                               
             if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked) // Om inget val gjorts, ge feedback
@@ -486,6 +481,8 @@ namespace praktikfall
                     int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
                     MessageBox.Show("Spekulant borttagen från visning");
                     Populate();
+                    lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
+                    lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
                 }
                 
             }                                   
