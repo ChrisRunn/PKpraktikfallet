@@ -105,6 +105,8 @@ namespace praktikfall
             DataTable dt = dal.GetProspectiveBuyer(buyerSsnr);
             return dt;
         }
+
+
         //Hämta alla spekulanter
         public DataTable GetAllProspectiveBuyers()
         {

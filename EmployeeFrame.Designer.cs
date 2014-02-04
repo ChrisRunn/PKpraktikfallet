@@ -178,6 +178,7 @@
             this.btnDeleteProspectiveBuyer.TabIndex = 39;
             this.btnDeleteProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteProspectiveBuyer.UseVisualStyleBackColor = true;
+            this.btnDeleteProspectiveBuyer.Click += new System.EventHandler(this.btnDeleteProspectiveBuyer_Click);
             // 
             // btnUpdateProspectiveBuyer
             // 
