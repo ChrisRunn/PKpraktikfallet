@@ -129,6 +129,7 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem11 = new System.Windows.Forms.MenuItem();
+            this.menuItem12 = new System.Windows.Forms.MenuItem();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1083,6 +1084,8 @@
             // menuItem3
             // 
             this.menuItem3.Index = 2;
+            this.menuItem3.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem12});
             this.menuItem3.Text = "Visa";
             // 
             // menuItem4
@@ -1135,6 +1138,12 @@
             this.menuItem11.Index = 0;
             this.menuItem11.Text = "Logga ut";
             this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
+            // 
+            // menuItem12
+            // 
+            this.menuItem12.Index = 0;
+            this.menuItem12.Text = "Adminverktyg";
+            this.menuItem12.Click += new System.EventHandler(this.menuItem12_Click);
             // 
             // EmployeeFrame
             // 
@@ -1276,6 +1285,7 @@
         private System.Windows.Forms.MenuItem menuItem9;
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.MenuItem menuItem11;
+        private System.Windows.Forms.MenuItem menuItem12;
 
     }
 }

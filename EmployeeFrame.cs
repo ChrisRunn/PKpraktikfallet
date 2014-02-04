@@ -709,9 +709,13 @@ namespace praktikfall
             this.Hide();
             Form1 form = new Form1();
             form.Show();
+        }      
+
+        private void menuItem12_Click(object sender, EventArgs e)
+        {
+            //Visa/dölj en tab för Mäklare
         }
         #endregion MAINMENU
-
     }
 }
 
