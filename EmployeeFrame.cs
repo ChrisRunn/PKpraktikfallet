@@ -18,22 +18,23 @@ namespace praktikfall
             InitializeComponent();
             string brokerName = name;
             labelEmpName.Text = brokerName;
-
-
-            DataTable dt = controller.GetAllObjectsNr();
-            dgvObject.DataSource = dt;
-            DataTable dt2 = controller.GetAllProspectiveBuyers();
-            dgvObjectShowing.DataSource = dt; //ska denna vara där? ja, den är för visnings-tabben, den gör samma sak fast för 2 olika DGVs
-            dgvProspectiveBuyerShowing.DataSource = dt2; //DGV på visingstabben
-            DataTable dt3 = controller.GetShowings();
-            dgvShowingCurrentShowings.DataSource = dt3; //DGV på visningstabben
-
-
-           
+            Populate();
         }
 
         Controller controller = new Controller();
 
+        public void Populate()                                                            //Uppdatera ALLA DGVS
+        {
+            DataTable dtAllObjects = controller.GetAllObjectsNr(); 
+            dgvObject.DataSource = dtAllObjects;                                          //Objektfliken, alla objekt i databasen
+            dgvObjectShowing.DataSource = dtAllObjects;                                   //Visningsfliken, alla objekt i databasen
+            DataTable dtAllProspectiveBuyers = controller.GetAllProspectiveBuyers();           
+            dgvProspectiveBuyerShowing.DataSource = dtAllProspectiveBuyers;               //Visningsfliken, alla spekulanter i databasen 
+            DataTable dtAllShowings = controller.GetShowings();
+            dgvShowingCurrentShowings.DataSource = dtAllShowings;                         //Visningsfliken, alla nuvarande visningar i databasen
+        }
+
+       
 
         /*private void btnObjAdd_Click(object sender, EventArgs e)
         {
@@ -279,8 +280,7 @@ namespace praktikfall
             {              
                 int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
                 MessageBox.Show("Visning registrerad!");
-                DataTable dt = controller.GetShowings();  //Uppdatera listan
-                dgvShowingCurrentShowings.DataSource = dt;
+                Populate();
             }        
         }
 
@@ -435,8 +435,7 @@ namespace praktikfall
             {
                 int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
                 MessageBox.Show("Visning uppdaterad. Nytt visningsdatum "+showingDate);
-                DataTable dt = controller.GetShowings();  //Uppdatera listan
-                dgvShowingCurrentShowings.DataSource = dt;
+                Populate();
             }
             
         }
@@ -463,15 +462,13 @@ namespace praktikfall
             {               
                 int nrOfRows = controller.DeleteShowing(objNr);
                 MessageBox.Show("Visning borttagen");
-                DataTable dt = controller.GetShowings();    //Uppdatera listan
-                dgvShowingCurrentShowings.DataSource = dt;                  
+                Populate();                 
             }
             if (rbShowingDeleteBuyer.Checked)               //Om "ta bort spekulant" är valt
             {
                 int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
-                MessageBox.Show("Spekulant borttagen från visning :(:(");
-                DataTable dt = controller.GetShowings();    //Uppdatera listan
-                dgvShowingCurrentShowings.DataSource = dt; 
+                MessageBox.Show("Spekulant borttagen från visning");
+                Populate();
             }
             else
             {
@@ -534,8 +531,7 @@ namespace praktikfall
                     string email = tbProspectiveBuyerEmail.Text;
                     controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
                     MessageBox.Show("Ny spekulant registrerad");
-                    DataTable dt = controller.GetAllProspectiveBuyers();
-                    dgvProspectiveBuyerShowing.DataSource = dt;
+                    Populate();
 
                 }
             }
@@ -587,8 +583,7 @@ namespace praktikfall
                 string email = tbProspectiveBuyerEmail.Text;
                 int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                 MessageBox.Show("Spekulant " + buyerSsnr + " uppdaterad!");
-                DataTable dt = controller.GetAllProspectiveBuyers();  //Uppdatera listan
-                dgvProspectiveBuyerShowing.DataSource = dt;
+                Populate();
             }
         }
 
@@ -603,10 +598,7 @@ namespace praktikfall
                 string buyerSsnr = tbBuyerSsn.Text;
                 int nrOfRows = controller.DeleteProspectiveBuyer(buyerSsnr);
                 MessageBox.Show("Spekulant " + buyerSsnr + " raderad!");
-                DataTable dt = controller.GetAllProspectiveBuyers();  //Uppdatera listan
-                dgvProspectiveBuyerShowing.DataSource = dt;
-                DataTable dt2 = controller.GetShowings();
-                dgvShowingCurrentShowings.DataSource = dt2;
+                Populate();
             }
         }
 
