@@ -23,10 +23,10 @@ namespace praktikfall
             DataTable dt = controller.GetAllObjectsNr();
             dgvObject.DataSource = dt;
             DataTable dt2 = controller.GetAllProspectiveBuyers();
-            dgvObjectShowing.DataSource = dt; //ska denna vara där?
-            dgvProspectiveBuyerShowing.DataSource = dt2;
+            dgvObjectShowing.DataSource = dt; //ska denna vara där? ja, den är för visnings-tabben, den gör samma sak fast för 2 olika DGVs
+            dgvProspectiveBuyerShowing.DataSource = dt2; //DGV på visingstabben
             DataTable dt3 = controller.GetShowings();
-            dgvShowingCurrentShowings.DataSource = dt3;
+            dgvShowingCurrentShowings.DataSource = dt3; //DGV på visningstabben
 
 
            
@@ -423,14 +423,14 @@ namespace praktikfall
             string buyerSsnr = lblShowingSelectedBuyerDelete.Text;
             string objNr = lblShowingSelectedObjNrDelete.Text;
 
-            if (rbShowingDeleteShowing.Checked)
+            if (rbShowingDeleteShowing.Checked)              //Om "ta bort hela visningen" är valt
             {               
                 int nrOfRows = controller.DeleteShowing(objNr);
                 MessageBox.Show("Visning borttagen :(");
                 DataTable dt = controller.GetShowings();    //Uppdatera listan
                 dgvShowingCurrentShowings.DataSource = dt;                  
             }
-            if (rbShowingDeleteBuyer.Checked)
+            if (rbShowingDeleteBuyer.Checked)               //Om "ta bort spekulant" är valt
             {
                 int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
                 MessageBox.Show("Spekulant borttagen från visning :(:(");
