@@ -16,7 +16,7 @@ namespace praktikfall
     {
         #region GENERISKA METODER
         string connectionString = "server=localhost; Trusted_Connection=yes; database=PK Praktikfallet;";
-        
+
         //generisk metod för att skicka query som uppdaterar eller lägger till nya objekt
         private int ExecuteUpdate(string sqlStr)
         {
@@ -59,9 +59,9 @@ namespace praktikfall
             return dataTable;
         }
         #endregion GENERISKA METODER
-        
+
         #region OBJEKT
-        //Lägg till OBJEKT
+       //Lägg till OBJEKT
         public int AddObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
             string sqlStr = "insert into RealEstateObject values ('";
@@ -110,6 +110,26 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
+        
+
+        //Hämta alla objekt med angivet Brokernummer
+        public DataTable SearchObjectByBrokerSsnr(string searchString)
+        {
+            string sqlStr = "select objNr as Objektnummer, objAdress as Adress, objCity as Stad, objPrice as Pris, objArea as Area, objRooms as 'Antal rum', objUnitType as Typ, objInfo as Beskrivning from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+
+        //Hämta alla visningar med angivet Brokernummer
+        public DataTable SearchShowingsByBrokerSsnr(string searchString)
+        {
+            string sqlStr = "select s.objNr as Objektsnummer, objAdress as Adress, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+
+
+       
         #endregion OBJEKT
         #region MÄKLARE        
         //Lägg till MÄKLARE
@@ -202,20 +222,36 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Uppdatera Ägare
+        //Uppdatera Ägare -- Behövs eventuellt inte
         public int UpdateObjectOwner(string ownerSsnr, string phoneNr, string email)
         {
             string sqlStr = "update ObjectOwner set phoneNr = '" + phoneNr + "', email = '" + email + "' where ownerSsnr = '" + ownerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
+
+        // Uppdaterar allt i objekt fliken !
+        public int UpdateObject(string objNr, string objAdress,string objArea, string objCity, string objInfo,
+            string objPrice, string objRooms, string objUnitType, string phoneNr, string email, string name, string ownerSsnr)
+        {
+            string sqlStr = "update RealEstateObject set objNr ='" 
+                + objNr + "',objAdress ='" + objAdress + "',objAdress ='"+ objArea+ "',objCity ='" 
+                + objCity + "',objInfo ='" + objInfo + "',objPrice ='" 
+                + objPrice + "',objRooms ='" + objRooms + "',objUnitType ='" 
+                + objUnitType + "'";
+            sqlStr+= "update ObjectOwner set phoneNr ='"+phoneNr+ "',email ='" + email + "',name ='" +name + "'";
+            sqlStr += "update HasOwner set ownerSsnr = '" + ownerSsnr + "'where objNr ='" + objNr + "'";
+            int nrOfRows = ExecuteUpdate(sqlStr);
+            return nrOfRows;
+        
+        } 
         //Söka Ägare -- BEHÖVS EVENTUELLT INTE
         public DataTable GetObjectOwner(string ownerSsnr)
         {
             string sqlStr = "select * from ObjectOwner where ownerSsnr = '" + ownerSsnr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
-        }        
+        }
         // Hämtar alla ägare (objectOwner)
         public DataTable GetAllObjectOwners()
         {
@@ -238,7 +274,7 @@ namespace praktikfall
             string sqlStr = "insert into HasOwner values ('" + objNr + "','" + ownerSsnr + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
-        }      
+        }
         //Hämtar allt från hasowner tabellen
         public DataTable GetAllHasOwner()
         { 
@@ -261,7 +297,7 @@ namespace praktikfall
             string sqlStr = "update Showing set showingDate = '" + showingDate + "' where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr +"'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
-        }        
+        }
         //Visa alla VISNINGAR
         public DataTable GetShowings()
         {

@@ -30,6 +30,15 @@ namespace praktikfall
             int nrOfRows = dal.UpdateObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr);
             return nrOfRows;
         }
+
+        // Uppdaterar allt i objekt fliken !
+        public int UpdateObjectFlik(string objNr, string objAdress,string objArea, string objCity, string objInfo,
+            string objPrice, string objRooms, string objUnitType, string phoneNr, string email, string name, string ownerSsnr)
+        {
+            int nrOfRows = dal.UpdateObject(objNr, objAdress, objCity,objArea, objInfo, objPrice, objRooms, objUnitType, phoneNr, email, name, ownerSsnr);
+            return nrOfRows;
+        }
+
         //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
         public DataTable SearchObjectByString(string searchString)
         {
@@ -52,6 +61,20 @@ namespace praktikfall
         public DataTable GetAllObjectsNr()
         {
             DataTable dt = dal.GetAllObjectsNr();
+            return dt;
+        }
+
+        ////Hämta alla objekt med angivet Brokernummer
+        public DataTable SearchObjectByBrokerSsnr(string searchString)
+        {
+            DataTable dt = dal.SearchObjectByBrokerSsnr(searchString);
+            return dt;
+        }
+
+        ////Hämta alla visningar med angivet Brokernummer
+        public DataTable SearchShowingsByBrokerSsnr(string searchString)
+        {
+            DataTable dt = dal.SearchShowingsByBrokerSsnr(searchString);
             return dt;
         }
         #endregion OBJEKT

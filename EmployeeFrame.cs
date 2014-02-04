@@ -19,6 +19,12 @@ namespace praktikfall
             string brokerName = name;
             labelEmpName.Text = brokerName;
             Populate();
+
+            DataTable dt = controller.SearchObjectByBrokerSsnr(brokerName);
+            dataGridView1.DataSource = dt;
+
+            DataTable dt2 = controller.SearchShowingsByBrokerSsnr(brokerName);
+            dataGridView2.DataSource = dt2;
         }
 
         Controller controller = new Controller();
@@ -34,7 +40,7 @@ namespace praktikfall
             dgvShowingCurrentShowings.DataSource = dtAllShowings;                         //Visningsfliken, alla nuvarande visningar i databasen
         }
 
-       
+
 
         /*private void btnObjAdd_Click(object sender, EventArgs e)
         {
@@ -200,7 +206,7 @@ namespace praktikfall
             tbObjOwnerEmail.Text = "";
             tbObjOwnerName.Text = "";
 
-            if (e.RowIndex >= 0 )
+            if (e.RowIndex >= 0)
             {  
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
                 string objNr = row.Cells["objNr"].Value.ToString();
@@ -225,17 +231,10 @@ namespace praktikfall
                 tbNrOfRooms.Text = row.Cells["objRooms"].Value.ToString();
                 tbUnitType.Text = row.Cells["objUnitType"].Value.ToString();
                 richTextBox1.Text = row.Cells["objInfo"].Value.ToString();
-              
                 string price = row.Cells["objPrice"].Value.ToString();
                 string area = row.Cells["objArea"].Value.ToString();
-     
                 int priceperkvm = int.Parse(price) / int.Parse(area);
                 tbPricePerKvm.Text = priceperkvm.ToString();
-                
-                
-               
-                
-                
                 tbObjBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
                 tbObjNr.Text = row.Cells["objNr"].Value.ToString();
                 tbObjCity.Text = row.Cells["objCity"].Value.ToString();
@@ -278,10 +277,10 @@ namespace praktikfall
             }
             if(!showingExists && !(lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)")) && !(lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)")))
             {              
-                int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
-                MessageBox.Show("Visning registrerad!");
+            int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
+            MessageBox.Show("Visning registrerad!");
                 Populate();
-            }        
+        }
         }
 
 
@@ -433,7 +432,7 @@ namespace praktikfall
 
             else
             {
-                int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
+            int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
                 MessageBox.Show("Visning uppdaterad. Nytt visningsdatum "+showingDate);
                 Populate();
             }
@@ -488,11 +487,31 @@ namespace praktikfall
 
         private void btnObjSubmit_Click(object sender, EventArgs e)
         {
-            if (cbObjUpdate.Checked)
+            if (cbObjUpdate.Checked && !cbObjDelete.Checked && !cbObjRegister.Checked)
+            {
+                MessageBox.Show("knappen är itryckt");
+                string objArea = tbObjectArea.Text;
+                string objRooms = tbNrOfRooms.Text;
+                string objUnitType = tbUnitType.Text;
+                string objInfo = richTextBox1.Text;
+                string objNr = tbObjNr.Text;
+                string objCity = tbObjCity.Text;
+                string objPrice = tbObjPrice.Text;
+                string objAdress = tbObjAddress.Text;
+                string ownerSsnr = tbObjOwnerSsnr.Text;
+                string phoneNr = tbObjOwnerPhoneNr.Text;
+                string email = tbObjOwnerEmail.Text;
+                string name = tbObjOwnerName.Text;
+                this.controller.UpdateObjectFlik(objNr, objAdress, objArea, objCity, objInfo, objPrice, objRooms, objUnitType, phoneNr, email, name, ownerSsnr);
+                DataTable dt = controller.GetAllObjectsNr();
+                dgvObject.DataSource = dt;
+
+            }
+            else if (cbObjRegister.Checked && !cbObjUpdate.Checked && !cbObjDelete.Checked)
             {
 
             }
-            else if (cbObjRegister.Checked && !cbObjUpdate.Checked)
+            else if (cbObjDelete.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked)
             {
                 
             }
@@ -575,7 +594,7 @@ namespace praktikfall
             if (tbBuyerSsn.Text == "")
             {
                 MessageBox.Show("Du har ej valt eller angivit ett personnummer");
-            }
+        }
             else
             {
 
