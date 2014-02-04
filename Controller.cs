@@ -11,7 +11,7 @@ namespace praktikfall
     class Controller
     {
         DataAccessLayer dal = new DataAccessLayer();
-
+        #region OBJEKT
         //Lägg till OBJEKT
         public int AddObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType,string objInfo, string brokerSsnr)
         {
@@ -45,7 +45,6 @@ namespace praktikfall
             DataTable dt = dal.SearchObjectByString(searchString);
             return dt;            
         }
-
         //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
         public DataTable SearchProBuyerByString(string searchString)
         {
@@ -64,6 +63,15 @@ namespace praktikfall
             DataTable dt = dal.GetAllObjectsNr();
             return dt;
         }
+
+        ////Hämta alla objekt med angivet Brokernummer
+        public DataTable SearchObjectByBrokerSsnr(string searchString)
+        {
+            DataTable dt = dal.SearchObjectByBrokerSsnr(searchString);
+            return dt;
+        }
+        #endregion OBJEKT
+        #region MÄKLARE
         //Lägg till MÄKLARE
         public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email)
         {
@@ -88,6 +96,8 @@ namespace praktikfall
             DataTable dt = dal.GetBroker(brokerSsnr);
             return dt;
         }
+        #endregion MÄKLARE
+        #region SPEKULANT
         //lägga till spekulant
         public int AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
@@ -112,12 +122,16 @@ namespace praktikfall
             DataTable dt = dal.GetProspectiveBuyer(buyerSsnr);
             return dt;
         }
+
+
         //Hämta alla spekulanter
         public DataTable GetAllProspectiveBuyers()
         {
             DataTable dt = dal.GetAllProspectiveBuyers();
             return dt;
         }
+        #endregion SPEKULANT
+        #region OBJEKTÄGARE
         //Lägg till Ägare   ___OBS___ Lägger endast till en ägare i systemet. Kopplingen mellan Object och Owner görs ej här!
         public int AddObjectOwner(string ownerSsnr, string phoneNr, string email)
         {
@@ -137,14 +151,9 @@ namespace praktikfall
             return nrOfRows;
         }
         //Söka Ägare -- BEHÖVS EVENTUELLT INTE
-        public DataTable GetObjectOwner (string ownerSsnr)
+        public DataTable GetObjectOwner(string ownerSsnr)
         {
             DataTable dt = dal.GetObjectOwner(ownerSsnr);
-            return dt;
-        }
-        public DataTable GetObjOwner(string objNr)
-        {
-            DataTable dt = dal.GetObjOwner(objNr);
             return dt;
         }
         //Hämta alla ägare
@@ -153,9 +162,12 @@ namespace praktikfall
             DataTable dt = dal.GetAllObjectOwners();
             return dt;
         }
-        public DataTable GetAllHasOwner()
+        #endregion OBJEKTÄGARE
+        #region HASOWNER
+        //Hämta ÄGARE(hasowner)
+        public DataTable GetObjOwner(string objNr)
         {
-            DataTable dt = dal.GetAllHasOwner();
+            DataTable dt = dal.GetObjOwner(objNr);
             return dt;
         }
         //Registrera givet OBJEKT med given ÄGARE     HÄR registreras ett objekts ägare
@@ -164,6 +176,14 @@ namespace praktikfall
             int nrOfRows = dal.RegisterObjectOwner(objNr, ownerSsnr);
             return nrOfRows;
         }
+        //Hämta allt från hasowner tabellen
+        public DataTable GetAllHasOwner()
+        {
+            DataTable dt = dal.GetAllHasOwner();
+            return dt;
+        }
+        #endregion HASOWNER
+        #region SHOWING
         //Registrera VISNING
         public int RegisterShowing (string objNr, string buyerSsnr, string showingDate)
         {
@@ -194,5 +214,12 @@ namespace praktikfall
             int nrOfRows = dal.DeleteShowing(objNr);
             return nrOfRows;
         }
+        //Kontrollera om VISNING finns
+        public bool ShowingExists(string objNr, string buyerSsnr)
+        {
+            bool showingExists = dal.ShowingExists(objNr, buyerSsnr);
+            return showingExists;
+        }
+        #endregion SHOWING
     }
 }

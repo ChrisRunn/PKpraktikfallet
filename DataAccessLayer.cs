@@ -14,6 +14,7 @@ namespace praktikfall
 {
     class DataAccessLayer
     {
+        #region GENERISKA METODER
         string connectionString = "server=localhost; Trusted_Connection=yes; database=PK Praktikfallet;";
 
         //generisk metod för att skicka query som uppdaterar eller lägger till nya objekt
@@ -57,8 +58,9 @@ namespace praktikfall
             }
             return dataTable;
         }
+        #endregion GENERISKA METODER
 
-
+        #region OBJEKT
        //Lägg till OBJEKT
         public int AddObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
@@ -109,16 +111,18 @@ namespace praktikfall
             return dt;
         }
         
-        //Sökknapp i Spekulant för att visa objekt med viss sträng
-        public DataTable SearchProBuyerByString(string searchString)
+
+        //Hämta alla objekt med angivet Brokernummer
+        public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
-            string sqlStr = "Select * from ProspectiveBuyer where buyerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
+            string sqlStr = "select objNr as Objektnummer, objAdress as Adress, objCity as Stad, objPrice as Pris, objArea as Area, objRooms as 'Antal rum', objUnitType as Typ, objInfo as Beskrivning from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
 
        
-
+        #endregion OBJEKT
+        #region MÄKLARE        
         //Lägg till MÄKLARE
         public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email)
         {
@@ -149,6 +153,8 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
+        #endregion MÄKLARE
+        #region SPEKULANT
         //Lägga till spekulant
         public int AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
@@ -184,6 +190,15 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
+        //Sökknapp i Spekulant för att visa objekt med viss sträng
+        public DataTable SearchProBuyerByString(string searchString)
+        {
+            string sqlStr = "Select * from ProspectiveBuyer where buyerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+        #endregion SPEKULANT
+        #region OBJEKTÄGARE
         //Lägg till Ägare   ___OBS___ Lägger endast till en ägare i systemet. Kopplingen mellan Object och Owner görs ej här!
         public int AddObjectOwner(string ownerSsnr, string phoneNr, string email)
         {
@@ -228,7 +243,16 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Hämtar en ägare
+        // Hämtar alla ägare (objectOwner)
+        public DataTable GetAllObjectOwners()
+        {
+            string sqlStr = "select * from ObjectOwner";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+        #endregion OBJEKTÄGARE
+        #region HASOWNER
+        //Hämta ÄGARE (hasowner)
         public DataTable GetObjOwner(string objNr)
         {
             string sqlStr = "select * from HasOwner where objNr ='" + objNr + "'";
@@ -242,14 +266,6 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        // Hämtar alla ägare
-        public DataTable GetAllObjectOwners()
-        {
-            string sqlStr = "select * from ObjectOwner";
-            DataTable dt = ExecuteQuery(sqlStr);
-            return dt;
-        }
-
         //Hämtar allt från hasowner tabellen
         public DataTable GetAllHasOwner()
         { 
@@ -257,6 +273,8 @@ namespace praktikfall
         DataTable dt = ExecuteQuery(sqlStr);
         return dt;
         }
+        #endregion HASOWNER
+        #region SHOWING
         //Registrera VISNING
         public int RegisterShowing(string objNr, string buyerSsnr, string showingDate)
         {
@@ -292,14 +310,19 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows; 
         }
-        //Kontrollera om VISNING finns, ej klar (marcus)
+        //Kontrollera om VISNING finns
         public bool ShowingExists(string objNr, string buyerSsnr)
         {
             bool showingExists = false;
             string sqlStr = "select * from Showing where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
-
+            DataTable dt = ExecuteQuery(sqlStr);
+            if (dt.Rows.Count > 0) 
+            {
+                showingExists = true;
+                return showingExists;
+            }
             return showingExists;
         }
-        
+        #endregion SHOWING
     }
 }

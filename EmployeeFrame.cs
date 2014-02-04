@@ -14,25 +14,29 @@ namespace praktikfall
     {
         public EmployeeFrame(string name)
         {
-
+           
             InitializeComponent();
             string brokerName = name;
             labelEmpName.Text = brokerName;
+            Populate();
 
-
-            DataTable dt = controller.GetAllObjectsNr();
-            dgvObject.DataSource = dt;
-            DataTable dt2 = controller.GetAllProspectiveBuyers();
-            dgvObjectShowing.DataSource = dt; //ska denna vara där? ja, den är för visnings-tabben, den gör samma sak fast för 2 olika DGVs
-            dgvProspectiveBuyerShowing.DataSource = dt2; //DGV på visingstabben
-            DataTable dt3 = controller.GetShowings();
-            dgvShowingCurrentShowings.DataSource = dt3; //DGV på visningstabben
-
-
-
+            DataTable dt = controller.SearchObjectByBrokerSsnr(brokerName);
+            dataGridView1.DataSource = dt;
         }
 
         Controller controller = new Controller();
+
+        public void Populate()                                                            //Uppdatera ALLA DGVS
+        {
+            DataTable dtAllObjects = controller.GetAllObjectsNr(); 
+            dgvObject.DataSource = dtAllObjects;                                          //Objektfliken, alla objekt i databasen
+            dgvObjectShowing.DataSource = dtAllObjects;                                   //Visningsfliken, alla objekt i databasen
+            DataTable dtAllProspectiveBuyers = controller.GetAllProspectiveBuyers();           
+            dgvProspectiveBuyerShowing.DataSource = dtAllProspectiveBuyers;               //Visningsfliken, alla spekulanter i databasen 
+            DataTable dtAllShowings = controller.GetShowings();
+            dgvShowingCurrentShowings.DataSource = dtAllShowings;                         //Visningsfliken, alla nuvarande visningar i databasen
+        }
+
 
 
         /*private void btnObjAdd_Click(object sender, EventArgs e)
@@ -200,22 +204,22 @@ namespace praktikfall
             tbObjOwnerName.Text = "";
 
             if (e.RowIndex >= 0)
-            {
+            {  
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
                 string objNr = row.Cells["objNr"].Value.ToString();
                 DataTable ownerSsnr = this.controller.GetObjOwner(objNr);
                 foreach (DataRow row1 in ownerSsnr.Rows)
                 {
-                    var text = row1[1].ToString();
-                    tbObjOwnerSsnr.Text = text;
+                var text = row1[1].ToString();
+                tbObjOwnerSsnr.Text = text;
                 }
                 DataTable ownerInfo = this.controller.GetObjectOwner(tbObjOwnerSsnr.Text);
                 foreach (DataRow row1 in ownerInfo.Rows)
                 {
-                    tbObjOwnerPhoneNr.Text = row1[1].ToString();
-                    tbObjOwnerEmail.Text = row1[2].ToString();
-                    tbObjOwnerName.Text = row1[3].ToString();
-
+                        tbObjOwnerPhoneNr.Text = row1[1].ToString();
+                        tbObjOwnerEmail.Text = row1[2].ToString();
+                        tbObjOwnerName.Text = row1[3].ToString();   
+                    
                 }
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
                 lblObjCity.Text = row.Cells["objCity"].Value.ToString();
@@ -233,7 +237,7 @@ namespace praktikfall
                 tbObjCity.Text = row.Cells["objCity"].Value.ToString();
                 tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
                 tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-
+        
             }
 
         }
@@ -253,10 +257,27 @@ namespace praktikfall
             string objNr = lblSelectedObjectShowing.Text;
             string showingDate = dtpVisningsdatumVisning.Text;
             string buyerSsnr = lblSelectedBuyerShowing.Text;
+            bool showingExists = controller.ShowingExists(objNr, buyerSsnr);
+
+            if (showingExists)
+            {
+                MessageBox.Show("Visningen finns redan. Vänligen kontrollera dina val. Använd Uppdatera datum-knappen för att uppdatera visningsdatum.");
+            }
+
+            if (lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)"))
+            {
+                MessageBox.Show("Var vänlig välj spekulant i listan");
+            }
+            if (lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)"))
+            {
+                MessageBox.Show("Var vänlig välj objekt i listan");
+            }
+            if(!showingExists && !(lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)")) && !(lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)")))
+            {              
             int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
             MessageBox.Show("Visning registrerad!");
-            DataTable dt = controller.GetShowings();  //Uppdatera listan
-            dgvShowingCurrentShowings.DataSource = dt;
+                Populate();
+        }
         }
 
 
@@ -304,13 +325,13 @@ namespace praktikfall
                 lblSelectedBuyerShowing.Text = selectedItem;
                 lblSelectedBuyerShowing.Visible = true;
 
-
+               
 
                 tbBuyerSsn.Text = row.Cells["buyerSsnr"].Value.ToString();
                 tbBuyerName.Text = row.Cells["name"].Value.ToString();
                 tbBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
                 tbProspectiveBuyerEmail.Text = row.Cells["email"].Value.ToString();
-
+                
             }
         }
 
@@ -391,15 +412,30 @@ namespace praktikfall
 
         private void btnShowingUpdate_Click(object sender, EventArgs e)
         {
+
             string objNr = lblSelectedObjectShowing.Text;
             string showingDate = dtpVisningsdatumVisning.Text;
             string buyerSsnr = lblSelectedBuyerShowing.Text;
-            int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
-            MessageBox.Show("Visning uppdaterad!");
-            DataTable dt = controller.GetShowings();  //Uppdatera listan
-            dgvShowingCurrentShowings.DataSource = dt;
-        }
 
+            if (lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)"))
+            {
+                MessageBox.Show("Var vänlig välj spekulant i listan");
+            }
+
+            if (lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)"))
+            {
+                MessageBox.Show("Var vänlig välj Objekt i listan");
+            }
+
+            else
+            {
+            int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
+                MessageBox.Show("Visning uppdaterad. Nytt visningsdatum "+showingDate);
+                Populate();
+            }
+            
+        }
+           
         private void dgvShowingCurrentShowings_CellClicked(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.dgvShowingCurrentShowings.Rows[e.RowIndex];
@@ -410,7 +446,7 @@ namespace praktikfall
             lblShowingSelectedObjNrDelete.Text = objNr;
             lblShowingSelectedObjNrDelete.Visible = true;
             lblShowingSelectedBuyerDelete.Visible = true;
-
+          
         }
 
         private void btnShowingDelete_Click(object sender, EventArgs e) //Ta bort visning/Ta bort spekulant från visning
@@ -419,18 +455,16 @@ namespace praktikfall
             string objNr = lblShowingSelectedObjNrDelete.Text;
 
             if (rbShowingDeleteShowing.Checked)              //Om "ta bort hela visningen" är valt
-            {
+            {               
                 int nrOfRows = controller.DeleteShowing(objNr);
-                MessageBox.Show("Visning borttagen :(");
-                DataTable dt = controller.GetShowings();    //Uppdatera listan
-                dgvShowingCurrentShowings.DataSource = dt;
+                MessageBox.Show("Visning borttagen");
+                Populate();                 
             }
             if (rbShowingDeleteBuyer.Checked)               //Om "ta bort spekulant" är valt
             {
                 int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
-                MessageBox.Show("Spekulant borttagen från visning :(:(");
-                DataTable dt = controller.GetShowings();    //Uppdatera listan
-                dgvShowingCurrentShowings.DataSource = dt;
+                MessageBox.Show("Spekulant borttagen från visning");
+                Populate();
             }
             else
             {
@@ -440,7 +474,7 @@ namespace praktikfall
 
 
 
-
+       
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
             dgvObject_CellClick(dgvObject, new DataGridViewCellEventArgs(0, 0));
@@ -474,7 +508,7 @@ namespace praktikfall
             }
             else if (cbObjDelete.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked)
             {
-
+                
             }
         }
 
@@ -513,8 +547,7 @@ namespace praktikfall
                     string email = tbProspectiveBuyerEmail.Text;
                     controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
                     MessageBox.Show("Ny spekulant registrerad");
-                    DataTable dt = controller.GetAllProspectiveBuyers();
-                    dgvProspectiveBuyerShowing.DataSource = dt;
+                    Populate();
 
                 }
             }
@@ -550,10 +583,48 @@ namespace praktikfall
             }
         }
 
+        private void btnUpdateProspectiveBuyer_Click(object sender, EventArgs e)
+        {
+
+            if (tbBuyerSsn.Text == "")
+            {
+                MessageBox.Show("Du har ej valt eller angivit ett personnummer");
+        }
+            else
+            {
+
+                string buyerSsnr = tbBuyerSsn.Text;
+                string name = tbBuyerName.Text;
+                string phoneNr = tbBuyerTel.Text;
+                string email = tbProspectiveBuyerEmail.Text;
+                int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                MessageBox.Show("Spekulant " + buyerSsnr + " uppdaterad!");
+                Populate();
+            }
+        }
+
+        private void btnDeleteProspectiveBuyer_Click(object sender, EventArgs e)
+        {
+            if (tbBuyerSsn.Text == "")
+            {
+                MessageBox.Show("Du har ej valt eller angivit ett personnummer");
+            }
+            else
+            {
+                string buyerSsnr = tbBuyerSsn.Text;
+                int nrOfRows = controller.DeleteProspectiveBuyer(buyerSsnr);
+                MessageBox.Show("Spekulant " + buyerSsnr + " raderad!");
+                Populate();
+            }
+        }
+
+        private void tbSearchProBuyer_Click(object sender, EventArgs e)
+        {
+            tbSearchProBuyer.Text = "";
+            tbSearchProBuyer.ForeColor = Color.Black;
+        }
 
 
-
-
-    }
+       }
 }
 
