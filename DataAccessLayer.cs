@@ -231,16 +231,15 @@ namespace praktikfall
         }
 
         // Uppdaterar allt i objekt fliken !
-        public int UpdateObject(string objNr, string objAdress,string objArea, string objCity, string objInfo,
+        public int UpdateObjectFlik(string objNr, string objAdress,string objArea, string objCity, string objInfo,
             string objPrice, string objRooms, string objUnitType, string phoneNr, string email, string name, string ownerSsnr)
         {
-            string sqlStr = "update RealEstateObject set objNr ='" 
-                + objNr + "',objAdress ='" + objAdress + "',objAdress ='"+ objArea+ "',objCity ='" 
-                + objCity + "',objInfo ='" + objInfo + "',objPrice ='" 
-                + objPrice + "',objRooms ='" + objRooms + "',objUnitType ='" 
-                + objUnitType + "'";
+            string sqlStr = "update RealEstateObject set objAdress ='" + objAdress + "',objAdress ="+ objArea+ ",objCity ='" 
+                + objCity + "',objInfo ='" + objInfo + "',objPrice =" 
+                + objPrice + ",objRooms ='" + objRooms + "',objUnitType ='" 
+                + objUnitType + "' where objNr =" +objNr+"";
             sqlStr+= "update ObjectOwner set phoneNr ='"+phoneNr+ "',email ='" + email + "',name ='" +name + "'";
-            sqlStr += "update HasOwner set ownerSsnr = '" + ownerSsnr + "'where objNr ='" + objNr + "'";
+            //sqlStr += "update HasOwner set ownerSsnr = '" + ownerSsnr + "'where objNr ='" + objNr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         
