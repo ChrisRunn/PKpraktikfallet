@@ -31,6 +31,13 @@ namespace praktikfall
             return nrOfRows;
         }
 
+        // Uppdaterar allt i objekt fliken !
+        public int UpdateObjectFlik(string objNr, string objAdress,string objArea, string objCity, string objInfo,
+            string objPrice, string objRooms, string objUnitType, string phoneNr, string email, string name, string ownerSsnr)
+        {
+            int nrOfRows = dal.UpdateObject(objNr, objAdress, objCity,objArea, objInfo, objPrice, objRooms, objUnitType, phoneNr, email, name, ownerSsnr);
+            return nrOfRows;
+        }
 
         //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
         public DataTable SearchObjectByString(string searchString)

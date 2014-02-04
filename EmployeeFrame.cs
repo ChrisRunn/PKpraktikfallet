@@ -14,7 +14,7 @@ namespace praktikfall
     {
         public EmployeeFrame(string name)
         {
-           
+
             InitializeComponent();
             string brokerName = name;
             labelEmpName.Text = brokerName;
@@ -29,7 +29,7 @@ namespace praktikfall
             dgvShowingCurrentShowings.DataSource = dt3; //DGV på visningstabben
 
 
-           
+
         }
 
         Controller controller = new Controller();
@@ -199,23 +199,23 @@ namespace praktikfall
             tbObjOwnerEmail.Text = "";
             tbObjOwnerName.Text = "";
 
-            if (e.RowIndex >= 0 )
-            {  
+            if (e.RowIndex >= 0)
+            {
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
                 string objNr = row.Cells["objNr"].Value.ToString();
                 DataTable ownerSsnr = this.controller.GetObjOwner(objNr);
                 foreach (DataRow row1 in ownerSsnr.Rows)
                 {
-                var text = row1[1].ToString();
-                tbObjOwnerSsnr.Text = text;
+                    var text = row1[1].ToString();
+                    tbObjOwnerSsnr.Text = text;
                 }
                 DataTable ownerInfo = this.controller.GetObjectOwner(tbObjOwnerSsnr.Text);
                 foreach (DataRow row1 in ownerInfo.Rows)
                 {
-                        tbObjOwnerPhoneNr.Text = row1[1].ToString();
-                        tbObjOwnerEmail.Text = row1[2].ToString();
-                        tbObjOwnerName.Text = row1[3].ToString();   
-                    
+                    tbObjOwnerPhoneNr.Text = row1[1].ToString();
+                    tbObjOwnerEmail.Text = row1[2].ToString();
+                    tbObjOwnerName.Text = row1[3].ToString();
+
                 }
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
                 lblObjCity.Text = row.Cells["objCity"].Value.ToString();
@@ -224,23 +224,16 @@ namespace praktikfall
                 tbNrOfRooms.Text = row.Cells["objRooms"].Value.ToString();
                 tbUnitType.Text = row.Cells["objUnitType"].Value.ToString();
                 richTextBox1.Text = row.Cells["objInfo"].Value.ToString();
-              
                 string price = row.Cells["objPrice"].Value.ToString();
                 string area = row.Cells["objArea"].Value.ToString();
-     
                 int priceperkvm = int.Parse(price) / int.Parse(area);
                 tbPricePerKvm.Text = priceperkvm.ToString();
-                
-                
-               
-                
-                
                 tbObjBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
                 tbObjNr.Text = row.Cells["objNr"].Value.ToString();
                 tbObjCity.Text = row.Cells["objCity"].Value.ToString();
                 tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
                 tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-        
+
             }
 
         }
@@ -263,7 +256,7 @@ namespace praktikfall
             int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
             MessageBox.Show("Visning registrerad!");
             DataTable dt = controller.GetShowings();  //Uppdatera listan
-            dgvShowingCurrentShowings.DataSource = dt;            
+            dgvShowingCurrentShowings.DataSource = dt;
         }
 
 
@@ -311,13 +304,13 @@ namespace praktikfall
                 lblSelectedBuyerShowing.Text = selectedItem;
                 lblSelectedBuyerShowing.Visible = true;
 
-               
+
 
                 tbBuyerSsn.Text = row.Cells["buyerSsnr"].Value.ToString();
                 tbBuyerName.Text = row.Cells["name"].Value.ToString();
                 tbBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
                 tbProspectiveBuyerEmail.Text = row.Cells["email"].Value.ToString();
-                
+
             }
         }
 
@@ -406,7 +399,7 @@ namespace praktikfall
             DataTable dt = controller.GetShowings();  //Uppdatera listan
             dgvShowingCurrentShowings.DataSource = dt;
         }
-           
+
         private void dgvShowingCurrentShowings_CellClicked(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.dgvShowingCurrentShowings.Rows[e.RowIndex];
@@ -417,7 +410,7 @@ namespace praktikfall
             lblShowingSelectedObjNrDelete.Text = objNr;
             lblShowingSelectedObjNrDelete.Visible = true;
             lblShowingSelectedBuyerDelete.Visible = true;
-          
+
         }
 
         private void btnShowingDelete_Click(object sender, EventArgs e) //Ta bort visning/Ta bort spekulant från visning
@@ -426,18 +419,18 @@ namespace praktikfall
             string objNr = lblShowingSelectedObjNrDelete.Text;
 
             if (rbShowingDeleteShowing.Checked)              //Om "ta bort hela visningen" är valt
-            {               
+            {
                 int nrOfRows = controller.DeleteShowing(objNr);
                 MessageBox.Show("Visning borttagen :(");
                 DataTable dt = controller.GetShowings();    //Uppdatera listan
-                dgvShowingCurrentShowings.DataSource = dt;                  
+                dgvShowingCurrentShowings.DataSource = dt;
             }
             if (rbShowingDeleteBuyer.Checked)               //Om "ta bort spekulant" är valt
             {
                 int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
                 MessageBox.Show("Spekulant borttagen från visning :(:(");
                 DataTable dt = controller.GetShowings();    //Uppdatera listan
-                dgvShowingCurrentShowings.DataSource = dt; 
+                dgvShowingCurrentShowings.DataSource = dt;
             }
             else
             {
@@ -447,7 +440,7 @@ namespace praktikfall
 
 
 
-       
+
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
             dgvObject_CellClick(dgvObject, new DataGridViewCellEventArgs(0, 0));
@@ -455,13 +448,33 @@ namespace praktikfall
 
         private void btnObjSubmit_Click(object sender, EventArgs e)
         {
-            if (cbObjUpdate.Checked)
+            if (cbObjUpdate.Checked && !cbObjDelete.Checked && !cbObjRegister.Checked)
+            {
+                MessageBox.Show("knappen är itryckt");
+                string objArea = tbObjectArea.Text;
+                string objRooms = tbNrOfRooms.Text;
+                string objUnitType = tbUnitType.Text;
+                string objInfo = richTextBox1.Text;
+                string objNr = tbObjNr.Text;
+                string objCity = tbObjCity.Text;
+                string objPrice = tbObjPrice.Text;
+                string objAdress = tbObjAddress.Text;
+                string ownerSsnr = tbObjOwnerSsnr.Text;
+                string phoneNr = tbObjOwnerPhoneNr.Text;
+                string email = tbObjOwnerEmail.Text;
+                string name = tbObjOwnerName.Text;
+                this.controller.UpdateObjectFlik(objNr, objAdress, objArea, objCity, objInfo, objPrice, objRooms, objUnitType, phoneNr, email, name, ownerSsnr);
+                DataTable dt = controller.GetAllObjectsNr();
+                dgvObject.DataSource = dt;
+
+            }
+            else if (cbObjRegister.Checked && !cbObjUpdate.Checked && !cbObjDelete.Checked)
             {
 
             }
-            else if (cbObjRegister.Checked && !cbObjUpdate.Checked)
+            else if (cbObjDelete.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked)
             {
-                
+
             }
         }
 
@@ -541,6 +554,6 @@ namespace praktikfall
 
 
 
-       }
+    }
 }
 

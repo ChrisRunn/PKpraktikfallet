@@ -198,13 +198,29 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Uppdatera Ägare
+        //Uppdatera Ägare -- Behövs eventuellt inte
         public int UpdateObjectOwner(string ownerSsnr, string phoneNr, string email)
         {
             string sqlStr = "update ObjectOwner set phoneNr = '" + phoneNr + "', email = '" + email + "' where ownerSsnr = '" + ownerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
+
+        // Uppdaterar allt i objekt fliken !
+        public int UpdateObject(string objNr, string objAdress,string objArea, string objCity, string objInfo,
+            string objPrice, string objRooms, string objUnitType, string phoneNr, string email, string name, string ownerSsnr)
+        {
+            string sqlStr = "update RealEstateObject set objNr ='" 
+                + objNr + "',objAdress ='" + objAdress + "',objAdress ='"+ objArea+ "',objCity ='" 
+                + objCity + "',objInfo ='" + objInfo + "',objPrice ='" 
+                + objPrice + "',objRooms ='" + objRooms + "',objUnitType ='" 
+                + objUnitType + "'";
+            sqlStr+= "update ObjectOwner set phoneNr ='"+phoneNr+ "',email ='" + email + "',name ='" +name + "'";
+            sqlStr += "update HasOwner set ownerSsnr = '" + ownerSsnr + "'where objNr ='" + objNr + "'";
+            int nrOfRows = ExecuteUpdate(sqlStr);
+            return nrOfRows;
+        
+        } 
         //Söka Ägare -- BEHÖVS EVENTUELLT INTE
         public DataTable GetObjectOwner(string ownerSsnr)
         {
@@ -212,6 +228,7 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
+        //Hämtar en ägare
         public DataTable GetObjOwner(string objNr)
         {
             string sqlStr = "select * from HasOwner where objNr ='" + objNr + "'";
