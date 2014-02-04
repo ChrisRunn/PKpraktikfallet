@@ -277,14 +277,18 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows; 
         }
-        //Kontrollera om VISNING finns, ej klar (marcus)
+        //Kontrollera om VISNING finns
         public bool ShowingExists(string objNr, string buyerSsnr)
         {
             bool showingExists = false;
             string sqlStr = "select * from Showing where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
-
+            DataTable dt = ExecuteQuery(sqlStr);
+            if (dt.Rows.Count > 0) 
+            {
+                showingExists = true;
+                return showingExists;
+            }
             return showingExists;
-        }
-        
+        }        
     }
 }
