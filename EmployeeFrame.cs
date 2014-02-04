@@ -459,21 +459,35 @@ namespace praktikfall
 
             if (rbShowingDeleteShowing.Checked)              //Om "ta bort hela visningen" är valt
             {
-                int nrOfRows = controller.DeleteShowing(objNr);
-                MessageBox.Show("Visning borttagen");
-                Populate(); 
-            }               
-                                
+                if (lblShowingSelectedObjNrDelete.Text.Equals("selectedForDelete(invisible)"))
+                {
+                    MessageBox.Show("Vänligen välj ett objekt i listan först");
+                }
+                else
+                {
+                    int nrOfRows = controller.DeleteShowing(objNr);
+                    MessageBox.Show("Visning borttagen");
+                    Populate();
+                }                 
+            }                                               
             if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked) // Om inget val gjorts, ge feedback
             {
                 MessageBox.Show("Vänligen välj ett alternativ (ta bort hela visningen eller ta bort spekulant från visning) först.");
             }       
 
             if (rbShowingDeleteBuyer.Checked)               //Om "ta bort spekulant" är valt
-            {                
-                int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
-                MessageBox.Show("Spekulant borttagen från visning");
-                Populate();
+            {
+                if (lblShowingSelectedBuyerDelete.Text.Equals("selectedForDelete(invisible)"))
+                {
+                    MessageBox.Show("Vänligen välj en spekulant i listan först.");
+                }
+                else
+                {
+                    int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
+                    MessageBox.Show("Spekulant borttagen från visning");
+                    Populate();
+                }
+                
             }                                   
         }
 
