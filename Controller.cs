@@ -169,7 +169,8 @@ namespace praktikfall
             int nrOfRows = dal.UpdateShowing(objNr, buyerSsnr, showingDate);
             return nrOfRows;
         }
-        //Hämta alla VISNINGAR
+
+               //Hämta alla VISNINGAR
         public DataTable GetShowings()
         {
             DataTable dt = dal.GetShowings();

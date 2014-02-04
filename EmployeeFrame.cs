@@ -206,21 +206,16 @@ namespace praktikfall
                 DataTable ownerSsnr = this.controller.GetObjOwner(objNr);
                 foreach (DataRow row1 in ownerSsnr.Rows)
                 {
-                for (int i = 0; i < ownerSsnr.Columns.Count; i++)
-                {
-                var text = row1[i].ToString();
+                var text = row1[1].ToString();
                 tbObjOwnerSsnr.Text = text;
-                }
                 }
                 DataTable ownerInfo = this.controller.GetObjectOwner(tbObjOwnerSsnr.Text);
                 foreach (DataRow row1 in ownerInfo.Rows)
                 {
-                    for (int i = 0; i < ownerInfo.Columns.Count; i++)
-                    {
                         tbObjOwnerPhoneNr.Text = row1[1].ToString();
                         tbObjOwnerEmail.Text = row1[2].ToString();
                         tbObjOwnerName.Text = row1[3].ToString();   
-                    }
+                    
                 }
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
                 lblObjCity.Text = row.Cells["objCity"].Value.ToString();
@@ -574,6 +569,18 @@ namespace praktikfall
             {
                 MessageBox.Show("Problem i sökfunktion\n" + ex);
             }
+        }
+
+        private void btnUpdateProspectiveBuyer_Click(object sender, EventArgs e)
+        {
+            string buyerSsnr = tbBuyerSsn.Text;
+            string name = tbBuyerName.Text;
+            string phoneNr = tbBuyerTel.Text;
+            string email = tbProspectiveBuyerEmail.Text;
+            int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+            MessageBox.Show("Spekulant " + buyerSsnr + " uppdaterad!");
+            DataTable dt = controller.GetAllProspectiveBuyers();  //Uppdatera listan
+            dgvProspectiveBuyerShowing.DataSource = dt;
         }
 
 
