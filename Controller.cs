@@ -55,7 +55,7 @@ namespace praktikfall
             return dt;
         }
 
-        ////Hämta alla objekt med angivet Brokernummerg
+        ////Hämta alla objekt med angivet Brokernummer
         public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
             DataTable dt = dal.SearchObjectByBrokerSsnr(searchString);

@@ -115,7 +115,7 @@ namespace praktikfall
         //Hämta alla objekt med angivet Brokernummer
         public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
-            string sqlStr = "select * from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
+            string sqlStr = "select objNr as Objektnummer, objAdress as Adress, objCity as Stad, objPrice as Pris, objArea as Area, objRooms as 'Antal rum', objUnitType as Typ, objInfo as Beskrivning from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
