@@ -22,6 +22,9 @@ namespace praktikfall
 
             DataTable dt = controller.SearchObjectByBrokerSsnr(brokerName);
             dataGridView1.DataSource = dt;
+
+            DataTable dt2 = controller.SearchShowingsByBrokerSsnr(brokerName);
+            dataGridView2.DataSource = dt2;
         }
 
         Controller controller = new Controller();
@@ -455,21 +458,23 @@ namespace praktikfall
             string objNr = lblShowingSelectedObjNrDelete.Text;
 
             if (rbShowingDeleteShowing.Checked)              //Om "ta bort hela visningen" är valt
-            {               
+            {
                 int nrOfRows = controller.DeleteShowing(objNr);
                 MessageBox.Show("Visning borttagen");
-                Populate();                 
-            }
-            if (rbShowingDeleteBuyer.Checked)               //Om "ta bort spekulant" är valt
+                Populate(); 
+            }               
+                                
+            if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked) // Om inget val gjorts, ge feedback
             {
+                MessageBox.Show("Vänligen välj ett alternativ (ta bort hela visningen eller ta bort spekulant från visning) först.");
+            }       
+
+            if (rbShowingDeleteBuyer.Checked)               //Om "ta bort spekulant" är valt
+            {                
                 int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
                 MessageBox.Show("Spekulant borttagen från visning");
                 Populate();
-            }
-            else
-            {
-                MessageBox.Show("Var vänlig gör ett val först");
-            }
+            }                                   
         }
 
 
