@@ -50,22 +50,6 @@
             this.lblDatumVisning = new System.Windows.Forms.Label();
             this.btnAddShowing = new System.Windows.Forms.Button();
             this.lblSpekulantVisning = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.btnDeleteProspectiveBuyer = new System.Windows.Forms.Button();
-            this.btnUpdateProspectiveBuyer = new System.Windows.Forms.Button();
-            this.tbSearchProBuyer = new System.Windows.Forms.TextBox();
-            this.btnSearchProBuyer = new System.Windows.Forms.Button();
-            this.dgvProspectiveBuyer = new System.Windows.Forms.DataGridView();
-            this.tbProspectiveBuyerEmail = new System.Windows.Forms.TextBox();
-            this.tbBuyerTel = new System.Windows.Forms.TextBox();
-            this.tbBuyerName = new System.Windows.Forms.TextBox();
-            this.tbBuyerSsn = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.btnAddProspectiveBuyer = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelBuyerTel = new System.Windows.Forms.Label();
-            this.labelBuyerName = new System.Windows.Forms.Label();
-            this.labelBuyerSsn = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnObjSubmit = new System.Windows.Forms.Button();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
@@ -117,14 +101,27 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnDeleteProspectiveBuyer = new System.Windows.Forms.Button();
+            this.btnUpdateProspectiveBuyer = new System.Windows.Forms.Button();
+            this.tbProspectiveBuyerEmail = new System.Windows.Forms.TextBox();
+            this.tbBuyerTel = new System.Windows.Forms.TextBox();
+            this.tbBuyerName = new System.Windows.Forms.TextBox();
+            this.tbBuyerSsn = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.btnAddProspectiveBuyer = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelBuyerTel = new System.Windows.Forms.Label();
+            this.labelBuyerName = new System.Windows.Forms.Label();
+            this.labelBuyerSsn = new System.Windows.Forms.Label();
+            this.tbSearchProBuyer = new System.Windows.Forms.TextBox();
+            this.btnSearchProBuyer = new System.Windows.Forms.Button();
             this.tabPageVisning.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowingCurrentShowings)).BeginInit();
             this.groupBoxVisning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectShowing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyerShowing)).BeginInit();
-            this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyer)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -135,10 +132,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageVisning
             // 
+            this.tabPageVisning.Controls.Add(this.groupBox4);
             this.tabPageVisning.Controls.Add(this.groupBox1);
             this.tabPageVisning.Controls.Add(this.groupBoxVisning);
             this.tabPageVisning.Location = new System.Drawing.Point(4, 22);
@@ -161,7 +160,7 @@
             this.groupBox1.Controls.Add(this.dgvShowingCurrentShowings);
             this.groupBox1.Location = new System.Drawing.Point(11, 315);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1053, 316);
+            this.groupBox1.Size = new System.Drawing.Size(607, 309);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tillagda visningar";
@@ -209,7 +208,7 @@
             // 
             // btnShowingDelete
             // 
-            this.btnShowingDelete.Location = new System.Drawing.Point(972, 284);
+            this.btnShowingDelete.Location = new System.Drawing.Point(413, 268);
             this.btnShowingDelete.Name = "btnShowingDelete";
             this.btnShowingDelete.Size = new System.Drawing.Size(75, 23);
             this.btnShowingDelete.TabIndex = 17;
@@ -247,6 +246,8 @@
             // 
             // groupBoxVisning
             // 
+            this.groupBoxVisning.Controls.Add(this.tbSearchProBuyer);
+            this.groupBoxVisning.Controls.Add(this.btnSearchProBuyer);
             this.groupBoxVisning.Controls.Add(this.btnShowingUpdate);
             this.groupBoxVisning.Controls.Add(this.lblSelectedBuyerShowing);
             this.groupBoxVisning.Controls.Add(this.lblSelectedObjectShowing);
@@ -356,170 +357,6 @@
             this.lblSpekulantVisning.Size = new System.Drawing.Size(87, 13);
             this.lblSpekulantVisning.TabIndex = 6;
             this.lblSpekulantVisning.Text = "Välj spekulant";
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.btnDeleteProspectiveBuyer);
-            this.tabPage5.Controls.Add(this.btnUpdateProspectiveBuyer);
-            this.tabPage5.Controls.Add(this.tbSearchProBuyer);
-            this.tabPage5.Controls.Add(this.btnSearchProBuyer);
-            this.tabPage5.Controls.Add(this.dgvProspectiveBuyer);
-            this.tabPage5.Controls.Add(this.tbProspectiveBuyerEmail);
-            this.tabPage5.Controls.Add(this.tbBuyerTel);
-            this.tabPage5.Controls.Add(this.tbBuyerName);
-            this.tabPage5.Controls.Add(this.tbBuyerSsn);
-            this.tabPage5.Controls.Add(this.lblEmail);
-            this.tabPage5.Controls.Add(this.btnAddProspectiveBuyer);
-            this.tabPage5.Controls.Add(this.label1);
-            this.tabPage5.Controls.Add(this.labelBuyerTel);
-            this.tabPage5.Controls.Add(this.labelBuyerName);
-            this.tabPage5.Controls.Add(this.labelBuyerSsn);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1083, 711);
-            this.tabPage5.TabIndex = 5;
-            this.tabPage5.Text = "Spekulant";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteProspectiveBuyer
-            // 
-            this.btnDeleteProspectiveBuyer.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteProspectiveBuyer.Image")));
-            this.btnDeleteProspectiveBuyer.Location = new System.Drawing.Point(279, 250);
-            this.btnDeleteProspectiveBuyer.Name = "btnDeleteProspectiveBuyer";
-            this.btnDeleteProspectiveBuyer.Size = new System.Drawing.Size(43, 23);
-            this.btnDeleteProspectiveBuyer.TabIndex = 27;
-            this.btnDeleteProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteProspectiveBuyer.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateProspectiveBuyer
-            // 
-            this.btnUpdateProspectiveBuyer.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateProspectiveBuyer.Image")));
-            this.btnUpdateProspectiveBuyer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUpdateProspectiveBuyer.Location = new System.Drawing.Point(234, 250);
-            this.btnUpdateProspectiveBuyer.Name = "btnUpdateProspectiveBuyer";
-            this.btnUpdateProspectiveBuyer.Size = new System.Drawing.Size(39, 23);
-            this.btnUpdateProspectiveBuyer.TabIndex = 26;
-            this.btnUpdateProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdateProspectiveBuyer.UseVisualStyleBackColor = true;
-            // 
-            // tbSearchProBuyer
-            // 
-            this.tbSearchProBuyer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearchProBuyer.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbSearchProBuyer.Location = new System.Drawing.Point(422, 276);
-            this.tbSearchProBuyer.Name = "tbSearchProBuyer";
-            this.tbSearchProBuyer.Size = new System.Drawing.Size(100, 20);
-            this.tbSearchProBuyer.TabIndex = 25;
-            this.tbSearchProBuyer.Text = "Sökord";
-            this.tbSearchProBuyer.Click += new System.EventHandler(this.tb_clickSearch);
-            // 
-            // btnSearchProBuyer
-            // 
-            this.btnSearchProBuyer.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchProBuyer.Image")));
-            this.btnSearchProBuyer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSearchProBuyer.Location = new System.Drawing.Point(528, 276);
-            this.btnSearchProBuyer.Name = "btnSearchProBuyer";
-            this.btnSearchProBuyer.Size = new System.Drawing.Size(40, 20);
-            this.btnSearchProBuyer.TabIndex = 24;
-            this.btnSearchProBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearchProBuyer.UseVisualStyleBackColor = true;
-            this.btnSearchProBuyer.Click += new System.EventHandler(this.btnSearchProBuyer_Click);
-            // 
-            // dgvProspectiveBuyer
-            // 
-            this.dgvProspectiveBuyer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProspectiveBuyer.Location = new System.Drawing.Point(422, 51);
-            this.dgvProspectiveBuyer.Name = "dgvProspectiveBuyer";
-            this.dgvProspectiveBuyer.Size = new System.Drawing.Size(444, 216);
-            this.dgvProspectiveBuyer.TabIndex = 23;
-            this.dgvProspectiveBuyer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProBuyer_CellClick);
-            // 
-            // tbProspectiveBuyerEmail
-            // 
-            this.tbProspectiveBuyerEmail.Location = new System.Drawing.Point(191, 205);
-            this.tbProspectiveBuyerEmail.Name = "tbProspectiveBuyerEmail";
-            this.tbProspectiveBuyerEmail.Size = new System.Drawing.Size(160, 20);
-            this.tbProspectiveBuyerEmail.TabIndex = 22;
-            // 
-            // tbBuyerTel
-            // 
-            this.tbBuyerTel.Location = new System.Drawing.Point(191, 175);
-            this.tbBuyerTel.Name = "tbBuyerTel";
-            this.tbBuyerTel.Size = new System.Drawing.Size(160, 20);
-            this.tbBuyerTel.TabIndex = 16;
-            // 
-            // tbBuyerName
-            // 
-            this.tbBuyerName.Location = new System.Drawing.Point(191, 141);
-            this.tbBuyerName.Name = "tbBuyerName";
-            this.tbBuyerName.Size = new System.Drawing.Size(160, 20);
-            this.tbBuyerName.TabIndex = 15;
-            // 
-            // tbBuyerSsn
-            // 
-            this.tbBuyerSsn.Location = new System.Drawing.Point(191, 107);
-            this.tbBuyerSsn.Name = "tbBuyerSsn";
-            this.tbBuyerSsn.Size = new System.Drawing.Size(160, 20);
-            this.tbBuyerSsn.TabIndex = 14;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(60, 213);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(41, 13);
-            this.lblEmail.TabIndex = 21;
-            this.lblEmail.Text = "Email:";
-            // 
-            // btnAddProspectiveBuyer
-            // 
-            this.btnAddProspectiveBuyer.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProspectiveBuyer.Image")));
-            this.btnAddProspectiveBuyer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddProspectiveBuyer.Location = new System.Drawing.Point(191, 250);
-            this.btnAddProspectiveBuyer.Name = "btnAddProspectiveBuyer";
-            this.btnAddProspectiveBuyer.Size = new System.Drawing.Size(37, 23);
-            this.btnAddProspectiveBuyer.TabIndex = 20;
-            this.btnAddProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddProspectiveBuyer.UseVisualStyleBackColor = true;
-            this.btnAddProspectiveBuyer.Click += new System.EventHandler(this.btnAddProspectiveBuyer_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 29);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Registrera spekulant";
-            // 
-            // labelBuyerTel
-            // 
-            this.labelBuyerTel.AutoSize = true;
-            this.labelBuyerTel.Location = new System.Drawing.Point(57, 181);
-            this.labelBuyerTel.Name = "labelBuyerTel";
-            this.labelBuyerTel.Size = new System.Drawing.Size(54, 13);
-            this.labelBuyerTel.TabIndex = 13;
-            this.labelBuyerTel.Text = "Telefon:";
-            // 
-            // labelBuyerName
-            // 
-            this.labelBuyerName.AutoSize = true;
-            this.labelBuyerName.Location = new System.Drawing.Point(57, 144);
-            this.labelBuyerName.Name = "labelBuyerName";
-            this.labelBuyerName.Size = new System.Drawing.Size(43, 13);
-            this.labelBuyerName.TabIndex = 12;
-            this.labelBuyerName.Text = "Namn:";
-            // 
-            // labelBuyerSsn
-            // 
-            this.labelBuyerSsn.AutoSize = true;
-            this.labelBuyerSsn.Location = new System.Drawing.Point(57, 107);
-            this.labelBuyerSsn.Name = "labelBuyerSsn";
-            this.labelBuyerSsn.Size = new System.Drawing.Size(93, 13);
-            this.labelBuyerSsn.TabIndex = 11;
-            this.labelBuyerSsn.Text = "Personnummer:";
             // 
             // tabPage2
             // 
@@ -1025,7 +862,6 @@
             // 
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Controls.Add(this.tabPageVisning);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(-2, -1);
@@ -1034,10 +870,161 @@
             this.tabControl.Size = new System.Drawing.Size(1091, 737);
             this.tabControl.TabIndex = 0;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnDeleteProspectiveBuyer);
+            this.groupBox4.Controls.Add(this.btnUpdateProspectiveBuyer);
+            this.groupBox4.Controls.Add(this.tbProspectiveBuyerEmail);
+            this.groupBox4.Controls.Add(this.tbBuyerTel);
+            this.groupBox4.Controls.Add(this.tbBuyerName);
+            this.groupBox4.Controls.Add(this.tbBuyerSsn);
+            this.groupBox4.Controls.Add(this.lblEmail);
+            this.groupBox4.Controls.Add(this.btnAddProspectiveBuyer);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.labelBuyerTel);
+            this.groupBox4.Controls.Add(this.labelBuyerName);
+            this.groupBox4.Controls.Add(this.labelBuyerSsn);
+            this.groupBox4.Location = new System.Drawing.Point(624, 315);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(440, 307);
+            this.groupBox4.TabIndex = 12;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Registrera spekulant";
+            // 
+            // btnDeleteProspectiveBuyer
+            // 
+            this.btnDeleteProspectiveBuyer.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteProspectiveBuyer.Image")));
+            this.btnDeleteProspectiveBuyer.Location = new System.Drawing.Point(296, 241);
+            this.btnDeleteProspectiveBuyer.Name = "btnDeleteProspectiveBuyer";
+            this.btnDeleteProspectiveBuyer.Size = new System.Drawing.Size(43, 23);
+            this.btnDeleteProspectiveBuyer.TabIndex = 39;
+            this.btnDeleteProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteProspectiveBuyer.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateProspectiveBuyer
+            // 
+            this.btnUpdateProspectiveBuyer.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateProspectiveBuyer.Image")));
+            this.btnUpdateProspectiveBuyer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUpdateProspectiveBuyer.Location = new System.Drawing.Point(251, 241);
+            this.btnUpdateProspectiveBuyer.Name = "btnUpdateProspectiveBuyer";
+            this.btnUpdateProspectiveBuyer.Size = new System.Drawing.Size(39, 23);
+            this.btnUpdateProspectiveBuyer.TabIndex = 38;
+            this.btnUpdateProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdateProspectiveBuyer.UseVisualStyleBackColor = true;
+            // 
+            // tbProspectiveBuyerEmail
+            // 
+            this.tbProspectiveBuyerEmail.Location = new System.Drawing.Point(208, 196);
+            this.tbProspectiveBuyerEmail.Name = "tbProspectiveBuyerEmail";
+            this.tbProspectiveBuyerEmail.Size = new System.Drawing.Size(160, 20);
+            this.tbProspectiveBuyerEmail.TabIndex = 37;
+            // 
+            // tbBuyerTel
+            // 
+            this.tbBuyerTel.Location = new System.Drawing.Point(208, 166);
+            this.tbBuyerTel.Name = "tbBuyerTel";
+            this.tbBuyerTel.Size = new System.Drawing.Size(160, 20);
+            this.tbBuyerTel.TabIndex = 33;
+            // 
+            // tbBuyerName
+            // 
+            this.tbBuyerName.Location = new System.Drawing.Point(208, 132);
+            this.tbBuyerName.Name = "tbBuyerName";
+            this.tbBuyerName.Size = new System.Drawing.Size(160, 20);
+            this.tbBuyerName.TabIndex = 32;
+            // 
+            // tbBuyerSsn
+            // 
+            this.tbBuyerSsn.Location = new System.Drawing.Point(208, 98);
+            this.tbBuyerSsn.Name = "tbBuyerSsn";
+            this.tbBuyerSsn.Size = new System.Drawing.Size(160, 20);
+            this.tbBuyerSsn.TabIndex = 31;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(77, 204);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(41, 13);
+            this.lblEmail.TabIndex = 36;
+            this.lblEmail.Text = "Email:";
+            // 
+            // btnAddProspectiveBuyer
+            // 
+            this.btnAddProspectiveBuyer.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProspectiveBuyer.Image")));
+            this.btnAddProspectiveBuyer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddProspectiveBuyer.Location = new System.Drawing.Point(208, 241);
+            this.btnAddProspectiveBuyer.Name = "btnAddProspectiveBuyer";
+            this.btnAddProspectiveBuyer.Size = new System.Drawing.Size(37, 23);
+            this.btnAddProspectiveBuyer.TabIndex = 35;
+            this.btnAddProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddProspectiveBuyer.UseVisualStyleBackColor = true;
+            this.btnAddProspectiveBuyer.Click += new System.EventHandler(this.btnAddProspectiveBuyer_Click_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(72, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(254, 29);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Registrera spekulant";
+            // 
+            // labelBuyerTel
+            // 
+            this.labelBuyerTel.AutoSize = true;
+            this.labelBuyerTel.Location = new System.Drawing.Point(74, 172);
+            this.labelBuyerTel.Name = "labelBuyerTel";
+            this.labelBuyerTel.Size = new System.Drawing.Size(54, 13);
+            this.labelBuyerTel.TabIndex = 30;
+            this.labelBuyerTel.Text = "Telefon:";
+            // 
+            // labelBuyerName
+            // 
+            this.labelBuyerName.AutoSize = true;
+            this.labelBuyerName.Location = new System.Drawing.Point(74, 135);
+            this.labelBuyerName.Name = "labelBuyerName";
+            this.labelBuyerName.Size = new System.Drawing.Size(43, 13);
+            this.labelBuyerName.TabIndex = 29;
+            this.labelBuyerName.Text = "Namn:";
+            // 
+            // labelBuyerSsn
+            // 
+            this.labelBuyerSsn.AutoSize = true;
+            this.labelBuyerSsn.Location = new System.Drawing.Point(74, 98);
+            this.labelBuyerSsn.Name = "labelBuyerSsn";
+            this.labelBuyerSsn.Size = new System.Drawing.Size(93, 13);
+            this.labelBuyerSsn.TabIndex = 28;
+            this.labelBuyerSsn.Text = "Personnummer:";
+            // 
+            // tbSearchProBuyer
+            // 
+            this.tbSearchProBuyer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearchProBuyer.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbSearchProBuyer.Location = new System.Drawing.Point(818, 230);
+            this.tbSearchProBuyer.Name = "tbSearchProBuyer";
+            this.tbSearchProBuyer.Size = new System.Drawing.Size(100, 20);
+            this.tbSearchProBuyer.TabIndex = 27;
+            this.tbSearchProBuyer.Text = "Sökord";
+            // 
+            // btnSearchProBuyer
+            // 
+            this.btnSearchProBuyer.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchProBuyer.Image")));
+            this.btnSearchProBuyer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSearchProBuyer.Location = new System.Drawing.Point(924, 230);
+            this.btnSearchProBuyer.Name = "btnSearchProBuyer";
+            this.btnSearchProBuyer.Size = new System.Drawing.Size(40, 20);
+            this.btnSearchProBuyer.TabIndex = 26;
+            this.btnSearchProBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchProBuyer.UseVisualStyleBackColor = true;
+            this.btnSearchProBuyer.Click += new System.EventHandler(this.btnSearchProBuyer_Click_1);
+            // 
             // EmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1096, 736);
             this.Controls.Add(this.tabControl);
             this.Name = "EmployeeFrame";
@@ -1051,9 +1038,6 @@
             this.groupBoxVisning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectShowing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyerShowing)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyer)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1068,6 +1052,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1083,17 +1069,6 @@
         private System.Windows.Forms.Label lblDatumVisning;
         private System.Windows.Forms.Button btnAddShowing;
         private System.Windows.Forms.Label lblSpekulantVisning;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TextBox tbProspectiveBuyerEmail;
-        private System.Windows.Forms.TextBox tbBuyerTel;
-        private System.Windows.Forms.TextBox tbBuyerName;
-        private System.Windows.Forms.TextBox tbBuyerSsn;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Button btnAddProspectiveBuyer;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelBuyerTel;
-        private System.Windows.Forms.Label labelBuyerName;
-        private System.Windows.Forms.Label labelBuyerSsn;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.PictureBox imageStartLogotype;
         private System.Windows.Forms.Label labelMyShowings;
@@ -1105,11 +1080,6 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Label lblSelectedBuyerShowing;
         private System.Windows.Forms.Label lblSelectedObjectShowing;
-        private System.Windows.Forms.TextBox tbSearchProBuyer;
-        private System.Windows.Forms.Button btnSearchProBuyer;
-        private System.Windows.Forms.DataGridView dgvProspectiveBuyer;
-        private System.Windows.Forms.Button btnDeleteProspectiveBuyer;
-        private System.Windows.Forms.Button btnUpdateProspectiveBuyer;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvShowingCurrentShowings;
         private System.Windows.Forms.Button btnShowingDelete;
@@ -1162,6 +1132,21 @@
         private System.Windows.Forms.Label lblObjOwnerPhonenr;
         private System.Windows.Forms.Label lblObjOwnerSsnr;
         private System.Windows.Forms.Button btnObjSubmit;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnDeleteProspectiveBuyer;
+        private System.Windows.Forms.Button btnUpdateProspectiveBuyer;
+        private System.Windows.Forms.TextBox tbProspectiveBuyerEmail;
+        private System.Windows.Forms.TextBox tbBuyerTel;
+        private System.Windows.Forms.TextBox tbBuyerName;
+        private System.Windows.Forms.TextBox tbBuyerSsn;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Button btnAddProspectiveBuyer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelBuyerTel;
+        private System.Windows.Forms.Label labelBuyerName;
+        private System.Windows.Forms.Label labelBuyerSsn;
+        private System.Windows.Forms.TextBox tbSearchProBuyer;
+        private System.Windows.Forms.Button btnSearchProBuyer;
 
     }
 }

@@ -23,10 +23,10 @@ namespace praktikfall
             DataTable dt = controller.GetAllObjectsNr();
             dgvObject.DataSource = dt;
             DataTable dt2 = controller.GetAllProspectiveBuyers();
-            dgvObjectShowing.DataSource = dt; //ska denna vara där?
-            dgvProspectiveBuyerShowing.DataSource = dt2;
+            dgvObjectShowing.DataSource = dt; //ska denna vara där? ja, den är för visnings-tabben, den gör samma sak fast för 2 olika DGVs
+            dgvProspectiveBuyerShowing.DataSource = dt2; //DGV på visingstabben
             DataTable dt3 = controller.GetShowings();
-            dgvShowingCurrentShowings.DataSource = dt3;
+            dgvShowingCurrentShowings.DataSource = dt3; //DGV på visningstabben
 
 
            
@@ -311,6 +311,13 @@ namespace praktikfall
                 lblSelectedBuyerShowing.Text = selectedItem;
                 lblSelectedBuyerShowing.Visible = true;
 
+               
+
+                tbBuyerSsn.Text = row.Cells["buyerSsnr"].Value.ToString();
+                tbBuyerName.Text = row.Cells["name"].Value.ToString();
+                tbBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
+                tbProspectiveBuyerEmail.Text = row.Cells["email"].Value.ToString();
+                
             }
         }
 
@@ -341,7 +348,7 @@ namespace praktikfall
                 {
                     string searchString = tbSearchProBuyer.Text;
                     DataTable dt = controller.SearchProBuyerByString(searchString);
-                    dgvProspectiveBuyer.DataSource = dt;
+                    dgvProspectiveBuyerShowing.DataSource = dt;
                 }
             }
             catch (Exception ex)
@@ -361,7 +368,7 @@ namespace praktikfall
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = this.dgvProspectiveBuyer.Rows[e.RowIndex];
+                DataGridViewRow row = this.dgvProspectiveBuyerShowing.Rows[e.RowIndex];
 
                 tbBuyerSsn.Text = row.Cells["buyerSsnr"].Value.ToString();
                 tbBuyerName.Text = row.Cells["name"].Value.ToString();
@@ -418,14 +425,14 @@ namespace praktikfall
             string buyerSsnr = lblShowingSelectedBuyerDelete.Text;
             string objNr = lblShowingSelectedObjNrDelete.Text;
 
-            if (rbShowingDeleteShowing.Checked)
+            if (rbShowingDeleteShowing.Checked)              //Om "ta bort hela visningen" är valt
             {               
                 int nrOfRows = controller.DeleteShowing(objNr);
                 MessageBox.Show("Visning borttagen :(");
                 DataTable dt = controller.GetShowings();    //Uppdatera listan
                 dgvShowingCurrentShowings.DataSource = dt;                  
             }
-            if (rbShowingDeleteBuyer.Checked)
+            if (rbShowingDeleteBuyer.Checked)               //Om "ta bort spekulant" är valt
             {
                 int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
                 MessageBox.Show("Spekulant borttagen från visning :(:(");
@@ -455,6 +462,78 @@ namespace praktikfall
             else if (cbObjRegister.Checked && !cbObjUpdate.Checked)
             {
                 
+            }
+        }
+
+        private void btnAddProspectiveBuyer_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int parsedValue;
+                if (!int.TryParse(tbBuyerSsn.Text, out parsedValue))
+                {
+                    MessageBox.Show("Personnummer får endast innehålla siffror");
+
+                }
+
+                else if (tbBuyerName.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit ett namn");
+                }
+
+                else if (tbBuyerTel.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit ett telefonnummer");
+                }
+
+                else if (tbProspectiveBuyerEmail.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit en email");
+                }
+
+                else
+                {
+                    string ssnr = tbBuyerSsn.Text;
+                    string name = tbBuyerName.Text;
+                    string phonenr = tbBuyerTel.Text;
+                    string email = tbProspectiveBuyerEmail.Text;
+                    controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
+                    MessageBox.Show("Ny spekulant registrerad");
+                    DataTable dt = controller.GetAllProspectiveBuyers();
+                    dgvProspectiveBuyerShowing.DataSource = dt;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Det går inte att registrera en spekulant/n" + ex);
+            }
+        }
+
+        private void btnSearchProBuyer_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbSearchProBuyer.Text == "" || tbSearchProBuyer.Text == "Sökord")
+                {
+                    tbSearchProBuyer.Text = "";
+                    tbSearchProBuyer.ForeColor = Color.LightSlateGray;
+                    tbSearchProBuyer.Text = "Sökord";
+                    MessageBox.Show("Du har ej angivit ett sökord");
+                }
+
+                else
+                {
+                    string searchString = tbSearchProBuyer.Text;
+                    DataTable dt = controller.SearchProBuyerByString(searchString);
+                    dgvProspectiveBuyerShowing.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem i sökfunktion\n" + ex);
             }
         }
 
