@@ -128,6 +128,7 @@
             this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
+            this.menuItem11 = new System.Windows.Forms.MenuItem();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1070,6 +1071,7 @@
             // 
             this.menuItem1.Index = 0;
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem11,
             this.menuItem5});
             this.menuItem1.Text = "Arkiv";
             // 
@@ -1093,7 +1095,7 @@
             // 
             // menuItem5
             // 
-            this.menuItem5.Index = 0;
+            this.menuItem5.Index = 1;
             this.menuItem5.Text = "Avsluta";
             this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
@@ -1127,6 +1129,12 @@
             // 
             this.menuItem10.Index = 2;
             this.menuItem10.Text = "Spekulant";
+            // 
+            // menuItem11
+            // 
+            this.menuItem11.Index = 0;
+            this.menuItem11.Text = "Logga ut";
+            this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
             // 
             // EmployeeFrame
             // 
@@ -1267,6 +1275,7 @@
         private System.Windows.Forms.MenuItem menuItem8;
         private System.Windows.Forms.MenuItem menuItem9;
         private System.Windows.Forms.MenuItem menuItem10;
+        private System.Windows.Forms.MenuItem menuItem11;
 
     }
 }

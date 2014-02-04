@@ -255,12 +255,12 @@ namespace praktikfall
 
         }
 
-        private void btnAddShowing_Click(object sender, EventArgs e) //Lägg till visning
+        private void btnAddShowing_Click(object sender, EventArgs e)                //Lägg till visning
         {
             string objNr = lblSelectedObjectShowing.Text;
             string showingDate = dtpVisningsdatumVisning.Text;
             string buyerSsnr = lblSelectedBuyerShowing.Text;
-            bool showingExists = controller.ShowingExists(objNr, buyerSsnr);
+            bool showingExists = controller.ShowingExists(objNr, buyerSsnr);        //Kontrollerar om visningen redan finns
 
             if (showingExists)
             {
@@ -332,9 +332,8 @@ namespace praktikfall
                 
             }
         }
-
-        //Avslutar applikationen när användaren stänger EmployeeFrame
-        private void EmployeeFrame_FormClosed(object sender, FormClosedEventArgs e)
+       
+        private void EmployeeFrame_FormClosed(object sender, FormClosedEventArgs e)         //Avslutar applikationen när användaren stänger EmployeeFrame
         {
             Application.Exit();
         }
@@ -445,12 +444,12 @@ namespace praktikfall
           
         }
 
-        private void btnShowingDelete_Click(object sender, EventArgs e) //Ta bort visning/Ta bort spekulant från visning
+        private void btnShowingDelete_Click(object sender, EventArgs e)                         //Ta bort visning/Ta bort spekulant från visning
         {
             string buyerSsnr = lblShowingSelectedBuyerDelete.Text;
             string objNr = lblShowingSelectedObjNrDelete.Text;
 
-            if (rbShowingDeleteShowing.Checked)              //Om "ta bort hela visningen" är valt
+            if (rbShowingDeleteShowing.Checked)                                                  //Om "ta bort hela visningen" är valt
             {
                 if (lblShowingSelectedObjNrDelete.Text.Equals("selectedForDelete(invisible)"))
                 {
@@ -465,12 +464,12 @@ namespace praktikfall
                     lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
                 }                 
             }                                               
-            if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked) // Om inget val gjorts, ge feedback
+            if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked)               // Om inget val gjorts, ge feedback
             {
                 MessageBox.Show("Vänligen välj ett alternativ (ta bort hela visningen eller ta bort spekulant från visning) först.");
             }       
 
-            if (rbShowingDeleteBuyer.Checked)               //Om "ta bort spekulant" är valt
+            if (rbShowingDeleteBuyer.Checked)                                                   //Om "ta bort spekulant" är valt
             {
                 if (lblShowingSelectedBuyerDelete.Text.Equals("selectedForDelete(invisible)"))
                 {
@@ -487,10 +486,7 @@ namespace praktikfall
                 
             }                                   
         }
-
-
-
-       
+ 
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
             dgvObject_CellClick(dgvObject, new DataGridViewCellEventArgs(0, 0));
@@ -640,17 +636,17 @@ namespace praktikfall
             tbSearchProBuyer.ForeColor = Color.Black;
         }
 
-        private void dgvShowingObject_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        private void dgvShowingObject_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS /Marcus
         {
             dgvObjectShowing.ClearSelection();
         }
 
-        private void dgvShowingProspecitveBuyer_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        private void dgvShowingProspecitveBuyer_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS /Marcus
         {
             dgvProspectiveBuyerShowing.ClearSelection();
         }
 
-        private void dgvShowingCurrentShowings_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        private void dgvShowingCurrentShowings_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS /Marcus
         {
             dgvShowingCurrentShowings.ClearSelection();
         }    
@@ -668,8 +664,7 @@ namespace praktikfall
                 "Om",               
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
-                );
-            
+                );            
         }
 
         private void menuItem5_Click(object sender, EventArgs e)
@@ -697,7 +692,7 @@ namespace praktikfall
                 + "(1) välj en spekulanten i listan under \"Ta bort visningar\".\n"
                 + "(2) välj alternativet \"Ta bort spekulant från visning\" till höger om listan.\n"
                 + "(3) tryck på knappen \"Ta bort\" för att ta bort spekulanten från objektets visning.\n\n"
-                + "Hur uppdaterar jag en visnings visningsdatum?\n"
+                + "Hur uppdaterar jag ett objekts visningsdatum?\n"
                 + "För att uppdatera en visnings visningsdatum, gör följande:\n"
                 + "(1) välj ett objekt i listan under \"välj objekt\".\n"
                 + "(2) välj vilken spekulant i listan \"Välj spekulant\" som ska uppdateras.\n"
@@ -707,7 +702,13 @@ namespace praktikfall
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
                 );
+        }
 
+        private void menuItem11_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 form = new Form1();
+            form.Show();
         }
 
 
