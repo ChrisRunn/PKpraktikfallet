@@ -80,9 +80,9 @@ namespace praktikfall
         #endregion OBJEKT
         #region MÄKLARE
         //Lägg till MÄKLARE
-        public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email)
+        public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-            int nrOfRows = dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email);
+            int nrOfRows = dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
             return nrOfRows;
         }
         //Ta bort MÄKLARE
@@ -108,6 +108,13 @@ namespace praktikfall
         {
             DataTable dt = dal.GetAllBrokers();
             return dt;
+        }
+
+        //Kontrollera om mäklare finns
+        public bool BrokerExists(string brokerSsnr)
+        {
+            bool brokerExists = dal.BrokerExists(brokerSsnr);
+            return brokerExists;
         }
         #endregion MÄKLARE
         #region SPEKULANT

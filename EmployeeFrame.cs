@@ -746,17 +746,74 @@ namespace praktikfall
 
         private void btnBrokerSubmit_Click(object sender, EventArgs e)
         {
-            string brokerSsnr = tbBrokerBrokerSsnr.Text;
-            string BrokerPassWord = tbBrokerBrokerPw.Text;
-            string name = tbBrokerBrokerName.Text;
-            string phoneNr = tbBrokerBrokerPhone.Text;
-            string email = tbBrokerBrokerEmail.Text;
-            string city = tbBrokerBrokerCity.Text;
-            string brokerAddress = tbBrokeBrokerAdress.Text;
 
-            controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email);
+            try
+            {
+
+                int parsedValue;
+                if (!int.TryParse(tbBrokerBrokerSsnr.Text, out parsedValue))
+                {
+                    MessageBox.Show("Personnummer får endast innehålla siffror");
+                }
+
+                else if (tbBrokerBrokerName.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit ett namn");
+                }
+
+                else if (tbBrokerBrokerPhone.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit ett telefonnummer");
+                }
+
+                else if (tbBrokerBrokerEmail.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit en email");
+                }
+
+                else if (tbBrokerBrokerPw.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit en lösenord");
+                }
+
+                else
+                {
+
+                    string brokerSsnr = tbBrokerBrokerSsnr.Text;
+                    string pw = tbBrokerBrokerPw.Text;
+                    string name = tbBrokerBrokerName.Text;
+                    string phoneNr = tbBrokerBrokerPhone.Text;
+                    string email = tbBrokerBrokerEmail.Text;
+                    string city = tbBrokerBrokerCity.Text;
+                    string brokerAddress = tbBrokeBrokerAdress.Text;
+
+                    bool brokerExists = controller.BrokerExists(brokerSsnr);
+
+                    if (brokerExists)
+                    {
+                        MessageBox.Show("Det finns redan en mäklare med personnummer: " + brokerSsnr);
+                    }
+
+                    else
+                    {
+                        controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad");
+                        Populate();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Det går inte att registrera en mäklare/n" + ex);
+            }
+        }
+           
+
+            
             
         }
 
     }
-}
+

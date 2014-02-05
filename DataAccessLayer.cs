@@ -145,8 +145,7 @@ namespace praktikfall
         //Lägg till MÄKLARE
         public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-            string sqlStr = "insert into RealEstateBroker values ('";
-            sqlStr += brokerSsnr + "','" + name + "','" + brokerAddress + "','" + city + "','" + phoneNr + "','" + email +  "'" + pw +"')";
+            string sqlStr = "insert into RealEstateBroker values ('" + brokerSsnr + "','" + name + "','" + brokerAddress + "','" + city + "','" + phoneNr + "','" + email +  "','" + pw +"')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
@@ -177,6 +176,19 @@ namespace praktikfall
             string sqlStr = "select * from RealEstateBroker";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
+        }
+
+        public bool BrokerExists(string brokerSsnr)
+        {
+            bool brokerExists = false;
+            string sqlStr = "select * from RealEstateBroker where brokerSsnr = '" + brokerSsnr + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            if (dt.Rows.Count > 0)
+            {
+                brokerExists = true;
+                return brokerExists;
+            }
+            return brokerExists;
         }
         #endregion MÄKLARE
         #region SPEKULANT
