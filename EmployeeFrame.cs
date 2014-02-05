@@ -744,6 +744,20 @@ namespace praktikfall
         }
         #endregion MAINMENU
 
+        private void btnBrokerSubmit_Click(object sender, EventArgs e)
+        {
+            string brokerSsnr = tbBrokerBrokerSsnr.Text;
+            string BrokerPassWord = tbBrokerBrokerPw.Text;
+            string name = tbBrokerBrokerName.Text;
+            string phoneNr = tbBrokerBrokerPhone.Text;
+            string email = tbBrokerBrokerEmail.Text;
+            string city = tbBrokerBrokerCity.Text;
+            string brokerAddress = tbBrokeBrokerAdress.Text;
+
+            controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email);
+            
+        }
+
     }
 }
 
