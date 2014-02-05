@@ -21,12 +21,13 @@ namespace praktikfall
 
             if (b == true)
             {
-                dataGridView1.Visible = true;
+                groupBox5.Visible = true;
             }
 
             else
             {
-                dataGridView1.Visible = false;
+                groupBox5.Visible = false;
+                tabPage3.Text = "";
             }
 
            

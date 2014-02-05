@@ -23,7 +23,7 @@ namespace praktikfall
             
             this.Hide();
 
-            if (textBox1.Text == "Admin")
+            if (textBox1.Text.ToLower() == "admin")
             {
                 bool b = true;
                 EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
