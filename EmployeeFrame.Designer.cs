@@ -69,7 +69,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnObjSubmit = new System.Windows.Forms.Button();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
-            this.cbObjDelete = new System.Windows.Forms.CheckBox();
+            this.cbObjDeleteOwner = new System.Windows.Forms.CheckBox();
             this.cbObjRegister = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbObjPrice = new System.Windows.Forms.TextBox();
@@ -119,17 +119,18 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem11 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuItem12 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
-            this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
-            this.menuItem11 = new System.Windows.Forms.MenuItem();
-            this.menuItem12 = new System.Windows.Forms.MenuItem();
+            this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.cbObjDeleteObject = new System.Windows.Forms.CheckBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -545,9 +546,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cbObjDeleteObject);
             this.tabPage2.Controls.Add(this.btnObjSubmit);
             this.tabPage2.Controls.Add(this.cbObjUpdate);
-            this.tabPage2.Controls.Add(this.cbObjDelete);
+            this.tabPage2.Controls.Add(this.cbObjDeleteOwner);
             this.tabPage2.Controls.Add(this.cbObjRegister);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
@@ -582,27 +584,27 @@
             // 
             this.cbObjUpdate.AccessibleName = "cbObjUpdate";
             this.cbObjUpdate.AutoSize = true;
-            this.cbObjUpdate.Location = new System.Drawing.Point(470, 652);
+            this.cbObjUpdate.Location = new System.Drawing.Point(470, 605);
             this.cbObjUpdate.Name = "cbObjUpdate";
             this.cbObjUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbObjUpdate.TabIndex = 6;
             this.cbObjUpdate.Text = "Uppdatera";
             this.cbObjUpdate.UseVisualStyleBackColor = true;
             // 
-            // cbObjDelete
+            // cbObjDeleteOwner
             // 
-            this.cbObjDelete.AutoSize = true;
-            this.cbObjDelete.Location = new System.Drawing.Point(470, 630);
-            this.cbObjDelete.Name = "cbObjDelete";
-            this.cbObjDelete.Size = new System.Drawing.Size(67, 17);
-            this.cbObjDelete.TabIndex = 7;
-            this.cbObjDelete.Text = "Ta bort";
-            this.cbObjDelete.UseVisualStyleBackColor = true;
+            this.cbObjDeleteOwner.AutoSize = true;
+            this.cbObjDeleteOwner.Location = new System.Drawing.Point(470, 670);
+            this.cbObjDeleteOwner.Name = "cbObjDeleteOwner";
+            this.cbObjDeleteOwner.Size = new System.Drawing.Size(144, 17);
+            this.cbObjDeleteOwner.TabIndex = 7;
+            this.cbObjDeleteOwner.Text = "Ta bort objektsägare";
+            this.cbObjDeleteOwner.UseVisualStyleBackColor = true;
             // 
             // cbObjRegister
             // 
             this.cbObjRegister.AutoSize = true;
-            this.cbObjRegister.Location = new System.Drawing.Point(470, 607);
+            this.cbObjRegister.Location = new System.Drawing.Point(470, 626);
             this.cbObjRegister.Name = "cbObjRegister";
             this.cbObjRegister.Size = new System.Drawing.Size(84, 17);
             this.cbObjRegister.TabIndex = 8;
@@ -919,6 +921,8 @@
             // 
             // dgvObject
             // 
+            this.dgvObject.AllowUserToAddRows = false;
+            this.dgvObject.AllowUserToDeleteRows = false;
             this.dgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObject.Location = new System.Drawing.Point(603, 15);
             this.dgvObject.Name = "dgvObject";
@@ -1076,6 +1080,18 @@
             this.menuItem5});
             this.menuItem1.Text = "Arkiv";
             // 
+            // menuItem11
+            // 
+            this.menuItem11.Index = 0;
+            this.menuItem11.Text = "Logga ut";
+            this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 1;
+            this.menuItem5.Text = "Avsluta";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
             // menuItem2
             // 
             this.menuItem2.Index = 1;
@@ -1088,6 +1104,12 @@
             this.menuItem12});
             this.menuItem3.Text = "Visa";
             // 
+            // menuItem12
+            // 
+            this.menuItem12.Index = 0;
+            this.menuItem12.Text = "Adminverktyg";
+            this.menuItem12.Click += new System.EventHandler(this.menuItem12_Click);
+            // 
             // menuItem4
             // 
             this.menuItem4.Index = 3;
@@ -1095,12 +1117,6 @@
             this.menuItem6,
             this.menuItem7});
             this.menuItem4.Text = "Hjälp";
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Index = 1;
-            this.menuItem5.Text = "Avsluta";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // menuItem6
             // 
@@ -1110,12 +1126,6 @@
             this.menuItem9,
             this.menuItem10});
             this.menuItem6.Text = "FAQ";
-            // 
-            // menuItem7
-            // 
-            this.menuItem7.Index = 1;
-            this.menuItem7.Text = "Om";
-            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
             // menuItem8
             // 
@@ -1133,17 +1143,21 @@
             this.menuItem10.Index = 2;
             this.menuItem10.Text = "Spekulant";
             // 
-            // menuItem11
+            // menuItem7
             // 
-            this.menuItem11.Index = 0;
-            this.menuItem11.Text = "Logga ut";
-            this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
+            this.menuItem7.Index = 1;
+            this.menuItem7.Text = "Om";
+            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
-            // menuItem12
+            // cbObjDeleteObject
             // 
-            this.menuItem12.Index = 0;
-            this.menuItem12.Text = "Adminverktyg";
-            this.menuItem12.Click += new System.EventHandler(this.menuItem12_Click);
+            this.cbObjDeleteObject.AutoSize = true;
+            this.cbObjDeleteObject.Location = new System.Drawing.Point(470, 647);
+            this.cbObjDeleteObject.Name = "cbObjDeleteObject";
+            this.cbObjDeleteObject.Size = new System.Drawing.Size(106, 17);
+            this.cbObjDeleteObject.TabIndex = 40;
+            this.cbObjDeleteObject.Text = "Ta bort objekt";
+            this.cbObjDeleteObject.UseVisualStyleBackColor = true;
             // 
             // EmployeeFrame
             // 
@@ -1247,7 +1261,7 @@
         private System.Windows.Forms.Label lblObjAddress;
         private System.Windows.Forms.PictureBox picBoxShowObj;
         private System.Windows.Forms.CheckBox cbObjUpdate;
-        private System.Windows.Forms.CheckBox cbObjDelete;
+        private System.Windows.Forms.CheckBox cbObjDeleteOwner;
         private System.Windows.Forms.CheckBox cbObjRegister;
         private System.Windows.Forms.TextBox tbObjOwnerEmail;
         private System.Windows.Forms.Label lblObjOwnerEmail;
@@ -1286,6 +1300,7 @@
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.MenuItem menuItem11;
         private System.Windows.Forms.MenuItem menuItem12;
+        private System.Windows.Forms.CheckBox cbObjDeleteObject;
 
     }
 }
