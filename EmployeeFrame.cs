@@ -510,34 +510,48 @@ namespace praktikfall
 
         private void btnObjSubmit_Click(object sender, EventArgs e)
         {
-            
-                MessageBox.Show("knappen är itryckt");
-                string objArea = tbObjectArea.Text;
-                string objRooms = tbNrOfRooms.Text;
-                string objUnitType = tbUnitType.Text;
-                string objInfo = richTextBox1.Text;
-                string objNr = tbObjNr.Text;
-                string objCity = tbObjCity.Text;
-                string objPrice = tbObjPrice.Text;
-                string objAdress = tbObjAddress.Text;
-                string ownerSsnr = tbObjOwnerSsnr.Text;
-                string phoneNr = tbObjOwnerPhoneNr.Text;
-                string email = tbObjOwnerEmail.Text;
-                string name = tbObjOwnerName.Text;
-                int nrOfRows = this.controller.UpdateObjectFlik(objNr, objAdress, objArea, objCity, objInfo, objPrice, objRooms, objUnitType, phoneNr, email, name, ownerSsnr);
+
+            string objNr = tbObjNr.Text;
+            string objAdress = tbObjAddress.Text;
+            string objCity = tbObjCity.Text;
+            string objPrice = tbObjPrice.Text;
+            string objArea = tbObjectArea.Text;
+            string objRooms = tbNrOfRooms.Text;
+            string objUnitType = tbUnitType.Text;
+            string objInfo = richTextBox1.Text;
+            string brokerSsnr = tbObjBrokerSsnr.Text;
+            string ownerSsnr = tbObjOwnerSsnr.Text;
+            string phoneNr = tbObjOwnerPhoneNr.Text;
+            string email = tbObjOwnerEmail.Text;
+            string name = tbObjOwnerName.Text;
+
+            if (cbObjUpdate.Checked && !cbObjDeleteOwner.Checked && !cbObjRegister.Checked && !cbObjDeleteObject.Checked)
+            {
+                
+                int nrOfRows = this.controller.UpdateObjectFlik(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, ownerSsnr, phoneNr, email, name);
                 MessageBox.Show(nrOfRows.ToString());
                 Populate();
-                
+            }
 
+            else if (cbObjRegister.Checked && !cbObjUpdate.Checked && !cbObjDeleteOwner.Checked && !cbObjDeleteObject.Checked)
+            {
+                int nrOfRows = this.controller.RegisterObjectAndOwner(objNr, objAdress, objCity,objPrice, objArea, objRooms, objUnitType, objInfo,brokerSsnr, ownerSsnr, phoneNr, email, name);
+                MessageBox.Show(nrOfRows.ToString());
+                Populate();
+
+            }
+            else if (cbObjDeleteOwner.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked && !cbObjDeleteObject.Checked)
+            {
+
+            }
+         
+            else if (cbObjDeleteObject.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked && !cbObjDeleteOwner.Checked)
+            { 
             
-             if (cbObjRegister.Checked && !cbObjUpdate.Checked && !cbObjDelete.Checked)
-            {
-
             }
-            else if (cbObjDelete.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked)
-            {
                 
-            }
+
+         
         }
 
         private void btnAddProspectiveBuyer_Click_1(object sender, EventArgs e)
@@ -753,8 +767,9 @@ namespace praktikfall
             string email = tbBrokerBrokerEmail.Text;
             string city = tbBrokerBrokerCity.Text;
             string brokerAddress = tbBrokeBrokerAdress.Text;
+            string pw = tbBrokerBrokerPw.Text;
 
-            controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email);
+            controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email,pw);
             
         }
 

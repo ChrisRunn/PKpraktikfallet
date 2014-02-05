@@ -32,10 +32,21 @@ namespace praktikfall
         }
 
         // Uppdaterar allt i objekt fliken !
-        public int UpdateObjectFlik(string objNr, string objAdress,string objArea, string objCity, string objInfo,
-            string objPrice, string objRooms, string objUnitType, string phoneNr, string email, string name, string ownerSsnr)
+        public int UpdateObjectFlik(string objNr, string objAdress, string objCity,
+            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string ownerSsnr, string phoneNr, string email, string name)
         {
-            int nrOfRows = dal.UpdateObjectFlik(objNr, objAdress, objCity,objArea, objInfo, objPrice, objRooms, objUnitType, phoneNr, email, name, ownerSsnr);
+            int nrOfRows = dal.UpdateObjectFlik(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, ownerSsnr, phoneNr, email, name);
+            return nrOfRows;
+        }
+
+        //Registrera Objekt och ägare
+        public int RegisterObjectAndOwner(string objNr, string objAdress, string objCity,
+            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
+            string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
+        { 
+            int nrOfRows = dal.RegisterObjectAndOwner(objNr, objAdress, objCity,
+            objPrice, objArea, objRooms, objUnitType, objInfo,
+            brokerSsnr, ownerSsnr, phoneNr, email, name);
             return nrOfRows;
         }
 
@@ -80,9 +91,9 @@ namespace praktikfall
         #endregion OBJEKT
         #region MÄKLARE
         //Lägg till MÄKLARE
-        public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email)
+        public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-            int nrOfRows = dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email);
+            int nrOfRows = dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
             return nrOfRows;
         }
         //Ta bort MÄKLARE
