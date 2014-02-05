@@ -136,12 +136,18 @@ namespace praktikfall
             return dt;
         }
 
-
         //Hämta alla spekulanter
         public DataTable GetAllProspectiveBuyers()
         {
             DataTable dt = dal.GetAllProspectiveBuyers();
             return dt;
+        }
+
+        //Kontrollera om spekulant finns
+        public bool ProspectiveBuyerExists(string Ssnr)
+        {
+            bool showingExists = dal.ProspectiveBuyerExists(Ssnr);
+            return showingExists;
         }
         #endregion SPEKULANT
         #region OBJEKTÄGARE
