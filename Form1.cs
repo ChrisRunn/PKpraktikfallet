@@ -20,10 +20,23 @@ namespace praktikfall
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            this.Hide();
             
-                EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text);
+            this.Hide();
+
+            if (textBox1.Text == "Admin")
+            {
+                bool b = true;
+                EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
                 openFrame.Show();
+            }
+
+            else
+            {
+                bool b = false;
+
+                EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
+                openFrame.Show();
+            }
             }
 
             

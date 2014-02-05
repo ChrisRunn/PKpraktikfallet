@@ -12,12 +12,25 @@ namespace praktikfall
 {
     public partial class EmployeeFrame : Form
     {
-        public EmployeeFrame(string name)
+        public EmployeeFrame(string name, bool b)
         {
            
             InitializeComponent();
             string brokerName = name;
             labelEmpName.Text = brokerName;
+
+            if (b == true)
+            {
+                dataGridView1.Visible = true;
+            }
+
+            else
+            {
+                dataGridView1.Visible = false;
+            }
+
+           
+
             Populate();
 
             DataTable dt = controller.SearchObjectByBrokerSsnr(brokerName);
