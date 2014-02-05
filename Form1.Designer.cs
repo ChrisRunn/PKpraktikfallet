@@ -107,6 +107,7 @@
             this.Controls.Add(this.btn_Login);
             this.Name = "Form1";
             this.Text = "Start";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
