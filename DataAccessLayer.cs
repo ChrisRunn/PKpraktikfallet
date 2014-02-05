@@ -45,8 +45,7 @@ namespace praktikfall
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
-                }
-                               
+                }                               
             }
         }
 
