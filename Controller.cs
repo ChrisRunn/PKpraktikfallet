@@ -103,6 +103,12 @@ namespace praktikfall
             DataTable dt = dal.GetBroker(brokerSsnr);
             return dt;
         }
+        //Hämta ALLA MÄKLARE
+        public DataTable GetAllBrokers()
+        {
+            DataTable dt = dal.GetAllBrokers();
+            return dt;
+        }
         #endregion MÄKLARE
         #region SPEKULANT
         //lägga till spekulant
