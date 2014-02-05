@@ -20,15 +20,14 @@ namespace praktikfall
         //generisk metod för att skicka query som uppdaterar eller lägger till nya objekt
         private int ExecuteUpdate(string sqlStr)
         {
+            SqlConnection con = new SqlConnection(connectionString);            
+            Debug.WriteLine(sqlStr);            
+            
             try
             {
-                SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
-                Debug.WriteLine(sqlStr);
                 SqlCommand com = new SqlCommand(sqlStr, con);
-                int nrOfRows = com.ExecuteNonQuery();
-                con.Close();
-                Debug.WriteLine("denna metoden har fungerat , duktigt august!");
+                int nrOfRows = com.ExecuteNonQuery();                
                 return nrOfRows;
             }
             catch (SqlException ex)
@@ -43,7 +42,11 @@ namespace praktikfall
             }
             finally
             {
-                //con.Close();               
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                               
             }
         }
 
@@ -51,15 +54,13 @@ namespace praktikfall
         private DataTable ExecuteQuery(string sqlStr)
         {
             DataTable dataTable = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            
             try
-            {
-                SqlConnection con = new SqlConnection(connectionString);
+            {                
                 con.Open();
-                Console.WriteLine(sqlStr);
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlStr, con);
                 dataAdapter.Fill(dataTable);
-                con.Close();
-                Debug.WriteLine("denna metoden har fungerat , duktigt august!");
             }
             catch (SqlException ex)
             {
@@ -71,7 +72,10 @@ namespace praktikfall
             }
             finally
             {
-                //con.Close();
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }                
             }
             return dataTable;
         }
