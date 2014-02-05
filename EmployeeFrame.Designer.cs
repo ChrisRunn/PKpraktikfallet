@@ -67,6 +67,7 @@
             this.btnAddShowing = new System.Windows.Forms.Button();
             this.lblSpekulantVisning = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbObjDeleteObject = new System.Windows.Forms.CheckBox();
             this.btnObjSubmit = new System.Windows.Forms.Button();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
             this.cbObjDeleteOwner = new System.Windows.Forms.CheckBox();
@@ -152,7 +153,6 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.cbObjDeleteObject = new System.Windows.Forms.CheckBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -594,6 +594,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cbObjDeleteObject
+            // 
+            this.cbObjDeleteObject.AutoSize = true;
+            this.cbObjDeleteObject.Location = new System.Drawing.Point(470, 647);
+            this.cbObjDeleteObject.Name = "cbObjDeleteObject";
+            this.cbObjDeleteObject.Size = new System.Drawing.Size(106, 17);
+            this.cbObjDeleteObject.TabIndex = 40;
+            this.cbObjDeleteObject.Text = "Ta bort objekt";
+            this.cbObjDeleteObject.UseVisualStyleBackColor = true;
             // 
             // btnObjSubmit
             // 
@@ -1302,6 +1312,7 @@
             this.dgvBrokerAllBrokers.Name = "dgvBrokerAllBrokers";
             this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(400, 250);
             this.dgvBrokerAllBrokers.TabIndex = 9;
+            this.dgvBrokerAllBrokers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBrokerAllBrokers_CellClick);
             // 
             // mainMenu
             // 
@@ -1387,16 +1398,6 @@
             this.menuItem7.Index = 1;
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
-            // 
-            // cbObjDeleteObject
-            // 
-            this.cbObjDeleteObject.AutoSize = true;
-            this.cbObjDeleteObject.Location = new System.Drawing.Point(470, 647);
-            this.cbObjDeleteObject.Name = "cbObjDeleteObject";
-            this.cbObjDeleteObject.Size = new System.Drawing.Size(106, 17);
-            this.cbObjDeleteObject.TabIndex = 40;
-            this.cbObjDeleteObject.Text = "Ta bort objekt";
-            this.cbObjDeleteObject.UseVisualStyleBackColor = true;
             // 
             // EmployeeFrame
             // 
