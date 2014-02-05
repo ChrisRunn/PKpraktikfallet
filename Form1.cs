@@ -23,7 +23,7 @@ namespace praktikfall
             
             
 
-            if (textBox1.Text == "")
+         /*   if (textBox1.Text == "")
             {
                 MessageBox.Show("Ange ditt användarnamn!");
             }
@@ -33,8 +33,8 @@ namespace praktikfall
                 MessageBox.Show("Ange ditt lösenord");
             }
 
-
-            else if (textBox1.Text.ToLower() == "admin")
+            */
+             if (textBox1.Text.ToLower() == "admin") // Ändra denna till en "else if" istället för if
             {
                 this.Hide();
                 bool b = true;
