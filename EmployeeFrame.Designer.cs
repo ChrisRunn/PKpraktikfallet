@@ -119,6 +119,17 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnBrokerSubmit = new System.Windows.Forms.Button();
+            this.cbBrokerUpdate = new System.Windows.Forms.CheckBox();
+            this.cbBrokerRemove = new System.Windows.Forms.CheckBox();
+            this.cbBrokerRegister = new System.Windows.Forms.CheckBox();
+            this.lblBrokerPassword = new System.Windows.Forms.Label();
+            this.lblBrokerEmail = new System.Windows.Forms.Label();
+            this.lblBrokerTelephoneNbr = new System.Windows.Forms.Label();
+            this.lblBrokerCity = new System.Windows.Forms.Label();
+            this.lblBrokerAddress = new System.Windows.Forms.Label();
+            this.lblBrokerName = new System.Windows.Forms.Label();
+            this.lblBrokerBrokerNumber = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -141,17 +152,6 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.lblBrokerBrokerNumber = new System.Windows.Forms.Label();
-            this.lblBrokerName = new System.Windows.Forms.Label();
-            this.lblBrokerAddress = new System.Windows.Forms.Label();
-            this.lblBrokerCity = new System.Windows.Forms.Label();
-            this.lblBrokerTelephoneNbr = new System.Windows.Forms.Label();
-            this.lblBrokerEmail = new System.Windows.Forms.Label();
-            this.lblBrokerPassword = new System.Windows.Forms.Label();
-            this.cbBrokerUpdate = new System.Windows.Forms.CheckBox();
-            this.cbBrokerRemove = new System.Windows.Forms.CheckBox();
-            this.cbBrokerRegister = new System.Windows.Forms.CheckBox();
-            this.btnBrokerSubmit = new System.Windows.Forms.Button();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1126,6 +1126,109 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Administrera mäklare";
             // 
+            // btnBrokerSubmit
+            // 
+            this.btnBrokerSubmit.Location = new System.Drawing.Point(555, 257);
+            this.btnBrokerSubmit.Name = "btnBrokerSubmit";
+            this.btnBrokerSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnBrokerSubmit.TabIndex = 28;
+            this.btnBrokerSubmit.Text = "Utför";
+            this.btnBrokerSubmit.UseVisualStyleBackColor = true;
+            // 
+            // cbBrokerUpdate
+            // 
+            this.cbBrokerUpdate.AccessibleName = "";
+            this.cbBrokerUpdate.AutoSize = true;
+            this.cbBrokerUpdate.Location = new System.Drawing.Point(415, 263);
+            this.cbBrokerUpdate.Name = "cbBrokerUpdate";
+            this.cbBrokerUpdate.Size = new System.Drawing.Size(85, 17);
+            this.cbBrokerUpdate.TabIndex = 25;
+            this.cbBrokerUpdate.Text = "Uppdatera";
+            this.cbBrokerUpdate.UseVisualStyleBackColor = true;
+            // 
+            // cbBrokerRemove
+            // 
+            this.cbBrokerRemove.AutoSize = true;
+            this.cbBrokerRemove.Location = new System.Drawing.Point(415, 241);
+            this.cbBrokerRemove.Name = "cbBrokerRemove";
+            this.cbBrokerRemove.Size = new System.Drawing.Size(67, 17);
+            this.cbBrokerRemove.TabIndex = 26;
+            this.cbBrokerRemove.Text = "Ta bort";
+            this.cbBrokerRemove.UseVisualStyleBackColor = true;
+            // 
+            // cbBrokerRegister
+            // 
+            this.cbBrokerRegister.AutoSize = true;
+            this.cbBrokerRegister.Location = new System.Drawing.Point(415, 218);
+            this.cbBrokerRegister.Name = "cbBrokerRegister";
+            this.cbBrokerRegister.Size = new System.Drawing.Size(84, 17);
+            this.cbBrokerRegister.TabIndex = 27;
+            this.cbBrokerRegister.Text = "Registrera";
+            this.cbBrokerRegister.UseVisualStyleBackColor = true;
+            // 
+            // lblBrokerPassword
+            // 
+            this.lblBrokerPassword.AutoSize = true;
+            this.lblBrokerPassword.Location = new System.Drawing.Point(412, 195);
+            this.lblBrokerPassword.Name = "lblBrokerPassword";
+            this.lblBrokerPassword.Size = new System.Drawing.Size(63, 13);
+            this.lblBrokerPassword.TabIndex = 24;
+            this.lblBrokerPassword.Text = "Lösenord:";
+            // 
+            // lblBrokerEmail
+            // 
+            this.lblBrokerEmail.AutoSize = true;
+            this.lblBrokerEmail.Location = new System.Drawing.Point(412, 169);
+            this.lblBrokerEmail.Name = "lblBrokerEmail";
+            this.lblBrokerEmail.Size = new System.Drawing.Size(41, 13);
+            this.lblBrokerEmail.TabIndex = 23;
+            this.lblBrokerEmail.Text = "Email:";
+            // 
+            // lblBrokerTelephoneNbr
+            // 
+            this.lblBrokerTelephoneNbr.AutoSize = true;
+            this.lblBrokerTelephoneNbr.Location = new System.Drawing.Point(412, 143);
+            this.lblBrokerTelephoneNbr.Name = "lblBrokerTelephoneNbr";
+            this.lblBrokerTelephoneNbr.Size = new System.Drawing.Size(97, 13);
+            this.lblBrokerTelephoneNbr.TabIndex = 22;
+            this.lblBrokerTelephoneNbr.Text = "Telefonnummer:";
+            // 
+            // lblBrokerCity
+            // 
+            this.lblBrokerCity.AutoSize = true;
+            this.lblBrokerCity.Location = new System.Drawing.Point(412, 117);
+            this.lblBrokerCity.Name = "lblBrokerCity";
+            this.lblBrokerCity.Size = new System.Drawing.Size(37, 13);
+            this.lblBrokerCity.TabIndex = 21;
+            this.lblBrokerCity.Text = "Stad:";
+            // 
+            // lblBrokerAddress
+            // 
+            this.lblBrokerAddress.AutoSize = true;
+            this.lblBrokerAddress.Location = new System.Drawing.Point(412, 91);
+            this.lblBrokerAddress.Name = "lblBrokerAddress";
+            this.lblBrokerAddress.Size = new System.Drawing.Size(49, 13);
+            this.lblBrokerAddress.TabIndex = 20;
+            this.lblBrokerAddress.Text = "Adress:";
+            // 
+            // lblBrokerName
+            // 
+            this.lblBrokerName.AutoSize = true;
+            this.lblBrokerName.Location = new System.Drawing.Point(412, 65);
+            this.lblBrokerName.Name = "lblBrokerName";
+            this.lblBrokerName.Size = new System.Drawing.Size(43, 13);
+            this.lblBrokerName.TabIndex = 19;
+            this.lblBrokerName.Text = "Namn:";
+            // 
+            // lblBrokerBrokerNumber
+            // 
+            this.lblBrokerBrokerNumber.AutoSize = true;
+            this.lblBrokerBrokerNumber.Location = new System.Drawing.Point(412, 39);
+            this.lblBrokerBrokerNumber.Name = "lblBrokerBrokerNumber";
+            this.lblBrokerBrokerNumber.Size = new System.Drawing.Size(60, 13);
+            this.lblBrokerBrokerNumber.TabIndex = 18;
+            this.lblBrokerBrokerNumber.Text = "Mäklarnr:";
+            // 
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(519, 192);
@@ -1279,109 +1382,6 @@
             this.menuItem7.Index = 1;
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
-            // 
-            // lblBrokerBrokerNumber
-            // 
-            this.lblBrokerBrokerNumber.AutoSize = true;
-            this.lblBrokerBrokerNumber.Location = new System.Drawing.Point(412, 39);
-            this.lblBrokerBrokerNumber.Name = "lblBrokerBrokerNumber";
-            this.lblBrokerBrokerNumber.Size = new System.Drawing.Size(60, 13);
-            this.lblBrokerBrokerNumber.TabIndex = 18;
-            this.lblBrokerBrokerNumber.Text = "Mäklarnr:";
-            // 
-            // lblBrokerName
-            // 
-            this.lblBrokerName.AutoSize = true;
-            this.lblBrokerName.Location = new System.Drawing.Point(412, 65);
-            this.lblBrokerName.Name = "lblBrokerName";
-            this.lblBrokerName.Size = new System.Drawing.Size(43, 13);
-            this.lblBrokerName.TabIndex = 19;
-            this.lblBrokerName.Text = "Namn:";
-            // 
-            // lblBrokerAddress
-            // 
-            this.lblBrokerAddress.AutoSize = true;
-            this.lblBrokerAddress.Location = new System.Drawing.Point(412, 91);
-            this.lblBrokerAddress.Name = "lblBrokerAddress";
-            this.lblBrokerAddress.Size = new System.Drawing.Size(49, 13);
-            this.lblBrokerAddress.TabIndex = 20;
-            this.lblBrokerAddress.Text = "Adress:";
-            // 
-            // lblBrokerCity
-            // 
-            this.lblBrokerCity.AutoSize = true;
-            this.lblBrokerCity.Location = new System.Drawing.Point(412, 117);
-            this.lblBrokerCity.Name = "lblBrokerCity";
-            this.lblBrokerCity.Size = new System.Drawing.Size(37, 13);
-            this.lblBrokerCity.TabIndex = 21;
-            this.lblBrokerCity.Text = "Stad:";
-            // 
-            // lblBrokerTelephoneNbr
-            // 
-            this.lblBrokerTelephoneNbr.AutoSize = true;
-            this.lblBrokerTelephoneNbr.Location = new System.Drawing.Point(412, 143);
-            this.lblBrokerTelephoneNbr.Name = "lblBrokerTelephoneNbr";
-            this.lblBrokerTelephoneNbr.Size = new System.Drawing.Size(97, 13);
-            this.lblBrokerTelephoneNbr.TabIndex = 22;
-            this.lblBrokerTelephoneNbr.Text = "Telefonnummer:";
-            // 
-            // lblBrokerEmail
-            // 
-            this.lblBrokerEmail.AutoSize = true;
-            this.lblBrokerEmail.Location = new System.Drawing.Point(412, 169);
-            this.lblBrokerEmail.Name = "lblBrokerEmail";
-            this.lblBrokerEmail.Size = new System.Drawing.Size(41, 13);
-            this.lblBrokerEmail.TabIndex = 23;
-            this.lblBrokerEmail.Text = "Email:";
-            // 
-            // lblBrokerPassword
-            // 
-            this.lblBrokerPassword.AutoSize = true;
-            this.lblBrokerPassword.Location = new System.Drawing.Point(412, 195);
-            this.lblBrokerPassword.Name = "lblBrokerPassword";
-            this.lblBrokerPassword.Size = new System.Drawing.Size(63, 13);
-            this.lblBrokerPassword.TabIndex = 24;
-            this.lblBrokerPassword.Text = "Lösenord:";
-            // 
-            // cbBrokerUpdate
-            // 
-            this.cbBrokerUpdate.AccessibleName = "";
-            this.cbBrokerUpdate.AutoSize = true;
-            this.cbBrokerUpdate.Location = new System.Drawing.Point(415, 263);
-            this.cbBrokerUpdate.Name = "cbBrokerUpdate";
-            this.cbBrokerUpdate.Size = new System.Drawing.Size(85, 17);
-            this.cbBrokerUpdate.TabIndex = 25;
-            this.cbBrokerUpdate.Text = "Uppdatera";
-            this.cbBrokerUpdate.UseVisualStyleBackColor = true;
-            // 
-            // cbBrokerRemove
-            // 
-            this.cbBrokerRemove.AutoSize = true;
-            this.cbBrokerRemove.Location = new System.Drawing.Point(415, 241);
-            this.cbBrokerRemove.Name = "cbBrokerRemove";
-            this.cbBrokerRemove.Size = new System.Drawing.Size(67, 17);
-            this.cbBrokerRemove.TabIndex = 26;
-            this.cbBrokerRemove.Text = "Ta bort";
-            this.cbBrokerRemove.UseVisualStyleBackColor = true;
-            // 
-            // cbBrokerRegister
-            // 
-            this.cbBrokerRegister.AutoSize = true;
-            this.cbBrokerRegister.Location = new System.Drawing.Point(415, 218);
-            this.cbBrokerRegister.Name = "cbBrokerRegister";
-            this.cbBrokerRegister.Size = new System.Drawing.Size(84, 17);
-            this.cbBrokerRegister.TabIndex = 27;
-            this.cbBrokerRegister.Text = "Registrera";
-            this.cbBrokerRegister.UseVisualStyleBackColor = true;
-            // 
-            // btnBrokerSubmit
-            // 
-            this.btnBrokerSubmit.Location = new System.Drawing.Point(555, 257);
-            this.btnBrokerSubmit.Name = "btnBrokerSubmit";
-            this.btnBrokerSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnBrokerSubmit.TabIndex = 28;
-            this.btnBrokerSubmit.Text = "Utför";
-            this.btnBrokerSubmit.UseVisualStyleBackColor = true;
             // 
             // EmployeeFrame
             // 

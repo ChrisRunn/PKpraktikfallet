@@ -31,10 +31,19 @@ namespace praktikfall
                 Debug.WriteLine("denna metoden har fungerat , duktigt august!");
                 return nrOfRows;
             }
+            catch (SqlException ex)
+            {
+                Debug.WriteLine("{0} SqlException caught.", ex);
+                return 0;
+            }
             catch (Exception ex)
             {
                 Debug.WriteLine("{0} Exception caught.", ex);
                 return 0;
+            }
+            finally
+            {
+                //con.Close();               
             }
         }
 
@@ -52,9 +61,17 @@ namespace praktikfall
                 con.Close();
                 Debug.WriteLine("denna metoden har fungerat , duktigt august!");
             }
+            catch (SqlException ex)
+            {
+                Debug.WriteLine("{0} Exception caught.", ex);
+            }
             catch (Exception ex)
             {
                 Debug.WriteLine("{0} Exception caught.", ex);
+            }
+            finally
+            {
+                //con.Close();
             }
             return dataTable;
         }
@@ -102,16 +119,13 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-
         //Sökknapp i Objekt för att visa objekt med viss sträng
         public DataTable SearchObjectByString(string searchString)
         {
             string sqlStr = "Select * from RealEstateObject where objNr like '%" + searchString + "%' or objAdress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
-        }
-        
-
+        }      
         //Hämta alla objekt med angivet Brokernummer
         public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
@@ -119,25 +133,20 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-
         //Hämta alla visningar med angivet Brokernummer
         public DataTable SearchShowingsByBrokerSsnr(string searchString)
         {
             string sqlStr = "select s.objNr as Objektsnummer, objAdress as Adress, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
-        }
-
-
-       
+        }      
         #endregion OBJEKT
         #region MÄKLARE        
         //Lägg till MÄKLARE
-        public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email)
+        public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-
             string sqlStr = "insert into RealEstateBroker values ('";
-            sqlStr += brokerSsnr + "','" + name + "','" + brokerAddress + "','" + city + "','" + phoneNr + "','" + email + "')";
+            sqlStr += brokerSsnr + "','" + name + "','" + brokerAddress + "','" + city + "','" + phoneNr + "','" + email +  "'" + pw +"')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
