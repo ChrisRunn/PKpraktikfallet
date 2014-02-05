@@ -1300,6 +1300,7 @@
             this.dgvBrokerAllBrokers.Name = "dgvBrokerAllBrokers";
             this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(400, 250);
             this.dgvBrokerAllBrokers.TabIndex = 9;
+            this.dgvBrokerAllBrokers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBrokerAllBrokers_CellClick);
             // 
             // mainMenu
             // 

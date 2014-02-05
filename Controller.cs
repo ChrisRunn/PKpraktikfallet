@@ -43,7 +43,7 @@ namespace praktikfall
         public int RegisterObjectAndOwner(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
-        { 
+        {
             int nrOfRows = dal.RegisterObjectAndOwner(objNr, objAdress, objCity,
             objPrice, objArea, objRooms, objUnitType, objInfo,
             brokerSsnr, ownerSsnr, phoneNr, email, name);
@@ -119,6 +119,13 @@ namespace praktikfall
         {
             DataTable dt = dal.GetAllBrokers();
             return dt;
+        }
+
+        //Kontrollera om mäklare finns
+        public bool BrokerExists(string brokerSsnr)
+        {
+            bool brokerExists = dal.BrokerExists(brokerSsnr);
+            return brokerExists;
         }
         #endregion MÄKLARE
         #region SPEKULANT
