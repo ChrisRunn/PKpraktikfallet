@@ -20,15 +20,14 @@ namespace praktikfall
         //generisk metod för att skicka query som uppdaterar eller lägger till nya objekt
         private int ExecuteUpdate(string sqlStr)
         {
+            SqlConnection con = new SqlConnection(connectionString);            
+            Debug.WriteLine(sqlStr);            
+            
             try
             {
-                SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
-                Debug.WriteLine(sqlStr);
                 SqlCommand com = new SqlCommand(sqlStr, con);
-                int nrOfRows = com.ExecuteNonQuery();
-                con.Close();
-                Debug.WriteLine("denna metoden har fungerat , duktigt august!");
+                int nrOfRows = com.ExecuteNonQuery();                
                 return nrOfRows;
             }
             catch (SqlException ex)
@@ -43,7 +42,10 @@ namespace praktikfall
             }
             finally
             {
-                //con.Close();               
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }                               
             }
         }
 
@@ -51,15 +53,13 @@ namespace praktikfall
         private DataTable ExecuteQuery(string sqlStr)
         {
             DataTable dataTable = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            
             try
-            {
-                SqlConnection con = new SqlConnection(connectionString);
+            {                
                 con.Open();
-                Console.WriteLine(sqlStr);
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlStr, con);
                 dataAdapter.Fill(dataTable);
-                con.Close();
-                Debug.WriteLine("denna metoden har fungerat , duktigt august!");
             }
             catch (SqlException ex)
             {
@@ -71,14 +71,17 @@ namespace praktikfall
             }
             finally
             {
-                //con.Close();
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }                
             }
             return dataTable;
         }
         #endregion GENERISKA METODER
 
         #region OBJEKT
-       //Lägg till OBJEKT
+       //Lägg till OBJEKT -- BEHÖVS INTE
         public int AddObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
             string sqlStr = "insert into RealEstateObject values ('";
@@ -273,19 +276,39 @@ namespace praktikfall
         }
 
         // Uppdaterar allt i objekt fliken !
-        public int UpdateObjectFlik(string objNr, string objAdress,string objArea, string objCity, string objInfo,
-            string objPrice, string objRooms, string objUnitType, string phoneNr, string email, string name, string ownerSsnr)
+        public int UpdateObjectFlik(string objNr, string objAdress, string objCity,
+            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string ownerSsnr, string phoneNr, string email, string name)
         {
-            string sqlStr = "update RealEstateObject set objAdress ='" + objAdress + "',objAdress ="+ objArea+ ",objCity ='" 
+            string sqlStr = "update RealEstateObject set objAdress ='" + objAdress + "',objArea ="+ objArea+ ",objCity ='" 
                 + objCity + "',objInfo ='" + objInfo + "',objPrice =" 
                 + objPrice + ",objRooms ='" + objRooms + "',objUnitType ='" 
-                + objUnitType + "' where objNr =" +objNr+"";
+                + objUnitType + "' where objNr =" +objNr;
             sqlStr+= "update ObjectOwner set phoneNr ='"+phoneNr+ "',email ='" + email + "',name ='" +name + "'";
+            MessageBox.Show(sqlStr);
             //sqlStr += "update HasOwner set ownerSsnr = '" + ownerSsnr + "'where objNr ='" + objNr + "'";
+
+
+
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         
         } 
+
+        //Registrera Objekt och dess ägare
+
+        public int RegisterObjectAndOwner(string objNr, string objAdress, string objCity, 
+            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, 
+            string brokerSsnr , string ownerSsnr, string phoneNr, string email, string name )
+        {
+            string sqlStr = "insert into RealEstateObject values (";
+            sqlStr += objNr + ",'" + objAdress + "','" + objCity + "'," + objPrice +
+                "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "')";
+            sqlStr += "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
+            sqlStr += "insert into HasOwner values(" + objNr + ",'" + ownerSsnr+ "')";
+            int nrOfRows = ExecuteUpdate(sqlStr);
+            MessageBox.Show(sqlStr);
+            return nrOfRows;
+        }
         //Söka Ägare -- BEHÖVS EVENTUELLT INTE
         public DataTable GetObjectOwner(string ownerSsnr)
         {
