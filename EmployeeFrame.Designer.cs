@@ -130,13 +130,13 @@
             this.lblBrokerAddress = new System.Windows.Forms.Label();
             this.lblBrokerName = new System.Windows.Forms.Label();
             this.lblBrokerBrokerNumber = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerPw = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerEmail = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerPhone = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerCity = new System.Windows.Forms.TextBox();
+            this.tbBrokeBrokerAdress = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerName = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerSsnr = new System.Windows.Forms.TextBox();
             this.lblBrokerAllBroker = new System.Windows.Forms.Label();
             this.dgvBrokerAllBrokers = new System.Windows.Forms.DataGridView();
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
@@ -1110,13 +1110,13 @@
             this.groupBox5.Controls.Add(this.lblBrokerAddress);
             this.groupBox5.Controls.Add(this.lblBrokerName);
             this.groupBox5.Controls.Add(this.lblBrokerBrokerNumber);
-            this.groupBox5.Controls.Add(this.textBox7);
-            this.groupBox5.Controls.Add(this.textBox6);
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Controls.Add(this.textBox4);
-            this.groupBox5.Controls.Add(this.textBox3);
-            this.groupBox5.Controls.Add(this.textBox2);
-            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerPw);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerEmail);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerPhone);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerCity);
+            this.groupBox5.Controls.Add(this.tbBrokeBrokerAdress);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerName);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerSsnr);
             this.groupBox5.Controls.Add(this.lblBrokerAllBroker);
             this.groupBox5.Controls.Add(this.dgvBrokerAllBrokers);
             this.groupBox5.Location = new System.Drawing.Point(10, 6);
@@ -1134,6 +1134,7 @@
             this.btnBrokerSubmit.TabIndex = 28;
             this.btnBrokerSubmit.Text = "Utför";
             this.btnBrokerSubmit.UseVisualStyleBackColor = true;
+            this.btnBrokerSubmit.Click += new System.EventHandler(this.btnBrokerSubmit_Click);
             // 
             // cbBrokerUpdate
             // 
@@ -1229,54 +1230,54 @@
             this.lblBrokerBrokerNumber.TabIndex = 18;
             this.lblBrokerBrokerNumber.Text = "Mäklarnr:";
             // 
-            // textBox7
+            // tbBrokerBrokerPw
             // 
-            this.textBox7.Location = new System.Drawing.Point(519, 192);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(111, 20);
-            this.textBox7.TabIndex = 17;
+            this.tbBrokerBrokerPw.Location = new System.Drawing.Point(519, 192);
+            this.tbBrokerBrokerPw.Name = "tbBrokerBrokerPw";
+            this.tbBrokerBrokerPw.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerPw.TabIndex = 17;
             // 
-            // textBox6
+            // tbBrokerBrokerEmail
             // 
-            this.textBox6.Location = new System.Drawing.Point(519, 166);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(111, 20);
-            this.textBox6.TabIndex = 16;
+            this.tbBrokerBrokerEmail.Location = new System.Drawing.Point(519, 166);
+            this.tbBrokerBrokerEmail.Name = "tbBrokerBrokerEmail";
+            this.tbBrokerBrokerEmail.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerEmail.TabIndex = 16;
             // 
-            // textBox5
+            // tbBrokerBrokerPhone
             // 
-            this.textBox5.Location = new System.Drawing.Point(519, 140);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(111, 20);
-            this.textBox5.TabIndex = 15;
+            this.tbBrokerBrokerPhone.Location = new System.Drawing.Point(519, 140);
+            this.tbBrokerBrokerPhone.Name = "tbBrokerBrokerPhone";
+            this.tbBrokerBrokerPhone.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerPhone.TabIndex = 15;
             // 
-            // textBox4
+            // tbBrokerBrokerCity
             // 
-            this.textBox4.Location = new System.Drawing.Point(519, 114);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(111, 20);
-            this.textBox4.TabIndex = 14;
+            this.tbBrokerBrokerCity.Location = new System.Drawing.Point(519, 114);
+            this.tbBrokerBrokerCity.Name = "tbBrokerBrokerCity";
+            this.tbBrokerBrokerCity.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerCity.TabIndex = 14;
             // 
-            // textBox3
+            // tbBrokeBrokerAdress
             // 
-            this.textBox3.Location = new System.Drawing.Point(519, 88);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(111, 20);
-            this.textBox3.TabIndex = 13;
+            this.tbBrokeBrokerAdress.Location = new System.Drawing.Point(519, 88);
+            this.tbBrokeBrokerAdress.Name = "tbBrokeBrokerAdress";
+            this.tbBrokeBrokerAdress.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokeBrokerAdress.TabIndex = 13;
             // 
-            // textBox2
+            // tbBrokerBrokerName
             // 
-            this.textBox2.Location = new System.Drawing.Point(519, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(111, 20);
-            this.textBox2.TabIndex = 12;
+            this.tbBrokerBrokerName.Location = new System.Drawing.Point(519, 62);
+            this.tbBrokerBrokerName.Name = "tbBrokerBrokerName";
+            this.tbBrokerBrokerName.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerName.TabIndex = 12;
             // 
-            // textBox1
+            // tbBrokerBrokerSsnr
             // 
-            this.textBox1.Location = new System.Drawing.Point(519, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 20);
-            this.textBox1.TabIndex = 11;
+            this.tbBrokerBrokerSsnr.Location = new System.Drawing.Point(519, 36);
+            this.tbBrokerBrokerSsnr.Name = "tbBrokerBrokerSsnr";
+            this.tbBrokerBrokerSsnr.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerSsnr.TabIndex = 11;
             // 
             // lblBrokerAllBroker
             // 
@@ -1532,13 +1533,13 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label lblBrokerAllBroker;
         private System.Windows.Forms.DataGridView dgvBrokerAllBrokers;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbBrokerBrokerPw;
+        private System.Windows.Forms.TextBox tbBrokerBrokerEmail;
+        private System.Windows.Forms.TextBox tbBrokerBrokerPhone;
+        private System.Windows.Forms.TextBox tbBrokerBrokerCity;
+        private System.Windows.Forms.TextBox tbBrokeBrokerAdress;
+        private System.Windows.Forms.TextBox tbBrokerBrokerName;
+        private System.Windows.Forms.TextBox tbBrokerBrokerSsnr;
         private System.Windows.Forms.Button btnBrokerSubmit;
         private System.Windows.Forms.CheckBox cbBrokerUpdate;
         private System.Windows.Forms.CheckBox cbBrokerRemove;
