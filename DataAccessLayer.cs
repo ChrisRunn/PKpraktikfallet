@@ -206,6 +206,20 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
+
+
+        public bool ProspectiveBuyerExists(string Ssnr)
+        {
+            bool prospectiveBuyerExists = false;
+            string sqlStr = "select * from ProspectiveBuyer where buyerSsnr = '" + Ssnr + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            if (dt.Rows.Count > 0)
+            {
+                prospectiveBuyerExists = true;
+                return prospectiveBuyerExists;
+            }
+            return prospectiveBuyerExists;
+        }
         #endregion SPEKULANT
         #region OBJEKTÄGARE
         //Lägg till Ägare   ___OBS___ Lägger endast till en ägare i systemet. Kopplingen mellan Object och Owner görs ej här!

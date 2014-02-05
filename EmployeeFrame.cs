@@ -566,14 +566,25 @@ namespace praktikfall
                 }
 
                 else
-                {
+                {  
+                    
                     string ssnr = tbBuyerSsn.Text;
                     string name = tbBuyerName.Text;
                     string phonenr = tbBuyerTel.Text;
                     string email = tbProspectiveBuyerEmail.Text;
-                    controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
-                    MessageBox.Show("Ny spekulant registrerad");
-                    Populate();
+                    bool prospectiveBuyerExists = controller.ProspectiveBuyerExists(ssnr);
+
+                    if (prospectiveBuyerExists)
+                    {
+                        MessageBox.Show("Det finns redan en spekulant med personnummer: " + ssnr);
+                    }
+
+                    else
+                    {
+                        controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
+                        MessageBox.Show("Ny spekulant med personnummer " + ssnr + " har registrerats");
+                        Populate();
+                    }
 
                 }
             }
