@@ -162,6 +162,13 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
+        //Hämta ALLA MÄKLARE
+        public DataTable GetAllBrokers()
+        {
+            string sqlStr = "select * from RealEstateBroker";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
         #endregion MÄKLARE
         #region SPEKULANT
         //Lägga till spekulant
