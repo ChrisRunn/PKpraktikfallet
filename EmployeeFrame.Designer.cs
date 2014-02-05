@@ -117,6 +117,28 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnBrokerSubmit = new System.Windows.Forms.Button();
+            this.cbBrokerUpdate = new System.Windows.Forms.CheckBox();
+            this.cbBrokerRemove = new System.Windows.Forms.CheckBox();
+            this.cbBrokerRegister = new System.Windows.Forms.CheckBox();
+            this.lblBrokerPassword = new System.Windows.Forms.Label();
+            this.lblBrokerEmail = new System.Windows.Forms.Label();
+            this.lblBrokerTelephoneNbr = new System.Windows.Forms.Label();
+            this.lblBrokerCity = new System.Windows.Forms.Label();
+            this.lblBrokerAddress = new System.Windows.Forms.Label();
+            this.lblBrokerName = new System.Windows.Forms.Label();
+            this.lblBrokerBrokerNumber = new System.Windows.Forms.Label();
+            this.tbBrokerBrokerPw = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerEmail = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerPhone = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerCity = new System.Windows.Forms.TextBox();
+            this.tbBrokeBrokerAdress = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerName = new System.Windows.Forms.TextBox();
+            this.tbBrokerBrokerSsnr = new System.Windows.Forms.TextBox();
+            this.lblBrokerAllBroker = new System.Windows.Forms.Label();
+            this.dgvBrokerAllBrokers = new System.Windows.Forms.DataGridView();
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem11 = new System.Windows.Forms.MenuItem();
@@ -148,6 +170,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPageVisning
@@ -1057,12 +1082,226 @@
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPageVisning);
+            this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(-2, -1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1091, 737);
             this.tabControl.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1083, 711);
+            this.tabPage3.TabIndex = 7;
+            this.tabPage3.Text = "Mäklare";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnBrokerSubmit);
+            this.groupBox5.Controls.Add(this.cbBrokerUpdate);
+            this.groupBox5.Controls.Add(this.cbBrokerRemove);
+            this.groupBox5.Controls.Add(this.cbBrokerRegister);
+            this.groupBox5.Controls.Add(this.lblBrokerPassword);
+            this.groupBox5.Controls.Add(this.lblBrokerEmail);
+            this.groupBox5.Controls.Add(this.lblBrokerTelephoneNbr);
+            this.groupBox5.Controls.Add(this.lblBrokerCity);
+            this.groupBox5.Controls.Add(this.lblBrokerAddress);
+            this.groupBox5.Controls.Add(this.lblBrokerName);
+            this.groupBox5.Controls.Add(this.lblBrokerBrokerNumber);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerPw);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerEmail);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerPhone);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerCity);
+            this.groupBox5.Controls.Add(this.tbBrokeBrokerAdress);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerName);
+            this.groupBox5.Controls.Add(this.tbBrokerBrokerSsnr);
+            this.groupBox5.Controls.Add(this.lblBrokerAllBroker);
+            this.groupBox5.Controls.Add(this.dgvBrokerAllBrokers);
+            this.groupBox5.Location = new System.Drawing.Point(10, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(646, 292);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Administrera mäklare";
+            // 
+            // btnBrokerSubmit
+            // 
+            this.btnBrokerSubmit.Location = new System.Drawing.Point(555, 257);
+            this.btnBrokerSubmit.Name = "btnBrokerSubmit";
+            this.btnBrokerSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnBrokerSubmit.TabIndex = 28;
+            this.btnBrokerSubmit.Text = "Utför";
+            this.btnBrokerSubmit.UseVisualStyleBackColor = true;
+            this.btnBrokerSubmit.Click += new System.EventHandler(this.btnBrokerSubmit_Click);
+            // 
+            // cbBrokerUpdate
+            // 
+            this.cbBrokerUpdate.AccessibleName = "";
+            this.cbBrokerUpdate.AutoSize = true;
+            this.cbBrokerUpdate.Location = new System.Drawing.Point(415, 263);
+            this.cbBrokerUpdate.Name = "cbBrokerUpdate";
+            this.cbBrokerUpdate.Size = new System.Drawing.Size(85, 17);
+            this.cbBrokerUpdate.TabIndex = 25;
+            this.cbBrokerUpdate.Text = "Uppdatera";
+            this.cbBrokerUpdate.UseVisualStyleBackColor = true;
+            // 
+            // cbBrokerRemove
+            // 
+            this.cbBrokerRemove.AutoSize = true;
+            this.cbBrokerRemove.Location = new System.Drawing.Point(415, 241);
+            this.cbBrokerRemove.Name = "cbBrokerRemove";
+            this.cbBrokerRemove.Size = new System.Drawing.Size(67, 17);
+            this.cbBrokerRemove.TabIndex = 26;
+            this.cbBrokerRemove.Text = "Ta bort";
+            this.cbBrokerRemove.UseVisualStyleBackColor = true;
+            // 
+            // cbBrokerRegister
+            // 
+            this.cbBrokerRegister.AutoSize = true;
+            this.cbBrokerRegister.Location = new System.Drawing.Point(415, 218);
+            this.cbBrokerRegister.Name = "cbBrokerRegister";
+            this.cbBrokerRegister.Size = new System.Drawing.Size(84, 17);
+            this.cbBrokerRegister.TabIndex = 27;
+            this.cbBrokerRegister.Text = "Registrera";
+            this.cbBrokerRegister.UseVisualStyleBackColor = true;
+            // 
+            // lblBrokerPassword
+            // 
+            this.lblBrokerPassword.AutoSize = true;
+            this.lblBrokerPassword.Location = new System.Drawing.Point(412, 195);
+            this.lblBrokerPassword.Name = "lblBrokerPassword";
+            this.lblBrokerPassword.Size = new System.Drawing.Size(63, 13);
+            this.lblBrokerPassword.TabIndex = 24;
+            this.lblBrokerPassword.Text = "Lösenord:";
+            // 
+            // lblBrokerEmail
+            // 
+            this.lblBrokerEmail.AutoSize = true;
+            this.lblBrokerEmail.Location = new System.Drawing.Point(412, 169);
+            this.lblBrokerEmail.Name = "lblBrokerEmail";
+            this.lblBrokerEmail.Size = new System.Drawing.Size(41, 13);
+            this.lblBrokerEmail.TabIndex = 23;
+            this.lblBrokerEmail.Text = "Email:";
+            // 
+            // lblBrokerTelephoneNbr
+            // 
+            this.lblBrokerTelephoneNbr.AutoSize = true;
+            this.lblBrokerTelephoneNbr.Location = new System.Drawing.Point(412, 143);
+            this.lblBrokerTelephoneNbr.Name = "lblBrokerTelephoneNbr";
+            this.lblBrokerTelephoneNbr.Size = new System.Drawing.Size(97, 13);
+            this.lblBrokerTelephoneNbr.TabIndex = 22;
+            this.lblBrokerTelephoneNbr.Text = "Telefonnummer:";
+            // 
+            // lblBrokerCity
+            // 
+            this.lblBrokerCity.AutoSize = true;
+            this.lblBrokerCity.Location = new System.Drawing.Point(412, 117);
+            this.lblBrokerCity.Name = "lblBrokerCity";
+            this.lblBrokerCity.Size = new System.Drawing.Size(37, 13);
+            this.lblBrokerCity.TabIndex = 21;
+            this.lblBrokerCity.Text = "Stad:";
+            // 
+            // lblBrokerAddress
+            // 
+            this.lblBrokerAddress.AutoSize = true;
+            this.lblBrokerAddress.Location = new System.Drawing.Point(412, 91);
+            this.lblBrokerAddress.Name = "lblBrokerAddress";
+            this.lblBrokerAddress.Size = new System.Drawing.Size(49, 13);
+            this.lblBrokerAddress.TabIndex = 20;
+            this.lblBrokerAddress.Text = "Adress:";
+            // 
+            // lblBrokerName
+            // 
+            this.lblBrokerName.AutoSize = true;
+            this.lblBrokerName.Location = new System.Drawing.Point(412, 65);
+            this.lblBrokerName.Name = "lblBrokerName";
+            this.lblBrokerName.Size = new System.Drawing.Size(43, 13);
+            this.lblBrokerName.TabIndex = 19;
+            this.lblBrokerName.Text = "Namn:";
+            // 
+            // lblBrokerBrokerNumber
+            // 
+            this.lblBrokerBrokerNumber.AutoSize = true;
+            this.lblBrokerBrokerNumber.Location = new System.Drawing.Point(412, 39);
+            this.lblBrokerBrokerNumber.Name = "lblBrokerBrokerNumber";
+            this.lblBrokerBrokerNumber.Size = new System.Drawing.Size(60, 13);
+            this.lblBrokerBrokerNumber.TabIndex = 18;
+            this.lblBrokerBrokerNumber.Text = "Mäklarnr:";
+            // 
+            // tbBrokerBrokerPw
+            // 
+            this.tbBrokerBrokerPw.Location = new System.Drawing.Point(519, 192);
+            this.tbBrokerBrokerPw.Name = "tbBrokerBrokerPw";
+            this.tbBrokerBrokerPw.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerPw.TabIndex = 17;
+            // 
+            // tbBrokerBrokerEmail
+            // 
+            this.tbBrokerBrokerEmail.Location = new System.Drawing.Point(519, 166);
+            this.tbBrokerBrokerEmail.Name = "tbBrokerBrokerEmail";
+            this.tbBrokerBrokerEmail.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerEmail.TabIndex = 16;
+            // 
+            // tbBrokerBrokerPhone
+            // 
+            this.tbBrokerBrokerPhone.Location = new System.Drawing.Point(519, 140);
+            this.tbBrokerBrokerPhone.Name = "tbBrokerBrokerPhone";
+            this.tbBrokerBrokerPhone.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerPhone.TabIndex = 15;
+            // 
+            // tbBrokerBrokerCity
+            // 
+            this.tbBrokerBrokerCity.Location = new System.Drawing.Point(519, 114);
+            this.tbBrokerBrokerCity.Name = "tbBrokerBrokerCity";
+            this.tbBrokerBrokerCity.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerCity.TabIndex = 14;
+            // 
+            // tbBrokeBrokerAdress
+            // 
+            this.tbBrokeBrokerAdress.Location = new System.Drawing.Point(519, 88);
+            this.tbBrokeBrokerAdress.Name = "tbBrokeBrokerAdress";
+            this.tbBrokeBrokerAdress.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokeBrokerAdress.TabIndex = 13;
+            // 
+            // tbBrokerBrokerName
+            // 
+            this.tbBrokerBrokerName.Location = new System.Drawing.Point(519, 62);
+            this.tbBrokerBrokerName.Name = "tbBrokerBrokerName";
+            this.tbBrokerBrokerName.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerName.TabIndex = 12;
+            // 
+            // tbBrokerBrokerSsnr
+            // 
+            this.tbBrokerBrokerSsnr.Location = new System.Drawing.Point(519, 36);
+            this.tbBrokerBrokerSsnr.Name = "tbBrokerBrokerSsnr";
+            this.tbBrokerBrokerSsnr.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerSsnr.TabIndex = 11;
+            // 
+            // lblBrokerAllBroker
+            // 
+            this.lblBrokerAllBroker.AutoSize = true;
+            this.lblBrokerAllBroker.Location = new System.Drawing.Point(7, 17);
+            this.lblBrokerAllBroker.Name = "lblBrokerAllBroker";
+            this.lblBrokerAllBroker.Size = new System.Drawing.Size(147, 13);
+            this.lblBrokerAllBroker.TabIndex = 10;
+            this.lblBrokerAllBroker.Text = "Alla registrerade mäklare";
+            // 
+            // dgvBrokerAllBrokers
+            // 
+            this.dgvBrokerAllBrokers.AllowUserToAddRows = false;
+            this.dgvBrokerAllBrokers.AllowUserToDeleteRows = false;
+            this.dgvBrokerAllBrokers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBrokerAllBrokers.Location = new System.Drawing.Point(6, 36);
+            this.dgvBrokerAllBrokers.MultiSelect = false;
+            this.dgvBrokerAllBrokers.Name = "dgvBrokerAllBrokers";
+            this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(400, 250);
+            this.dgvBrokerAllBrokers.TabIndex = 9;
             // 
             // mainMenu
             // 
@@ -1194,6 +1433,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1300,6 +1543,28 @@
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.MenuItem menuItem11;
         private System.Windows.Forms.MenuItem menuItem12;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label lblBrokerAllBroker;
+        private System.Windows.Forms.DataGridView dgvBrokerAllBrokers;
+        private System.Windows.Forms.TextBox tbBrokerBrokerPw;
+        private System.Windows.Forms.TextBox tbBrokerBrokerEmail;
+        private System.Windows.Forms.TextBox tbBrokerBrokerPhone;
+        private System.Windows.Forms.TextBox tbBrokerBrokerCity;
+        private System.Windows.Forms.TextBox tbBrokeBrokerAdress;
+        private System.Windows.Forms.TextBox tbBrokerBrokerName;
+        private System.Windows.Forms.TextBox tbBrokerBrokerSsnr;
+        private System.Windows.Forms.Button btnBrokerSubmit;
+        private System.Windows.Forms.CheckBox cbBrokerUpdate;
+        private System.Windows.Forms.CheckBox cbBrokerRemove;
+        private System.Windows.Forms.CheckBox cbBrokerRegister;
+        private System.Windows.Forms.Label lblBrokerPassword;
+        private System.Windows.Forms.Label lblBrokerEmail;
+        private System.Windows.Forms.Label lblBrokerTelephoneNbr;
+        private System.Windows.Forms.Label lblBrokerCity;
+        private System.Windows.Forms.Label lblBrokerAddress;
+        private System.Windows.Forms.Label lblBrokerName;
+        private System.Windows.Forms.Label lblBrokerBrokerNumber;
         private System.Windows.Forms.CheckBox cbObjDeleteObject;
 
     }

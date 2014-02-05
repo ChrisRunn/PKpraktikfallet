@@ -12,12 +12,26 @@ namespace praktikfall
 {
     public partial class EmployeeFrame : Form
     {
-        public EmployeeFrame(string name)
+        public EmployeeFrame(string name, bool b)
         {
            
             InitializeComponent();
             string brokerName = name;
             labelEmpName.Text = brokerName;
+
+            if (b == true)
+            {
+                groupBox5.Visible = true;
+            }
+
+            else
+            {
+                groupBox5.Visible = false;
+                tabPage3.Text = "";
+            }
+
+           
+
             Populate();
 
             DataTable dt = controller.SearchObjectByBrokerSsnr(brokerName);
@@ -38,6 +52,8 @@ namespace praktikfall
             dgvProspectiveBuyerShowing.DataSource = dtAllProspectiveBuyers;               //Visningsfliken, alla spekulanter i databasen 
             DataTable dtAllShowings = controller.GetShowings();
             dgvShowingCurrentShowings.DataSource = dtAllShowings;                         //Visningsfliken, alla nuvarande visningar i databasen
+            DataTable dtAllBrokers = controller.GetAllBrokers();                          //Mäklarfliken (admin), visa alla mäklare
+            dgvBrokerAllBrokers.DataSource = dtAllBrokers;
         }
 
 
@@ -466,7 +482,7 @@ namespace praktikfall
             }                                               
             if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked)               // Om inget val gjorts, ge feedback
             {
-                MessageBox.Show("Vänligen välj ett alternativ (ta bort hela visningen eller ta bort spekulant från visning) först.");
+                MessageBox.Show("Vänligen välj ett alternativ (ta bort alla visningar eller ta bort spekulant från visning) först.");
             }       
 
             if (rbShowingDeleteBuyer.Checked)                                                   //Om "ta bort spekulant" är valt
@@ -566,14 +582,25 @@ namespace praktikfall
                 }
 
                 else
-                {
+                {  
+                    
                     string ssnr = tbBuyerSsn.Text;
                     string name = tbBuyerName.Text;
                     string phonenr = tbBuyerTel.Text;
                     string email = tbProspectiveBuyerEmail.Text;
-                    controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
-                    MessageBox.Show("Ny spekulant registrerad");
-                    Populate();
+                    bool prospectiveBuyerExists = controller.ProspectiveBuyerExists(ssnr);
+
+                    if (prospectiveBuyerExists)
+                    {
+                        MessageBox.Show("Det finns redan en spekulant med personnummer: " + ssnr);
+                    }
+
+                    else
+                    {
+                        controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
+                        MessageBox.Show("Ny spekulant med personnummer " + ssnr + " har registrerats");
+                        Populate();
+                    }
 
                 }
             }
@@ -730,6 +757,21 @@ namespace praktikfall
             //Visa/dölj en tab för Mäklare
         }
         #endregion MAINMENU
+
+        private void btnBrokerSubmit_Click(object sender, EventArgs e)
+        {
+            string brokerSsnr = tbBrokerBrokerSsnr.Text;
+            string BrokerPassWord = tbBrokerBrokerPw.Text;
+            string name = tbBrokerBrokerName.Text;
+            string phoneNr = tbBrokerBrokerPhone.Text;
+            string email = tbBrokerBrokerEmail.Text;
+            string city = tbBrokerBrokerCity.Text;
+            string brokerAddress = tbBrokeBrokerAdress.Text;
+            string pw = tbBrokerBrokerPw.Text;
+
+            controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email,pw);
+            
+        }
+
     }
 }
-

@@ -20,21 +20,33 @@ namespace praktikfall
         //generisk metod för att skicka query som uppdaterar eller lägger till nya objekt
         private int ExecuteUpdate(string sqlStr)
         {
+            SqlConnection con = new SqlConnection(connectionString);            
+            Debug.WriteLine(sqlStr);            
+            
             try
             {
-                SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
-                Debug.WriteLine(sqlStr);
                 SqlCommand com = new SqlCommand(sqlStr, con);
-                int nrOfRows = com.ExecuteNonQuery();
-                con.Close();
-                Debug.WriteLine("denna metoden har fungerat , duktigt august!");
+                int nrOfRows = com.ExecuteNonQuery();                
                 return nrOfRows;
+            }
+            catch (SqlException ex)
+            {
+                Debug.WriteLine("{0} SqlException caught.", ex);
+                return 0;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("{0} Exception caught.", ex);
                 return 0;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                               
             }
         }
 
@@ -42,19 +54,28 @@ namespace praktikfall
         private DataTable ExecuteQuery(string sqlStr)
         {
             DataTable dataTable = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            
             try
-            {
-                SqlConnection con = new SqlConnection(connectionString);
+            {                
                 con.Open();
-                Console.WriteLine(sqlStr);
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlStr, con);
                 dataAdapter.Fill(dataTable);
-                con.Close();
-                Debug.WriteLine("denna metoden har fungerat , duktigt august!");
+            }
+            catch (SqlException ex)
+            {
+                Debug.WriteLine("{0} Exception caught.", ex);
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("{0} Exception caught.", ex);
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }                
             }
             return dataTable;
         }
@@ -102,16 +123,13 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-
         //Sökknapp i Objekt för att visa objekt med viss sträng
         public DataTable SearchObjectByString(string searchString)
         {
             string sqlStr = "Select * from RealEstateObject where objNr like '%" + searchString + "%' or objAdress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
-        }
-        
-
+        }      
         //Hämta alla objekt med angivet Brokernummer
         public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
@@ -119,25 +137,20 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-
         //Hämta alla visningar med angivet Brokernummer
         public DataTable SearchShowingsByBrokerSsnr(string searchString)
         {
             string sqlStr = "select s.objNr as Objektsnummer, objAdress as Adress, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
-        }
-
-
-       
+        }      
         #endregion OBJEKT
         #region MÄKLARE        
         //Lägg till MÄKLARE
-        public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email)
+        public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-
             string sqlStr = "insert into RealEstateBroker values ('";
-            sqlStr += brokerSsnr + "','" + name + "','" + brokerAddress + "','" + city + "','" + phoneNr + "','" + email + "')";
+            sqlStr += brokerSsnr + "','" + name + "','" + brokerAddress + "','" + city + "','" + phoneNr + "','" + email +  "'" + pw +"')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
@@ -159,6 +172,13 @@ namespace praktikfall
         public DataTable GetBroker(string brokerSsnr)
         {
             string sqlStr = "select * from RealEstateBroker where brokerSsnr = '" + brokerSsnr + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+        //Hämta ALLA MÄKLARE
+        public DataTable GetAllBrokers()
+        {
+            string sqlStr = "select * from RealEstateBroker";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -205,6 +225,20 @@ namespace praktikfall
             string sqlStr = "Select * from ProspectiveBuyer where buyerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
+        }
+
+
+        public bool ProspectiveBuyerExists(string Ssnr)
+        {
+            bool prospectiveBuyerExists = false;
+            string sqlStr = "select * from ProspectiveBuyer where buyerSsnr = '" + Ssnr + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            if (dt.Rows.Count > 0)
+            {
+                prospectiveBuyerExists = true;
+                return prospectiveBuyerExists;
+            }
+            return prospectiveBuyerExists;
         }
         #endregion SPEKULANT
         #region OBJEKTÄGARE
