@@ -547,7 +547,7 @@ namespace praktikfall
             }
          
             else if (cbObjDeleteObject.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked && !cbObjDeleteOwner.Checked)
-            {
+            { 
                 int nrOfRows = this.controller.DeleteObject(objNr);
                 Populate();
             }
@@ -762,18 +762,103 @@ namespace praktikfall
 
         private void btnBrokerSubmit_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+
+                int parsedValue;
+                if (!int.TryParse(tbBrokerBrokerSsnr.Text, out parsedValue))
+                {
+                    MessageBox.Show("Personnummer får endast innehålla siffror");
+                }
+
+                else if (tbBrokerBrokerName.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit ett namn");
+                }
+
+                else if (tbBrokeBrokerAdress.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit en adress");
+                }
+
+                else if (tbBrokerBrokerCity.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit en stad");
+                }
+
+                else if (tbBrokerBrokerPhone.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit ett telefonnummer");
+                }
+
+                else if (tbBrokerBrokerEmail.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit en email");
+                }
+
+                else if (tbBrokerBrokerPw.Text == "")
+                {
+                    MessageBox.Show("Du har ej angivit en lösenord");
+                }
+
+                else
+                {
+
             string brokerSsnr = tbBrokerBrokerSsnr.Text;
-            string BrokerPassWord = tbBrokerBrokerPw.Text;
+                    string pw = tbBrokerBrokerPw.Text;
             string name = tbBrokerBrokerName.Text;
             string phoneNr = tbBrokerBrokerPhone.Text;
             string email = tbBrokerBrokerEmail.Text;
             string city = tbBrokerBrokerCity.Text;
             string brokerAddress = tbBrokeBrokerAdress.Text;
-            string pw = tbBrokerBrokerPw.Text;
 
-            controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email,pw);
+
+                    bool brokerExists = controller.BrokerExists(brokerSsnr);
+
+                    if (brokerExists)
+                    {
+                        MessageBox.Show("Det finns redan en mäklare med personnummer: " + brokerSsnr);
+                    }
+
+                    else
+                    {
+                        controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad");
+                        Populate();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
             
+                MessageBox.Show("Det går inte att registrera en mäklare/n" + ex);
+            }
         }
 
+        private void dgvBrokerAllBrokers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvBrokerAllBrokers.Rows[e.RowIndex];
+                string selectedItem = row.Cells["brokerSsnr"].Value.ToString();
+                lblSelectedBuyerShowing.Text = selectedItem;
+                tbBrokerBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
+                tbBrokerBrokerName.Text = row.Cells["name"].Value.ToString();
+                tbBrokeBrokerAdress.Text = row.Cells["brokerAddress"].Value.ToString();
+                tbBrokerBrokerCity.Text = row.Cells["city"].Value.ToString();
+                tbBrokerBrokerPhone.Text = row.Cells["phoneNr"].Value.ToString();
+                tbBrokerBrokerEmail.Text = row.Cells["email"].Value.ToString();
+                tbBrokerBrokerPw.Text = row.Cells["pw"].Value.ToString();
+            
+        }
+        }
+
+
+            
+            
     }
+
 }
+
