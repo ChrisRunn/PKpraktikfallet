@@ -21,10 +21,22 @@ namespace praktikfall
         private void btn_Login_Click(object sender, EventArgs e)
         {
             
-            this.Hide();
+            
 
-            if (textBox1.Text.ToLower() == "admin")
+            if (textBox1.Text == "")
             {
+                MessageBox.Show("Ange ditt användarnamn!");
+            }
+
+            else if (textBox2.Text == "")
+            {
+                MessageBox.Show("Ange ditt lösenord");
+            }
+
+
+            else if (textBox1.Text.ToLower() == "admin")
+            {
+                this.Hide();
                 bool b = true;
                 EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
                 openFrame.Show();
@@ -32,8 +44,8 @@ namespace praktikfall
 
             else
             {
+                this.Hide();
                 bool b = false;
-
                 EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
                 openFrame.Show();
             }
