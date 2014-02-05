@@ -542,12 +542,14 @@ namespace praktikfall
             }
             else if (cbObjDeleteOwner.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked && !cbObjDeleteObject.Checked)
             {
-
+                int nrOfRows = this.controller.RemoveObjectOwner(ownerSsnr);
+                Populate();
             }
          
             else if (cbObjDeleteObject.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked && !cbObjDeleteOwner.Checked)
-            { 
-            
+            {
+                int nrOfRows = this.controller.DeleteObject(objNr);
+                Populate();
             }
                 
 

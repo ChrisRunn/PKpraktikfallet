@@ -264,7 +264,7 @@ namespace praktikfall
             return nrOfRows;
         }
 
-        // Uppdaterar allt i objekt fliken !
+        // Uppdaterar allt i objekt fliken ! MÅSTE PLACERAS I RÄTT FOLDER
         public int UpdateObjectFlik(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string ownerSsnr, string phoneNr, string email, string name)
         {
@@ -281,9 +281,9 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         
-        } 
+        }
 
-        //Registrera Objekt och dess ägare
+        //Registrera Objekt och dess ägare MÅSTE PLACERAS I RÄTT FOLDER
 
         public int RegisterObjectAndOwner(string objNr, string objAdress, string objCity, 
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, 
@@ -298,6 +298,8 @@ namespace praktikfall
             MessageBox.Show(sqlStr);
             return nrOfRows;
         }
+
+
         //Söka Ägare -- BEHÖVS EVENTUELLT INTE
         public DataTable GetObjectOwner(string ownerSsnr)
         {
