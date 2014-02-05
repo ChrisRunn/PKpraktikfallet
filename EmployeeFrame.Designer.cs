@@ -117,19 +117,41 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblBrokerAllBroker = new System.Windows.Forms.Label();
+            this.dgvBrokerAllBrokers = new System.Windows.Forms.DataGridView();
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem11 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuItem12 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
-            this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
-            this.menuItem11 = new System.Windows.Forms.MenuItem();
-            this.menuItem12 = new System.Windows.Forms.MenuItem();
+            this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.lblBrokerBrokerNumber = new System.Windows.Forms.Label();
+            this.lblBrokerName = new System.Windows.Forms.Label();
+            this.lblBrokerAddress = new System.Windows.Forms.Label();
+            this.lblBrokerCity = new System.Windows.Forms.Label();
+            this.lblBrokerTelephoneNbr = new System.Windows.Forms.Label();
+            this.lblBrokerEmail = new System.Windows.Forms.Label();
+            this.lblBrokerPassword = new System.Windows.Forms.Label();
+            this.cbBrokerUpdate = new System.Windows.Forms.CheckBox();
+            this.cbBrokerRemove = new System.Windows.Forms.CheckBox();
+            this.cbBrokerRegister = new System.Windows.Forms.CheckBox();
+            this.btnBrokerSubmit = new System.Windows.Forms.Button();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -147,6 +169,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPageVisning
@@ -1053,12 +1078,122 @@
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPageVisning);
+            this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(-2, -1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1091, 737);
             this.tabControl.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1083, 711);
+            this.tabPage3.TabIndex = 7;
+            this.tabPage3.Text = "Mäklare";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnBrokerSubmit);
+            this.groupBox5.Controls.Add(this.cbBrokerUpdate);
+            this.groupBox5.Controls.Add(this.cbBrokerRemove);
+            this.groupBox5.Controls.Add(this.cbBrokerRegister);
+            this.groupBox5.Controls.Add(this.lblBrokerPassword);
+            this.groupBox5.Controls.Add(this.lblBrokerEmail);
+            this.groupBox5.Controls.Add(this.lblBrokerTelephoneNbr);
+            this.groupBox5.Controls.Add(this.lblBrokerCity);
+            this.groupBox5.Controls.Add(this.lblBrokerAddress);
+            this.groupBox5.Controls.Add(this.lblBrokerName);
+            this.groupBox5.Controls.Add(this.lblBrokerBrokerNumber);
+            this.groupBox5.Controls.Add(this.textBox7);
+            this.groupBox5.Controls.Add(this.textBox6);
+            this.groupBox5.Controls.Add(this.textBox5);
+            this.groupBox5.Controls.Add(this.textBox4);
+            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.lblBrokerAllBroker);
+            this.groupBox5.Controls.Add(this.dgvBrokerAllBrokers);
+            this.groupBox5.Location = new System.Drawing.Point(10, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(646, 292);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Administrera mäklare";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(519, 192);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(111, 20);
+            this.textBox7.TabIndex = 17;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(519, 166);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(111, 20);
+            this.textBox6.TabIndex = 16;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(519, 140);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(111, 20);
+            this.textBox5.TabIndex = 15;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(519, 114);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(111, 20);
+            this.textBox4.TabIndex = 14;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(519, 88);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(111, 20);
+            this.textBox3.TabIndex = 13;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(519, 62);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(111, 20);
+            this.textBox2.TabIndex = 12;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(519, 36);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(111, 20);
+            this.textBox1.TabIndex = 11;
+            // 
+            // lblBrokerAllBroker
+            // 
+            this.lblBrokerAllBroker.AutoSize = true;
+            this.lblBrokerAllBroker.Location = new System.Drawing.Point(7, 17);
+            this.lblBrokerAllBroker.Name = "lblBrokerAllBroker";
+            this.lblBrokerAllBroker.Size = new System.Drawing.Size(147, 13);
+            this.lblBrokerAllBroker.TabIndex = 10;
+            this.lblBrokerAllBroker.Text = "Alla registrerade mäklare";
+            // 
+            // dgvBrokerAllBrokers
+            // 
+            this.dgvBrokerAllBrokers.AllowUserToAddRows = false;
+            this.dgvBrokerAllBrokers.AllowUserToDeleteRows = false;
+            this.dgvBrokerAllBrokers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBrokerAllBrokers.Location = new System.Drawing.Point(6, 36);
+            this.dgvBrokerAllBrokers.MultiSelect = false;
+            this.dgvBrokerAllBrokers.Name = "dgvBrokerAllBrokers";
+            this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(400, 250);
+            this.dgvBrokerAllBrokers.TabIndex = 9;
             // 
             // mainMenu
             // 
@@ -1076,6 +1211,18 @@
             this.menuItem5});
             this.menuItem1.Text = "Arkiv";
             // 
+            // menuItem11
+            // 
+            this.menuItem11.Index = 0;
+            this.menuItem11.Text = "Logga ut";
+            this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 1;
+            this.menuItem5.Text = "Avsluta";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
             // menuItem2
             // 
             this.menuItem2.Index = 1;
@@ -1088,6 +1235,12 @@
             this.menuItem12});
             this.menuItem3.Text = "Visa";
             // 
+            // menuItem12
+            // 
+            this.menuItem12.Index = 0;
+            this.menuItem12.Text = "Adminverktyg";
+            this.menuItem12.Click += new System.EventHandler(this.menuItem12_Click);
+            // 
             // menuItem4
             // 
             this.menuItem4.Index = 3;
@@ -1095,12 +1248,6 @@
             this.menuItem6,
             this.menuItem7});
             this.menuItem4.Text = "Hjälp";
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Index = 1;
-            this.menuItem5.Text = "Avsluta";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // menuItem6
             // 
@@ -1110,12 +1257,6 @@
             this.menuItem9,
             this.menuItem10});
             this.menuItem6.Text = "FAQ";
-            // 
-            // menuItem7
-            // 
-            this.menuItem7.Index = 1;
-            this.menuItem7.Text = "Om";
-            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
             // menuItem8
             // 
@@ -1133,17 +1274,114 @@
             this.menuItem10.Index = 2;
             this.menuItem10.Text = "Spekulant";
             // 
-            // menuItem11
+            // menuItem7
             // 
-            this.menuItem11.Index = 0;
-            this.menuItem11.Text = "Logga ut";
-            this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
+            this.menuItem7.Index = 1;
+            this.menuItem7.Text = "Om";
+            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
-            // menuItem12
+            // lblBrokerBrokerNumber
             // 
-            this.menuItem12.Index = 0;
-            this.menuItem12.Text = "Adminverktyg";
-            this.menuItem12.Click += new System.EventHandler(this.menuItem12_Click);
+            this.lblBrokerBrokerNumber.AutoSize = true;
+            this.lblBrokerBrokerNumber.Location = new System.Drawing.Point(412, 39);
+            this.lblBrokerBrokerNumber.Name = "lblBrokerBrokerNumber";
+            this.lblBrokerBrokerNumber.Size = new System.Drawing.Size(60, 13);
+            this.lblBrokerBrokerNumber.TabIndex = 18;
+            this.lblBrokerBrokerNumber.Text = "Mäklarnr:";
+            // 
+            // lblBrokerName
+            // 
+            this.lblBrokerName.AutoSize = true;
+            this.lblBrokerName.Location = new System.Drawing.Point(412, 65);
+            this.lblBrokerName.Name = "lblBrokerName";
+            this.lblBrokerName.Size = new System.Drawing.Size(43, 13);
+            this.lblBrokerName.TabIndex = 19;
+            this.lblBrokerName.Text = "Namn:";
+            // 
+            // lblBrokerAddress
+            // 
+            this.lblBrokerAddress.AutoSize = true;
+            this.lblBrokerAddress.Location = new System.Drawing.Point(412, 91);
+            this.lblBrokerAddress.Name = "lblBrokerAddress";
+            this.lblBrokerAddress.Size = new System.Drawing.Size(49, 13);
+            this.lblBrokerAddress.TabIndex = 20;
+            this.lblBrokerAddress.Text = "Adress:";
+            // 
+            // lblBrokerCity
+            // 
+            this.lblBrokerCity.AutoSize = true;
+            this.lblBrokerCity.Location = new System.Drawing.Point(412, 117);
+            this.lblBrokerCity.Name = "lblBrokerCity";
+            this.lblBrokerCity.Size = new System.Drawing.Size(37, 13);
+            this.lblBrokerCity.TabIndex = 21;
+            this.lblBrokerCity.Text = "Stad:";
+            // 
+            // lblBrokerTelephoneNbr
+            // 
+            this.lblBrokerTelephoneNbr.AutoSize = true;
+            this.lblBrokerTelephoneNbr.Location = new System.Drawing.Point(412, 143);
+            this.lblBrokerTelephoneNbr.Name = "lblBrokerTelephoneNbr";
+            this.lblBrokerTelephoneNbr.Size = new System.Drawing.Size(97, 13);
+            this.lblBrokerTelephoneNbr.TabIndex = 22;
+            this.lblBrokerTelephoneNbr.Text = "Telefonnummer:";
+            // 
+            // lblBrokerEmail
+            // 
+            this.lblBrokerEmail.AutoSize = true;
+            this.lblBrokerEmail.Location = new System.Drawing.Point(412, 169);
+            this.lblBrokerEmail.Name = "lblBrokerEmail";
+            this.lblBrokerEmail.Size = new System.Drawing.Size(41, 13);
+            this.lblBrokerEmail.TabIndex = 23;
+            this.lblBrokerEmail.Text = "Email:";
+            // 
+            // lblBrokerPassword
+            // 
+            this.lblBrokerPassword.AutoSize = true;
+            this.lblBrokerPassword.Location = new System.Drawing.Point(412, 195);
+            this.lblBrokerPassword.Name = "lblBrokerPassword";
+            this.lblBrokerPassword.Size = new System.Drawing.Size(63, 13);
+            this.lblBrokerPassword.TabIndex = 24;
+            this.lblBrokerPassword.Text = "Lösenord:";
+            // 
+            // cbBrokerUpdate
+            // 
+            this.cbBrokerUpdate.AccessibleName = "";
+            this.cbBrokerUpdate.AutoSize = true;
+            this.cbBrokerUpdate.Location = new System.Drawing.Point(415, 263);
+            this.cbBrokerUpdate.Name = "cbBrokerUpdate";
+            this.cbBrokerUpdate.Size = new System.Drawing.Size(85, 17);
+            this.cbBrokerUpdate.TabIndex = 25;
+            this.cbBrokerUpdate.Text = "Uppdatera";
+            this.cbBrokerUpdate.UseVisualStyleBackColor = true;
+            // 
+            // cbBrokerRemove
+            // 
+            this.cbBrokerRemove.AutoSize = true;
+            this.cbBrokerRemove.Location = new System.Drawing.Point(415, 241);
+            this.cbBrokerRemove.Name = "cbBrokerRemove";
+            this.cbBrokerRemove.Size = new System.Drawing.Size(67, 17);
+            this.cbBrokerRemove.TabIndex = 26;
+            this.cbBrokerRemove.Text = "Ta bort";
+            this.cbBrokerRemove.UseVisualStyleBackColor = true;
+            // 
+            // cbBrokerRegister
+            // 
+            this.cbBrokerRegister.AutoSize = true;
+            this.cbBrokerRegister.Location = new System.Drawing.Point(415, 218);
+            this.cbBrokerRegister.Name = "cbBrokerRegister";
+            this.cbBrokerRegister.Size = new System.Drawing.Size(84, 17);
+            this.cbBrokerRegister.TabIndex = 27;
+            this.cbBrokerRegister.Text = "Registrera";
+            this.cbBrokerRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnBrokerSubmit
+            // 
+            this.btnBrokerSubmit.Location = new System.Drawing.Point(555, 257);
+            this.btnBrokerSubmit.Name = "btnBrokerSubmit";
+            this.btnBrokerSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnBrokerSubmit.TabIndex = 28;
+            this.btnBrokerSubmit.Text = "Utför";
+            this.btnBrokerSubmit.UseVisualStyleBackColor = true;
             // 
             // EmployeeFrame
             // 
@@ -1180,6 +1418,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1286,6 +1528,28 @@
         private System.Windows.Forms.MenuItem menuItem10;
         private System.Windows.Forms.MenuItem menuItem11;
         private System.Windows.Forms.MenuItem menuItem12;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label lblBrokerAllBroker;
+        private System.Windows.Forms.DataGridView dgvBrokerAllBrokers;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnBrokerSubmit;
+        private System.Windows.Forms.CheckBox cbBrokerUpdate;
+        private System.Windows.Forms.CheckBox cbBrokerRemove;
+        private System.Windows.Forms.CheckBox cbBrokerRegister;
+        private System.Windows.Forms.Label lblBrokerPassword;
+        private System.Windows.Forms.Label lblBrokerEmail;
+        private System.Windows.Forms.Label lblBrokerTelephoneNbr;
+        private System.Windows.Forms.Label lblBrokerCity;
+        private System.Windows.Forms.Label lblBrokerAddress;
+        private System.Windows.Forms.Label lblBrokerName;
+        private System.Windows.Forms.Label lblBrokerBrokerNumber;
 
     }
 }

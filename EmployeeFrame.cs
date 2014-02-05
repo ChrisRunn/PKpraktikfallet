@@ -466,7 +466,7 @@ namespace praktikfall
             }                                               
             if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked)               // Om inget val gjorts, ge feedback
             {
-                MessageBox.Show("Vänligen välj ett alternativ (ta bort hela visningen eller ta bort spekulant från visning) först.");
+                MessageBox.Show("Vänligen välj ett alternativ (ta bort alla visningar eller ta bort spekulant från visning) först.");
             }       
 
             if (rbShowingDeleteBuyer.Checked)                                                   //Om "ta bort spekulant" är valt
@@ -716,6 +716,7 @@ namespace praktikfall
             //Visa/dölj en tab för Mäklare
         }
         #endregion MAINMENU
+
     }
 }
 
