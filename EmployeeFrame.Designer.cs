@@ -592,13 +592,7 @@
             // 
             // cbShowAllAttributes
             // 
-            this.cbShowAllAttributes.AutoSize = true;
-            this.cbShowAllAttributes.Location = new System.Drawing.Point(770, 375);
-            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
-            this.cbShowAllAttributes.Size = new System.Drawing.Size(177, 17);
-            this.cbShowAllAttributes.TabIndex = 41;
-            this.cbShowAllAttributes.Text = "visa fullständig information";
-            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
+           
             // 
             // cbObjDeleteObject
             // 
@@ -1414,13 +1408,7 @@
             // 
             // cbShowAllAttributes
             // 
-            this.cbShowAllAttributes.AutoSize = true;
-            this.cbShowAllAttributes.Location = new System.Drawing.Point(771, 381);
-            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
-            this.cbShowAllAttributes.Size = new System.Drawing.Size(178, 17);
-            this.cbShowAllAttributes.TabIndex = 41;
-            this.cbShowAllAttributes.Text = "Visa fullständig informaiton";
-            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
+          
             // 
             // lblBrokerSelectedBroker
             // 

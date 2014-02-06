@@ -38,7 +38,7 @@ namespace praktikfall
                */
 
             string name = textBox1.Text;
-            if (textBox1.Text.ToLower().Equals("admin") && textBox2.Text.ToLower().Equals("admin")) // Ändra denna till en "else if" istället för if
+            if (textBox1.Text.ToLower().Equals("admin") && textBox2.Text.ToLower().Equals("password")) // Ändra denna till en "else if" istället för if
             {
                 this.Hide();
                 bool b = true;
@@ -47,7 +47,7 @@ namespace praktikfall
             }
 
 
-            if (c.CheckPw(name) != 0)
+            else
             {
 
                 this.Hide();
@@ -56,10 +56,9 @@ namespace praktikfall
                 EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
                 openFrame.Show();
             }
-        
 
-            else { MessageBox.Show("Fail");}
         }
+         
 
            
         
