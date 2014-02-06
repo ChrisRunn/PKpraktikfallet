@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnDeleteProspectiveBuyer = new System.Windows.Forms.Button();
@@ -66,6 +67,7 @@
             this.btnAddShowing = new System.Windows.Forms.Button();
             this.lblSpekulantVisning = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
             this.cbObjDeleteObject = new System.Windows.Forms.CheckBox();
             this.btnObjSubmit = new System.Windows.Forms.Button();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
@@ -399,6 +401,7 @@
             this.dgvShowingCurrentShowings.AllowUserToDeleteRows = false;
             this.dgvShowingCurrentShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvShowingCurrentShowings.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvShowingCurrentShowings.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvShowingCurrentShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowingCurrentShowings.Location = new System.Drawing.Point(6, 41);
             this.dgvShowingCurrentShowings.MultiSelect = false;
@@ -490,6 +493,7 @@
             // 
             this.dgvObjectShowing.AllowUserToAddRows = false;
             this.dgvObjectShowing.AllowUserToDeleteRows = false;
+            this.dgvObjectShowing.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvObjectShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObjectShowing.Location = new System.Drawing.Point(6, 32);
             this.dgvObjectShowing.MultiSelect = false;
@@ -504,6 +508,7 @@
             this.dgvProspectiveBuyerShowing.AllowUserToAddRows = false;
             this.dgvProspectiveBuyerShowing.AllowUserToDeleteRows = false;
             this.dgvProspectiveBuyerShowing.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProspectiveBuyerShowing.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvProspectiveBuyerShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProspectiveBuyerShowing.Location = new System.Drawing.Point(412, 32);
             this.dgvProspectiveBuyerShowing.MultiSelect = false;
@@ -559,6 +564,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cbShowAllAttributes);
             this.tabPage2.Controls.Add(this.cbObjDeleteObject);
             this.tabPage2.Controls.Add(this.btnObjSubmit);
             this.tabPage2.Controls.Add(this.cbObjUpdate);
@@ -582,6 +588,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cbShowAllAttributes
+            // 
+            this.cbShowAllAttributes.AutoSize = true;
+            this.cbShowAllAttributes.Location = new System.Drawing.Point(770, 375);
+            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
+            this.cbShowAllAttributes.Size = new System.Drawing.Size(177, 17);
+            this.cbShowAllAttributes.TabIndex = 41;
+            this.cbShowAllAttributes.Text = "visa fullständig information";
+            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
             // 
             // cbObjDeleteObject
             // 
@@ -914,7 +930,7 @@
             // 
             this.btnObjectSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectSearch.Image")));
             this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectSearch.Location = new System.Drawing.Point(715, 381);
+            this.btnObjectSearch.Location = new System.Drawing.Point(710, 370);
             this.btnObjectSearch.Name = "btnObjectSearch";
             this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
             this.btnObjectSearch.TabIndex = 18;
@@ -927,7 +943,7 @@
             // 
             this.tbObjSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbObjSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbObjSearch.Location = new System.Drawing.Point(603, 383);
+            this.tbObjSearch.Location = new System.Drawing.Point(603, 372);
             this.tbObjSearch.Name = "tbObjSearch";
             this.tbObjSearch.Size = new System.Drawing.Size(101, 20);
             this.tbObjSearch.TabIndex = 17;
@@ -946,6 +962,11 @@
             // 
             this.dgvObject.AllowUserToAddRows = false;
             this.dgvObject.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObject.Location = new System.Drawing.Point(603, 15);
             this.dgvObject.Name = "dgvObject";
@@ -1082,7 +1103,7 @@
             this.tabControl.Controls.Add(this.tabPageVisning);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(-2, -1);
+            this.tabControl.Location = new System.Drawing.Point(-1, -1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1091, 737);
@@ -1294,6 +1315,7 @@
             // 
             this.dgvBrokerAllBrokers.AllowUserToAddRows = false;
             this.dgvBrokerAllBrokers.AllowUserToDeleteRows = false;
+            this.dgvBrokerAllBrokers.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvBrokerAllBrokers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBrokerAllBrokers.Location = new System.Drawing.Point(6, 36);
             this.dgvBrokerAllBrokers.MultiSelect = false;
@@ -1392,7 +1414,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1096, 720);
+            this.ClientSize = new System.Drawing.Size(1096, 712);
             this.Controls.Add(this.tabControl);
             this.Menu = this.mainMenu;
             this.Name = "EmployeeFrame";
@@ -1554,6 +1576,7 @@
         private System.Windows.Forms.Label lblBrokerName;
         private System.Windows.Forms.Label lblBrokerBrokerNumber;
         private System.Windows.Forms.CheckBox cbObjDeleteObject;
+        private System.Windows.Forms.CheckBox cbShowAllAttributes;
 
     }
 }
