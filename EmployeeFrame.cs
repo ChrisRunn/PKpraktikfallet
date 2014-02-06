@@ -169,7 +169,7 @@ namespace praktikfall
             {
 
                 int parsedValue;
-                if (!int.TryParse(tbBuyerSsn.Text, out parsedValue))
+                if (!int.TryParse(tbBuyerSsnr.Text, out parsedValue))
                 {
                     MessageBox.Show("Personnummer får endast innehålla siffror");
 
@@ -185,17 +185,17 @@ namespace praktikfall
                     MessageBox.Show("Du har ej angivit ett telefonnummer");
                 }
 
-                else if (tbProspectiveBuyerEmail.Text.Equals(""))
+                else if (tbBuyerEmail.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit en email");
                 }
 
                 else
                 {
-                    string ssnr = tbBuyerSsn.Text;
+                    string ssnr = tbBuyerSsnr.Text;
                     string name = tbBuyerName.Text;
                     string phonenr = tbBuyerTel.Text;
-                    string email = tbProspectiveBuyerEmail.Text;
+                    string email = tbBuyerEmail.Text;
                     controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
                     MessageBox.Show("Ny spekulant registrerad");
                 }
@@ -352,10 +352,10 @@ namespace praktikfall
                 DataGridViewRow row = this.dgvProspectiveBuyerShowing.Rows[e.RowIndex];
                 string selectedItem = row.Cells["buyerSsnr"].Value.ToString();
                 lblSelectedBuyerShowing.Text = selectedItem;              
-                tbBuyerSsn.Text = row.Cells["buyerSsnr"].Value.ToString();
+                tbBuyerSsnr.Text = row.Cells["buyerSsnr"].Value.ToString();
                 tbBuyerName.Text = row.Cells["name"].Value.ToString();
                 tbBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
-                tbProspectiveBuyerEmail.Text = row.Cells["email"].Value.ToString();
+                tbBuyerEmail.Text = row.Cells["email"].Value.ToString();
                 
             }
         }
@@ -408,10 +408,10 @@ namespace praktikfall
             {
                 DataGridViewRow row = this.dgvProspectiveBuyerShowing.Rows[e.RowIndex];
 
-                tbBuyerSsn.Text = row.Cells["buyerSsnr"].Value.ToString();
+                tbBuyerSsnr.Text = row.Cells["buyerSsnr"].Value.ToString();
                 tbBuyerName.Text = row.Cells["name"].Value.ToString();
                 tbBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
-                tbProspectiveBuyerEmail.Text = row.Cells["email"].Value.ToString();
+                tbBuyerEmail.Text = row.Cells["email"].Value.ToString();
 
 
             }
@@ -573,7 +573,7 @@ namespace praktikfall
             {
 
                 int parsedValue;
-                if (!int.TryParse(tbBuyerSsn.Text, out parsedValue))
+                if (!int.TryParse(tbBuyerSsnr.Text, out parsedValue))
                 {
                     MessageBox.Show("Personnummer får endast innehålla siffror");
 
@@ -589,7 +589,7 @@ namespace praktikfall
                     MessageBox.Show("Du har ej angivit ett telefonnummer");
                 }
 
-                else if (tbProspectiveBuyerEmail.Text.Equals(""))
+                else if (tbBuyerEmail.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit en email");
                 }
@@ -597,10 +597,10 @@ namespace praktikfall
                 else
                 {  
                     
-                    string ssnr = tbBuyerSsn.Text;
+                    string ssnr = tbBuyerSsnr.Text;
                     string name = tbBuyerName.Text;
                     string phonenr = tbBuyerTel.Text;
-                    string email = tbProspectiveBuyerEmail.Text;
+                    string email = tbBuyerEmail.Text;
                     bool prospectiveBuyerExists = controller.ProspectiveBuyerExists(ssnr);
 
                     if (prospectiveBuyerExists)
@@ -653,17 +653,17 @@ namespace praktikfall
         private void btnUpdateProspectiveBuyer_Click(object sender, EventArgs e)
         {
 
-            if (tbBuyerSsn.Text.Equals(""))
+            if (tbBuyerSsnr.Text.Equals(""))
             {
                 MessageBox.Show("Du har ej valt eller angivit ett personnummer");
         }
             else
             {
 
-                string buyerSsnr = tbBuyerSsn.Text;
+                string buyerSsnr = tbBuyerSsnr.Text;
                 string name = tbBuyerName.Text;
                 string phoneNr = tbBuyerTel.Text;
-                string email = tbProspectiveBuyerEmail.Text;
+                string email = tbBuyerEmail.Text;
                 int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                 MessageBox.Show("Spekulant " + buyerSsnr + " uppdaterad!");
                 Populate();
@@ -672,13 +672,13 @@ namespace praktikfall
 
         private void btnDeleteProspectiveBuyer_Click(object sender, EventArgs e)
         {
-            if (tbBuyerSsn.Text.Equals(""))
+            if (tbBuyerSsnr.Text.Equals(""))
             {
                 MessageBox.Show("Du har ej valt eller angivit ett personnummer");
             }
             else
             {
-                string buyerSsnr = tbBuyerSsn.Text;
+                string buyerSsnr = tbBuyerSsnr.Text;
                 int nrOfRows = controller.DeleteProspectiveBuyer(buyerSsnr);
                 MessageBox.Show("Spekulant " + buyerSsnr + " raderad!");
                 Populate();
@@ -786,7 +786,7 @@ namespace praktikfall
             {
             try
             {
-
+                
                 int parsedValue;
                 if (!int.TryParse(tbBrokerBrokerSsnr.Text, out parsedValue))
                 {
@@ -921,6 +921,88 @@ namespace praktikfall
                 tbBrokerBrokerPw.Text = row.Cells["pw"].Value.ToString();
             
         }
+        }
+
+        private void btnShowingSubmit_Click(object sender, EventArgs e)
+        {
+            string buyerSsnr = tbBuyerSsnr.Text;
+            string name = tbBuyerName.Text;
+            string phoneNr = tbBuyerTel.Text;
+            string email = tbBuyerEmail.Text;
+
+            
+
+            if (cbShowingRegisterBuyer.Checked && !cbShowingRemoveBuyer.Checked && !cbShowingUpdateBuyer.Checked)
+            {
+                try
+                {
+                    int nrOfRows = controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                    Populate();
+                    bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
+
+                    if (buyerExists)
+                    {
+                        MessageBox.Show("Det finns redan en spekulant med personnummer " + buyerSsnr + " registrerad");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr +" har lagts till");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Spekulant kunde inte regustreras.\n" + ex);
+                }
+            }
+            if (!cbShowingRegisterBuyer.Checked && cbShowingRemoveBuyer.Checked && !cbShowingUpdateBuyer.Checked)
+            {
+                try
+                {
+                    int nrOfRows = controller.DeleteProspectiveBuyer(buyerSsnr);
+                    if (nrOfRows == 0)
+                    {
+                        MessageBox.Show("Ingen sådan spekulant finns. Vänligen försök igen.");                        
+                    }
+                    else
+                    {
+                        Populate();
+                        tbBuyerEmail.Text = "";
+                        tbBuyerName.Text = "";
+                        tbBuyerSsnr.Text = "";
+                        tbBuyerTel.Text = "";
+                        MessageBox.Show("Spekulant borttagen.");
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Det går inte att ta bort spekulant.\n" + ex);
+                }
+            }
+            if (!cbShowingRegisterBuyer.Checked && !cbShowingRemoveBuyer.Checked && cbShowingUpdateBuyer.Checked)
+            {
+                try
+                {
+                    int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                    if (nrOfRows == 0)
+                    {
+                        MessageBox.Show("Ingen sådan spekulant finns. Vänligen försök igen.");
+                    }
+                    else
+                    {
+                        Populate();
+                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " uppdaterad.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Det går inte att uppdatera spekulant.\n" + ex);
+                }
+            }
+            if (!cbShowingRegisterBuyer.Checked && !cbShowingRemoveBuyer.Checked && !cbShowingUpdateBuyer.Checked)
+            {
+                MessageBox.Show("Vänligen gör ett val först.");
+            }
         }
 
 
