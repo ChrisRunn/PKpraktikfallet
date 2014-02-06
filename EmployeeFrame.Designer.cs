@@ -67,7 +67,6 @@
             this.btnAddShowing = new System.Windows.Forms.Button();
             this.lblSpekulantVisning = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
             this.cbObjDeleteObject = new System.Windows.Forms.CheckBox();
             this.btnObjSubmit = new System.Windows.Forms.Button();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
@@ -154,7 +153,6 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
             this.lblBrokerSelectedBroker = new System.Windows.Forms.Label();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -568,7 +566,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.cbShowAllAttributes);
             this.tabPage2.Controls.Add(this.cbObjDeleteObject);
             this.tabPage2.Controls.Add(this.btnObjSubmit);
             this.tabPage2.Controls.Add(this.cbObjUpdate);
@@ -595,13 +592,7 @@
             // 
             // cbShowAllAttributes
             // 
-            this.cbShowAllAttributes.AutoSize = true;
-            this.cbShowAllAttributes.Location = new System.Drawing.Point(770, 375);
-            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
-            this.cbShowAllAttributes.Size = new System.Drawing.Size(177, 17);
-            this.cbShowAllAttributes.TabIndex = 41;
-            this.cbShowAllAttributes.Text = "visa fullständig information";
-            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
+           
             // 
             // cbObjDeleteObject
             // 
@@ -1417,13 +1408,7 @@
             // 
             // cbShowAllAttributes
             // 
-            this.cbShowAllAttributes.AutoSize = true;
-            this.cbShowAllAttributes.Location = new System.Drawing.Point(771, 381);
-            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
-            this.cbShowAllAttributes.Size = new System.Drawing.Size(178, 17);
-            this.cbShowAllAttributes.TabIndex = 41;
-            this.cbShowAllAttributes.Text = "Visa fullständig informaiton";
-            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
+          
             // 
             // lblBrokerSelectedBroker
             // 
@@ -1602,7 +1587,6 @@
         private System.Windows.Forms.Label lblBrokerName;
         private System.Windows.Forms.Label lblBrokerBrokerNumber;
         private System.Windows.Forms.CheckBox cbObjDeleteObject;
-        private System.Windows.Forms.CheckBox cbShowAllAttributes;
         private System.Windows.Forms.CheckBox cbShowAllAttributes;
         private System.Windows.Forms.Label lblBrokerSelectedBroker;
 

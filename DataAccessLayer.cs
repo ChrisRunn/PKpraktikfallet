@@ -403,9 +403,7 @@ namespace praktikfall
         public int CheckPw(string name)
         {
             string sqlStr = "select pw from RealEstateBroker where name = '" + name + "'";
-            MessageBox.Show(sqlStr);
             int nrOfRows = ExecuteUpdate(sqlStr);
-            MessageBox.Show(nrOfRows.ToString());
             return nrOfRows;
 
 
