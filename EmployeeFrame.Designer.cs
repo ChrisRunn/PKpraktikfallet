@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnDeleteProspectiveBuyer = new System.Windows.Forms.Button();
@@ -67,6 +67,7 @@
             this.btnAddShowing = new System.Windows.Forms.Button();
             this.lblSpekulantVisning = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
             this.cbObjDeleteObject = new System.Windows.Forms.CheckBox();
             this.btnObjSubmit = new System.Windows.Forms.Button();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
@@ -153,7 +154,6 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -401,6 +401,7 @@
             this.dgvShowingCurrentShowings.AllowUserToDeleteRows = false;
             this.dgvShowingCurrentShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvShowingCurrentShowings.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvShowingCurrentShowings.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvShowingCurrentShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowingCurrentShowings.Location = new System.Drawing.Point(6, 41);
             this.dgvShowingCurrentShowings.MultiSelect = false;
@@ -492,6 +493,7 @@
             // 
             this.dgvObjectShowing.AllowUserToAddRows = false;
             this.dgvObjectShowing.AllowUserToDeleteRows = false;
+            this.dgvObjectShowing.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvObjectShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObjectShowing.Location = new System.Drawing.Point(6, 32);
             this.dgvObjectShowing.MultiSelect = false;
@@ -506,6 +508,7 @@
             this.dgvProspectiveBuyerShowing.AllowUserToAddRows = false;
             this.dgvProspectiveBuyerShowing.AllowUserToDeleteRows = false;
             this.dgvProspectiveBuyerShowing.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProspectiveBuyerShowing.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvProspectiveBuyerShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProspectiveBuyerShowing.Location = new System.Drawing.Point(412, 32);
             this.dgvProspectiveBuyerShowing.MultiSelect = false;
@@ -585,6 +588,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cbShowAllAttributes
+            // 
+            this.cbShowAllAttributes.AutoSize = true;
+            this.cbShowAllAttributes.Location = new System.Drawing.Point(770, 375);
+            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
+            this.cbShowAllAttributes.Size = new System.Drawing.Size(177, 17);
+            this.cbShowAllAttributes.TabIndex = 41;
+            this.cbShowAllAttributes.Text = "visa fullständig information";
+            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
             // 
             // cbObjDeleteObject
             // 
@@ -949,8 +962,8 @@
             // 
             this.dgvObject.AllowUserToAddRows = false;
             this.dgvObject.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -1302,6 +1315,7 @@
             // 
             this.dgvBrokerAllBrokers.AllowUserToAddRows = false;
             this.dgvBrokerAllBrokers.AllowUserToDeleteRows = false;
+            this.dgvBrokerAllBrokers.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvBrokerAllBrokers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBrokerAllBrokers.Location = new System.Drawing.Point(6, 36);
             this.dgvBrokerAllBrokers.MultiSelect = false;
@@ -1395,22 +1409,12 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
-            // cbShowAllAttributes
-            // 
-            this.cbShowAllAttributes.AutoSize = true;
-            this.cbShowAllAttributes.Location = new System.Drawing.Point(770, 375);
-            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
-            this.cbShowAllAttributes.Size = new System.Drawing.Size(177, 17);
-            this.cbShowAllAttributes.TabIndex = 41;
-            this.cbShowAllAttributes.Text = "visa fullständig information";
-            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
-            // 
             // EmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1096, 720);
+            this.ClientSize = new System.Drawing.Size(1096, 712);
             this.Controls.Add(this.tabControl);
             this.Menu = this.mainMenu;
             this.Name = "EmployeeFrame";
