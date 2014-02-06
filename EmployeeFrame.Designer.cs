@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnDeleteProspectiveBuyer = new System.Windows.Forms.Button();
@@ -152,6 +153,7 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -559,6 +561,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cbShowAllAttributes);
             this.tabPage2.Controls.Add(this.cbObjDeleteObject);
             this.tabPage2.Controls.Add(this.btnObjSubmit);
             this.tabPage2.Controls.Add(this.cbObjUpdate);
@@ -914,7 +917,7 @@
             // 
             this.btnObjectSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectSearch.Image")));
             this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectSearch.Location = new System.Drawing.Point(715, 381);
+            this.btnObjectSearch.Location = new System.Drawing.Point(710, 370);
             this.btnObjectSearch.Name = "btnObjectSearch";
             this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
             this.btnObjectSearch.TabIndex = 18;
@@ -927,7 +930,7 @@
             // 
             this.tbObjSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbObjSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbObjSearch.Location = new System.Drawing.Point(603, 383);
+            this.tbObjSearch.Location = new System.Drawing.Point(603, 372);
             this.tbObjSearch.Name = "tbObjSearch";
             this.tbObjSearch.Size = new System.Drawing.Size(101, 20);
             this.tbObjSearch.TabIndex = 17;
@@ -946,6 +949,11 @@
             // 
             this.dgvObject.AllowUserToAddRows = false;
             this.dgvObject.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObject.Location = new System.Drawing.Point(603, 15);
             this.dgvObject.Name = "dgvObject";
@@ -1387,6 +1395,16 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
+            // cbShowAllAttributes
+            // 
+            this.cbShowAllAttributes.AutoSize = true;
+            this.cbShowAllAttributes.Location = new System.Drawing.Point(770, 375);
+            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
+            this.cbShowAllAttributes.Size = new System.Drawing.Size(177, 17);
+            this.cbShowAllAttributes.TabIndex = 41;
+            this.cbShowAllAttributes.Text = "visa fullständig information";
+            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
+            // 
             // EmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1554,6 +1572,7 @@
         private System.Windows.Forms.Label lblBrokerName;
         private System.Windows.Forms.Label lblBrokerBrokerNumber;
         private System.Windows.Forms.CheckBox cbObjDeleteObject;
+        private System.Windows.Forms.CheckBox cbShowAllAttributes;
 
     }
 }
