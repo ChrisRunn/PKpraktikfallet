@@ -116,9 +116,9 @@ namespace praktikfall
             return dt;
         }
         // Hämta alla OBJEKT
-        public DataTable GetAllObjectsNr()
+        public DataTable GetAllObjects()
         {
-            string sqlStr = "select * from RealEstateObject";
+            string sqlStr = "select objNr,objAdress from RealEstateObject";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -300,11 +300,11 @@ namespace praktikfall
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
-            string sqlStr = "insert into RealEstateObject values (";
-            sqlStr += objNr + ",'" + objAdress + "','" + objCity + "'," + objPrice +
-                "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "')";
-            sqlStr += "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
-            sqlStr += "insert into HasOwner values(" + objNr + ",'" + ownerSsnr + "')";
+            string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
+            sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "'," + objPrice +
+                "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr+"')";
+     
+            
             int nrOfRows = ExecuteUpdate(sqlStr);
             MessageBox.Show(sqlStr);
             return nrOfRows;
@@ -327,8 +327,8 @@ namespace praktikfall
         }
         #endregion OBJEKTÄGARE
         #region HASOWNER
-        //Hämta ÄGARE (hasowner)
-        public DataTable GetObjOwner(string objNr)
+        //Hämta ÄGARE (hasowner) -- ANVÄNDS INTE LÄNGRE
+        public DataTable GetSelectedObjectsOwner(string objNr)
         {
             string sqlStr = "select * from HasOwner where objNr ='" + objNr + "'";
             DataTable dt = ExecuteQuery(sqlStr);

@@ -43,10 +43,79 @@ namespace praktikfall
 
         Controller controller = new Controller();
 
+        public void MakeTbReadOnly()
+        {
+
+            tbObjNr.ReadOnly = true;
+            tbObjAddress.ReadOnly = true;
+            tbObjCity.ReadOnly = true;
+            tbObjPrice.ReadOnly = true;
+            tbObjectArea.ReadOnly = true;
+            tbNrOfRooms.ReadOnly = true;
+            tbUnitType.ReadOnly = true;
+            richTextBox1.ReadOnly = true;
+            tbObjBrokerSsnr.ReadOnly = true;
+            tbObjOwnerSsnr.ReadOnly = true;
+            tbObjAddress.ReadOnly = true;
+
+            tbObjOwnerEmail.ReadOnly = true;
+            tbObjOwnerName.ReadOnly = true;
+            tbObjOwnerPhoneNr.ReadOnly = true;
+            tbPricePerKvm.ReadOnly = true;
+        }
+
+        public void MakeTbEditable()
+        {
+            tbObjNr.ReadOnly = false;
+            tbObjAddress.ReadOnly = false;
+            tbObjCity.ReadOnly = false;
+            tbObjPrice.ReadOnly = false;
+            tbObjectArea.ReadOnly = false;
+            tbNrOfRooms.ReadOnly = false;
+            tbUnitType.ReadOnly = false;
+            richTextBox1.ReadOnly = false;
+            tbObjBrokerSsnr.ReadOnly = false;
+            tbObjOwnerSsnr.ReadOnly = false;
+            tbObjAddress.ReadOnly = false;
+            tbObjOwnerEmail.ReadOnly = false;
+            tbObjOwnerName.ReadOnly = false;
+            tbObjOwnerPhoneNr.ReadOnly = false;
+            tbPricePerKvm.ReadOnly = false;
+
+            tbObjOwnerEmail.ReadOnly = false;
+            tbObjOwnerName.ReadOnly = false;
+            tbObjOwnerPhoneNr.ReadOnly = false;
+            tbPricePerKvm.ReadOnly = false;
+        }
+
+        public void ClearObjectTb()
+        {
+            tbObjNr.Text = "";
+            tbObjAddress.Text = "";
+            tbObjCity.Text = "";
+            tbObjPrice.Text = "";
+            tbObjectArea.Text = "";
+            tbNrOfRooms.Text = "";
+            tbUnitType.Text = "";
+            richTextBox1.Text = "";
+            tbObjBrokerSsnr.Text = "";
+            tbObjOwnerSsnr.Text = "";
+            tbObjAddress.Text = "";
+            tbObjOwnerEmail.Text = "";
+            tbObjOwnerName.Text = "";
+            tbObjOwnerPhoneNr.Text = "";
+            tbPricePerKvm.Text = "";
+        }
+
         public void Populate()                                                            //Uppdatera ALLA DGVS (utom Christians)
         {
             DataTable dtAllObjects = controller.GetAllObjectsNr(); 
             dgvObject.DataSource = dtAllObjects;                                          //Objektfliken, alla objekt i databasen          
+            MakeTbReadOnly();
+            btnObjSubmit.Enabled = false;
+
+
+
             dgvObjectShowing.DataSource = dtAllObjects;                                   //Visningsfliken, alla objekt i databasen            
             DataTable dtAllProspectiveBuyers = controller.GetAllProspectiveBuyers();           
             dgvProspectiveBuyerShowing.DataSource = dtAllProspectiveBuyers;               //Visningsfliken, alla spekulanter i databasen 
@@ -218,10 +287,6 @@ namespace praktikfall
 
         private void dgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            tbObjOwnerSsnr.Text = "";
-            tbObjOwnerPhoneNr.Text = "";
-            tbObjOwnerEmail.Text = "";
-            tbObjOwnerName.Text = "";
 
             if (e.RowIndex >= 0)
             {
@@ -237,15 +302,31 @@ namespace praktikfall
         private void setSelectedObjectAndOwner(string objNr, DataGridViewRow row)
         {
                 
+            DataTable objectInfo = this.controller.GetObject(objNr);
+            foreach (DataRow row1 in objectInfo.Rows)
+            {
+                tbObjNr.Text = row1[0].ToString();
+                tbObjAddress.Text = row1[1].ToString();
+                tbObjCity.Text = row1[2].ToString();
+                tbObjPrice.Text = row1[3].ToString();
+                lblObjAddress.Text = row1[1].ToString();
+                lblObjCity.Text = row1[2].ToString();
+                lblPrice.Text = row1[3].ToString();
+                tbObjectArea.Text = row1[4].ToString();
+                tbNrOfRooms.Text = row1[5].ToString();
+                tbUnitType.Text = row1[6].ToString();
+                richTextBox1.Text = row1[7].ToString();
+                tbObjBrokerSsnr.Text = row1[8].ToString();
+                tbObjOwnerSsnr.Text = row1[9].ToString();
+                string price = row1[3].ToString();
+                string area = row1[4].ToString();
+                int priceperkvm = int.Parse(price) / int.Parse(area);
+                tbPricePerKvm.Text = priceperkvm.ToString();
 
-                DataTable ownerSsnr = this.controller.GetObjOwner(objNr);
-                foreach (DataRow row1 in ownerSsnr.Rows)
-                {
-                    var text = row1[1].ToString();
-                    tbObjOwnerSsnr.Text = text;
                 }
 
                 DataTable ownerInfo = this.controller.GetObjectOwner(tbObjOwnerSsnr.Text);
+
                 foreach (DataRow row1 in ownerInfo.Rows)
                 {
                     tbObjOwnerPhoneNr.Text = row1[1].ToString();
@@ -253,23 +334,6 @@ namespace praktikfall
                     tbObjOwnerName.Text = row1[3].ToString();
 
                 }
-                lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-                lblObjCity.Text = row.Cells["objCity"].Value.ToString();
-                lblPrice.Text = row.Cells["objPrice"].Value.ToString() + " kr";
-                tbObjectArea.Text = row.Cells["objArea"].Value.ToString();
-                tbNrOfRooms.Text = row.Cells["objRooms"].Value.ToString();
-                tbUnitType.Text = row.Cells["objUnitType"].Value.ToString();
-                richTextBox1.Text = row.Cells["objInfo"].Value.ToString();
-                string price = row.Cells["objPrice"].Value.ToString();
-                string area = row.Cells["objArea"].Value.ToString();
-                int priceperkvm = int.Parse(price) / int.Parse(area);
-                tbPricePerKvm.Text = priceperkvm.ToString();
-                tbObjBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
-                tbObjNr.Text = row.Cells["objNr"].Value.ToString();
-                tbObjCity.Text = row.Cells["objCity"].Value.ToString();
-                tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
-                tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-
             }
 
         private void tabPage3_Click(object sender, EventArgs e)
@@ -302,7 +366,7 @@ namespace praktikfall
             {
                 MessageBox.Show("Vänligen välj objekt i listan.");
             }
-            if(!showingExists && !(lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)")) && !(lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)")))
+            if (!showingExists && !(lblSelectedBuyerShowing.Text.Equals("selectedBuyer(invisible)")) && !(lblSelectedObjectShowing.Text.Equals("selectedObject(invisible)")))
             {              
             int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
             MessageBox.Show("Visning registrerad!");
@@ -454,7 +518,7 @@ namespace praktikfall
             else
             {
             int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
-                MessageBox.Show("Visning uppdaterad. Nytt visningsdatum "+showingDate);
+                MessageBox.Show("Visning uppdaterad. Nytt visningsdatum " + showingDate);
                 Populate();
             }
             
@@ -536,7 +600,7 @@ namespace praktikfall
             string email = tbObjOwnerEmail.Text;
             string name = tbObjOwnerName.Text;
 
-            if (cbObjUpdate.Checked && !cbObjDeleteOwner.Checked && !cbObjRegister.Checked && !cbObjDeleteObject.Checked)
+            if (cbObjUpdate.Checked && !cbObjRegister.Checked && !cbObjDeleteObject.Checked)
             {
                 
                 int nrOfRows = this.controller.UpdateObjectFlik(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, ownerSsnr, phoneNr, email, name);
@@ -544,20 +608,15 @@ namespace praktikfall
                 Populate();
             }
 
-            else if (cbObjRegister.Checked && !cbObjUpdate.Checked && !cbObjDeleteOwner.Checked && !cbObjDeleteObject.Checked)
+            else if (cbObjRegister.Checked && !cbObjUpdate.Checked && !cbObjDeleteObject.Checked)
             {
-                int nrOfRows = this.controller.RegisterObjectAndOwner(objNr, objAdress, objCity,objPrice, objArea, objRooms, objUnitType, objInfo,brokerSsnr, ownerSsnr, phoneNr, email, name);
+                int nrOfRows = this.controller.RegisterObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                 MessageBox.Show(nrOfRows.ToString());
                 Populate();
 
             }
-            else if (cbObjDeleteOwner.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked && !cbObjDeleteObject.Checked)
-            {
-                int nrOfRows = this.controller.RemoveObjectOwner(ownerSsnr);
-                Populate();
-            }
          
-            else if (cbObjDeleteObject.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked && !cbObjDeleteOwner.Checked)
+            else if (cbObjDeleteObject.Checked && !cbObjUpdate.Checked && !cbObjRegister.Checked)
             { 
                 int nrOfRows = this.controller.DeleteObject(objNr);
                 Populate();
@@ -951,7 +1010,7 @@ namespace praktikfall
                     }
                     else
                     {
-                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr +" har lagts till");
+                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till");
                     }
                 }
                 catch (Exception ex)
@@ -1010,12 +1069,60 @@ namespace praktikfall
             }
         }
 
-        
+        private void cbObjRegister_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (cbObjRegister.Checked)
+            {
+                btnObjSubmit.Enabled = true;
+                MakeTbEditable();
+                lblObjAddress.Text = "";
+                lblObjCity.Text = "";
+                lblPrice.Text = "";
+                ClearObjectTb();
+            }
+            else if (cbObjRegister.Checked == false)
+            {
+                btnObjSubmit.Enabled = false;
+                MakeTbReadOnly();
+        }
 
+        }
 
+        private void cbObjUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (cbObjUpdate.Checked)
+            {
+                btnObjSubmit.Enabled = true;
+                MakeTbEditable();
+            }
+            else if (cbObjUpdate.Checked == false)
+            {
+                btnObjSubmit.Enabled = false;
+                MakeTbReadOnly();
+            }
+            
             
             
     }
 
+        private void cbObjDeleteObject_CheckedChanged(object sender, EventArgs e)
+        {
+            btnObjSubmit.Enabled = true;
+            if (cbObjDeleteObject.Checked)
+            {
+                btnObjSubmit.Enabled = true;
+                MakeTbReadOnly();
+             
 }
+            else if (cbObjDeleteObject.Checked == false)
+            {
+                btnObjSubmit.Enabled = false;
+                MakeTbReadOnly();
+            }
+        }
+    }
+}
+
 
