@@ -47,7 +47,7 @@ namespace praktikfall
 
           
 
-            //Ta bort Kommentarer
+            //Ta bo//rt Kommentarer
             /*   if (textBox1.Text == "")
                {
                    MessageBox.Show("Ange ditt användarnamn!");
