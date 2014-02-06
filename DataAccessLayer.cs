@@ -238,7 +238,7 @@ namespace praktikfall
             return dt;
         }
 
-
+        //Kontrollera om spekulant finns
         public bool ProspectiveBuyerExists(string Ssnr)
         {
             bool prospectiveBuyerExists = false;

@@ -30,17 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnDeleteProspectiveBuyer = new System.Windows.Forms.Button();
-            this.btnUpdateProspectiveBuyer = new System.Windows.Forms.Button();
-            this.tbProspectiveBuyerEmail = new System.Windows.Forms.TextBox();
+            this.tbBuyerEmail = new System.Windows.Forms.TextBox();
             this.tbBuyerTel = new System.Windows.Forms.TextBox();
             this.tbBuyerName = new System.Windows.Forms.TextBox();
-            this.tbBuyerSsn = new System.Windows.Forms.TextBox();
+            this.tbBuyerSsnr = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.btnAddProspectiveBuyer = new System.Windows.Forms.Button();
             this.labelBuyerTel = new System.Windows.Forms.Label();
             this.labelBuyerName = new System.Windows.Forms.Label();
             this.labelBuyerSsn = new System.Windows.Forms.Label();
@@ -120,6 +117,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lblBrokerSelectedBroker = new System.Windows.Forms.Label();
             this.btnBrokerSubmit = new System.Windows.Forms.Button();
             this.cbBrokerUpdate = new System.Windows.Forms.CheckBox();
             this.cbBrokerRemove = new System.Windows.Forms.CheckBox();
@@ -153,7 +151,10 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.lblBrokerSelectedBroker = new System.Windows.Forms.Label();
+            this.cbShowingRegisterBuyer = new System.Windows.Forms.CheckBox();
+            this.cbShowingRemoveBuyer = new System.Windows.Forms.CheckBox();
+            this.cbShowingUpdateBuyer = new System.Windows.Forms.CheckBox();
+            this.btnShowingSubmit = new System.Windows.Forms.Button();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -191,14 +192,15 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.btnDeleteProspectiveBuyer);
-            this.groupBox4.Controls.Add(this.btnUpdateProspectiveBuyer);
-            this.groupBox4.Controls.Add(this.tbProspectiveBuyerEmail);
+            this.groupBox4.Controls.Add(this.btnShowingSubmit);
+            this.groupBox4.Controls.Add(this.cbShowingUpdateBuyer);
+            this.groupBox4.Controls.Add(this.cbShowingRemoveBuyer);
+            this.groupBox4.Controls.Add(this.cbShowingRegisterBuyer);
+            this.groupBox4.Controls.Add(this.tbBuyerEmail);
             this.groupBox4.Controls.Add(this.tbBuyerTel);
             this.groupBox4.Controls.Add(this.tbBuyerName);
-            this.groupBox4.Controls.Add(this.tbBuyerSsn);
+            this.groupBox4.Controls.Add(this.tbBuyerSsnr);
             this.groupBox4.Controls.Add(this.lblEmail);
-            this.groupBox4.Controls.Add(this.btnAddProspectiveBuyer);
             this.groupBox4.Controls.Add(this.labelBuyerTel);
             this.groupBox4.Controls.Add(this.labelBuyerName);
             this.groupBox4.Controls.Add(this.labelBuyerSsn);
@@ -209,82 +211,47 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Administrera spekulant";
             // 
-            // btnDeleteProspectiveBuyer
+            // tbBuyerEmail
             // 
-            this.btnDeleteProspectiveBuyer.Location = new System.Drawing.Point(195, 284);
-            this.btnDeleteProspectiveBuyer.Name = "btnDeleteProspectiveBuyer";
-            this.btnDeleteProspectiveBuyer.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteProspectiveBuyer.TabIndex = 39;
-            this.btnDeleteProspectiveBuyer.Text = "Ta bort";
-            this.btnDeleteProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteProspectiveBuyer.UseVisualStyleBackColor = true;
-            this.btnDeleteProspectiveBuyer.Click += new System.EventHandler(this.btnDeleteProspectiveBuyer_Click);
-            // 
-            // btnUpdateProspectiveBuyer
-            // 
-            this.btnUpdateProspectiveBuyer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUpdateProspectiveBuyer.Location = new System.Drawing.Point(276, 284);
-            this.btnUpdateProspectiveBuyer.Name = "btnUpdateProspectiveBuyer";
-            this.btnUpdateProspectiveBuyer.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateProspectiveBuyer.TabIndex = 38;
-            this.btnUpdateProspectiveBuyer.Text = "Uppdatera";
-            this.btnUpdateProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdateProspectiveBuyer.UseVisualStyleBackColor = true;
-            this.btnUpdateProspectiveBuyer.Click += new System.EventHandler(this.btnUpdateProspectiveBuyer_Click);
-            // 
-            // tbProspectiveBuyerEmail
-            // 
-            this.tbProspectiveBuyerEmail.Location = new System.Drawing.Point(112, 120);
-            this.tbProspectiveBuyerEmail.Name = "tbProspectiveBuyerEmail";
-            this.tbProspectiveBuyerEmail.Size = new System.Drawing.Size(111, 20);
-            this.tbProspectiveBuyerEmail.TabIndex = 37;
+            this.tbBuyerEmail.Location = new System.Drawing.Point(112, 100);
+            this.tbBuyerEmail.Name = "tbBuyerEmail";
+            this.tbBuyerEmail.Size = new System.Drawing.Size(111, 20);
+            this.tbBuyerEmail.TabIndex = 37;
             // 
             // tbBuyerTel
             // 
-            this.tbBuyerTel.Location = new System.Drawing.Point(112, 90);
+            this.tbBuyerTel.Location = new System.Drawing.Point(112, 74);
             this.tbBuyerTel.Name = "tbBuyerTel";
             this.tbBuyerTel.Size = new System.Drawing.Size(111, 20);
             this.tbBuyerTel.TabIndex = 33;
             // 
             // tbBuyerName
             // 
-            this.tbBuyerName.Location = new System.Drawing.Point(112, 56);
+            this.tbBuyerName.Location = new System.Drawing.Point(112, 48);
             this.tbBuyerName.Name = "tbBuyerName";
             this.tbBuyerName.Size = new System.Drawing.Size(111, 20);
             this.tbBuyerName.TabIndex = 32;
             // 
-            // tbBuyerSsn
+            // tbBuyerSsnr
             // 
-            this.tbBuyerSsn.Location = new System.Drawing.Point(112, 22);
-            this.tbBuyerSsn.Name = "tbBuyerSsn";
-            this.tbBuyerSsn.Size = new System.Drawing.Size(111, 20);
-            this.tbBuyerSsn.TabIndex = 31;
+            this.tbBuyerSsnr.Location = new System.Drawing.Point(112, 22);
+            this.tbBuyerSsnr.Name = "tbBuyerSsnr";
+            this.tbBuyerSsnr.Size = new System.Drawing.Size(111, 20);
+            this.tbBuyerSsnr.TabIndex = 31;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(9, 128);
+            this.lblEmail.Location = new System.Drawing.Point(9, 103);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(41, 13);
             this.lblEmail.TabIndex = 36;
             this.lblEmail.Text = "Email:";
             // 
-            // btnAddProspectiveBuyer
-            // 
-            this.btnAddProspectiveBuyer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddProspectiveBuyer.Location = new System.Drawing.Point(357, 284);
-            this.btnAddProspectiveBuyer.Name = "btnAddProspectiveBuyer";
-            this.btnAddProspectiveBuyer.Size = new System.Drawing.Size(75, 23);
-            this.btnAddProspectiveBuyer.TabIndex = 35;
-            this.btnAddProspectiveBuyer.Text = "Lägg till";
-            this.btnAddProspectiveBuyer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddProspectiveBuyer.UseVisualStyleBackColor = true;
-            this.btnAddProspectiveBuyer.Click += new System.EventHandler(this.btnAddProspectiveBuyer_Click_1);
-            // 
             // labelBuyerTel
             // 
             this.labelBuyerTel.AutoSize = true;
-            this.labelBuyerTel.Location = new System.Drawing.Point(6, 96);
+            this.labelBuyerTel.Location = new System.Drawing.Point(6, 77);
             this.labelBuyerTel.Name = "labelBuyerTel";
             this.labelBuyerTel.Size = new System.Drawing.Size(54, 13);
             this.labelBuyerTel.TabIndex = 30;
@@ -293,7 +260,7 @@
             // labelBuyerName
             // 
             this.labelBuyerName.AutoSize = true;
-            this.labelBuyerName.Location = new System.Drawing.Point(6, 59);
+            this.labelBuyerName.Location = new System.Drawing.Point(9, 51);
             this.labelBuyerName.Name = "labelBuyerName";
             this.labelBuyerName.Size = new System.Drawing.Size(43, 13);
             this.labelBuyerName.TabIndex = 29;
@@ -302,7 +269,7 @@
             // labelBuyerSsn
             // 
             this.labelBuyerSsn.AutoSize = true;
-            this.labelBuyerSsn.Location = new System.Drawing.Point(6, 22);
+            this.labelBuyerSsn.Location = new System.Drawing.Point(6, 25);
             this.labelBuyerSsn.Name = "labelBuyerSsn";
             this.labelBuyerSsn.Size = new System.Drawing.Size(93, 13);
             this.labelBuyerSsn.TabIndex = 28;
@@ -589,10 +556,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // cbShowAllAttributes
-            // 
-           
             // 
             // cbObjDeleteObject
             // 
@@ -957,8 +920,8 @@
             // 
             this.dgvObject.AllowUserToAddRows = false;
             this.dgvObject.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -1145,6 +1108,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Administrera mäklare";
             // 
+            // lblBrokerSelectedBroker
+            // 
+            this.lblBrokerSelectedBroker.AutoSize = true;
+            this.lblBrokerSelectedBroker.Location = new System.Drawing.Point(3, 289);
+            this.lblBrokerSelectedBroker.Name = "lblBrokerSelectedBroker";
+            this.lblBrokerSelectedBroker.Size = new System.Drawing.Size(146, 13);
+            this.lblBrokerSelectedBroker.TabIndex = 1;
+            this.lblBrokerSelectedBroker.Text = "selectedBroker(invisible)";
+            this.lblBrokerSelectedBroker.Visible = false;
+            // 
             // btnBrokerSubmit
             // 
             this.btnBrokerSubmit.Location = new System.Drawing.Point(555, 257);
@@ -1159,7 +1132,7 @@
             // 
             this.cbBrokerUpdate.AccessibleName = "";
             this.cbBrokerUpdate.AutoSize = true;
-            this.cbBrokerUpdate.Location = new System.Drawing.Point(415, 263);
+            this.cbBrokerUpdate.Location = new System.Drawing.Point(415, 218);
             this.cbBrokerUpdate.Name = "cbBrokerUpdate";
             this.cbBrokerUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbBrokerUpdate.TabIndex = 25;
@@ -1169,7 +1142,7 @@
             // cbBrokerRemove
             // 
             this.cbBrokerRemove.AutoSize = true;
-            this.cbBrokerRemove.Location = new System.Drawing.Point(415, 241);
+            this.cbBrokerRemove.Location = new System.Drawing.Point(415, 264);
             this.cbBrokerRemove.Name = "cbBrokerRemove";
             this.cbBrokerRemove.Size = new System.Drawing.Size(67, 17);
             this.cbBrokerRemove.TabIndex = 26;
@@ -1179,7 +1152,7 @@
             // cbBrokerRegister
             // 
             this.cbBrokerRegister.AutoSize = true;
-            this.cbBrokerRegister.Location = new System.Drawing.Point(415, 218);
+            this.cbBrokerRegister.Location = new System.Drawing.Point(415, 241);
             this.cbBrokerRegister.Name = "cbBrokerRegister";
             this.cbBrokerRegister.Size = new System.Drawing.Size(84, 17);
             this.cbBrokerRegister.TabIndex = 27;
@@ -1406,19 +1379,45 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
-            // cbShowAllAttributes
+            // cbShowingRegisterBuyer
             // 
-          
+            this.cbShowingRegisterBuyer.AutoSize = true;
+            this.cbShowingRegisterBuyer.Location = new System.Drawing.Point(12, 152);
+            this.cbShowingRegisterBuyer.Name = "cbShowingRegisterBuyer";
+            this.cbShowingRegisterBuyer.Size = new System.Drawing.Size(84, 17);
+            this.cbShowingRegisterBuyer.TabIndex = 40;
+            this.cbShowingRegisterBuyer.Text = "Registrera";
+            this.cbShowingRegisterBuyer.UseVisualStyleBackColor = true;
             // 
-            // lblBrokerSelectedBroker
+            // cbShowingRemoveBuyer
             // 
-            this.lblBrokerSelectedBroker.AutoSize = true;
-            this.lblBrokerSelectedBroker.Location = new System.Drawing.Point(3, 289);
-            this.lblBrokerSelectedBroker.Name = "lblBrokerSelectedBroker";
-            this.lblBrokerSelectedBroker.Size = new System.Drawing.Size(146, 13);
-            this.lblBrokerSelectedBroker.TabIndex = 1;
-            this.lblBrokerSelectedBroker.Text = "selectedBroker(invisible)";
-            this.lblBrokerSelectedBroker.Visible = false;
+            this.cbShowingRemoveBuyer.AutoSize = true;
+            this.cbShowingRemoveBuyer.Location = new System.Drawing.Point(12, 175);
+            this.cbShowingRemoveBuyer.Name = "cbShowingRemoveBuyer";
+            this.cbShowingRemoveBuyer.Size = new System.Drawing.Size(67, 17);
+            this.cbShowingRemoveBuyer.TabIndex = 41;
+            this.cbShowingRemoveBuyer.Text = "Ta bort";
+            this.cbShowingRemoveBuyer.UseVisualStyleBackColor = true;
+            // 
+            // cbShowingUpdateBuyer
+            // 
+            this.cbShowingUpdateBuyer.AutoSize = true;
+            this.cbShowingUpdateBuyer.Location = new System.Drawing.Point(12, 129);
+            this.cbShowingUpdateBuyer.Name = "cbShowingUpdateBuyer";
+            this.cbShowingUpdateBuyer.Size = new System.Drawing.Size(85, 17);
+            this.cbShowingUpdateBuyer.TabIndex = 42;
+            this.cbShowingUpdateBuyer.Text = "Uppdatera";
+            this.cbShowingUpdateBuyer.UseVisualStyleBackColor = true;
+            // 
+            // btnShowingSubmit
+            // 
+            this.btnShowingSubmit.Location = new System.Drawing.Point(148, 169);
+            this.btnShowingSubmit.Name = "btnShowingSubmit";
+            this.btnShowingSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnShowingSubmit.TabIndex = 43;
+            this.btnShowingSubmit.Text = "Utför";
+            this.btnShowingSubmit.UseVisualStyleBackColor = true;
+            this.btnShowingSubmit.Click += new System.EventHandler(this.btnShowingSubmit_Click);
             // 
             // EmployeeFrame
             // 
@@ -1538,14 +1537,11 @@
         private System.Windows.Forms.Label lblObjOwnerSsnr;
         private System.Windows.Forms.Button btnObjSubmit;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnDeleteProspectiveBuyer;
-        private System.Windows.Forms.Button btnUpdateProspectiveBuyer;
-        private System.Windows.Forms.TextBox tbProspectiveBuyerEmail;
+        private System.Windows.Forms.TextBox tbBuyerEmail;
         private System.Windows.Forms.TextBox tbBuyerTel;
         private System.Windows.Forms.TextBox tbBuyerName;
-        private System.Windows.Forms.TextBox tbBuyerSsn;
+        private System.Windows.Forms.TextBox tbBuyerSsnr;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Button btnAddProspectiveBuyer;
         private System.Windows.Forms.Label labelBuyerTel;
         private System.Windows.Forms.Label labelBuyerName;
         private System.Windows.Forms.Label labelBuyerSsn;
@@ -1589,6 +1585,10 @@
         private System.Windows.Forms.CheckBox cbObjDeleteObject;
         private System.Windows.Forms.CheckBox cbShowAllAttributes;
         private System.Windows.Forms.Label lblBrokerSelectedBroker;
+        private System.Windows.Forms.Button btnShowingSubmit;
+        private System.Windows.Forms.CheckBox cbShowingUpdateBuyer;
+        private System.Windows.Forms.CheckBox cbShowingRemoveBuyer;
+        private System.Windows.Forms.CheckBox cbShowingRegisterBuyer;
 
     }
 }
