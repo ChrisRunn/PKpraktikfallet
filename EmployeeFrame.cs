@@ -140,12 +140,12 @@ namespace praktikfall
         {
             try
             {
-                if (tbObjSearch.Text == "" || tbObjSearch.Text == "Sökord")
+                if (tbObjSearch.Text.Equals("") || tbObjSearch.Text.Equals("Sökord"))
                 {
                     tbObjSearch.Text = "";
                     tbObjSearch.ForeColor = Color.LightSlateGray;
                     tbObjSearch.Text = "Sökord";
-                    MessageBox.Show("Du har ej angivit ett sökord");
+                    Populate();
                 }
 
                 else
@@ -174,17 +174,17 @@ namespace praktikfall
 
                 }
 
-                else if (tbBuyerName.Text == "")
+                else if (tbBuyerName.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit ett namn");
                 }
 
-                else if (tbBuyerTel.Text == "")
+                else if (tbBuyerTel.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit ett telefonnummer");
                 }
 
-                else if (tbProspectiveBuyerEmail.Text == "")
+                else if (tbProspectiveBuyerEmail.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit en email");
                 }
@@ -363,7 +363,7 @@ namespace praktikfall
         {
             try
             {
-                if (tbSearchProBuyer.Text == "" || tbSearchProBuyer.Text == "Sökord")
+                if (tbSearchProBuyer.Text.Equals("") || tbSearchProBuyer.Text.Equals("Sökord"))
                 {
                     tbSearchProBuyer.Text = "";
                     tbSearchProBuyer.ForeColor = Color.LightSlateGray;
@@ -412,7 +412,7 @@ namespace praktikfall
         private void btnShowMap_Click(object sender, EventArgs e)
         {
 
-            if (tbObjAddress.Text == "" || tbObjCity.Text == "")
+            if (tbObjAddress.Text.Equals("") || tbObjCity.Text.Equals(""))
             {
                 MessageBox.Show("Du har ej valt ett objekt");
             }
@@ -568,17 +568,17 @@ namespace praktikfall
 
                 }
 
-                else if (tbBuyerName.Text == "")
+                else if (tbBuyerName.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit ett namn");
                 }
 
-                else if (tbBuyerTel.Text == "")
+                else if (tbBuyerTel.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit ett telefonnummer");
                 }
 
-                else if (tbProspectiveBuyerEmail.Text == "")
+                else if (tbProspectiveBuyerEmail.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit en email");
                 }
@@ -617,12 +617,13 @@ namespace praktikfall
         {
             try
             {
-                if (tbSearchProBuyer.Text == "" || tbSearchProBuyer.Text == "Sökord")
+                if (tbSearchProBuyer.Text.Equals("") || tbSearchProBuyer.Text.Equals("Sökord"))
                 {
                     tbSearchProBuyer.Text = "";
                     tbSearchProBuyer.ForeColor = Color.LightSlateGray;
                     tbSearchProBuyer.Text = "Sökord";
-                    MessageBox.Show("Du har ej angivit ett sökord");
+                    Populate();
+
                 }
 
                 else
@@ -641,7 +642,7 @@ namespace praktikfall
         private void btnUpdateProspectiveBuyer_Click(object sender, EventArgs e)
         {
 
-            if (tbBuyerSsn.Text == "")
+            if (tbBuyerSsn.Text.Equals(""))
             {
                 MessageBox.Show("Du har ej valt eller angivit ett personnummer");
         }
@@ -660,7 +661,7 @@ namespace praktikfall
 
         private void btnDeleteProspectiveBuyer_Click(object sender, EventArgs e)
         {
-            if (tbBuyerSsn.Text == "")
+            if (tbBuyerSsn.Text.Equals(""))
             {
                 MessageBox.Show("Du har ej valt eller angivit ett personnummer");
             }
@@ -772,60 +773,60 @@ namespace praktikfall
 
             if (cbBrokerRegister.Checked && !cbBrokerRemove.Checked && !cbBrokerUpdate.Checked)
             {
-                try
+            try
+            {
+
+                int parsedValue;
+                if (!int.TryParse(tbBrokerBrokerSsnr.Text, out parsedValue))
                 {
+                    MessageBox.Show("Personnummer får endast innehålla siffror");
+                }
 
-                    int parsedValue;
-                    if (!int.TryParse(tbBrokerBrokerSsnr.Text, out parsedValue))
-                    {
-                        MessageBox.Show("Personnummer får endast innehålla siffror");
-                    }
+                else if (tbBrokerBrokerName.Text.Equals(""))
+                {
+                    MessageBox.Show("Du har ej angivit ett namn");
+                }
 
-                    else if (tbBrokerBrokerName.Text == "")
-                    {
-                        MessageBox.Show("Du har ej angivit ett namn");
-                    }
+                else if (tbBrokeBrokerAdress.Text.Equals(""))
+                {
+                    MessageBox.Show("Du har ej angivit en adress");
+                }
 
-                    else if (tbBrokeBrokerAdress.Text == "")
-                    {
-                        MessageBox.Show("Du har ej angivit en adress");
-                    }
+                else if (tbBrokerBrokerCity.Text.Equals(""))
+                {
+                    MessageBox.Show("Du har ej angivit en stad");
+                }
 
-                    else if (tbBrokerBrokerCity.Text == "")
-                    {
-                        MessageBox.Show("Du har ej angivit en stad");
-                    }
+                else if (tbBrokerBrokerPhone.Text.Equals(""))
+                {
+                    MessageBox.Show("Du har ej angivit ett telefonnummer");
+                }
 
-                    else if (tbBrokerBrokerPhone.Text == "")
-                    {
-                        MessageBox.Show("Du har ej angivit ett telefonnummer");
-                    }
+                else if (tbBrokerBrokerEmail.Text.Equals(""))
+                {
+                    MessageBox.Show("Du har ej angivit en email");
+                }
 
-                    else if (tbBrokerBrokerEmail.Text == "")
-                    {
-                        MessageBox.Show("Du har ej angivit en email");
-                    }
-
-                    else if (tbBrokerBrokerPw.Text == "")
-                    {
+                else if (tbBrokerBrokerPw.Text.Equals(""))
+                {
                         MessageBox.Show("Du har ej angivit ett lösenord");
+                }
+
+                else
+                {
+                    bool brokerExists = controller.BrokerExists(brokerSsnr);
+
+                    if (brokerExists)
+                    {
+                        MessageBox.Show("Det finns redan en mäklare med personnummer: " + brokerSsnr);
                     }
 
                     else
                     {
-                        bool brokerExists = controller.BrokerExists(brokerSsnr);
-
-                        if (brokerExists)
-                        {
-                            MessageBox.Show("Det finns redan en mäklare med personnummer: " + brokerSsnr);
-                        }
-
-                        else
-                        {
-                            controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
-                            MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad");
-                            Populate();
-                        }
+                        controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad");
+                        Populate();
+                    }
 
                     }
                 }
@@ -857,11 +858,11 @@ namespace praktikfall
                         tbBrokerBrokerPw.Text = "";
                         tbBrokerBrokerSsnr.Text = "";
                         MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " borttagen");
-                    }
-
                 }
-                catch (Exception ex)
-                {
+
+            }
+            catch (Exception ex)
+            {
                     MessageBox.Show("Det går inte att ta bort mäklare.\n" + ex);
                 }
                 
@@ -871,7 +872,7 @@ namespace praktikfall
                 try
                 {
                     int nrOfRows = controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);                    
-
+            
                     if (nrOfRows == 0)
                     {
                         MessageBox.Show("Ingen sådan mäklare finns registrerad. Vänligen försök igen.");
