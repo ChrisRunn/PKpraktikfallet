@@ -258,6 +258,16 @@ namespace praktikfall
             return showingExists;
         }
         #endregion SHOWING
-    }
+
+        public int CheckPw(string name)
+        {
+            int nrOfRows =  dal.CheckPw(name);
+            return nrOfRows;
+        }
+
+     
+        }
+        }
     
-}
+    
+

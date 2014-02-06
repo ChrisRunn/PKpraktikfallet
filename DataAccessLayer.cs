@@ -20,14 +20,14 @@ namespace praktikfall
         //generisk metod för att skicka query som uppdaterar eller lägger till nya objekt
         private int ExecuteUpdate(string sqlStr)
         {
-            SqlConnection con = new SqlConnection(connectionString);            
-            Debug.WriteLine(sqlStr);            
-            
+            SqlConnection con = new SqlConnection(connectionString);
+            Debug.WriteLine(sqlStr);
+
             try
             {
                 con.Open();
                 SqlCommand com = new SqlCommand(sqlStr, con);
-                int nrOfRows = com.ExecuteNonQuery();                
+                int nrOfRows = com.ExecuteNonQuery();
                 return nrOfRows;
             }
             catch (SqlException ex)
@@ -45,7 +45,7 @@ namespace praktikfall
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
-                }                               
+                }
             }
         }
 
@@ -54,9 +54,9 @@ namespace praktikfall
         {
             DataTable dataTable = new DataTable();
             SqlConnection con = new SqlConnection(connectionString);
-            
+
             try
-            {                
+            {
                 con.Open();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlStr, con);
                 dataAdapter.Fill(dataTable);
@@ -74,22 +74,22 @@ namespace praktikfall
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
-                }                
+                }
             }
             return dataTable;
         }
         #endregion GENERISKA METODER
 
         #region OBJEKT
-       //Lägg till OBJEKT -- BEHÖVS INTE
+        //Lägg till OBJEKT -- BEHÖVS INTE
         public int AddObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
             string sqlStr = "insert into RealEstateObject values ('";
-            sqlStr += objNr + "','" + objAdress + "','" + objCity + "','" + objPrice + 
-                "','" + objArea + "','"  + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "')";
+            sqlStr += objNr + "','" + objAdress + "','" + objCity + "','" + objPrice +
+                "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
-            
+
         }
         //Ta bort OBJEKT
         public int DeleteObject(string objNr)
@@ -101,8 +101,8 @@ namespace praktikfall
         //Uppdatera OBJEKT
         public int UpdateObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
-            string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "',objCity = '" + objCity + 
-                "', objPrice = '" + objPrice + "', objArea = '" + objArea + 
+            string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "',objCity = '" + objCity +
+                "', objPrice = '" + objPrice + "', objArea = '" + objArea +
                 "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType +
                 "', objInfo = '" + objInfo + "',brokerSsnr = '" + brokerSsnr + "' where objNr = '" + objNr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
@@ -128,7 +128,7 @@ namespace praktikfall
             string sqlStr = "Select * from RealEstateObject where objNr like '%" + searchString + "%' or objAdress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
-        }      
+        }
         //Hämta alla objekt med angivet Brokernummer
         public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
@@ -142,13 +142,13 @@ namespace praktikfall
             string sqlStr = "select s.objNr as Objektsnummer, objAdress as Adress, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
-        }      
+        }
         #endregion OBJEKT
-        #region MÄKLARE        
+        #region MÄKLARE
         //Lägg till MÄKLARE
         public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-            string sqlStr = "insert into RealEstateBroker values ('" + brokerSsnr + "','" + name + "','" + brokerAddress + "','" + city + "','" + phoneNr + "','" + email +  "','" + pw +"')";
+            string sqlStr = "insert into RealEstateBroker values ('" + brokerSsnr + "','" + name + "','" + brokerAddress + "','" + city + "','" + phoneNr + "','" + email + "','" + pw + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
@@ -279,11 +279,11 @@ namespace praktikfall
         public int UpdateObjectFlik(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string ownerSsnr, string phoneNr, string email, string name)
         {
-            string sqlStr = "update RealEstateObject set objAdress ='" + objAdress + "',objArea ="+ objArea+ ",objCity ='" 
-                + objCity + "',objInfo ='" + objInfo + "',objPrice =" 
-                + objPrice + ",objRooms ='" + objRooms + "',objUnitType ='" 
-                + objUnitType + "' where objNr =" +objNr;
-            sqlStr+= "update ObjectOwner set phoneNr ='"+phoneNr+ "',email ='" + email + "',name ='" +name + "'";
+            string sqlStr = "update RealEstateObject set objAdress ='" + objAdress + "',objArea =" + objArea + ",objCity ='"
+                + objCity + "',objInfo ='" + objInfo + "',objPrice ="
+                + objPrice + ",objRooms ='" + objRooms + "',objUnitType ='"
+                + objUnitType + "' where objNr =" + objNr;
+            sqlStr += "update ObjectOwner set phoneNr ='" + phoneNr + "',email ='" + email + "',name ='" + name + "'";
             MessageBox.Show(sqlStr);
             //sqlStr += "update HasOwner set ownerSsnr = '" + ownerSsnr + "'where objNr ='" + objNr + "'";
 
@@ -291,20 +291,20 @@ namespace praktikfall
 
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
-        
+
         }
 
         //Registrera Objekt och dess ägare MÅSTE PLACERAS I RÄTT FOLDER
 
-        public int RegisterObjectAndOwner(string objNr, string objAdress, string objCity, 
-            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, 
-            string brokerSsnr , string ownerSsnr, string phoneNr, string email, string name )
+        public int RegisterObjectAndOwner(string objNr, string objAdress, string objCity,
+            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
+            string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
             string sqlStr = "insert into RealEstateObject values (";
             sqlStr += objNr + ",'" + objAdress + "','" + objCity + "'," + objPrice +
                 "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "')";
             sqlStr += "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
-            sqlStr += "insert into HasOwner values(" + objNr + ",'" + ownerSsnr+ "')";
+            sqlStr += "insert into HasOwner values(" + objNr + ",'" + ownerSsnr + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             MessageBox.Show(sqlStr);
             return nrOfRows;
@@ -343,10 +343,10 @@ namespace praktikfall
         }
         //Hämtar allt från hasowner tabellen
         public DataTable GetAllHasOwner()
-        { 
-        string sqlStr = "select * from HasOwner";
-        DataTable dt = ExecuteQuery(sqlStr);
-        return dt;
+        {
+            string sqlStr = "select * from HasOwner";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
         }
         #endregion HASOWNER
         #region SHOWING
@@ -360,7 +360,7 @@ namespace praktikfall
         //Uppdatera visningsdatum för VISNING
         public int UpdateShowing(string objNr, string buyerSsnr, string showingDate)
         {
-            string sqlStr = "update Showing set showingDate = '" + showingDate + "' where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr +"'";
+            string sqlStr = "update Showing set showingDate = '" + showingDate + "' where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
@@ -383,7 +383,7 @@ namespace praktikfall
         {
             string sqlStr = "delete from Showing where objNr = '" + objNr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
-            return nrOfRows; 
+            return nrOfRows;
         }
         //Kontrollera om VISNING finns
         public bool ShowingExists(string objNr, string buyerSsnr)
@@ -391,7 +391,7 @@ namespace praktikfall
             bool showingExists = false;
             string sqlStr = "select * from Showing where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
-            if (dt.Rows.Count > 0) 
+            if (dt.Rows.Count > 0)
             {
                 showingExists = true;
                 return showingExists;
@@ -399,5 +399,17 @@ namespace praktikfall
             return showingExists;
         }
         #endregion SHOWING
+
+        public int CheckPw(string name)
+        {
+            string sqlStr = "select pw from RealEstateBroker where name = '" + name + "'";
+            MessageBox.Show(sqlStr);
+            int nrOfRows = ExecuteUpdate(sqlStr);
+            MessageBox.Show(nrOfRows.ToString());
+            return nrOfRows;
+
+
+
+        }
     }
 }
