@@ -58,6 +58,7 @@ namespace praktikfall
 
 
 
+
         /*private void btnObjAdd_Click(object sender, EventArgs e)
         {
             try
@@ -223,22 +224,34 @@ namespace praktikfall
             tbObjOwnerName.Text = "";
 
             if (e.RowIndex >= 0)
-            {  
+            {
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
                 string objNr = row.Cells["objNr"].Value.ToString();
+                this.setSelectedObjectAndOwner(objNr, row);
+            }
+               
+                
+
+        }
+
+        private void setSelectedObjectAndOwner(string objNr, DataGridViewRow row)
+        {
+                
+
                 DataTable ownerSsnr = this.controller.GetObjOwner(objNr);
                 foreach (DataRow row1 in ownerSsnr.Rows)
                 {
-                var text = row1[1].ToString();
-                tbObjOwnerSsnr.Text = text;
+                    var text = row1[1].ToString();
+                    tbObjOwnerSsnr.Text = text;
                 }
+
                 DataTable ownerInfo = this.controller.GetObjectOwner(tbObjOwnerSsnr.Text);
                 foreach (DataRow row1 in ownerInfo.Rows)
                 {
-                        tbObjOwnerPhoneNr.Text = row1[1].ToString();
-                        tbObjOwnerEmail.Text = row1[2].ToString();
-                        tbObjOwnerName.Text = row1[3].ToString();   
-                    
+                    tbObjOwnerPhoneNr.Text = row1[1].ToString();
+                    tbObjOwnerEmail.Text = row1[2].ToString();
+                    tbObjOwnerName.Text = row1[3].ToString();
+
                 }
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
                 lblObjCity.Text = row.Cells["objCity"].Value.ToString();
@@ -256,10 +269,8 @@ namespace praktikfall
                 tbObjCity.Text = row.Cells["objCity"].Value.ToString();
                 tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
                 tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-        
-            }
 
-        }
+            }
 
         private void tabPage3_Click(object sender, EventArgs e)
         {

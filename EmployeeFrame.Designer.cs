@@ -152,6 +152,7 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -559,6 +560,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cbShowAllAttributes);
             this.tabPage2.Controls.Add(this.cbObjDeleteObject);
             this.tabPage2.Controls.Add(this.btnObjSubmit);
             this.tabPage2.Controls.Add(this.cbObjUpdate);
@@ -1387,6 +1389,16 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
+            // cbShowAllAttributes
+            // 
+            this.cbShowAllAttributes.AutoSize = true;
+            this.cbShowAllAttributes.Location = new System.Drawing.Point(771, 381);
+            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
+            this.cbShowAllAttributes.Size = new System.Drawing.Size(178, 17);
+            this.cbShowAllAttributes.TabIndex = 41;
+            this.cbShowAllAttributes.Text = "Visa fullständig informaiton";
+            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
+            // 
             // EmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1554,6 +1566,7 @@
         private System.Windows.Forms.Label lblBrokerName;
         private System.Windows.Forms.Label lblBrokerBrokerNumber;
         private System.Windows.Forms.CheckBox cbObjDeleteObject;
+        private System.Windows.Forms.CheckBox cbShowAllAttributes;
 
     }
 }
