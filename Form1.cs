@@ -34,7 +34,7 @@ namespace praktikfall
             }
 
             */
-             if (textBox1.Text.ToLower() == "admin") // Ändra denna till en "else if" istället för if
+             if (textBox1.Text.ToLower().Equals("admin")) // Ändra denna till en "else if" istället för if
             {
                 this.Hide();
                 bool b = true;

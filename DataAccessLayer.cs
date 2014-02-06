@@ -160,9 +160,9 @@ namespace praktikfall
             return nrOfRows;
         }
         //Uppdatera MÄKLARE
-        public int UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email)
+        public int UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-            string sqlStr = "update RealEstateBroker set name = '" + name + "', brokerAddress = '" + brokerAddress + "', city = '" + city + "', phoneNr = '" + phoneNr + "', email = '" + email + "' where brokerSsnr = '" + brokerSsnr + "'";
+            string sqlStr = "update RealEstateBroker set name = '" + name + "', brokerAddress = '" + brokerAddress + "', city = '" + city + "', phoneNr = '" + phoneNr + "', email = '" + email + "'," + "pw = '" + pw + "' where brokerSsnr = '" + brokerSsnr +"'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
