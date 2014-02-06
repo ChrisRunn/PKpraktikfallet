@@ -71,7 +71,7 @@ namespace praktikfall
         //Hämta alla OBJEKT
         public DataTable GetAllObjectsNr()
         {
-            DataTable dt = dal.GetAllObjectsNr();
+            DataTable dt = dal.GetAllObjects();
             return dt;
         }
 
@@ -204,7 +204,7 @@ namespace praktikfall
         //Hämta ÄGARE(hasowner)
         public DataTable GetObjOwner(string objNr)
         {
-            DataTable dt = dal.GetObjOwner(objNr);
+            DataTable dt = dal.GetSelectedObjectsOwner(objNr);
             return dt;
         }
         //Registrera givet OBJEKT med given ÄGARE     HÄR registreras ett objekts ägare

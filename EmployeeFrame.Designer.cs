@@ -30,9 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnShowingSubmit = new System.Windows.Forms.Button();
+            this.cbShowingUpdateBuyer = new System.Windows.Forms.CheckBox();
+            this.cbShowingRemoveBuyer = new System.Windows.Forms.CheckBox();
+            this.cbShowingRegisterBuyer = new System.Windows.Forms.CheckBox();
             this.tbBuyerEmail = new System.Windows.Forms.TextBox();
             this.tbBuyerTel = new System.Windows.Forms.TextBox();
             this.tbBuyerName = new System.Windows.Forms.TextBox();
@@ -64,10 +68,13 @@
             this.btnAddShowing = new System.Windows.Forms.Button();
             this.lblSpekulantVisning = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.dgvObject = new System.Windows.Forms.DataGridView();
+            this.tbObjSearch = new System.Windows.Forms.TextBox();
+            this.btnObjectSearch = new System.Windows.Forms.Button();
             this.cbObjDeleteObject = new System.Windows.Forms.CheckBox();
             this.btnObjSubmit = new System.Windows.Forms.Button();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
-            this.cbObjDeleteOwner = new System.Windows.Forms.CheckBox();
             this.cbObjRegister = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbObjPrice = new System.Windows.Forms.TextBox();
@@ -99,10 +106,7 @@
             this.lblObjOwnerSsnr = new System.Windows.Forms.Label();
             this.btnShowMap = new System.Windows.Forms.Button();
             this.lblObjCity = new System.Windows.Forms.Label();
-            this.btnObjectSearch = new System.Windows.Forms.Button();
-            this.tbObjSearch = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.dgvObject = new System.Windows.Forms.DataGridView();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblObjAddress = new System.Windows.Forms.Label();
             this.picBoxShowObj = new System.Windows.Forms.PictureBox();
@@ -151,10 +155,8 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.cbShowingRegisterBuyer = new System.Windows.Forms.CheckBox();
-            this.cbShowingRemoveBuyer = new System.Windows.Forms.CheckBox();
-            this.cbShowingUpdateBuyer = new System.Windows.Forms.CheckBox();
-            this.btnShowingSubmit = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -163,9 +165,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectShowing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyerShowing)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageStartLogotype)).BeginInit();
@@ -175,6 +178,8 @@
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageVisning
@@ -210,6 +215,46 @@
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Administrera spekulant";
+            // 
+            // btnShowingSubmit
+            // 
+            this.btnShowingSubmit.Location = new System.Drawing.Point(148, 169);
+            this.btnShowingSubmit.Name = "btnShowingSubmit";
+            this.btnShowingSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnShowingSubmit.TabIndex = 43;
+            this.btnShowingSubmit.Text = "Utför";
+            this.btnShowingSubmit.UseVisualStyleBackColor = true;
+            this.btnShowingSubmit.Click += new System.EventHandler(this.btnShowingSubmit_Click);
+            // 
+            // cbShowingUpdateBuyer
+            // 
+            this.cbShowingUpdateBuyer.AutoSize = true;
+            this.cbShowingUpdateBuyer.Location = new System.Drawing.Point(12, 129);
+            this.cbShowingUpdateBuyer.Name = "cbShowingUpdateBuyer";
+            this.cbShowingUpdateBuyer.Size = new System.Drawing.Size(85, 17);
+            this.cbShowingUpdateBuyer.TabIndex = 42;
+            this.cbShowingUpdateBuyer.Text = "Uppdatera";
+            this.cbShowingUpdateBuyer.UseVisualStyleBackColor = true;
+            // 
+            // cbShowingRemoveBuyer
+            // 
+            this.cbShowingRemoveBuyer.AutoSize = true;
+            this.cbShowingRemoveBuyer.Location = new System.Drawing.Point(12, 175);
+            this.cbShowingRemoveBuyer.Name = "cbShowingRemoveBuyer";
+            this.cbShowingRemoveBuyer.Size = new System.Drawing.Size(67, 17);
+            this.cbShowingRemoveBuyer.TabIndex = 41;
+            this.cbShowingRemoveBuyer.Text = "Ta bort";
+            this.cbShowingRemoveBuyer.UseVisualStyleBackColor = true;
+            // 
+            // cbShowingRegisterBuyer
+            // 
+            this.cbShowingRegisterBuyer.AutoSize = true;
+            this.cbShowingRegisterBuyer.Location = new System.Drawing.Point(12, 152);
+            this.cbShowingRegisterBuyer.Name = "cbShowingRegisterBuyer";
+            this.cbShowingRegisterBuyer.Size = new System.Drawing.Size(84, 17);
+            this.cbShowingRegisterBuyer.TabIndex = 40;
+            this.cbShowingRegisterBuyer.Text = "Registrera";
+            this.cbShowingRegisterBuyer.UseVisualStyleBackColor = true;
             // 
             // tbBuyerEmail
             // 
@@ -533,22 +578,21 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox8);
+            this.tabPage2.Controls.Add(this.groupBox7);
+            this.tabPage2.Controls.Add(this.btnObjectSearch);
+            this.tabPage2.Controls.Add(this.tbObjSearch);
+            this.tabPage2.Controls.Add(this.btnShowMap);
+            this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.cbObjDeleteObject);
             this.tabPage2.Controls.Add(this.btnObjSubmit);
             this.tabPage2.Controls.Add(this.cbObjUpdate);
-            this.tabPage2.Controls.Add(this.cbObjDeleteOwner);
             this.tabPage2.Controls.Add(this.cbObjRegister);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.btnShowMap);
             this.tabPage2.Controls.Add(this.lblObjCity);
-            this.tabPage2.Controls.Add(this.btnObjectSearch);
-            this.tabPage2.Controls.Add(this.tbObjSearch);
-            this.tabPage2.Controls.Add(this.richTextBox1);
-            this.tabPage2.Controls.Add(this.dgvObject);
             this.tabPage2.Controls.Add(this.lblPrice);
             this.tabPage2.Controls.Add(this.lblObjAddress);
-            this.tabPage2.Controls.Add(this.picBoxShowObj);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -556,6 +600,57 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.dgvObject);
+            this.groupBox6.Location = new System.Drawing.Point(600, 15);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(462, 341);
+            this.groupBox6.TabIndex = 41;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Objekt";
+            // 
+            // dgvObject
+            // 
+            this.dgvObject.AllowUserToAddRows = false;
+            this.dgvObject.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObject.Location = new System.Drawing.Point(15, 22);
+            this.dgvObject.Name = "dgvObject";
+            this.dgvObject.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvObject.Size = new System.Drawing.Size(431, 303);
+            this.dgvObject.TabIndex = 16;
+            this.dgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObject_CellClick);
+            // 
+            // tbObjSearch
+            // 
+            this.tbObjSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbObjSearch.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbObjSearch.Location = new System.Drawing.Point(600, 369);
+            this.tbObjSearch.Name = "tbObjSearch";
+            this.tbObjSearch.Size = new System.Drawing.Size(101, 20);
+            this.tbObjSearch.TabIndex = 17;
+            this.tbObjSearch.Text = "Sökord";
+            this.tbObjSearch.Click += new System.EventHandler(this.tbObjSearchClick);
+            // 
+            // btnObjectSearch
+            // 
+            this.btnObjectSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectSearch.Image")));
+            this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnObjectSearch.Location = new System.Drawing.Point(716, 367);
+            this.btnObjectSearch.Name = "btnObjectSearch";
+            this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
+            this.btnObjectSearch.TabIndex = 18;
+            this.btnObjectSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnObjectSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnObjectSearch.UseVisualStyleBackColor = true;
+            this.btnObjectSearch.Click += new System.EventHandler(this.button2_Click);
             // 
             // cbObjDeleteObject
             // 
@@ -566,10 +661,11 @@
             this.cbObjDeleteObject.TabIndex = 40;
             this.cbObjDeleteObject.Text = "Ta bort objekt";
             this.cbObjDeleteObject.UseVisualStyleBackColor = true;
+            this.cbObjDeleteObject.CheckedChanged += new System.EventHandler(this.cbObjDeleteObject_CheckedChanged);
             // 
             // btnObjSubmit
             // 
-            this.btnObjSubmit.Location = new System.Drawing.Point(795, 560);
+            this.btnObjSubmit.Location = new System.Drawing.Point(470, 670);
             this.btnObjSubmit.Name = "btnObjSubmit";
             this.btnObjSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnObjSubmit.TabIndex = 39;
@@ -581,32 +677,24 @@
             // 
             this.cbObjUpdate.AccessibleName = "cbObjUpdate";
             this.cbObjUpdate.AutoSize = true;
-            this.cbObjUpdate.Location = new System.Drawing.Point(470, 605);
+            this.cbObjUpdate.Location = new System.Drawing.Point(470, 624);
             this.cbObjUpdate.Name = "cbObjUpdate";
             this.cbObjUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbObjUpdate.TabIndex = 6;
             this.cbObjUpdate.Text = "Uppdatera";
             this.cbObjUpdate.UseVisualStyleBackColor = true;
-            // 
-            // cbObjDeleteOwner
-            // 
-            this.cbObjDeleteOwner.AutoSize = true;
-            this.cbObjDeleteOwner.Location = new System.Drawing.Point(470, 670);
-            this.cbObjDeleteOwner.Name = "cbObjDeleteOwner";
-            this.cbObjDeleteOwner.Size = new System.Drawing.Size(144, 17);
-            this.cbObjDeleteOwner.TabIndex = 7;
-            this.cbObjDeleteOwner.Text = "Ta bort objektsägare";
-            this.cbObjDeleteOwner.UseVisualStyleBackColor = true;
+            this.cbObjUpdate.CheckedChanged += new System.EventHandler(this.cbObjUpdate_CheckedChanged);
             // 
             // cbObjRegister
             // 
             this.cbObjRegister.AutoSize = true;
-            this.cbObjRegister.Location = new System.Drawing.Point(470, 626);
+            this.cbObjRegister.Location = new System.Drawing.Point(470, 601);
             this.cbObjRegister.Name = "cbObjRegister";
             this.cbObjRegister.Size = new System.Drawing.Size(84, 17);
             this.cbObjRegister.TabIndex = 8;
             this.cbObjRegister.Text = "Registrera";
             this.cbObjRegister.UseVisualStyleBackColor = true;
+            this.cbObjRegister.CheckedChanged += new System.EventHandler(this.cbObjRegister_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -865,7 +953,7 @@
             // 
             this.btnShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnShowMap.Image")));
             this.btnShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnShowMap.Location = new System.Drawing.Point(518, 370);
+            this.btnShowMap.Location = new System.Drawing.Point(518, 367);
             this.btnShowMap.Name = "btnShowMap";
             this.btnShowMap.Size = new System.Drawing.Size(65, 23);
             this.btnShowMap.TabIndex = 36;
@@ -884,54 +972,13 @@
             this.lblObjCity.TabIndex = 21;
             this.lblObjCity.Text = "Stad";
             // 
-            // btnObjectSearch
-            // 
-            this.btnObjectSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectSearch.Image")));
-            this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectSearch.Location = new System.Drawing.Point(710, 370);
-            this.btnObjectSearch.Name = "btnObjectSearch";
-            this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
-            this.btnObjectSearch.TabIndex = 18;
-            this.btnObjectSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnObjectSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnObjectSearch.UseVisualStyleBackColor = true;
-            this.btnObjectSearch.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // tbObjSearch
-            // 
-            this.tbObjSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbObjSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbObjSearch.Location = new System.Drawing.Point(603, 372);
-            this.tbObjSearch.Name = "tbObjSearch";
-            this.tbObjSearch.Size = new System.Drawing.Size(101, 20);
-            this.tbObjSearch.TabIndex = 17;
-            this.tbObjSearch.Text = "Sökord";
-            this.tbObjSearch.Click += new System.EventHandler(this.tbObjSearchClick);
-            // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(9, 451);
+            this.richTextBox1.Location = new System.Drawing.Point(7, 17);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(210, 254);
+            this.richTextBox1.Size = new System.Drawing.Size(207, 228);
             this.richTextBox1.TabIndex = 10;
             this.richTextBox1.Text = "";
-            // 
-            // dgvObject
-            // 
-            this.dgvObject.AllowUserToAddRows = false;
-            this.dgvObject.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObject.Location = new System.Drawing.Point(603, 15);
-            this.dgvObject.Name = "dgvObject";
-            this.dgvObject.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvObject.Size = new System.Drawing.Size(456, 341);
-            this.dgvObject.TabIndex = 16;
-            this.dgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObject_CellClick);
             // 
             // lblPrice
             // 
@@ -958,9 +1005,9 @@
             // 
             this.picBoxShowObj.ErrorImage = null;
             this.picBoxShowObj.Image = ((System.Drawing.Image)(resources.GetObject("picBoxShowObj.Image")));
-            this.picBoxShowObj.Location = new System.Drawing.Point(12, 15);
+            this.picBoxShowObj.Location = new System.Drawing.Point(7, 22);
             this.picBoxShowObj.Name = "picBoxShowObj";
-            this.picBoxShowObj.Size = new System.Drawing.Size(571, 341);
+            this.picBoxShowObj.Size = new System.Drawing.Size(552, 303);
             this.picBoxShowObj.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxShowObj.TabIndex = 0;
             this.picBoxShowObj.TabStop = false;
@@ -1379,52 +1426,32 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
-            // cbShowingRegisterBuyer
+            // groupBox7
             // 
-            this.cbShowingRegisterBuyer.AutoSize = true;
-            this.cbShowingRegisterBuyer.Location = new System.Drawing.Point(12, 152);
-            this.cbShowingRegisterBuyer.Name = "cbShowingRegisterBuyer";
-            this.cbShowingRegisterBuyer.Size = new System.Drawing.Size(84, 17);
-            this.cbShowingRegisterBuyer.TabIndex = 40;
-            this.cbShowingRegisterBuyer.Text = "Registrera";
-            this.cbShowingRegisterBuyer.UseVisualStyleBackColor = true;
+            this.groupBox7.Controls.Add(this.picBoxShowObj);
+            this.groupBox7.Location = new System.Drawing.Point(10, 15);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(573, 341);
+            this.groupBox7.TabIndex = 42;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Bild";
             // 
-            // cbShowingRemoveBuyer
+            // groupBox8
             // 
-            this.cbShowingRemoveBuyer.AutoSize = true;
-            this.cbShowingRemoveBuyer.Location = new System.Drawing.Point(12, 175);
-            this.cbShowingRemoveBuyer.Name = "cbShowingRemoveBuyer";
-            this.cbShowingRemoveBuyer.Size = new System.Drawing.Size(67, 17);
-            this.cbShowingRemoveBuyer.TabIndex = 41;
-            this.cbShowingRemoveBuyer.Text = "Ta bort";
-            this.cbShowingRemoveBuyer.UseVisualStyleBackColor = true;
-            // 
-            // cbShowingUpdateBuyer
-            // 
-            this.cbShowingUpdateBuyer.AutoSize = true;
-            this.cbShowingUpdateBuyer.Location = new System.Drawing.Point(12, 129);
-            this.cbShowingUpdateBuyer.Name = "cbShowingUpdateBuyer";
-            this.cbShowingUpdateBuyer.Size = new System.Drawing.Size(85, 17);
-            this.cbShowingUpdateBuyer.TabIndex = 42;
-            this.cbShowingUpdateBuyer.Text = "Uppdatera";
-            this.cbShowingUpdateBuyer.UseVisualStyleBackColor = true;
-            // 
-            // btnShowingSubmit
-            // 
-            this.btnShowingSubmit.Location = new System.Drawing.Point(148, 169);
-            this.btnShowingSubmit.Name = "btnShowingSubmit";
-            this.btnShowingSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnShowingSubmit.TabIndex = 43;
-            this.btnShowingSubmit.Text = "Utför";
-            this.btnShowingSubmit.UseVisualStyleBackColor = true;
-            this.btnShowingSubmit.Click += new System.EventHandler(this.btnShowingSubmit_Click);
+            this.groupBox8.Controls.Add(this.richTextBox1);
+            this.groupBox8.Location = new System.Drawing.Point(10, 451);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(220, 251);
+            this.groupBox8.TabIndex = 43;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Objektsbeskrivning";
             // 
             // EmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1096, 712);
+            this.ClientSize = new System.Drawing.Size(1091, 735);
             this.Controls.Add(this.tabControl);
             this.Menu = this.mainMenu;
             this.Name = "EmployeeFrame";
@@ -1442,11 +1469,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyerShowing)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1458,6 +1486,8 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1525,7 +1555,6 @@
         private System.Windows.Forms.Label lblObjAddress;
         private System.Windows.Forms.PictureBox picBoxShowObj;
         private System.Windows.Forms.CheckBox cbObjUpdate;
-        private System.Windows.Forms.CheckBox cbObjDeleteOwner;
         private System.Windows.Forms.CheckBox cbObjRegister;
         private System.Windows.Forms.TextBox tbObjOwnerEmail;
         private System.Windows.Forms.Label lblObjOwnerEmail;
@@ -1583,12 +1612,14 @@
         private System.Windows.Forms.Label lblBrokerName;
         private System.Windows.Forms.Label lblBrokerBrokerNumber;
         private System.Windows.Forms.CheckBox cbObjDeleteObject;
-        private System.Windows.Forms.CheckBox cbShowAllAttributes;
         private System.Windows.Forms.Label lblBrokerSelectedBroker;
         private System.Windows.Forms.Button btnShowingSubmit;
         private System.Windows.Forms.CheckBox cbShowingUpdateBuyer;
         private System.Windows.Forms.CheckBox cbShowingRemoveBuyer;
         private System.Windows.Forms.CheckBox cbShowingRegisterBuyer;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox groupBox8;
 
     }
 }
