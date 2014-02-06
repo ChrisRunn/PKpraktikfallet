@@ -259,10 +259,10 @@ namespace praktikfall
         }
         #endregion SHOWING
 
-        public int CheckPw(string name)
+        public string CheckPw(string name, string password)
         {
-            int nrOfRows =  dal.CheckPw(name);
-            return nrOfRows;
+            string pw =  dal.CheckPw(name, password);
+            return pw;
         }
 
      

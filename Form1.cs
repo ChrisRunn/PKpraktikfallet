@@ -22,7 +22,30 @@ namespace praktikfall
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            string name = textBox1.Text;
+            string password = textBox2.Text;
 
+
+              if(textBox1.Text.ToLower().Equals("admin") && textBox2.Text.ToLower().Equals("password"))
+            {
+                this.Hide();
+                bool b = true;
+                EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
+                openFrame.Show();
+            }
+
+              else if (textBox2.Text.Equals(c.CheckPw(name, password)))
+              {
+                  this.Hide();
+                  bool b = false;
+                  EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
+                  openFrame.Show();
+
+              }
+
+             
+
+          
 
             //Ta bort Kommentarer
             /*   if (textBox1.Text == "")
@@ -37,14 +60,8 @@ namespace praktikfall
 
                */
 
-            string name = textBox1.Text;
-            if (textBox1.Text.ToLower().Equals("admin") && textBox2.Text.ToLower().Equals("password")) // Ändra denna till en "else if" istället för if
-            {
-                this.Hide();
-                bool b = true;
-                EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
-                openFrame.Show();
-            }
+            /*string name = textBox1.Text;
+            if 
 
 
             else
@@ -56,7 +73,7 @@ namespace praktikfall
                 EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
                 openFrame.Show();
             }
-
+*/
         }
          
 

@@ -400,11 +400,23 @@ namespace praktikfall
         }
         #endregion SHOWING
 
-        public int CheckPw(string name)
+        public String CheckPw(string name, string password)
         {
-            string sqlStr = "select pw from RealEstateBroker where name = '" + name + "'";
-            int nrOfRows = ExecuteUpdate(sqlStr);
-            return nrOfRows;
+            try
+            {
+            string sqlStr = "Select pw from RealEstateBroker where pw = '" + password + "' and name = '" + name + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            string pw = dt.Rows[0][0].ToString();
+
+            return pw;
+            }
+            catch (Exception e)
+            {
+                
+            MessageBox.Show("Det finns ingen användare med detta lösenord, var god försök igen");
+            return null;
+            }
+            
 
 
 
