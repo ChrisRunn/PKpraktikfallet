@@ -12,17 +12,17 @@ namespace praktikfall
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
-            
+
         }
         Controller c = new Controller();
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            string name = textBox1.Text;
+            /*string name = textBox1.Text;
             string password = textBox2.Text;
 
 
@@ -43,57 +43,30 @@ namespace praktikfall
 
               }
 
-             
+             */
 
-          
+            //Radera nedanstående efter vi tagit bort kommentarer ovan. 
+            this.Hide();
+            bool b = true;
 
-            //Ta bo//rt Kommentarer
-            /*   if (textBox1.Text == "")
-               {
-                   MessageBox.Show("Ange ditt användarnamn!");
-               }
-
-               else if (textBox2.Text == "")
-               {
-                   MessageBox.Show("Ange ditt lösenord");
-               }
-
-               */
-
-            /*string name = textBox1.Text;
-            if 
+            EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
+            openFrame.Show();
 
 
-            else
-            {
-
-                this.Hide();
-                bool b = false;
-
-                EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
-                openFrame.Show();
-            }
-*/
         }
-         
 
-           
-        
+
+
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
-            
-    
-             
-           
-        
 
-
-        
+    }
 
         
        
     }
-}
+

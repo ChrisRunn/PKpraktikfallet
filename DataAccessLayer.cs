@@ -410,7 +410,7 @@ namespace praktikfall
 
             return pw;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 
             MessageBox.Show("Det finns ingen användare med detta lösenord, var god försök igen");
