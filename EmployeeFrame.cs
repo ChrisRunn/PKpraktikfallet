@@ -762,78 +762,134 @@ namespace praktikfall
 
         private void btnBrokerSubmit_Click(object sender, EventArgs e)
         {
-
-            try
-            {
-
-                int parsedValue;
-                if (!int.TryParse(tbBrokerBrokerSsnr.Text, out parsedValue))
-                {
-                    MessageBox.Show("Personnummer får endast innehålla siffror");
-                }
-
-                else if (tbBrokerBrokerName.Text == "")
-                {
-                    MessageBox.Show("Du har ej angivit ett namn");
-                }
-
-                else if (tbBrokeBrokerAdress.Text == "")
-                {
-                    MessageBox.Show("Du har ej angivit en adress");
-                }
-
-                else if (tbBrokerBrokerCity.Text == "")
-                {
-                    MessageBox.Show("Du har ej angivit en stad");
-                }
-
-                else if (tbBrokerBrokerPhone.Text == "")
-                {
-                    MessageBox.Show("Du har ej angivit ett telefonnummer");
-                }
-
-                else if (tbBrokerBrokerEmail.Text == "")
-                {
-                    MessageBox.Show("Du har ej angivit en email");
-                }
-
-                else if (tbBrokerBrokerPw.Text == "")
-                {
-                    MessageBox.Show("Du har ej angivit en lösenord");
-                }
-
-                else
-                {
-
             string brokerSsnr = tbBrokerBrokerSsnr.Text;
-                    string pw = tbBrokerBrokerPw.Text;
+            string pw = tbBrokerBrokerPw.Text;
             string name = tbBrokerBrokerName.Text;
             string phoneNr = tbBrokerBrokerPhone.Text;
             string email = tbBrokerBrokerEmail.Text;
             string city = tbBrokerBrokerCity.Text;
             string brokerAddress = tbBrokeBrokerAdress.Text;
 
+            if (cbBrokerRegister.Checked && !cbBrokerRemove.Checked && !cbBrokerUpdate.Checked)
+            {
+                try
+                {
 
-                    bool brokerExists = controller.BrokerExists(brokerSsnr);
-
-                    if (brokerExists)
+                    int parsedValue;
+                    if (!int.TryParse(tbBrokerBrokerSsnr.Text, out parsedValue))
                     {
-                        MessageBox.Show("Det finns redan en mäklare med personnummer: " + brokerSsnr);
+                        MessageBox.Show("Personnummer får endast innehålla siffror");
+                    }
+
+                    else if (tbBrokerBrokerName.Text == "")
+                    {
+                        MessageBox.Show("Du har ej angivit ett namn");
+                    }
+
+                    else if (tbBrokeBrokerAdress.Text == "")
+                    {
+                        MessageBox.Show("Du har ej angivit en adress");
+                    }
+
+                    else if (tbBrokerBrokerCity.Text == "")
+                    {
+                        MessageBox.Show("Du har ej angivit en stad");
+                    }
+
+                    else if (tbBrokerBrokerPhone.Text == "")
+                    {
+                        MessageBox.Show("Du har ej angivit ett telefonnummer");
+                    }
+
+                    else if (tbBrokerBrokerEmail.Text == "")
+                    {
+                        MessageBox.Show("Du har ej angivit en email");
+                    }
+
+                    else if (tbBrokerBrokerPw.Text == "")
+                    {
+                        MessageBox.Show("Du har ej angivit ett lösenord");
                     }
 
                     else
                     {
-                        controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
-                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad");
+                        bool brokerExists = controller.BrokerExists(brokerSsnr);
+
+                        if (brokerExists)
+                        {
+                            MessageBox.Show("Det finns redan en mäklare med personnummer: " + brokerSsnr);
+                        }
+
+                        else
+                        {
+                            controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                            MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad");
+                            Populate();
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Det går inte att registrera en mäklare\n" + ex);
+                }
+            }
+
+            if (!cbBrokerRegister.Checked && cbBrokerRemove.Checked && !cbBrokerUpdate.Checked)
+            {
+                try
+                {
+                    int nrOfRows = controller.DeleteBroker(brokerSsnr);                  
+
+                    if (nrOfRows == 0)
+                    {
+                        MessageBox.Show("Ingen sådan mäklare finns registrerad. Vänligen försök igen.");
+                    }
+                    else
+                    {
                         Populate();
+                        tbBrokeBrokerAdress.Text = "";
+                        tbBrokerBrokerCity.Text = "";
+                        tbBrokerBrokerEmail.Text = "";
+                        tbBrokerBrokerName.Text = "";
+                        tbBrokerBrokerPhone.Text = "";
+                        tbBrokerBrokerPw.Text = "";
+                        tbBrokerBrokerSsnr.Text = "";
+                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " borttagen");
                     }
 
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Det går inte att ta bort mäklare.\n" + ex);
+                }
+                
             }
-            catch (Exception ex)
+            if (!cbBrokerRegister.Checked && !cbBrokerRemove.Checked && cbBrokerUpdate.Checked)
             {
-            
-                MessageBox.Show("Det går inte att registrera en mäklare/n" + ex);
+                try
+                {
+                    int nrOfRows = controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);                    
+
+                    if (nrOfRows == 0)
+                    {
+                        MessageBox.Show("Ingen sådan mäklare finns registrerad. Vänligen försök igen.");
+                    }
+                    else
+                    {
+                        Populate();
+                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " uppdaterad.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Det går inte att uppdatera mäklare.\n" + ex);
+                }
+            }
+            if (!cbBrokerRegister.Checked && !cbBrokerRemove.Checked && !cbBrokerUpdate.Checked)
+            {
+                MessageBox.Show("Vänligen gör ett val först.");
             }
         }
 

@@ -103,9 +103,9 @@ namespace praktikfall
             return nrOfRows;
         }
         //Uppdatea MÄKLARE
-        public int UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email)
+        public int UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-            int nrOfRows = dal.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email);
+            int nrOfRows = dal.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
             return nrOfRows;
         }
         //Söka MÄKLARE
