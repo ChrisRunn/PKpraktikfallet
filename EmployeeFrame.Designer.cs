@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnShowingSubmit = new System.Windows.Forms.Button();
@@ -615,8 +615,8 @@
             // 
             this.dgvObject.AllowUserToAddRows = false;
             this.dgvObject.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -655,7 +655,7 @@
             // cbObjDeleteObject
             // 
             this.cbObjDeleteObject.AutoSize = true;
-            this.cbObjDeleteObject.Location = new System.Drawing.Point(470, 647);
+            this.cbObjDeleteObject.Location = new System.Drawing.Point(470, 628);
             this.cbObjDeleteObject.Name = "cbObjDeleteObject";
             this.cbObjDeleteObject.Size = new System.Drawing.Size(106, 17);
             this.cbObjDeleteObject.TabIndex = 40;
@@ -665,7 +665,7 @@
             // 
             // btnObjSubmit
             // 
-            this.btnObjSubmit.Location = new System.Drawing.Point(470, 670);
+            this.btnObjSubmit.Location = new System.Drawing.Point(584, 582);
             this.btnObjSubmit.Name = "btnObjSubmit";
             this.btnObjSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnObjSubmit.TabIndex = 39;
@@ -677,7 +677,7 @@
             // 
             this.cbObjUpdate.AccessibleName = "cbObjUpdate";
             this.cbObjUpdate.AutoSize = true;
-            this.cbObjUpdate.Location = new System.Drawing.Point(470, 624);
+            this.cbObjUpdate.Location = new System.Drawing.Point(470, 605);
             this.cbObjUpdate.Name = "cbObjUpdate";
             this.cbObjUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbObjUpdate.TabIndex = 6;
@@ -688,7 +688,7 @@
             // cbObjRegister
             // 
             this.cbObjRegister.AutoSize = true;
-            this.cbObjRegister.Location = new System.Drawing.Point(470, 601);
+            this.cbObjRegister.Location = new System.Drawing.Point(471, 582);
             this.cbObjRegister.Name = "cbObjRegister";
             this.cbObjRegister.Size = new System.Drawing.Size(84, 17);
             this.cbObjRegister.TabIndex = 8;
@@ -716,7 +716,7 @@
             this.groupBox3.Controls.Add(this.lblArea);
             this.groupBox3.Controls.Add(this.lblNumberOfRooms);
             this.groupBox3.Controls.Add(this.lblPricePerKvm);
-            this.groupBox3.Location = new System.Drawing.Point(236, 451);
+            this.groupBox3.Location = new System.Drawing.Point(236, 428);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(216, 254);
             this.groupBox3.TabIndex = 38;
@@ -877,7 +877,7 @@
             this.groupBox2.Controls.Add(this.lblObjOwnerName);
             this.groupBox2.Controls.Add(this.lblObjOwnerPhonenr);
             this.groupBox2.Controls.Add(this.lblObjOwnerSsnr);
-            this.groupBox2.Location = new System.Drawing.Point(470, 451);
+            this.groupBox2.Location = new System.Drawing.Point(470, 428);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(218, 144);
             this.groupBox2.TabIndex = 37;
@@ -1439,7 +1439,7 @@
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.richTextBox1);
-            this.groupBox8.Location = new System.Drawing.Point(10, 451);
+            this.groupBox8.Location = new System.Drawing.Point(10, 446);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(220, 251);
             this.groupBox8.TabIndex = 43;
