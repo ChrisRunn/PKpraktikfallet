@@ -705,6 +705,11 @@ namespace praktikfall
         {
             dgvShowingCurrentShowings.ClearSelection();
         }
+        private void dgvBrokerAllBrokers_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        {
+            dgvBrokerAllBrokers.ClearSelection();
+        }
+
         #region MAINMENU
         private void menuItem7_Click(object sender, EventArgs e)
         {
@@ -1004,6 +1009,8 @@ namespace praktikfall
                 MessageBox.Show("Vänligen gör ett val först.");
             }
         }
+
+        
 
 
             

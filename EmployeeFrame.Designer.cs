@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tbBuyerEmail = new System.Windows.Forms.TextBox();
@@ -920,8 +920,8 @@
             // 
             this.dgvObject.AllowUserToAddRows = false;
             this.dgvObject.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -1070,6 +1070,8 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.groupBox5);
+            this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -1293,6 +1295,7 @@
             this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(400, 250);
             this.dgvBrokerAllBrokers.TabIndex = 9;
             this.dgvBrokerAllBrokers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBrokerAllBrokers_CellClick);
+            this.dgvBrokerAllBrokers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvBrokerAllBrokers_DBC);
             // 
             // mainMenu
             // 
