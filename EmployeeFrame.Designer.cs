@@ -67,7 +67,6 @@
             this.btnAddShowing = new System.Windows.Forms.Button();
             this.lblSpekulantVisning = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
             this.cbObjDeleteObject = new System.Windows.Forms.CheckBox();
             this.btnObjSubmit = new System.Windows.Forms.Button();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
@@ -154,7 +153,6 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
             this.lblBrokerSelectedBroker = new System.Windows.Forms.Label();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -568,7 +566,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.cbShowAllAttributes);
             this.tabPage2.Controls.Add(this.cbObjDeleteObject);
             this.tabPage2.Controls.Add(this.btnObjSubmit);
             this.tabPage2.Controls.Add(this.cbObjUpdate);
@@ -1602,7 +1599,6 @@
         private System.Windows.Forms.Label lblBrokerName;
         private System.Windows.Forms.Label lblBrokerBrokerNumber;
         private System.Windows.Forms.CheckBox cbObjDeleteObject;
-        private System.Windows.Forms.CheckBox cbShowAllAttributes;
         private System.Windows.Forms.CheckBox cbShowAllAttributes;
         private System.Windows.Forms.Label lblBrokerSelectedBroker;
 
