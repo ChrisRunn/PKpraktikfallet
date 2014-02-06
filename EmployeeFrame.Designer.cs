@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnDeleteProspectiveBuyer = new System.Windows.Forms.Button();
@@ -154,6 +154,8 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.cbShowAllAttributes = new System.Windows.Forms.CheckBox();
+            this.lblBrokerSelectedBroker = new System.Windows.Forms.Label();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -202,7 +204,7 @@
             this.groupBox4.Controls.Add(this.labelBuyerTel);
             this.groupBox4.Controls.Add(this.labelBuyerName);
             this.groupBox4.Controls.Add(this.labelBuyerSsn);
-            this.groupBox4.Location = new System.Drawing.Point(624, 315);
+            this.groupBox4.Location = new System.Drawing.Point(624, 354);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(440, 314);
             this.groupBox4.TabIndex = 12;
@@ -318,7 +320,7 @@
             this.groupBox1.Controls.Add(this.lblShowingSelectedObjNrDelete);
             this.groupBox1.Controls.Add(this.lblShowingChoose);
             this.groupBox1.Controls.Add(this.dgvShowingCurrentShowings);
-            this.groupBox1.Location = new System.Drawing.Point(11, 315);
+            this.groupBox1.Location = new System.Drawing.Point(11, 354);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(607, 314);
             this.groupBox1.TabIndex = 11;
@@ -399,7 +401,7 @@
             // 
             this.dgvShowingCurrentShowings.AllowUserToAddRows = false;
             this.dgvShowingCurrentShowings.AllowUserToDeleteRows = false;
-            this.dgvShowingCurrentShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvShowingCurrentShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvShowingCurrentShowings.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvShowingCurrentShowings.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvShowingCurrentShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -427,7 +429,7 @@
             this.groupBoxVisning.Controls.Add(this.lblSpekulantVisning);
             this.groupBoxVisning.Location = new System.Drawing.Point(11, 7);
             this.groupBoxVisning.Name = "groupBoxVisning";
-            this.groupBoxVisning.Size = new System.Drawing.Size(1053, 302);
+            this.groupBoxVisning.Size = new System.Drawing.Size(1053, 322);
             this.groupBoxVisning.TabIndex = 10;
             this.groupBoxVisning.TabStop = false;
             this.groupBoxVisning.Text = "Spara visning";
@@ -493,6 +495,7 @@
             // 
             this.dgvObjectShowing.AllowUserToAddRows = false;
             this.dgvObjectShowing.AllowUserToDeleteRows = false;
+            this.dgvObjectShowing.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectShowing.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvObjectShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObjectShowing.Location = new System.Drawing.Point(6, 32);
@@ -507,6 +510,7 @@
             // 
             this.dgvProspectiveBuyerShowing.AllowUserToAddRows = false;
             this.dgvProspectiveBuyerShowing.AllowUserToDeleteRows = false;
+            this.dgvProspectiveBuyerShowing.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProspectiveBuyerShowing.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProspectiveBuyerShowing.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvProspectiveBuyerShowing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -962,8 +966,8 @@
             // 
             this.dgvObject.AllowUserToAddRows = false;
             this.dgvObject.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -1122,6 +1126,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.lblBrokerSelectedBroker);
             this.groupBox5.Controls.Add(this.btnBrokerSubmit);
             this.groupBox5.Controls.Add(this.cbBrokerUpdate);
             this.groupBox5.Controls.Add(this.cbBrokerRemove);
@@ -1144,7 +1149,7 @@
             this.groupBox5.Controls.Add(this.dgvBrokerAllBrokers);
             this.groupBox5.Location = new System.Drawing.Point(10, 6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(646, 292);
+            this.groupBox5.Size = new System.Drawing.Size(713, 309);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Administrera mäklare";
@@ -1257,49 +1262,49 @@
             // 
             this.tbBrokerBrokerPw.Location = new System.Drawing.Point(519, 192);
             this.tbBrokerBrokerPw.Name = "tbBrokerBrokerPw";
-            this.tbBrokerBrokerPw.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerPw.Size = new System.Drawing.Size(176, 20);
             this.tbBrokerBrokerPw.TabIndex = 17;
             // 
             // tbBrokerBrokerEmail
             // 
             this.tbBrokerBrokerEmail.Location = new System.Drawing.Point(519, 166);
             this.tbBrokerBrokerEmail.Name = "tbBrokerBrokerEmail";
-            this.tbBrokerBrokerEmail.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerEmail.Size = new System.Drawing.Size(176, 20);
             this.tbBrokerBrokerEmail.TabIndex = 16;
             // 
             // tbBrokerBrokerPhone
             // 
             this.tbBrokerBrokerPhone.Location = new System.Drawing.Point(519, 140);
             this.tbBrokerBrokerPhone.Name = "tbBrokerBrokerPhone";
-            this.tbBrokerBrokerPhone.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerPhone.Size = new System.Drawing.Size(176, 20);
             this.tbBrokerBrokerPhone.TabIndex = 15;
             // 
             // tbBrokerBrokerCity
             // 
             this.tbBrokerBrokerCity.Location = new System.Drawing.Point(519, 114);
             this.tbBrokerBrokerCity.Name = "tbBrokerBrokerCity";
-            this.tbBrokerBrokerCity.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerCity.Size = new System.Drawing.Size(176, 20);
             this.tbBrokerBrokerCity.TabIndex = 14;
             // 
             // tbBrokeBrokerAdress
             // 
             this.tbBrokeBrokerAdress.Location = new System.Drawing.Point(519, 88);
             this.tbBrokeBrokerAdress.Name = "tbBrokeBrokerAdress";
-            this.tbBrokeBrokerAdress.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokeBrokerAdress.Size = new System.Drawing.Size(176, 20);
             this.tbBrokeBrokerAdress.TabIndex = 13;
             // 
             // tbBrokerBrokerName
             // 
             this.tbBrokerBrokerName.Location = new System.Drawing.Point(519, 62);
             this.tbBrokerBrokerName.Name = "tbBrokerBrokerName";
-            this.tbBrokerBrokerName.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerName.Size = new System.Drawing.Size(176, 20);
             this.tbBrokerBrokerName.TabIndex = 12;
             // 
             // tbBrokerBrokerSsnr
             // 
             this.tbBrokerBrokerSsnr.Location = new System.Drawing.Point(519, 36);
             this.tbBrokerBrokerSsnr.Name = "tbBrokerBrokerSsnr";
-            this.tbBrokerBrokerSsnr.Size = new System.Drawing.Size(111, 20);
+            this.tbBrokerBrokerSsnr.Size = new System.Drawing.Size(176, 20);
             this.tbBrokerBrokerSsnr.TabIndex = 11;
             // 
             // lblBrokerAllBroker
@@ -1315,6 +1320,7 @@
             // 
             this.dgvBrokerAllBrokers.AllowUserToAddRows = false;
             this.dgvBrokerAllBrokers.AllowUserToDeleteRows = false;
+            this.dgvBrokerAllBrokers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBrokerAllBrokers.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvBrokerAllBrokers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBrokerAllBrokers.Location = new System.Drawing.Point(6, 36);
@@ -1408,6 +1414,26 @@
             this.menuItem7.Index = 1;
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
+            // 
+            // cbShowAllAttributes
+            // 
+            this.cbShowAllAttributes.AutoSize = true;
+            this.cbShowAllAttributes.Location = new System.Drawing.Point(771, 381);
+            this.cbShowAllAttributes.Name = "cbShowAllAttributes";
+            this.cbShowAllAttributes.Size = new System.Drawing.Size(178, 17);
+            this.cbShowAllAttributes.TabIndex = 41;
+            this.cbShowAllAttributes.Text = "Visa fullständig informaiton";
+            this.cbShowAllAttributes.UseVisualStyleBackColor = true;
+            // 
+            // lblBrokerSelectedBroker
+            // 
+            this.lblBrokerSelectedBroker.AutoSize = true;
+            this.lblBrokerSelectedBroker.Location = new System.Drawing.Point(3, 289);
+            this.lblBrokerSelectedBroker.Name = "lblBrokerSelectedBroker";
+            this.lblBrokerSelectedBroker.Size = new System.Drawing.Size(146, 13);
+            this.lblBrokerSelectedBroker.TabIndex = 1;
+            this.lblBrokerSelectedBroker.Text = "selectedBroker(invisible)";
+            this.lblBrokerSelectedBroker.Visible = false;
             // 
             // EmployeeFrame
             // 
@@ -1577,6 +1603,8 @@
         private System.Windows.Forms.Label lblBrokerBrokerNumber;
         private System.Windows.Forms.CheckBox cbObjDeleteObject;
         private System.Windows.Forms.CheckBox cbShowAllAttributes;
+        private System.Windows.Forms.CheckBox cbShowAllAttributes;
+        private System.Windows.Forms.Label lblBrokerSelectedBroker;
 
     }
 }

@@ -58,6 +58,7 @@ namespace praktikfall
 
 
 
+
         /*private void btnObjAdd_Click(object sender, EventArgs e)
         {
             try
@@ -223,22 +224,34 @@ namespace praktikfall
             tbObjOwnerName.Text = "";
 
             if (e.RowIndex >= 0)
-            {  
+            {
                 DataGridViewRow row = this.dgvObject.Rows[e.RowIndex];
                 string objNr = row.Cells["objNr"].Value.ToString();
+                this.setSelectedObjectAndOwner(objNr, row);
+            }
+               
+                
+
+        }
+
+        private void setSelectedObjectAndOwner(string objNr, DataGridViewRow row)
+        {
+                
+
                 DataTable ownerSsnr = this.controller.GetObjOwner(objNr);
                 foreach (DataRow row1 in ownerSsnr.Rows)
                 {
-                var text = row1[1].ToString();
-                tbObjOwnerSsnr.Text = text;
+                    var text = row1[1].ToString();
+                    tbObjOwnerSsnr.Text = text;
                 }
+
                 DataTable ownerInfo = this.controller.GetObjectOwner(tbObjOwnerSsnr.Text);
                 foreach (DataRow row1 in ownerInfo.Rows)
                 {
-                        tbObjOwnerPhoneNr.Text = row1[1].ToString();
-                        tbObjOwnerEmail.Text = row1[2].ToString();
-                        tbObjOwnerName.Text = row1[3].ToString();   
-                    
+                    tbObjOwnerPhoneNr.Text = row1[1].ToString();
+                    tbObjOwnerEmail.Text = row1[2].ToString();
+                    tbObjOwnerName.Text = row1[3].ToString();
+
                 }
                 lblObjAddress.Text = row.Cells["objAdress"].Value.ToString();
                 lblObjCity.Text = row.Cells["objCity"].Value.ToString();
@@ -256,10 +269,8 @@ namespace praktikfall
                 tbObjCity.Text = row.Cells["objCity"].Value.ToString();
                 tbObjPrice.Text = row.Cells["objPrice"].Value.ToString();
                 tbObjAddress.Text = row.Cells["objAdress"].Value.ToString();
-        
-            }
 
-        }
+            }
 
         private void tabPage3_Click(object sender, EventArgs e)
         {
@@ -763,7 +774,16 @@ namespace praktikfall
 
         private void btnBrokerSubmit_Click(object sender, EventArgs e)
         {
+            string brokerSsnr = tbBrokerBrokerSsnr.Text;
+            string pw = tbBrokerBrokerPw.Text;
+            string name = tbBrokerBrokerName.Text;
+            string phoneNr = tbBrokerBrokerPhone.Text;
+            string email = tbBrokerBrokerEmail.Text;
+            string city = tbBrokerBrokerCity.Text;
+            string brokerAddress = tbBrokeBrokerAdress.Text;
 
+            if (cbBrokerRegister.Checked && !cbBrokerRemove.Checked && !cbBrokerUpdate.Checked)
+            {
             try
             {
 
@@ -800,21 +820,11 @@ namespace praktikfall
 
                 else if (tbBrokerBrokerPw.Text.Equals(""))
                 {
-                    MessageBox.Show("Du har ej angivit en lösenord");
+                        MessageBox.Show("Du har ej angivit ett lösenord");
                 }
 
                 else
                 {
-
-            string brokerSsnr = tbBrokerBrokerSsnr.Text;
-                    string pw = tbBrokerBrokerPw.Text;
-            string name = tbBrokerBrokerName.Text;
-            string phoneNr = tbBrokerBrokerPhone.Text;
-            string email = tbBrokerBrokerEmail.Text;
-            string city = tbBrokerBrokerCity.Text;
-            string brokerAddress = tbBrokeBrokerAdress.Text;
-
-
                     bool brokerExists = controller.BrokerExists(brokerSsnr);
 
                     if (brokerExists)
@@ -829,12 +839,69 @@ namespace praktikfall
                         Populate();
                     }
 
+                    }
                 }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Det går inte att registrera en mäklare\n" + ex);
+                }
+            }
+
+            if (!cbBrokerRegister.Checked && cbBrokerRemove.Checked && !cbBrokerUpdate.Checked)
+            {
+                try
+                {
+                    int nrOfRows = controller.DeleteBroker(brokerSsnr);                  
+
+                    if (nrOfRows == 0)
+                    {
+                        MessageBox.Show("Ingen sådan mäklare finns registrerad. Vänligen försök igen.");
+                    }
+                    else
+                    {
+                        Populate();
+                        tbBrokeBrokerAdress.Text = "";
+                        tbBrokerBrokerCity.Text = "";
+                        tbBrokerBrokerEmail.Text = "";
+                        tbBrokerBrokerName.Text = "";
+                        tbBrokerBrokerPhone.Text = "";
+                        tbBrokerBrokerPw.Text = "";
+                        tbBrokerBrokerSsnr.Text = "";
+                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " borttagen");
+                }
+
             }
             catch (Exception ex)
             {
+                    MessageBox.Show("Det går inte att ta bort mäklare.\n" + ex);
+                }
+                
+            }
+            if (!cbBrokerRegister.Checked && !cbBrokerRemove.Checked && cbBrokerUpdate.Checked)
+            {
+                try
+                {
+                    int nrOfRows = controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);                    
             
-                MessageBox.Show("Det går inte att registrera en mäklare/n" + ex);
+                    if (nrOfRows == 0)
+                    {
+                        MessageBox.Show("Ingen sådan mäklare finns registrerad. Vänligen försök igen.");
+                    }
+                    else
+                    {
+                        Populate();
+                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " uppdaterad.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Det går inte att uppdatera mäklare.\n" + ex);
+                }
+            }
+            if (!cbBrokerRegister.Checked && !cbBrokerRemove.Checked && !cbBrokerUpdate.Checked)
+            {
+                MessageBox.Show("Vänligen gör ett val först.");
             }
         }
 
