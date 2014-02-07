@@ -51,12 +51,7 @@ namespace praktikfall
 
             frameMainMainframe openFrame = new frameMainMainframe(tbLoginUsername.Text, b);
             openFrame.Show();
-
-
         }
-
-
-
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {

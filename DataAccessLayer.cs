@@ -310,7 +310,6 @@ namespace praktikfall
             return nrOfRows;
         }
 
-
         //Söka Ägare -- BEHÖVS EVENTUELLT INTE
         public DataTable GetObjectOwner(string ownerSsnr)
         {
