@@ -368,7 +368,7 @@ namespace praktikfall
             }
             if (!showingExists && !(lblShowingSelectedBuyer.Text.Equals("selectedBuyer(invisible)")) && !(lblShowingSelectedObject.Text.Equals("selectedObject(invisible)")))
             {              
-            int nrOfRows = controller.RegisterShowing(objNr, buyerSsnr, showingDate);
+            int nrOfRows = controller.AddShowing(objNr, buyerSsnr, showingDate);
             MessageBox.Show("Visning registrerad!");
                 Populate();
         }
@@ -610,7 +610,7 @@ namespace praktikfall
 
             else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !tbObjectDeleteObject.Checked)
             {
-                int nrOfRows = this.controller.RegisterObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                 MessageBox.Show(nrOfRows.ToString());
                 Populate();
 
