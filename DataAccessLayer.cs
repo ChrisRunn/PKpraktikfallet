@@ -261,7 +261,7 @@ namespace praktikfall
             return nrOfRows;
         }
         //Ta bort ägare
-        public int RemoveObjectOwner(string ownerSsnr)
+        public int DeleteObjectOwner(string ownerSsnr)
         {
             string sqlStr = "delete from ObjectOwner where ownerSsnr = '" + ownerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
@@ -276,7 +276,7 @@ namespace praktikfall
         }
 
         // Uppdaterar allt i objekt fliken ! MÅSTE PLACERAS I RÄTT FOLDER
-        public int UpdateObjectFlik(string objNr, string objAdress, string objCity,
+        public int UpdateObjectFlap(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string ownerSsnr, string phoneNr, string email, string name)
         {
             string sqlStr = "update RealEstateObject set objAdress ='" + objAdress + "',objArea =" + objArea + ",objCity ='"

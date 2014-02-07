@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace praktikfall
 {
-    public partial class Form1 : Form
+    public partial class formLogin : Form
     {
 
-        public Form1()
+        public formLogin()
         {
             InitializeComponent();
 
@@ -49,7 +49,7 @@ namespace praktikfall
             this.Hide();
             bool b = true;
 
-            EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
+            frameMainMainframe openFrame = new frameMainMainframe(tbLoginUsername.Text, b);
             openFrame.Show();
 
 
