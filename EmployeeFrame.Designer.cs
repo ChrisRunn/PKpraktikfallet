@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingBuyerSearch = new System.Windows.Forms.Label();
@@ -632,7 +632,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(779, 498);
+            this.label1.Location = new System.Drawing.Point(605, 497);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 45;
@@ -643,7 +643,7 @@
             this.gbObjectObjectInfo.Controls.Add(this.rtbObjectObjectInfo);
             this.gbObjectObjectInfo.Location = new System.Drawing.Point(4, 362);
             this.gbObjectObjectInfo.Name = "gbObjectObjectInfo";
-            this.gbObjectObjectInfo.Size = new System.Drawing.Size(226, 274);
+            this.gbObjectObjectInfo.Size = new System.Drawing.Size(226, 130);
             this.gbObjectObjectInfo.TabIndex = 43;
             this.gbObjectObjectInfo.TabStop = false;
             this.gbObjectObjectInfo.Text = "Objektsbeskrivning";
@@ -653,7 +653,7 @@
             this.rtbObjectObjectInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rtbObjectObjectInfo.Location = new System.Drawing.Point(7, 19);
             this.rtbObjectObjectInfo.Name = "rtbObjectObjectInfo";
-            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(207, 249);
+            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(207, 105);
             this.rtbObjectObjectInfo.TabIndex = 10;
             this.rtbObjectObjectInfo.Text = "";
             // 
@@ -730,8 +730,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -770,7 +770,7 @@
             // tbObjectDeleteObject
             // 
             this.tbObjectDeleteObject.AutoSize = true;
-            this.tbObjectDeleteObject.Location = new System.Drawing.Point(781, 568);
+            this.tbObjectDeleteObject.Location = new System.Drawing.Point(607, 567);
             this.tbObjectDeleteObject.Name = "tbObjectDeleteObject";
             this.tbObjectDeleteObject.Size = new System.Drawing.Size(106, 17);
             this.tbObjectDeleteObject.TabIndex = 40;
@@ -792,7 +792,7 @@
             // 
             this.cbObjectUpdate.AccessibleName = "cbObjUpdate";
             this.cbObjectUpdate.AutoSize = true;
-            this.cbObjectUpdate.Location = new System.Drawing.Point(781, 545);
+            this.cbObjectUpdate.Location = new System.Drawing.Point(607, 544);
             this.cbObjectUpdate.Name = "cbObjectUpdate";
             this.cbObjectUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbObjectUpdate.TabIndex = 6;
@@ -803,7 +803,7 @@
             // cbObjectRegister
             // 
             this.cbObjectRegister.AutoSize = true;
-            this.cbObjectRegister.Location = new System.Drawing.Point(782, 522);
+            this.cbObjectRegister.Location = new System.Drawing.Point(608, 521);
             this.cbObjectRegister.Name = "cbObjectRegister";
             this.cbObjectRegister.Size = new System.Drawing.Size(84, 17);
             this.cbObjectRegister.TabIndex = 8;
@@ -1502,16 +1502,16 @@
             this.gbObjectUploadPicture.Controls.Add(this.pbObjectThumbnail);
             this.gbObjectUploadPicture.Controls.Add(this.button2);
             this.gbObjectUploadPicture.Controls.Add(this.btnObjectUpload);
-            this.gbObjectUploadPicture.Location = new System.Drawing.Point(600, 498);
+            this.gbObjectUploadPicture.Location = new System.Drawing.Point(6, 497);
             this.gbObjectUploadPicture.Name = "gbObjectUploadPicture";
-            this.gbObjectUploadPicture.Size = new System.Drawing.Size(173, 138);
+            this.gbObjectUploadPicture.Size = new System.Drawing.Size(224, 138);
             this.gbObjectUploadPicture.TabIndex = 46;
             this.gbObjectUploadPicture.TabStop = false;
             this.gbObjectUploadPicture.Text = "Ladda upp objektbild";
             // 
             // btnObjectUpload
             // 
-            this.btnObjectUpload.Location = new System.Drawing.Point(89, 109);
+            this.btnObjectUpload.Location = new System.Drawing.Point(137, 109);
             this.btnObjectUpload.Name = "btnObjectUpload";
             this.btnObjectUpload.Size = new System.Drawing.Size(75, 23);
             this.btnObjectUpload.TabIndex = 0;
@@ -1520,7 +1520,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(8, 109);
+            this.button2.Location = new System.Drawing.Point(56, 109);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -1531,7 +1531,7 @@
             // 
             this.pbObjectThumbnail.Location = new System.Drawing.Point(8, 15);
             this.pbObjectThumbnail.Name = "pbObjectThumbnail";
-            this.pbObjectThumbnail.Size = new System.Drawing.Size(156, 88);
+            this.pbObjectThumbnail.Size = new System.Drawing.Size(204, 88);
             this.pbObjectThumbnail.TabIndex = 2;
             this.pbObjectThumbnail.TabStop = false;
             // 
