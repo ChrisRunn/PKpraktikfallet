@@ -406,7 +406,6 @@ namespace praktikfall
             string sqlStr = "Select pw from RealEstateBroker where pw = '" + password + "' and name = '" + name + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             string pw = dt.Rows[0][0].ToString();
-
             return pw;
             }
             catch (Exception ex)

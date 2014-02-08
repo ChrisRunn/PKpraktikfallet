@@ -33,9 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
-            this.btnShowingSubmit = new System.Windows.Forms.Button();
+            this.lblShowingBuyerSearch = new System.Windows.Forms.Label();
+            this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
+            this.tbShowingSearch = new System.Windows.Forms.TextBox();
+            this.btnShowingSearch = new System.Windows.Forms.Button();
             this.cbShowingUpdateBuyer = new System.Windows.Forms.CheckBox();
             this.cbShowingDeleteBuyer = new System.Windows.Forms.CheckBox();
+            this.btnShowingSubmit = new System.Windows.Forms.Button();
             this.cbShowingRegisterBuyer = new System.Windows.Forms.CheckBox();
             this.tbShowingBuyerEmail = new System.Windows.Forms.TextBox();
             this.tbShowingBuyerTel = new System.Windows.Forms.TextBox();
@@ -49,34 +53,35 @@
             this.lblShowingSelectedBuyerDelete = new System.Windows.Forms.Label();
             this.lblShowingDeleteChoice = new System.Windows.Forms.Label();
             this.rbShowingDeleteBuyer = new System.Windows.Forms.RadioButton();
+            this.dgvShowingCurrentShowings = new System.Windows.Forms.DataGridView();
             this.rbShowingDeleteShowing = new System.Windows.Forms.RadioButton();
             this.btnShowingDelete = new System.Windows.Forms.Button();
             this.lblShowingSelectedObjNrDelete = new System.Windows.Forms.Label();
             this.lblShowingChoose = new System.Windows.Forms.Label();
-            this.dgvShowingCurrentShowings = new System.Windows.Forms.DataGridView();
             this.gbShowing = new System.Windows.Forms.GroupBox();
-            this.tbShowingSearch = new System.Windows.Forms.TextBox();
-            this.btnShowingSearch = new System.Windows.Forms.Button();
             this.btnShowingUpdate = new System.Windows.Forms.Button();
             this.lblShowingSelectedBuyer = new System.Windows.Forms.Label();
             this.lblShowingSelectedObject = new System.Windows.Forms.Label();
-            this.dgvShowingAllObjects = new System.Windows.Forms.DataGridView();
-            this.dgvShowingAllBuyers = new System.Windows.Forms.DataGridView();
             this.dtpShowingShowingDate = new System.Windows.Forms.DateTimePicker();
-            this.lblShowingShowing = new System.Windows.Forms.Label();
+            this.dgvShowingAllObjects = new System.Windows.Forms.DataGridView();
             this.lblDateShowing = new System.Windows.Forms.Label();
+            this.dgvShowingAllBuyers = new System.Windows.Forms.DataGridView();
+            this.lblShowingShowing = new System.Windows.Forms.Label();
             this.btnShowingRegisterShowing = new System.Windows.Forms.Button();
             this.lblShowingBuyer = new System.Windows.Forms.Label();
             this.tpObjectObjectTabPage = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbObjectObjectInfo = new System.Windows.Forms.GroupBox();
             this.rtbObjectObjectInfo = new System.Windows.Forms.RichTextBox();
             this.gbObjectPicture = new System.Windows.Forms.GroupBox();
             this.pbObjectsObjectPicture = new System.Windows.Forms.PictureBox();
-            this.btnObjectSearch = new System.Windows.Forms.Button();
-            this.tbObjectSearch = new System.Windows.Forms.TextBox();
             this.btnObjectShowMap = new System.Windows.Forms.Button();
+            this.lblObjectObjAddress = new System.Windows.Forms.Label();
             this.gbObjectAllObjects = new System.Windows.Forms.GroupBox();
+            this.lblObjectSearch = new System.Windows.Forms.Label();
             this.dgvObjectAllObjects = new System.Windows.Forms.DataGridView();
+            this.tbObjectSearch = new System.Windows.Forms.TextBox();
+            this.btnObjectSearch = new System.Windows.Forms.Button();
             this.tbObjectDeleteObject = new System.Windows.Forms.CheckBox();
             this.btnObjectSubmit = new System.Windows.Forms.Button();
             this.cbObjectUpdate = new System.Windows.Forms.CheckBox();
@@ -109,9 +114,6 @@
             this.lblObjectOwnerName = new System.Windows.Forms.Label();
             this.lblObjectOwnerPhoneNR = new System.Windows.Forms.Label();
             this.lblObjectOwnerSsnr = new System.Windows.Forms.Label();
-            this.lblObjCity = new System.Windows.Forms.Label();
-            this.lblObjectObjectPrice = new System.Windows.Forms.Label();
-            this.lblObjectObjAddress = new System.Windows.Forms.Label();
             this.tpStartStartTabPage = new System.Windows.Forms.TabPage();
             this.pbStartLogo = new System.Windows.Forms.PictureBox();
             this.lblStartYourShowings = new System.Windows.Forms.Label();
@@ -123,6 +125,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpBrokerBrokerTabPage = new System.Windows.Forms.TabPage();
             this.bgBrokerAdministrateBroker = new System.Windows.Forms.GroupBox();
+            this.lblBrokerChoice = new System.Windows.Forms.Label();
             this.lblBrokerSelectedBroker = new System.Windows.Forms.Label();
             this.btnBrokerSubmit = new System.Windows.Forms.Button();
             this.cbBrokerUpdate = new System.Windows.Forms.CheckBox();
@@ -157,12 +160,6 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
-            this.lblShowingBuyerSearch = new System.Windows.Forms.Label();
-            this.lblBrokerChoice = new System.Windows.Forms.Label();
-            this.lblTemp = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblObjectSearch = new System.Windows.Forms.Label();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -226,15 +223,47 @@
             this.gbShowingAdministrateBuyer.TabStop = false;
             this.gbShowingAdministrateBuyer.Text = "Administrera spekulant";
             // 
-            // btnShowingSubmit
+            // lblShowingBuyerSearch
             // 
-            this.btnShowingSubmit.Location = new System.Drawing.Point(388, 243);
-            this.btnShowingSubmit.Name = "btnShowingSubmit";
-            this.btnShowingSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnShowingSubmit.TabIndex = 43;
-            this.btnShowingSubmit.Text = "Utför";
-            this.btnShowingSubmit.UseVisualStyleBackColor = true;
-            this.btnShowingSubmit.Click += new System.EventHandler(this.btnShowingSubmit_Click);
+            this.lblShowingBuyerSearch.AutoSize = true;
+            this.lblShowingBuyerSearch.Location = new System.Drawing.Point(6, 248);
+            this.lblShowingBuyerSearch.Name = "lblShowingBuyerSearch";
+            this.lblShowingBuyerSearch.Size = new System.Drawing.Size(92, 13);
+            this.lblShowingBuyerSearch.TabIndex = 44;
+            this.lblShowingBuyerSearch.Text = "Sök spekulant:";
+            // 
+            // lblShowingAdministrateBuyerChoice
+            // 
+            this.lblShowingAdministrateBuyerChoice.AutoSize = true;
+            this.lblShowingAdministrateBuyerChoice.Location = new System.Drawing.Point(11, 151);
+            this.lblShowingAdministrateBuyerChoice.Name = "lblShowingAdministrateBuyerChoice";
+            this.lblShowingAdministrateBuyerChoice.Size = new System.Drawing.Size(120, 13);
+            this.lblShowingAdministrateBuyerChoice.TabIndex = 22;
+            this.lblShowingAdministrateBuyerChoice.Text = "Välj vad du vill göra";
+            // 
+            // tbShowingSearch
+            // 
+            this.tbShowingSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbShowingSearch.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbShowingSearch.Location = new System.Drawing.Point(134, 245);
+            this.tbShowingSearch.Name = "tbShowingSearch";
+            this.tbShowingSearch.Size = new System.Drawing.Size(176, 20);
+            this.tbShowingSearch.TabIndex = 27;
+            this.tbShowingSearch.Text = "Sökord";
+            this.tbShowingSearch.Click += new System.EventHandler(this.tbSearchProBuyer_Click);
+            this.tbShowingSearch.TextChanged += new System.EventHandler(this.tbShowingSearch_TextChanged);
+            // 
+            // btnShowingSearch
+            // 
+            this.btnShowingSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnShowingSearch.Location = new System.Drawing.Point(316, 244);
+            this.btnShowingSearch.Name = "btnShowingSearch";
+            this.btnShowingSearch.Size = new System.Drawing.Size(40, 23);
+            this.btnShowingSearch.TabIndex = 26;
+            this.btnShowingSearch.Text = "Sök";
+            this.btnShowingSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnShowingSearch.UseVisualStyleBackColor = true;
+            this.btnShowingSearch.Click += new System.EventHandler(this.btnSearchProBuyer_Click_1);
             // 
             // cbShowingUpdateBuyer
             // 
@@ -255,6 +284,16 @@
             this.cbShowingDeleteBuyer.TabIndex = 41;
             this.cbShowingDeleteBuyer.Text = "Ta bort";
             this.cbShowingDeleteBuyer.UseVisualStyleBackColor = true;
+            // 
+            // btnShowingSubmit
+            // 
+            this.btnShowingSubmit.Location = new System.Drawing.Point(388, 243);
+            this.btnShowingSubmit.Name = "btnShowingSubmit";
+            this.btnShowingSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnShowingSubmit.TabIndex = 43;
+            this.btnShowingSubmit.Text = "Utför";
+            this.btnShowingSubmit.UseVisualStyleBackColor = true;
+            this.btnShowingSubmit.Click += new System.EventHandler(this.btnShowingSubmit_Click);
             // 
             // cbShowingRegisterBuyer
             // 
@@ -377,6 +416,22 @@
             this.rbShowingDeleteBuyer.Text = "Ta bort spekulant från visning";
             this.rbShowingDeleteBuyer.UseVisualStyleBackColor = true;
             // 
+            // dgvShowingCurrentShowings
+            // 
+            this.dgvShowingCurrentShowings.AllowUserToAddRows = false;
+            this.dgvShowingCurrentShowings.AllowUserToDeleteRows = false;
+            this.dgvShowingCurrentShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvShowingCurrentShowings.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvShowingCurrentShowings.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvShowingCurrentShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvShowingCurrentShowings.Location = new System.Drawing.Point(6, 33);
+            this.dgvShowingCurrentShowings.MultiSelect = false;
+            this.dgvShowingCurrentShowings.Name = "dgvShowingCurrentShowings";
+            this.dgvShowingCurrentShowings.Size = new System.Drawing.Size(457, 260);
+            this.dgvShowingCurrentShowings.TabIndex = 12;
+            this.dgvShowingCurrentShowings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowingCurrentShowings_CellClicked);
+            this.dgvShowingCurrentShowings.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingCurrentShowings_DBC);
+            // 
             // rbShowingDeleteShowing
             // 
             this.rbShowingDeleteShowing.AutoSize = true;
@@ -417,22 +472,6 @@
             this.lblShowingChoose.TabIndex = 13;
             this.lblShowingChoose.Text = "Välj ett objekt eller en spekulant från listan";
             // 
-            // dgvShowingCurrentShowings
-            // 
-            this.dgvShowingCurrentShowings.AllowUserToAddRows = false;
-            this.dgvShowingCurrentShowings.AllowUserToDeleteRows = false;
-            this.dgvShowingCurrentShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvShowingCurrentShowings.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvShowingCurrentShowings.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dgvShowingCurrentShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvShowingCurrentShowings.Location = new System.Drawing.Point(6, 33);
-            this.dgvShowingCurrentShowings.MultiSelect = false;
-            this.dgvShowingCurrentShowings.Name = "dgvShowingCurrentShowings";
-            this.dgvShowingCurrentShowings.Size = new System.Drawing.Size(457, 260);
-            this.dgvShowingCurrentShowings.TabIndex = 12;
-            this.dgvShowingCurrentShowings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowingCurrentShowings_CellClicked);
-            this.dgvShowingCurrentShowings.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingCurrentShowings_DBC);
-            // 
             // gbShowing
             // 
             this.gbShowing.Controls.Add(this.btnShowingUpdate);
@@ -451,30 +490,6 @@
             this.gbShowing.TabIndex = 10;
             this.gbShowing.TabStop = false;
             this.gbShowing.Text = "Administrera visning";
-            // 
-            // tbShowingSearch
-            // 
-            this.tbShowingSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbShowingSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbShowingSearch.Location = new System.Drawing.Point(134, 245);
-            this.tbShowingSearch.Name = "tbShowingSearch";
-            this.tbShowingSearch.Size = new System.Drawing.Size(176, 20);
-            this.tbShowingSearch.TabIndex = 27;
-            this.tbShowingSearch.Text = "Sökord";
-            this.tbShowingSearch.Click += new System.EventHandler(this.tbSearchProBuyer_Click);
-            this.tbShowingSearch.TextChanged += new System.EventHandler(this.tbShowingSearch_TextChanged);
-            // 
-            // btnShowingSearch
-            // 
-            this.btnShowingSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnShowingSearch.Location = new System.Drawing.Point(316, 244);
-            this.btnShowingSearch.Name = "btnShowingSearch";
-            this.btnShowingSearch.Size = new System.Drawing.Size(40, 23);
-            this.btnShowingSearch.TabIndex = 26;
-            this.btnShowingSearch.Text = "Sök";
-            this.btnShowingSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnShowingSearch.UseVisualStyleBackColor = true;
-            this.btnShowingSearch.Click += new System.EventHandler(this.btnSearchProBuyer_Click_1);
             // 
             // btnShowingUpdate
             // 
@@ -509,6 +524,13 @@
             this.lblShowingSelectedObject.Text = "selectedObject(invisible)";
             this.lblShowingSelectedObject.Visible = false;
             // 
+            // dtpShowingShowingDate
+            // 
+            this.dtpShowingShowingDate.Location = new System.Drawing.Point(6, 603);
+            this.dtpShowingShowingDate.Name = "dtpShowingShowingDate";
+            this.dtpShowingShowingDate.Size = new System.Drawing.Size(379, 20);
+            this.dtpShowingShowingDate.TabIndex = 2;
+            // 
             // dgvShowingAllObjects
             // 
             this.dgvShowingAllObjects.AllowUserToAddRows = false;
@@ -523,6 +545,15 @@
             this.dgvShowingAllObjects.TabIndex = 8;
             this.dgvShowingAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectShowing_CellClicked);
             this.dgvShowingAllObjects.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingObject_DBC);
+            // 
+            // lblDateShowing
+            // 
+            this.lblDateShowing.AutoSize = true;
+            this.lblDateShowing.Location = new System.Drawing.Point(6, 574);
+            this.lblDateShowing.Name = "lblDateShowing";
+            this.lblDateShowing.Size = new System.Drawing.Size(66, 13);
+            this.lblDateShowing.TabIndex = 7;
+            this.lblDateShowing.Text = "Välj datum";
             // 
             // dgvShowingAllBuyers
             // 
@@ -540,13 +571,6 @@
             this.dgvShowingAllBuyers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyerShowing_CellClicked);
             this.dgvShowingAllBuyers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingProspecitveBuyer_DBC);
             // 
-            // dtpShowingShowingDate
-            // 
-            this.dtpShowingShowingDate.Location = new System.Drawing.Point(6, 603);
-            this.dtpShowingShowingDate.Name = "dtpShowingShowingDate";
-            this.dtpShowingShowingDate.Size = new System.Drawing.Size(379, 20);
-            this.dtpShowingShowingDate.TabIndex = 2;
-            // 
             // lblShowingShowing
             // 
             this.lblShowingShowing.AutoSize = true;
@@ -555,15 +579,6 @@
             this.lblShowingShowing.Size = new System.Drawing.Size(67, 13);
             this.lblShowingShowing.TabIndex = 5;
             this.lblShowingShowing.Text = "Välj objekt";
-            // 
-            // lblDateShowing
-            // 
-            this.lblDateShowing.AutoSize = true;
-            this.lblDateShowing.Location = new System.Drawing.Point(6, 574);
-            this.lblDateShowing.Name = "lblDateShowing";
-            this.lblDateShowing.Size = new System.Drawing.Size(66, 13);
-            this.lblDateShowing.TabIndex = 7;
-            this.lblDateShowing.Text = "Välj datum";
             // 
             // btnShowingRegisterShowing
             // 
@@ -588,9 +603,6 @@
             // 
             this.tpObjectObjectTabPage.BackColor = System.Drawing.Color.White;
             this.tpObjectObjectTabPage.Controls.Add(this.label1);
-            this.tpObjectObjectTabPage.Controls.Add(this.lblTemp);
-            this.tpObjectObjectTabPage.Controls.Add(this.lblObjectObjectPrice);
-            this.tpObjectObjectTabPage.Controls.Add(this.lblObjCity);
             this.tpObjectObjectTabPage.Controls.Add(this.gbObjectObjectInfo);
             this.tpObjectObjectTabPage.Controls.Add(this.gbObjectPicture);
             this.tpObjectObjectTabPage.Controls.Add(this.gbObjectAllObjects);
@@ -607,6 +619,15 @@
             this.tpObjectObjectTabPage.Size = new System.Drawing.Size(1078, 642);
             this.tpObjectObjectTabPage.TabIndex = 1;
             this.tpObjectObjectTabPage.Text = "Objekt";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(597, 516);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Välj vad du vill göra";
             // 
             // gbObjectObjectInfo
             // 
@@ -650,30 +671,6 @@
             this.pbObjectsObjectPicture.TabIndex = 0;
             this.pbObjectsObjectPicture.TabStop = false;
             // 
-            // btnObjectSearch
-            // 
-            this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectSearch.Location = new System.Drawing.Point(422, 319);
-            this.btnObjectSearch.Name = "btnObjectSearch";
-            this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
-            this.btnObjectSearch.TabIndex = 18;
-            this.btnObjectSearch.Text = "Sök";
-            this.btnObjectSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnObjectSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnObjectSearch.UseVisualStyleBackColor = true;
-            this.btnObjectSearch.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // tbObjectSearch
-            // 
-            this.tbObjectSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbObjectSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbObjectSearch.Location = new System.Drawing.Point(141, 321);
-            this.tbObjectSearch.Name = "tbObjectSearch";
-            this.tbObjectSearch.Size = new System.Drawing.Size(222, 20);
-            this.tbObjectSearch.TabIndex = 17;
-            this.tbObjectSearch.Text = "Sökord";
-            this.tbObjectSearch.Click += new System.EventHandler(this.tbObjSearchClick);
-            // 
             // btnObjectShowMap
             // 
             this.btnObjectShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectShowMap.Image")));
@@ -687,6 +684,17 @@
             this.btnObjectShowMap.UseVisualStyleBackColor = true;
             this.btnObjectShowMap.Click += new System.EventHandler(this.btnShowMap_Click);
             // 
+            // lblObjectObjAddress
+            // 
+            this.lblObjectObjAddress.AutoSize = true;
+            this.lblObjectObjAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObjectObjAddress.Location = new System.Drawing.Point(6, 310);
+            this.lblObjectObjAddress.Name = "lblObjectObjAddress";
+            this.lblObjectObjAddress.Size = new System.Drawing.Size(105, 31);
+            this.lblObjectObjAddress.TabIndex = 1;
+            this.lblObjectObjAddress.Text = "Adress";
+            this.lblObjectObjAddress.Click += new System.EventHandler(this.lblObjAddress_Click);
+            // 
             // gbObjectAllObjects
             // 
             this.gbObjectAllObjects.Controls.Add(this.lblObjectSearch);
@@ -699,6 +707,15 @@
             this.gbObjectAllObjects.TabIndex = 41;
             this.gbObjectAllObjects.TabStop = false;
             this.gbObjectAllObjects.Text = "Objekt";
+            // 
+            // lblObjectSearch
+            // 
+            this.lblObjectSearch.AutoSize = true;
+            this.lblObjectSearch.Location = new System.Drawing.Point(5, 324);
+            this.lblObjectSearch.Name = "lblObjectSearch";
+            this.lblObjectSearch.Size = new System.Drawing.Size(72, 13);
+            this.lblObjectSearch.TabIndex = 19;
+            this.lblObjectSearch.Text = "Sök objekt:";
             // 
             // dgvObjectAllObjects
             // 
@@ -716,6 +733,30 @@
             this.dgvObjectAllObjects.Size = new System.Drawing.Size(466, 284);
             this.dgvObjectAllObjects.TabIndex = 16;
             this.dgvObjectAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObject_CellClick);
+            // 
+            // tbObjectSearch
+            // 
+            this.tbObjectSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbObjectSearch.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbObjectSearch.Location = new System.Drawing.Point(141, 321);
+            this.tbObjectSearch.Name = "tbObjectSearch";
+            this.tbObjectSearch.Size = new System.Drawing.Size(222, 20);
+            this.tbObjectSearch.TabIndex = 17;
+            this.tbObjectSearch.Text = "Sökord";
+            this.tbObjectSearch.Click += new System.EventHandler(this.tbObjSearchClick);
+            // 
+            // btnObjectSearch
+            // 
+            this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnObjectSearch.Location = new System.Drawing.Point(422, 319);
+            this.btnObjectSearch.Name = "btnObjectSearch";
+            this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
+            this.btnObjectSearch.TabIndex = 18;
+            this.btnObjectSearch.Text = "Sök";
+            this.btnObjectSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnObjectSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnObjectSearch.UseVisualStyleBackColor = true;
+            this.btnObjectSearch.Click += new System.EventHandler(this.button2_Click);
             // 
             // tbObjectDeleteObject
             // 
@@ -1014,37 +1055,6 @@
             this.lblObjectOwnerSsnr.TabIndex = 0;
             this.lblObjectOwnerSsnr.Text = "Personnummer:";
             // 
-            // lblObjCity
-            // 
-            this.lblObjCity.AutoSize = true;
-            this.lblObjCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjCity.Location = new System.Drawing.Point(817, 580);
-            this.lblObjCity.Name = "lblObjCity";
-            this.lblObjCity.Size = new System.Drawing.Size(47, 20);
-            this.lblObjCity.TabIndex = 21;
-            this.lblObjCity.Text = "Stad";
-            // 
-            // lblObjectObjectPrice
-            // 
-            this.lblObjectObjectPrice.AutoSize = true;
-            this.lblObjectObjectPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjectObjectPrice.Location = new System.Drawing.Point(815, 555);
-            this.lblObjectObjectPrice.Name = "lblObjectObjectPrice";
-            this.lblObjectObjectPrice.Size = new System.Drawing.Size(49, 25);
-            this.lblObjectObjectPrice.TabIndex = 3;
-            this.lblObjectObjectPrice.Text = "Pris";
-            // 
-            // lblObjectObjAddress
-            // 
-            this.lblObjectObjAddress.AutoSize = true;
-            this.lblObjectObjAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjectObjAddress.Location = new System.Drawing.Point(6, 310);
-            this.lblObjectObjAddress.Name = "lblObjectObjAddress";
-            this.lblObjectObjAddress.Size = new System.Drawing.Size(105, 31);
-            this.lblObjectObjAddress.TabIndex = 1;
-            this.lblObjectObjAddress.Text = "Adress";
-            this.lblObjectObjAddress.Click += new System.EventHandler(this.lblObjAddress_Click);
-            // 
             // tpStartStartTabPage
             // 
             this.tpStartStartTabPage.BackColor = System.Drawing.SystemColors.Menu;
@@ -1194,6 +1204,15 @@
             this.bgBrokerAdministrateBroker.TabIndex = 0;
             this.bgBrokerAdministrateBroker.TabStop = false;
             this.bgBrokerAdministrateBroker.Text = "Administrera mäklare";
+            // 
+            // lblBrokerChoice
+            // 
+            this.lblBrokerChoice.AutoSize = true;
+            this.lblBrokerChoice.Location = new System.Drawing.Point(688, 227);
+            this.lblBrokerChoice.Name = "lblBrokerChoice";
+            this.lblBrokerChoice.Size = new System.Drawing.Size(120, 13);
+            this.lblBrokerChoice.TabIndex = 29;
+            this.lblBrokerChoice.Text = "Välj vad du vill göra";
             // 
             // lblBrokerSelectedBroker
             // 
@@ -1468,60 +1487,6 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
-            // lblShowingAdministrateBuyerChoice
-            // 
-            this.lblShowingAdministrateBuyerChoice.AutoSize = true;
-            this.lblShowingAdministrateBuyerChoice.Location = new System.Drawing.Point(11, 151);
-            this.lblShowingAdministrateBuyerChoice.Name = "lblShowingAdministrateBuyerChoice";
-            this.lblShowingAdministrateBuyerChoice.Size = new System.Drawing.Size(120, 13);
-            this.lblShowingAdministrateBuyerChoice.TabIndex = 22;
-            this.lblShowingAdministrateBuyerChoice.Text = "Välj vad du vill göra";
-            // 
-            // lblShowingBuyerSearch
-            // 
-            this.lblShowingBuyerSearch.AutoSize = true;
-            this.lblShowingBuyerSearch.Location = new System.Drawing.Point(6, 248);
-            this.lblShowingBuyerSearch.Name = "lblShowingBuyerSearch";
-            this.lblShowingBuyerSearch.Size = new System.Drawing.Size(92, 13);
-            this.lblShowingBuyerSearch.TabIndex = 44;
-            this.lblShowingBuyerSearch.Text = "Sök spekulant:";
-            // 
-            // lblBrokerChoice
-            // 
-            this.lblBrokerChoice.AutoSize = true;
-            this.lblBrokerChoice.Location = new System.Drawing.Point(688, 227);
-            this.lblBrokerChoice.Name = "lblBrokerChoice";
-            this.lblBrokerChoice.Size = new System.Drawing.Size(120, 13);
-            this.lblBrokerChoice.TabIndex = 29;
-            this.lblBrokerChoice.Text = "Välj vad du vill göra";
-            // 
-            // lblTemp
-            // 
-            this.lblTemp.AutoSize = true;
-            this.lblTemp.Location = new System.Drawing.Point(786, 532);
-            this.lblTemp.Name = "lblTemp";
-            this.lblTemp.Size = new System.Drawing.Size(134, 13);
-            this.lblTemp.TabIndex = 44;
-            this.lblTemp.Text = "Förslag: ta bort dessa:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(597, 516);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 13);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Välj vad du vill göra";
-            // 
-            // lblObjectSearch
-            // 
-            this.lblObjectSearch.AutoSize = true;
-            this.lblObjectSearch.Location = new System.Drawing.Point(5, 324);
-            this.lblObjectSearch.Name = "lblObjectSearch";
-            this.lblObjectSearch.Size = new System.Drawing.Size(72, 13);
-            this.lblObjectSearch.TabIndex = 19;
-            this.lblObjectSearch.Text = "Sök objekt:";
-            // 
             // frameMainMainframe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1623,12 +1588,10 @@
         private System.Windows.Forms.Label lblObjectPricePerKvm;
         private System.Windows.Forms.GroupBox gbObjectOwnerInfo;
         private System.Windows.Forms.Button btnObjectShowMap;
-        private System.Windows.Forms.Label lblObjCity;
         private System.Windows.Forms.Button btnObjectSearch;
         private System.Windows.Forms.TextBox tbObjectSearch;
         private System.Windows.Forms.RichTextBox rtbObjectObjectInfo;
         private System.Windows.Forms.DataGridView dgvObjectAllObjects;
-        private System.Windows.Forms.Label lblObjectObjectPrice;
         private System.Windows.Forms.Label lblObjectObjAddress;
         private System.Windows.Forms.PictureBox pbObjectsObjectPicture;
         private System.Windows.Forms.CheckBox cbObjectUpdate;
@@ -1700,7 +1663,6 @@
         private System.Windows.Forms.Label lblShowingAdministrateBuyerChoice;
         private System.Windows.Forms.Label lblShowingBuyerSearch;
         private System.Windows.Forms.Label lblBrokerChoice;
-        private System.Windows.Forms.Label lblTemp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblObjectSearch;
 
