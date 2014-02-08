@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.btnShowingSubmit = new System.Windows.Forms.Button();
@@ -193,7 +193,7 @@
             this.tpShowingShowingTabPage.Location = new System.Drawing.Point(4, 22);
             this.tpShowingShowingTabPage.Name = "tpShowingShowingTabPage";
             this.tpShowingShowingTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tpShowingShowingTabPage.Size = new System.Drawing.Size(1083, 711);
+            this.tpShowingShowingTabPage.Size = new System.Drawing.Size(1078, 664);
             this.tpShowingShowingTabPage.TabIndex = 6;
             this.tpShowingShowingTabPage.Text = "Visnig";
             this.tpShowingShowingTabPage.UseVisualStyleBackColor = true;
@@ -601,7 +601,7 @@
             this.tpObjectObjectTabPage.Location = new System.Drawing.Point(4, 22);
             this.tpObjectObjectTabPage.Name = "tpObjectObjectTabPage";
             this.tpObjectObjectTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tpObjectObjectTabPage.Size = new System.Drawing.Size(1083, 711);
+            this.tpObjectObjectTabPage.Size = new System.Drawing.Size(1078, 664);
             this.tpObjectObjectTabPage.TabIndex = 1;
             this.tpObjectObjectTabPage.Text = "Objekt";
             this.tpObjectObjectTabPage.UseVisualStyleBackColor = true;
@@ -609,9 +609,9 @@
             // gbObjectObjectInfo
             // 
             this.gbObjectObjectInfo.Controls.Add(this.rtbObjectObjectInfo);
-            this.gbObjectObjectInfo.Location = new System.Drawing.Point(10, 446);
+            this.gbObjectObjectInfo.Location = new System.Drawing.Point(10, 362);
             this.gbObjectObjectInfo.Name = "gbObjectObjectInfo";
-            this.gbObjectObjectInfo.Size = new System.Drawing.Size(220, 251);
+            this.gbObjectObjectInfo.Size = new System.Drawing.Size(220, 261);
             this.gbObjectObjectInfo.TabIndex = 43;
             this.gbObjectObjectInfo.TabStop = false;
             this.gbObjectObjectInfo.Text = "Objektsbeskrivning";
@@ -620,7 +620,7 @@
             // 
             this.rtbObjectObjectInfo.Location = new System.Drawing.Point(7, 17);
             this.rtbObjectObjectInfo.Name = "rtbObjectObjectInfo";
-            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(207, 228);
+            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(207, 238);
             this.rtbObjectObjectInfo.TabIndex = 10;
             this.rtbObjectObjectInfo.Text = "";
             // 
@@ -649,7 +649,7 @@
             // 
             this.btnObjectSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectSearch.Image")));
             this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectSearch.Location = new System.Drawing.Point(716, 367);
+            this.btnObjectSearch.Location = new System.Drawing.Point(715, 362);
             this.btnObjectSearch.Name = "btnObjectSearch";
             this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
             this.btnObjectSearch.TabIndex = 18;
@@ -662,7 +662,7 @@
             // 
             this.tbObjectSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbObjectSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbObjectSearch.Location = new System.Drawing.Point(600, 369);
+            this.tbObjectSearch.Location = new System.Drawing.Point(599, 364);
             this.tbObjectSearch.Name = "tbObjectSearch";
             this.tbObjectSearch.Size = new System.Drawing.Size(101, 20);
             this.tbObjectSearch.TabIndex = 17;
@@ -673,7 +673,7 @@
             // 
             this.btnObjectShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectShowMap.Image")));
             this.btnObjectShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectShowMap.Location = new System.Drawing.Point(518, 367);
+            this.btnObjectShowMap.Location = new System.Drawing.Point(458, 362);
             this.btnObjectShowMap.Name = "btnObjectShowMap";
             this.btnObjectShowMap.Size = new System.Drawing.Size(65, 23);
             this.btnObjectShowMap.TabIndex = 36;
@@ -696,8 +696,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -712,7 +712,7 @@
             // tbObjectDeleteObject
             // 
             this.tbObjectDeleteObject.AutoSize = true;
-            this.tbObjectDeleteObject.Location = new System.Drawing.Point(470, 628);
+            this.tbObjectDeleteObject.Location = new System.Drawing.Point(457, 591);
             this.tbObjectDeleteObject.Name = "tbObjectDeleteObject";
             this.tbObjectDeleteObject.Size = new System.Drawing.Size(106, 17);
             this.tbObjectDeleteObject.TabIndex = 40;
@@ -722,7 +722,7 @@
             // 
             // btnObjectSubmit
             // 
-            this.btnObjectSubmit.Location = new System.Drawing.Point(584, 582);
+            this.btnObjectSubmit.Location = new System.Drawing.Point(571, 545);
             this.btnObjectSubmit.Name = "btnObjectSubmit";
             this.btnObjectSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnObjectSubmit.TabIndex = 39;
@@ -734,7 +734,7 @@
             // 
             this.cbObjectUpdate.AccessibleName = "cbObjUpdate";
             this.cbObjectUpdate.AutoSize = true;
-            this.cbObjectUpdate.Location = new System.Drawing.Point(470, 605);
+            this.cbObjectUpdate.Location = new System.Drawing.Point(457, 568);
             this.cbObjectUpdate.Name = "cbObjectUpdate";
             this.cbObjectUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbObjectUpdate.TabIndex = 6;
@@ -745,7 +745,7 @@
             // cbObjectRegister
             // 
             this.cbObjectRegister.AutoSize = true;
-            this.cbObjectRegister.Location = new System.Drawing.Point(471, 582);
+            this.cbObjectRegister.Location = new System.Drawing.Point(458, 545);
             this.cbObjectRegister.Name = "cbObjectRegister";
             this.cbObjectRegister.Size = new System.Drawing.Size(84, 17);
             this.cbObjectRegister.TabIndex = 8;
@@ -773,9 +773,9 @@
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectArea);
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectNumberOfRooms);
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectPricePerKvm);
-            this.bgObjectObjectInfo2.Location = new System.Drawing.Point(236, 428);
+            this.bgObjectObjectInfo2.Location = new System.Drawing.Point(236, 363);
             this.bgObjectObjectInfo2.Name = "bgObjectObjectInfo2";
-            this.bgObjectObjectInfo2.Size = new System.Drawing.Size(216, 254);
+            this.bgObjectObjectInfo2.Size = new System.Drawing.Size(216, 260);
             this.bgObjectObjectInfo2.TabIndex = 38;
             this.bgObjectObjectInfo2.TabStop = false;
             this.bgObjectObjectInfo2.Text = "Information";
@@ -934,7 +934,7 @@
             this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerName);
             this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerPhoneNR);
             this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerSsnr);
-            this.gbObjectOwnerInfo.Location = new System.Drawing.Point(470, 428);
+            this.gbObjectOwnerInfo.Location = new System.Drawing.Point(457, 391);
             this.gbObjectOwnerInfo.Name = "gbObjectOwnerInfo";
             this.gbObjectOwnerInfo.Size = new System.Drawing.Size(218, 144);
             this.gbObjectOwnerInfo.TabIndex = 37;
@@ -1010,7 +1010,7 @@
             // 
             this.lblObjCity.AutoSize = true;
             this.lblObjCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjCity.Location = new System.Drawing.Point(11, 418);
+            this.lblObjCity.Location = new System.Drawing.Point(684, 449);
             this.lblObjCity.Name = "lblObjCity";
             this.lblObjCity.Size = new System.Drawing.Size(47, 20);
             this.lblObjCity.TabIndex = 21;
@@ -1020,7 +1020,7 @@
             // 
             this.lblObjectObjectPrice.AutoSize = true;
             this.lblObjectObjectPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjectObjectPrice.Location = new System.Drawing.Point(254, 378);
+            this.lblObjectObjectPrice.Location = new System.Drawing.Point(682, 422);
             this.lblObjectObjectPrice.Name = "lblObjectObjectPrice";
             this.lblObjectObjectPrice.Size = new System.Drawing.Size(49, 25);
             this.lblObjectObjectPrice.TabIndex = 3;
@@ -1030,7 +1030,7 @@
             // 
             this.lblObjectObjAddress.AutoSize = true;
             this.lblObjectObjAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjectObjAddress.Location = new System.Drawing.Point(9, 372);
+            this.lblObjectObjAddress.Location = new System.Drawing.Point(681, 391);
             this.lblObjectObjAddress.Name = "lblObjectObjAddress";
             this.lblObjectObjAddress.Size = new System.Drawing.Size(105, 31);
             this.lblObjectObjAddress.TabIndex = 1;
@@ -1050,7 +1050,7 @@
             this.tpStartStartTabPage.Location = new System.Drawing.Point(4, 22);
             this.tpStartStartTabPage.Name = "tpStartStartTabPage";
             this.tpStartStartTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStartStartTabPage.Size = new System.Drawing.Size(1083, 711);
+            this.tpStartStartTabPage.Size = new System.Drawing.Size(1078, 664);
             this.tpStartStartTabPage.TabIndex = 0;
             this.tpStartStartTabPage.Text = "Start";
             // 
@@ -1133,10 +1133,10 @@
             this.tabControl.Controls.Add(this.tpShowingShowingTabPage);
             this.tabControl.Controls.Add(this.tpBrokerBrokerTabPage);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(-1, -1);
+            this.tabControl.Location = new System.Drawing.Point(4, -1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1091, 737);
+            this.tabControl.Size = new System.Drawing.Size(1086, 690);
             this.tabControl.TabIndex = 0;
             // 
             // tpBrokerBrokerTabPage
@@ -1487,7 +1487,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1091, 720);
+            this.ClientSize = new System.Drawing.Size(1091, 689);
             this.Controls.Add(this.tabControl);
             this.Menu = this.mainMenu;
             this.Name = "frameMainMainframe";
