@@ -151,7 +151,7 @@ namespace praktikfall
 
                 }
 
-                else if (tbBuyerName.Text.Equals(""))
+                else if (tbShowingBuyerName.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit ett namn.");
                 }
@@ -169,7 +169,7 @@ namespace praktikfall
                 else
                 {
                     string ssnr = tbShowingBuyerSsnr.Text;
-                    string name = tbBuyerName.Text;
+                    string name = tbShowingBuyerName.Text;
                     string phonenr = tbShowingBuyerTel.Text;
                     string email = tbShowingBuyerEmail.Text;
                     controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
@@ -309,7 +309,7 @@ namespace praktikfall
                 string selectedItem = row.Cells["buyerSsnr"].Value.ToString();
                 lblShowingSelectedBuyer.Text = selectedItem;
                 tbShowingBuyerSsnr.Text = row.Cells["buyerSsnr"].Value.ToString();
-                tbBuyerName.Text = row.Cells["name"].Value.ToString();
+                tbShowingBuyerName.Text = row.Cells["name"].Value.ToString();
                 tbShowingBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
                 tbShowingBuyerEmail.Text = row.Cells["email"].Value.ToString();
 
@@ -365,7 +365,7 @@ namespace praktikfall
                 DataGridViewRow row = this.dgvShowingAllBuyers.Rows[e.RowIndex];
 
                 tbShowingBuyerSsnr.Text = row.Cells["buyerSsnr"].Value.ToString();
-                tbBuyerName.Text = row.Cells["name"].Value.ToString();
+                tbShowingBuyerName.Text = row.Cells["name"].Value.ToString();
                 tbShowingBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
                 tbShowingBuyerEmail.Text = row.Cells["email"].Value.ToString();
 
@@ -525,7 +525,7 @@ namespace praktikfall
 
                 }
 
-                else if (tbBuyerName.Text.Equals(""))
+                else if (tbShowingBuyerName.Text.Equals(""))
                 {
                     MessageBox.Show("Du har ej angivit ett namn.");
                 }
@@ -544,7 +544,7 @@ namespace praktikfall
                 {
 
                     string ssnr = tbShowingBuyerSsnr.Text;
-                    string name = tbBuyerName.Text;
+                    string name = tbShowingBuyerName.Text;
                     string phonenr = tbShowingBuyerTel.Text;
                     string email = tbShowingBuyerEmail.Text;
                     bool prospectiveBuyerExists = controller.ProspectiveBuyerExists(ssnr);
@@ -607,7 +607,7 @@ namespace praktikfall
             {
 
                 string buyerSsnr = tbShowingBuyerSsnr.Text;
-                string name = tbBuyerName.Text;
+                string name = tbShowingBuyerName.Text;
                 string phoneNr = tbShowingBuyerTel.Text;
                 string email = tbShowingBuyerEmail.Text;
                 int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
@@ -877,7 +877,7 @@ namespace praktikfall
         private void btnShowingSubmit_Click(object sender, EventArgs e)
         {
             string buyerSsnr = tbShowingBuyerSsnr.Text;
-            string name = tbBuyerName.Text;
+            string name = tbShowingBuyerName.Text;
             string phoneNr = tbShowingBuyerTel.Text;
             string email = tbShowingBuyerEmail.Text;
 
@@ -917,7 +917,7 @@ namespace praktikfall
                     {
                         Populate();
                         tbShowingBuyerEmail.Text = "";
-                        tbBuyerName.Text = "";
+                        tbShowingBuyerName.Text = "";
                         tbShowingBuyerSsnr.Text = "";
                         tbShowingBuyerTel.Text = "";
                         MessageBox.Show("Spekulant borttagen.");
@@ -1017,6 +1017,33 @@ namespace praktikfall
         private void lblObjectObjectPrice_Click(object sender, EventArgs e)
         {
                     }
+
+        private void cbShowingRegister_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowingRegisterBuyer.Checked)
+            {
+                tbShowingBuyerEmail.Text = "";
+                tbShowingBuyerSsnr.Text = "";
+                tbShowingBuyerTel.Text = "";
+                tbShowingBuyerName.Text = "";
+            }
+        }
+
+       
+
+        private void cbBrokerRegister_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbBrokerRegister.Checked)
+            {
+                tbBrokerBrokerSsnr.Text = "";
+                tbBrokerBrokerPw.Text = "";
+                tbBrokerBrokerPhoneNumber.Text = "";
+                tbBrokerBrokerName.Text = "";
+                tbBrokerBrokerEmail.Text = "";
+                tbBrokerBrokerCity.Text = "";
+                tbBrokerBrokerAdress.Text = "";
+            }
+        }
     }
 }
 

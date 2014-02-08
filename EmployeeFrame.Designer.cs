@@ -43,7 +43,7 @@
             this.cbShowingRegisterBuyer = new System.Windows.Forms.CheckBox();
             this.tbShowingBuyerEmail = new System.Windows.Forms.TextBox();
             this.tbShowingBuyerTel = new System.Windows.Forms.TextBox();
-            this.tbBuyerName = new System.Windows.Forms.TextBox();
+            this.tbShowingBuyerName = new System.Windows.Forms.TextBox();
             this.tbShowingBuyerSsnr = new System.Windows.Forms.TextBox();
             this.lblShowingBuyerEmail = new System.Windows.Forms.Label();
             this.lblShowingBuyerTel = new System.Windows.Forms.Label();
@@ -210,7 +210,7 @@
             this.gbShowingAdministrateBuyer.Controls.Add(this.cbShowingRegisterBuyer);
             this.gbShowingAdministrateBuyer.Controls.Add(this.tbShowingBuyerEmail);
             this.gbShowingAdministrateBuyer.Controls.Add(this.tbShowingBuyerTel);
-            this.gbShowingAdministrateBuyer.Controls.Add(this.tbBuyerName);
+            this.gbShowingAdministrateBuyer.Controls.Add(this.tbShowingBuyerName);
             this.gbShowingAdministrateBuyer.Controls.Add(this.tbShowingBuyerSsnr);
             this.gbShowingAdministrateBuyer.Controls.Add(this.lblShowingBuyerEmail);
             this.gbShowingAdministrateBuyer.Controls.Add(this.lblShowingBuyerTel);
@@ -304,6 +304,7 @@
             this.cbShowingRegisterBuyer.TabIndex = 40;
             this.cbShowingRegisterBuyer.Text = "Registrera";
             this.cbShowingRegisterBuyer.UseVisualStyleBackColor = true;
+            this.cbShowingRegisterBuyer.CheckedChanged += new System.EventHandler(this.cbShowingRegister_CheckedChanged);
             // 
             // tbShowingBuyerEmail
             // 
@@ -319,12 +320,12 @@
             this.tbShowingBuyerTel.Size = new System.Drawing.Size(222, 20);
             this.tbShowingBuyerTel.TabIndex = 33;
             // 
-            // tbBuyerName
+            // tbShowingBuyerName
             // 
-            this.tbBuyerName.Location = new System.Drawing.Point(134, 61);
-            this.tbBuyerName.Name = "tbBuyerName";
-            this.tbBuyerName.Size = new System.Drawing.Size(222, 20);
-            this.tbBuyerName.TabIndex = 32;
+            this.tbShowingBuyerName.Location = new System.Drawing.Point(134, 61);
+            this.tbShowingBuyerName.Name = "tbShowingBuyerName";
+            this.tbShowingBuyerName.Size = new System.Drawing.Size(222, 20);
+            this.tbShowingBuyerName.TabIndex = 32;
             // 
             // tbShowingBuyerSsnr
             // 
@@ -347,9 +348,9 @@
             this.lblShowingBuyerTel.AutoSize = true;
             this.lblShowingBuyerTel.Location = new System.Drawing.Point(9, 89);
             this.lblShowingBuyerTel.Name = "lblShowingBuyerTel";
-            this.lblShowingBuyerTel.Size = new System.Drawing.Size(54, 13);
+            this.lblShowingBuyerTel.Size = new System.Drawing.Size(97, 13);
             this.lblShowingBuyerTel.TabIndex = 30;
-            this.lblShowingBuyerTel.Text = "Telefon:";
+            this.lblShowingBuyerTel.Text = "Telefonnummer:";
             // 
             // lblShowingBuyerName
             // 
@@ -1265,6 +1266,7 @@
             this.cbBrokerRegister.TabIndex = 27;
             this.cbBrokerRegister.Text = "Registrera";
             this.cbBrokerRegister.UseVisualStyleBackColor = true;
+            this.cbBrokerRegister.CheckedChanged += new System.EventHandler(this.cbBrokerRegister_CheckedChanged);
             // 
             // lblBrokerPw
             // 
@@ -1608,7 +1610,7 @@
         private System.Windows.Forms.GroupBox gbShowingAdministrateBuyer;
         private System.Windows.Forms.TextBox tbShowingBuyerEmail;
         private System.Windows.Forms.TextBox tbShowingBuyerTel;
-        private System.Windows.Forms.TextBox tbBuyerName;
+        private System.Windows.Forms.TextBox tbShowingBuyerName;
         private System.Windows.Forms.TextBox tbShowingBuyerSsnr;
         private System.Windows.Forms.Label lblShowingBuyerEmail;
         private System.Windows.Forms.Label lblShowingBuyerTel;
