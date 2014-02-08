@@ -134,7 +134,7 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problem i sökfunktion\n" + ex);
+                MessageBox.Show("Problem i sökfunktion.\n" + ex);
             }
 
         }
@@ -147,23 +147,23 @@ namespace praktikfall
                 int parsedValue;
                 if (!int.TryParse(tbShowingBuyerSsnr.Text, out parsedValue))
                 {
-                    MessageBox.Show("Personnummer får endast innehålla siffror");
+                    MessageBox.Show("Personnummer får endast innehålla siffror.");
 
                 }
 
                 else if (tbBuyerName.Text.Equals(""))
                 {
-                    MessageBox.Show("Du har ej angivit ett namn");
+                    MessageBox.Show("Du har ej angivit ett namn.");
                 }
 
                 else if (tbShowingBuyerTel.Text.Equals(""))
                 {
-                    MessageBox.Show("Du har ej angivit ett telefonnummer");
+                    MessageBox.Show("Du har ej angivit ett telefonnummer.");
                 }
 
                 else if (tbShowingBuyerEmail.Text.Equals(""))
                 {
-                    MessageBox.Show("Du har ej angivit en email");
+                    MessageBox.Show("Du har ej angivit en email.");
                 }
 
                 else
@@ -173,13 +173,13 @@ namespace praktikfall
                     string phonenr = tbShowingBuyerTel.Text;
                     string email = tbShowingBuyerEmail.Text;
                     controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
-                    MessageBox.Show("Ny spekulant registrerad");
+                    MessageBox.Show("Ny spekulant registrerad.");
                 }
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show("Det går inte att registrera en spekulant/n" + ex);
+                MessageBox.Show("Det går inte att registrera en spekulant./n" + ex);
             }
         }
 
@@ -210,8 +210,6 @@ namespace praktikfall
                 tbObjectCity.Text = row1[2].ToString();
                 tbObjectPrice.Text = row1[3].ToString();
                 lblObjectObjAddress.Text = row1[1].ToString();
-                lblObjCity.Text = row1[2].ToString();
-                lblObjectObjectPrice.Text = row1[3].ToString();
                 tbObjectArea.Text = row1[4].ToString();
                 tbObjectNumberOfRooms.Text = row1[5].ToString();
                 tbObjectType.Text = row1[6].ToString();
@@ -269,7 +267,7 @@ namespace praktikfall
             if (!showingExists && !(lblShowingSelectedBuyer.Text.Equals("selectedBuyer(invisible)")) && !(lblShowingSelectedObject.Text.Equals("selectedObject(invisible)")))
             {
                 int nrOfRows = controller.AddShowing(objNr, buyerSsnr, showingDate);
-                MessageBox.Show("Visning registrerad!");
+                MessageBox.Show("Visning registrerad.");
                 Populate();
             }
         }
@@ -337,7 +335,7 @@ namespace praktikfall
                     tbShowingSearch.Text = "";
                     tbShowingSearch.ForeColor = Color.LightSlateGray;
                     tbShowingSearch.Text = "Sökord";
-                    MessageBox.Show("Du har ej angivit ett sökord");
+                    MessageBox.Show("Du har ej angivit ett sökord.");
                 }
 
                 else
@@ -349,7 +347,7 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problem i sökfunktion\n" + ex);
+                MessageBox.Show("Problem i sökfunktion.\n" + ex);
             }
         }
 
@@ -380,7 +378,7 @@ namespace praktikfall
 
             if (tbObjectAddress.Text.Equals("") || tbObjectCity.Text.Equals(""))
             {
-                MessageBox.Show("Du har ej valt ett objekt");
+                MessageBox.Show("Du har ej valt ett objekt.");
             }
             else
             {
@@ -442,7 +440,7 @@ namespace praktikfall
                 else
                 {
                     int nrOfRows = controller.DeleteShowing(objNr);
-                    MessageBox.Show("Visning borttagen");
+                    MessageBox.Show("Visning borttagen.");
                     Populate();
                     lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
                     lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
@@ -462,7 +460,7 @@ namespace praktikfall
                 else
                 {
                     int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
-                    MessageBox.Show("Spekulant borttagen från visning");
+                    MessageBox.Show("Spekulant borttagen från visning.");
                     Populate();
                     lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
                     lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
@@ -523,23 +521,23 @@ namespace praktikfall
                 int parsedValue;
                 if (!int.TryParse(tbShowingBuyerSsnr.Text, out parsedValue))
                 {
-                    MessageBox.Show("Personnummer får endast innehålla siffror");
+                    MessageBox.Show("Personnummer får endast innehålla siffror.");
 
                 }
 
                 else if (tbBuyerName.Text.Equals(""))
                 {
-                    MessageBox.Show("Du har ej angivit ett namn");
+                    MessageBox.Show("Du har ej angivit ett namn.");
                 }
 
                 else if (tbShowingBuyerTel.Text.Equals(""))
                 {
-                    MessageBox.Show("Du har ej angivit ett telefonnummer");
+                    MessageBox.Show("Du har ej angivit ett telefonnummer.");
                 }
 
                 else if (tbShowingBuyerEmail.Text.Equals(""))
                 {
-                    MessageBox.Show("Du har ej angivit en email");
+                    MessageBox.Show("Du har ej angivit en email.");
                 }
 
                 else
@@ -553,13 +551,13 @@ namespace praktikfall
 
                     if (prospectiveBuyerExists)
                     {
-                        MessageBox.Show("Det finns redan en spekulant med personnummer: " + ssnr);
+                        MessageBox.Show("Det finns redan en spekulant med personnummer " + ssnr);
                     }
 
                     else
                     {
                         controller.AddProspectiveBuyer(ssnr, name, phonenr, email);
-                        MessageBox.Show("Ny spekulant med personnummer " + ssnr + " har registrerats");
+                        MessageBox.Show("Spekulant med personnummer " + ssnr + " har registrerats.");
                         Populate();
                     }
 
@@ -568,7 +566,7 @@ namespace praktikfall
             catch (Exception ex)
             {
 
-                MessageBox.Show("Det går inte att registrera en spekulant/n" + ex);
+                MessageBox.Show("Det går inte att registrera en spekulant./n" + ex);
             }
         }
 
@@ -594,7 +592,7 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problem i sökfunktion\n" + ex);
+                MessageBox.Show("Problem i sökfunktion.\n" + ex);
             }
         }
 
@@ -603,7 +601,7 @@ namespace praktikfall
 
             if (tbShowingBuyerSsnr.Text.Equals(""))
             {
-                MessageBox.Show("Du har ej valt eller angivit ett personnummer");
+                MessageBox.Show("Du har ej valt eller angivit ett personnummer.");
             }
             else
             {
@@ -622,13 +620,13 @@ namespace praktikfall
         {
             if (tbShowingBuyerSsnr.Text.Equals(""))
             {
-                MessageBox.Show("Du har ej valt eller angivit ett personnummer");
+                MessageBox.Show("Du har ej valt eller angivit ett personnummer.");
             }
             else
             {
                 string buyerSsnr = tbShowingBuyerSsnr.Text;
                 int nrOfRows = controller.DeleteProspectiveBuyer(buyerSsnr);
-                MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " raderad!");
+                MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " raderad.");
                 Populate();
             }
         }
@@ -788,7 +786,7 @@ namespace praktikfall
                         else
                         {
                             controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
-                            MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad");
+                            MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad.");
                             Populate();
                         }
 
@@ -797,7 +795,7 @@ namespace praktikfall
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Det går inte att registrera en mäklare\n" + ex);
+                    MessageBox.Show("Det går inte att registrera en mäklare.\n" + ex);
                 }
             }
 
@@ -892,13 +890,13 @@ namespace praktikfall
 
                     if (buyerExists)
                     {
-                        MessageBox.Show("Det finns redan en spekulant med personnummer " + buyerSsnr + " registrerad");
+                        MessageBox.Show("Det finns redan en spekulant med personnummer " + buyerSsnr + " registrerad.");
                     }
                     else
                     {
                         int nrOfRows = controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                         Populate();
-                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till");
+                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till´.");
                     }
                 }
                 catch (Exception ex)
@@ -965,8 +963,6 @@ namespace praktikfall
                 btnObjectSubmit.Enabled = true;
                 MakeTbEditable();
                 lblObjectObjAddress.Text = "";
-                lblObjCity.Text = "";
-                lblObjectObjectPrice.Text = "";
                 ClearObjectTb();
             }
             else if (cbObjectRegister.Checked == false)
