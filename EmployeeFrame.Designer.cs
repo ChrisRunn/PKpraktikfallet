@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingBuyerSearch = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.cbShowingRegisterBuyer = new System.Windows.Forms.CheckBox();
             this.tbShowingBuyerEmail = new System.Windows.Forms.TextBox();
             this.tbShowingBuyerTel = new System.Windows.Forms.TextBox();
-            this.tbBuyerName = new System.Windows.Forms.TextBox();
+            this.tbShowingBuyerName = new System.Windows.Forms.TextBox();
             this.tbShowingBuyerSsnr = new System.Windows.Forms.TextBox();
             this.lblShowingBuyerEmail = new System.Windows.Forms.Label();
             this.lblShowingBuyerTel = new System.Windows.Forms.Label();
@@ -145,7 +145,6 @@
             this.tbBrokerBrokerAdress = new System.Windows.Forms.TextBox();
             this.tbBrokerBrokerName = new System.Windows.Forms.TextBox();
             this.tbBrokerBrokerSsnr = new System.Windows.Forms.TextBox();
-            this.lblBrokerAllBrokers = new System.Windows.Forms.Label();
             this.dgvBrokerAllBrokers = new System.Windows.Forms.DataGridView();
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
@@ -160,6 +159,7 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.gbBrokerAllBrokers = new System.Windows.Forms.GroupBox();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -183,6 +183,7 @@
             this.tpBrokerBrokerTabPage.SuspendLayout();
             this.bgBrokerAdministrateBroker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).BeginInit();
+            this.gbBrokerAllBrokers.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpShowingShowingTabPage
@@ -200,17 +201,14 @@
             // 
             // gbShowingAdministrateBuyer
             // 
-            this.gbShowingAdministrateBuyer.Controls.Add(this.lblShowingBuyerSearch);
             this.gbShowingAdministrateBuyer.Controls.Add(this.lblShowingAdministrateBuyerChoice);
-            this.gbShowingAdministrateBuyer.Controls.Add(this.tbShowingSearch);
-            this.gbShowingAdministrateBuyer.Controls.Add(this.btnShowingSearch);
             this.gbShowingAdministrateBuyer.Controls.Add(this.cbShowingUpdateBuyer);
             this.gbShowingAdministrateBuyer.Controls.Add(this.cbShowingDeleteBuyer);
             this.gbShowingAdministrateBuyer.Controls.Add(this.btnShowingSubmit);
             this.gbShowingAdministrateBuyer.Controls.Add(this.cbShowingRegisterBuyer);
             this.gbShowingAdministrateBuyer.Controls.Add(this.tbShowingBuyerEmail);
             this.gbShowingAdministrateBuyer.Controls.Add(this.tbShowingBuyerTel);
-            this.gbShowingAdministrateBuyer.Controls.Add(this.tbBuyerName);
+            this.gbShowingAdministrateBuyer.Controls.Add(this.tbShowingBuyerName);
             this.gbShowingAdministrateBuyer.Controls.Add(this.tbShowingBuyerSsnr);
             this.gbShowingAdministrateBuyer.Controls.Add(this.lblShowingBuyerEmail);
             this.gbShowingAdministrateBuyer.Controls.Add(this.lblShowingBuyerTel);
@@ -226,7 +224,7 @@
             // lblShowingBuyerSearch
             // 
             this.lblShowingBuyerSearch.AutoSize = true;
-            this.lblShowingBuyerSearch.Location = new System.Drawing.Point(6, 248);
+            this.lblShowingBuyerSearch.Location = new System.Drawing.Point(210, 283);
             this.lblShowingBuyerSearch.Name = "lblShowingBuyerSearch";
             this.lblShowingBuyerSearch.Size = new System.Drawing.Size(92, 13);
             this.lblShowingBuyerSearch.TabIndex = 44;
@@ -235,7 +233,7 @@
             // lblShowingAdministrateBuyerChoice
             // 
             this.lblShowingAdministrateBuyerChoice.AutoSize = true;
-            this.lblShowingAdministrateBuyerChoice.Location = new System.Drawing.Point(11, 151);
+            this.lblShowingAdministrateBuyerChoice.Location = new System.Drawing.Point(9, 149);
             this.lblShowingAdministrateBuyerChoice.Name = "lblShowingAdministrateBuyerChoice";
             this.lblShowingAdministrateBuyerChoice.Size = new System.Drawing.Size(120, 13);
             this.lblShowingAdministrateBuyerChoice.TabIndex = 22;
@@ -245,9 +243,9 @@
             // 
             this.tbShowingSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbShowingSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbShowingSearch.Location = new System.Drawing.Point(134, 245);
+            this.tbShowingSearch.Location = new System.Drawing.Point(308, 280);
             this.tbShowingSearch.Name = "tbShowingSearch";
-            this.tbShowingSearch.Size = new System.Drawing.Size(176, 20);
+            this.tbShowingSearch.Size = new System.Drawing.Size(222, 20);
             this.tbShowingSearch.TabIndex = 27;
             this.tbShowingSearch.Text = "Sökord";
             this.tbShowingSearch.Click += new System.EventHandler(this.tbSearchProBuyer_Click);
@@ -256,7 +254,7 @@
             // btnShowingSearch
             // 
             this.btnShowingSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnShowingSearch.Location = new System.Drawing.Point(316, 244);
+            this.btnShowingSearch.Location = new System.Drawing.Point(549, 278);
             this.btnShowingSearch.Name = "btnShowingSearch";
             this.btnShowingSearch.Size = new System.Drawing.Size(40, 23);
             this.btnShowingSearch.TabIndex = 26;
@@ -268,7 +266,7 @@
             // cbShowingUpdateBuyer
             // 
             this.cbShowingUpdateBuyer.AutoSize = true;
-            this.cbShowingUpdateBuyer.Location = new System.Drawing.Point(14, 167);
+            this.cbShowingUpdateBuyer.Location = new System.Drawing.Point(14, 175);
             this.cbShowingUpdateBuyer.Name = "cbShowingUpdateBuyer";
             this.cbShowingUpdateBuyer.Size = new System.Drawing.Size(85, 17);
             this.cbShowingUpdateBuyer.TabIndex = 42;
@@ -278,7 +276,7 @@
             // cbShowingDeleteBuyer
             // 
             this.cbShowingDeleteBuyer.AutoSize = true;
-            this.cbShowingDeleteBuyer.Location = new System.Drawing.Point(14, 213);
+            this.cbShowingDeleteBuyer.Location = new System.Drawing.Point(14, 221);
             this.cbShowingDeleteBuyer.Name = "cbShowingDeleteBuyer";
             this.cbShowingDeleteBuyer.Size = new System.Drawing.Size(67, 17);
             this.cbShowingDeleteBuyer.TabIndex = 41;
@@ -298,12 +296,13 @@
             // cbShowingRegisterBuyer
             // 
             this.cbShowingRegisterBuyer.AutoSize = true;
-            this.cbShowingRegisterBuyer.Location = new System.Drawing.Point(14, 190);
+            this.cbShowingRegisterBuyer.Location = new System.Drawing.Point(14, 198);
             this.cbShowingRegisterBuyer.Name = "cbShowingRegisterBuyer";
             this.cbShowingRegisterBuyer.Size = new System.Drawing.Size(84, 17);
             this.cbShowingRegisterBuyer.TabIndex = 40;
             this.cbShowingRegisterBuyer.Text = "Registrera";
             this.cbShowingRegisterBuyer.UseVisualStyleBackColor = true;
+            this.cbShowingRegisterBuyer.CheckedChanged += new System.EventHandler(this.cbShowingRegister_CheckedChanged);
             // 
             // tbShowingBuyerEmail
             // 
@@ -319,12 +318,12 @@
             this.tbShowingBuyerTel.Size = new System.Drawing.Size(222, 20);
             this.tbShowingBuyerTel.TabIndex = 33;
             // 
-            // tbBuyerName
+            // tbShowingBuyerName
             // 
-            this.tbBuyerName.Location = new System.Drawing.Point(134, 61);
-            this.tbBuyerName.Name = "tbBuyerName";
-            this.tbBuyerName.Size = new System.Drawing.Size(222, 20);
-            this.tbBuyerName.TabIndex = 32;
+            this.tbShowingBuyerName.Location = new System.Drawing.Point(134, 61);
+            this.tbShowingBuyerName.Name = "tbShowingBuyerName";
+            this.tbShowingBuyerName.Size = new System.Drawing.Size(222, 20);
+            this.tbShowingBuyerName.TabIndex = 32;
             // 
             // tbShowingBuyerSsnr
             // 
@@ -347,9 +346,9 @@
             this.lblShowingBuyerTel.AutoSize = true;
             this.lblShowingBuyerTel.Location = new System.Drawing.Point(9, 89);
             this.lblShowingBuyerTel.Name = "lblShowingBuyerTel";
-            this.lblShowingBuyerTel.Size = new System.Drawing.Size(54, 13);
+            this.lblShowingBuyerTel.Size = new System.Drawing.Size(97, 13);
             this.lblShowingBuyerTel.TabIndex = 30;
-            this.lblShowingBuyerTel.Text = "Telefon:";
+            this.lblShowingBuyerTel.Text = "Telefonnummer:";
             // 
             // lblShowingBuyerName
             // 
@@ -389,7 +388,7 @@
             // lblShowingSelectedBuyerDelete
             // 
             this.lblShowingSelectedBuyerDelete.AutoSize = true;
-            this.lblShowingSelectedBuyerDelete.Location = new System.Drawing.Point(259, 296);
+            this.lblShowingSelectedBuyerDelete.Location = new System.Drawing.Point(300, 296);
             this.lblShowingSelectedBuyerDelete.Name = "lblShowingSelectedBuyerDelete";
             this.lblShowingSelectedBuyerDelete.Size = new System.Drawing.Size(164, 13);
             this.lblShowingSelectedBuyerDelete.TabIndex = 21;
@@ -456,7 +455,7 @@
             // lblShowingSelectedObjNrDelete
             // 
             this.lblShowingSelectedObjNrDelete.AutoSize = true;
-            this.lblShowingSelectedObjNrDelete.Location = new System.Drawing.Point(259, 309);
+            this.lblShowingSelectedObjNrDelete.Location = new System.Drawing.Point(300, 309);
             this.lblShowingSelectedObjNrDelete.Name = "lblShowingSelectedObjNrDelete";
             this.lblShowingSelectedObjNrDelete.Size = new System.Drawing.Size(164, 13);
             this.lblShowingSelectedObjNrDelete.TabIndex = 14;
@@ -474,8 +473,11 @@
             // 
             // gbShowing
             // 
+            this.gbShowing.Controls.Add(this.lblShowingBuyerSearch);
             this.gbShowing.Controls.Add(this.btnShowingUpdate);
+            this.gbShowing.Controls.Add(this.tbShowingSearch);
             this.gbShowing.Controls.Add(this.lblShowingSelectedBuyer);
+            this.gbShowing.Controls.Add(this.btnShowingSearch);
             this.gbShowing.Controls.Add(this.lblShowingSelectedObject);
             this.gbShowing.Controls.Add(this.dtpShowingShowingDate);
             this.gbShowing.Controls.Add(this.dgvShowingAllObjects);
@@ -484,9 +486,9 @@
             this.gbShowing.Controls.Add(this.lblShowingShowing);
             this.gbShowing.Controls.Add(this.btnShowingRegisterShowing);
             this.gbShowing.Controls.Add(this.lblShowingBuyer);
-            this.gbShowing.Location = new System.Drawing.Point(11, 7);
+            this.gbShowing.Location = new System.Drawing.Point(6, 7);
             this.gbShowing.Name = "gbShowing";
-            this.gbShowing.Size = new System.Drawing.Size(590, 629);
+            this.gbShowing.Size = new System.Drawing.Size(595, 629);
             this.gbShowing.TabIndex = 10;
             this.gbShowing.TabStop = false;
             this.gbShowing.Text = "Administrera visning";
@@ -507,7 +509,7 @@
             // lblShowingSelectedBuyer
             // 
             this.lblShowingSelectedBuyer.AutoSize = true;
-            this.lblShowingSelectedBuyer.Location = new System.Drawing.Point(443, 295);
+            this.lblShowingSelectedBuyer.Location = new System.Drawing.Point(6, 280);
             this.lblShowingSelectedBuyer.Name = "lblShowingSelectedBuyer";
             this.lblShowingSelectedBuyer.Size = new System.Drawing.Size(141, 13);
             this.lblShowingSelectedBuyer.TabIndex = 11;
@@ -541,7 +543,7 @@
             this.dgvShowingAllObjects.Location = new System.Drawing.Point(6, 311);
             this.dgvShowingAllObjects.MultiSelect = false;
             this.dgvShowingAllObjects.Name = "dgvShowingAllObjects";
-            this.dgvShowingAllObjects.Size = new System.Drawing.Size(578, 260);
+            this.dgvShowingAllObjects.Size = new System.Drawing.Size(583, 260);
             this.dgvShowingAllObjects.TabIndex = 8;
             this.dgvShowingAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectShowing_CellClicked);
             this.dgvShowingAllObjects.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingObject_DBC);
@@ -566,7 +568,7 @@
             this.dgvShowingAllBuyers.Location = new System.Drawing.Point(6, 32);
             this.dgvShowingAllBuyers.MultiSelect = false;
             this.dgvShowingAllBuyers.Name = "dgvShowingAllBuyers";
-            this.dgvShowingAllBuyers.Size = new System.Drawing.Size(578, 260);
+            this.dgvShowingAllBuyers.Size = new System.Drawing.Size(583, 240);
             this.dgvShowingAllBuyers.TabIndex = 9;
             this.dgvShowingAllBuyers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyerShowing_CellClicked);
             this.dgvShowingAllBuyers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingProspecitveBuyer_DBC);
@@ -623,7 +625,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(597, 516);
+            this.label1.Location = new System.Drawing.Point(605, 513);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 45;
@@ -632,9 +634,9 @@
             // gbObjectObjectInfo
             // 
             this.gbObjectObjectInfo.Controls.Add(this.rtbObjectObjectInfo);
-            this.gbObjectObjectInfo.Location = new System.Drawing.Point(10, 362);
+            this.gbObjectObjectInfo.Location = new System.Drawing.Point(4, 362);
             this.gbObjectObjectInfo.Name = "gbObjectObjectInfo";
-            this.gbObjectObjectInfo.Size = new System.Drawing.Size(220, 273);
+            this.gbObjectObjectInfo.Size = new System.Drawing.Size(226, 273);
             this.gbObjectObjectInfo.TabIndex = 43;
             this.gbObjectObjectInfo.TabStop = false;
             this.gbObjectObjectInfo.Text = "Objektsbeskrivning";
@@ -642,9 +644,9 @@
             // rtbObjectObjectInfo
             // 
             this.rtbObjectObjectInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rtbObjectObjectInfo.Location = new System.Drawing.Point(7, 17);
+            this.rtbObjectObjectInfo.Location = new System.Drawing.Point(7, 19);
             this.rtbObjectObjectInfo.Name = "rtbObjectObjectInfo";
-            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(207, 238);
+            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(207, 248);
             this.rtbObjectObjectInfo.TabIndex = 10;
             this.rtbObjectObjectInfo.Text = "";
             // 
@@ -653,9 +655,9 @@
             this.gbObjectPicture.Controls.Add(this.pbObjectsObjectPicture);
             this.gbObjectPicture.Controls.Add(this.btnObjectShowMap);
             this.gbObjectPicture.Controls.Add(this.lblObjectObjAddress);
-            this.gbObjectPicture.Location = new System.Drawing.Point(10, 6);
+            this.gbObjectPicture.Location = new System.Drawing.Point(4, 6);
             this.gbObjectPicture.Name = "gbObjectPicture";
-            this.gbObjectPicture.Size = new System.Drawing.Size(584, 350);
+            this.gbObjectPicture.Size = new System.Drawing.Size(590, 350);
             this.gbObjectPicture.TabIndex = 42;
             this.gbObjectPicture.TabStop = false;
             this.gbObjectPicture.Text = "Bild";
@@ -721,8 +723,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -761,7 +763,7 @@
             // tbObjectDeleteObject
             // 
             this.tbObjectDeleteObject.AutoSize = true;
-            this.tbObjectDeleteObject.Location = new System.Drawing.Point(600, 578);
+            this.tbObjectDeleteObject.Location = new System.Drawing.Point(607, 583);
             this.tbObjectDeleteObject.Name = "tbObjectDeleteObject";
             this.tbObjectDeleteObject.Size = new System.Drawing.Size(106, 17);
             this.tbObjectDeleteObject.TabIndex = 40;
@@ -771,7 +773,7 @@
             // 
             // btnObjectSubmit
             // 
-            this.btnObjectSubmit.Location = new System.Drawing.Point(987, 594);
+            this.btnObjectSubmit.Location = new System.Drawing.Point(996, 612);
             this.btnObjectSubmit.Name = "btnObjectSubmit";
             this.btnObjectSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnObjectSubmit.TabIndex = 39;
@@ -783,7 +785,7 @@
             // 
             this.cbObjectUpdate.AccessibleName = "cbObjUpdate";
             this.cbObjectUpdate.AutoSize = true;
-            this.cbObjectUpdate.Location = new System.Drawing.Point(600, 555);
+            this.cbObjectUpdate.Location = new System.Drawing.Point(607, 560);
             this.cbObjectUpdate.Name = "cbObjectUpdate";
             this.cbObjectUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbObjectUpdate.TabIndex = 6;
@@ -794,7 +796,7 @@
             // cbObjectRegister
             // 
             this.cbObjectRegister.AutoSize = true;
-            this.cbObjectRegister.Location = new System.Drawing.Point(601, 532);
+            this.cbObjectRegister.Location = new System.Drawing.Point(608, 537);
             this.cbObjectRegister.Name = "cbObjectRegister";
             this.cbObjectRegister.Size = new System.Drawing.Size(84, 17);
             this.cbObjectRegister.TabIndex = 8;
@@ -980,19 +982,19 @@
             this.gbObjectOwnerInfo.Controls.Add(this.tbObjectOwnerName);
             this.gbObjectOwnerInfo.Controls.Add(this.tbObjectOwnerPhoneNr);
             this.gbObjectOwnerInfo.Controls.Add(this.tbObjectOwnerSsnr);
+            this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerSsnr);
             this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerName);
             this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerPhoneNR);
-            this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerSsnr);
             this.gbObjectOwnerInfo.Location = new System.Drawing.Point(599, 363);
             this.gbObjectOwnerInfo.Name = "gbObjectOwnerInfo";
-            this.gbObjectOwnerInfo.Size = new System.Drawing.Size(476, 144);
+            this.gbObjectOwnerInfo.Size = new System.Drawing.Size(476, 129);
             this.gbObjectOwnerInfo.TabIndex = 37;
             this.gbObjectOwnerInfo.TabStop = false;
             this.gbObjectOwnerInfo.Text = "Objektsägare";
             // 
             // tbObjectOwnerEmail
             // 
-            this.tbObjectOwnerEmail.Location = new System.Drawing.Point(142, 100);
+            this.tbObjectOwnerEmail.Location = new System.Drawing.Point(142, 96);
             this.tbObjectOwnerEmail.Name = "tbObjectOwnerEmail";
             this.tbObjectOwnerEmail.Size = new System.Drawing.Size(222, 20);
             this.tbObjectOwnerEmail.TabIndex = 13;
@@ -1000,7 +1002,7 @@
             // lblObjectOwnerEmail
             // 
             this.lblObjectOwnerEmail.AutoSize = true;
-            this.lblObjectOwnerEmail.Location = new System.Drawing.Point(6, 109);
+            this.lblObjectOwnerEmail.Location = new System.Drawing.Point(14, 99);
             this.lblObjectOwnerEmail.Name = "lblObjectOwnerEmail";
             this.lblObjectOwnerEmail.Size = new System.Drawing.Size(41, 13);
             this.lblObjectOwnerEmail.TabIndex = 6;
@@ -1008,21 +1010,21 @@
             // 
             // tbObjectOwnerName
             // 
-            this.tbObjectOwnerName.Location = new System.Drawing.Point(142, 45);
+            this.tbObjectOwnerName.Location = new System.Drawing.Point(142, 44);
             this.tbObjectOwnerName.Name = "tbObjectOwnerName";
             this.tbObjectOwnerName.Size = new System.Drawing.Size(222, 20);
             this.tbObjectOwnerName.TabIndex = 11;
             // 
             // tbObjectOwnerPhoneNr
             // 
-            this.tbObjectOwnerPhoneNr.Location = new System.Drawing.Point(142, 71);
+            this.tbObjectOwnerPhoneNr.Location = new System.Drawing.Point(142, 70);
             this.tbObjectOwnerPhoneNr.Name = "tbObjectOwnerPhoneNr";
             this.tbObjectOwnerPhoneNr.Size = new System.Drawing.Size(222, 20);
             this.tbObjectOwnerPhoneNr.TabIndex = 12;
             // 
             // tbObjectOwnerSsnr
             // 
-            this.tbObjectOwnerSsnr.Location = new System.Drawing.Point(142, 19);
+            this.tbObjectOwnerSsnr.Location = new System.Drawing.Point(142, 18);
             this.tbObjectOwnerSsnr.Name = "tbObjectOwnerSsnr";
             this.tbObjectOwnerSsnr.Size = new System.Drawing.Size(222, 20);
             this.tbObjectOwnerSsnr.TabIndex = 10;
@@ -1030,7 +1032,7 @@
             // lblObjectOwnerName
             // 
             this.lblObjectOwnerName.AutoSize = true;
-            this.lblObjectOwnerName.Location = new System.Drawing.Point(6, 58);
+            this.lblObjectOwnerName.Location = new System.Drawing.Point(14, 47);
             this.lblObjectOwnerName.Name = "lblObjectOwnerName";
             this.lblObjectOwnerName.Size = new System.Drawing.Size(43, 13);
             this.lblObjectOwnerName.TabIndex = 2;
@@ -1039,7 +1041,7 @@
             // lblObjectOwnerPhoneNR
             // 
             this.lblObjectOwnerPhoneNR.AutoSize = true;
-            this.lblObjectOwnerPhoneNR.Location = new System.Drawing.Point(6, 84);
+            this.lblObjectOwnerPhoneNR.Location = new System.Drawing.Point(14, 73);
             this.lblObjectOwnerPhoneNR.Name = "lblObjectOwnerPhoneNR";
             this.lblObjectOwnerPhoneNR.Size = new System.Drawing.Size(97, 13);
             this.lblObjectOwnerPhoneNR.TabIndex = 1;
@@ -1049,7 +1051,7 @@
             // 
             this.lblObjectOwnerSsnr.AccessibleName = "";
             this.lblObjectOwnerSsnr.AutoSize = true;
-            this.lblObjectOwnerSsnr.Location = new System.Drawing.Point(6, 28);
+            this.lblObjectOwnerSsnr.Location = new System.Drawing.Point(14, 21);
             this.lblObjectOwnerSsnr.Name = "lblObjectOwnerSsnr";
             this.lblObjectOwnerSsnr.Size = new System.Drawing.Size(93, 13);
             this.lblObjectOwnerSsnr.TabIndex = 0;
@@ -1163,6 +1165,7 @@
             // tpBrokerBrokerTabPage
             // 
             this.tpBrokerBrokerTabPage.BackColor = System.Drawing.Color.White;
+            this.tpBrokerBrokerTabPage.Controls.Add(this.gbBrokerAllBrokers);
             this.tpBrokerBrokerTabPage.Controls.Add(this.bgBrokerAdministrateBroker);
             this.tpBrokerBrokerTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpBrokerBrokerTabPage.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1196,11 +1199,9 @@
             this.bgBrokerAdministrateBroker.Controls.Add(this.tbBrokerBrokerAdress);
             this.bgBrokerAdministrateBroker.Controls.Add(this.tbBrokerBrokerName);
             this.bgBrokerAdministrateBroker.Controls.Add(this.tbBrokerBrokerSsnr);
-            this.bgBrokerAdministrateBroker.Controls.Add(this.lblBrokerAllBrokers);
-            this.bgBrokerAdministrateBroker.Controls.Add(this.dgvBrokerAllBrokers);
-            this.bgBrokerAdministrateBroker.Location = new System.Drawing.Point(10, 6);
+            this.bgBrokerAdministrateBroker.Location = new System.Drawing.Point(690, 7);
             this.bgBrokerAdministrateBroker.Name = "bgBrokerAdministrateBroker";
-            this.bgBrokerAdministrateBroker.Size = new System.Drawing.Size(1066, 629);
+            this.bgBrokerAdministrateBroker.Size = new System.Drawing.Size(385, 628);
             this.bgBrokerAdministrateBroker.TabIndex = 0;
             this.bgBrokerAdministrateBroker.TabStop = false;
             this.bgBrokerAdministrateBroker.Text = "Administrera mäklare";
@@ -1208,7 +1209,7 @@
             // lblBrokerChoice
             // 
             this.lblBrokerChoice.AutoSize = true;
-            this.lblBrokerChoice.Location = new System.Drawing.Point(688, 227);
+            this.lblBrokerChoice.Location = new System.Drawing.Point(11, 226);
             this.lblBrokerChoice.Name = "lblBrokerChoice";
             this.lblBrokerChoice.Size = new System.Drawing.Size(120, 13);
             this.lblBrokerChoice.TabIndex = 29;
@@ -1217,7 +1218,7 @@
             // lblBrokerSelectedBroker
             // 
             this.lblBrokerSelectedBroker.AutoSize = true;
-            this.lblBrokerSelectedBroker.Location = new System.Drawing.Point(6, 604);
+            this.lblBrokerSelectedBroker.Location = new System.Drawing.Point(11, 613);
             this.lblBrokerSelectedBroker.Name = "lblBrokerSelectedBroker";
             this.lblBrokerSelectedBroker.Size = new System.Drawing.Size(146, 13);
             this.lblBrokerSelectedBroker.TabIndex = 1;
@@ -1227,7 +1228,7 @@
             // 
             // btnBrokerSubmit
             // 
-            this.btnBrokerSubmit.Location = new System.Drawing.Point(985, 600);
+            this.btnBrokerSubmit.Location = new System.Drawing.Point(304, 599);
             this.btnBrokerSubmit.Name = "btnBrokerSubmit";
             this.btnBrokerSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnBrokerSubmit.TabIndex = 28;
@@ -1239,7 +1240,7 @@
             // 
             this.cbBrokerUpdate.AccessibleName = "";
             this.cbBrokerUpdate.AutoSize = true;
-            this.cbBrokerUpdate.Location = new System.Drawing.Point(691, 243);
+            this.cbBrokerUpdate.Location = new System.Drawing.Point(14, 252);
             this.cbBrokerUpdate.Name = "cbBrokerUpdate";
             this.cbBrokerUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbBrokerUpdate.TabIndex = 25;
@@ -1249,7 +1250,7 @@
             // cbBrokerDelete
             // 
             this.cbBrokerDelete.AutoSize = true;
-            this.cbBrokerDelete.Location = new System.Drawing.Point(691, 289);
+            this.cbBrokerDelete.Location = new System.Drawing.Point(14, 298);
             this.cbBrokerDelete.Name = "cbBrokerDelete";
             this.cbBrokerDelete.Size = new System.Drawing.Size(67, 17);
             this.cbBrokerDelete.TabIndex = 26;
@@ -1259,17 +1260,18 @@
             // cbBrokerRegister
             // 
             this.cbBrokerRegister.AutoSize = true;
-            this.cbBrokerRegister.Location = new System.Drawing.Point(691, 266);
+            this.cbBrokerRegister.Location = new System.Drawing.Point(14, 275);
             this.cbBrokerRegister.Name = "cbBrokerRegister";
             this.cbBrokerRegister.Size = new System.Drawing.Size(84, 17);
             this.cbBrokerRegister.TabIndex = 27;
             this.cbBrokerRegister.Text = "Registrera";
             this.cbBrokerRegister.UseVisualStyleBackColor = true;
+            this.cbBrokerRegister.CheckedChanged += new System.EventHandler(this.cbBrokerRegister_CheckedChanged);
             // 
             // lblBrokerPw
             // 
             this.lblBrokerPw.AutoSize = true;
-            this.lblBrokerPw.Location = new System.Drawing.Point(688, 192);
+            this.lblBrokerPw.Location = new System.Drawing.Point(11, 195);
             this.lblBrokerPw.Name = "lblBrokerPw";
             this.lblBrokerPw.Size = new System.Drawing.Size(63, 13);
             this.lblBrokerPw.TabIndex = 24;
@@ -1278,7 +1280,7 @@
             // lblBrokerEmail
             // 
             this.lblBrokerEmail.AutoSize = true;
-            this.lblBrokerEmail.Location = new System.Drawing.Point(688, 166);
+            this.lblBrokerEmail.Location = new System.Drawing.Point(11, 169);
             this.lblBrokerEmail.Name = "lblBrokerEmail";
             this.lblBrokerEmail.Size = new System.Drawing.Size(41, 13);
             this.lblBrokerEmail.TabIndex = 23;
@@ -1287,7 +1289,7 @@
             // lblBrokerPhoneNumber
             // 
             this.lblBrokerPhoneNumber.AutoSize = true;
-            this.lblBrokerPhoneNumber.Location = new System.Drawing.Point(688, 140);
+            this.lblBrokerPhoneNumber.Location = new System.Drawing.Point(11, 143);
             this.lblBrokerPhoneNumber.Name = "lblBrokerPhoneNumber";
             this.lblBrokerPhoneNumber.Size = new System.Drawing.Size(97, 13);
             this.lblBrokerPhoneNumber.TabIndex = 22;
@@ -1296,7 +1298,7 @@
             // lblBrokerCity
             // 
             this.lblBrokerCity.AutoSize = true;
-            this.lblBrokerCity.Location = new System.Drawing.Point(688, 114);
+            this.lblBrokerCity.Location = new System.Drawing.Point(11, 117);
             this.lblBrokerCity.Name = "lblBrokerCity";
             this.lblBrokerCity.Size = new System.Drawing.Size(37, 13);
             this.lblBrokerCity.TabIndex = 21;
@@ -1305,7 +1307,7 @@
             // lblBrokerAddress
             // 
             this.lblBrokerAddress.AutoSize = true;
-            this.lblBrokerAddress.Location = new System.Drawing.Point(688, 88);
+            this.lblBrokerAddress.Location = new System.Drawing.Point(11, 91);
             this.lblBrokerAddress.Name = "lblBrokerAddress";
             this.lblBrokerAddress.Size = new System.Drawing.Size(49, 13);
             this.lblBrokerAddress.TabIndex = 20;
@@ -1314,7 +1316,7 @@
             // lblBrokerName
             // 
             this.lblBrokerName.AutoSize = true;
-            this.lblBrokerName.Location = new System.Drawing.Point(688, 62);
+            this.lblBrokerName.Location = new System.Drawing.Point(11, 65);
             this.lblBrokerName.Name = "lblBrokerName";
             this.lblBrokerName.Size = new System.Drawing.Size(43, 13);
             this.lblBrokerName.TabIndex = 19;
@@ -1323,7 +1325,7 @@
             // lblBrokerBrokerNumber
             // 
             this.lblBrokerBrokerNumber.AutoSize = true;
-            this.lblBrokerBrokerNumber.Location = new System.Drawing.Point(688, 36);
+            this.lblBrokerBrokerNumber.Location = new System.Drawing.Point(11, 39);
             this.lblBrokerBrokerNumber.Name = "lblBrokerBrokerNumber";
             this.lblBrokerBrokerNumber.Size = new System.Drawing.Size(60, 13);
             this.lblBrokerBrokerNumber.TabIndex = 18;
@@ -1331,61 +1333,52 @@
             // 
             // tbBrokerBrokerPw
             // 
-            this.tbBrokerBrokerPw.Location = new System.Drawing.Point(827, 189);
+            this.tbBrokerBrokerPw.Location = new System.Drawing.Point(150, 192);
             this.tbBrokerBrokerPw.Name = "tbBrokerBrokerPw";
             this.tbBrokerBrokerPw.Size = new System.Drawing.Size(222, 20);
             this.tbBrokerBrokerPw.TabIndex = 17;
             // 
             // tbBrokerBrokerEmail
             // 
-            this.tbBrokerBrokerEmail.Location = new System.Drawing.Point(827, 163);
+            this.tbBrokerBrokerEmail.Location = new System.Drawing.Point(150, 166);
             this.tbBrokerBrokerEmail.Name = "tbBrokerBrokerEmail";
             this.tbBrokerBrokerEmail.Size = new System.Drawing.Size(222, 20);
             this.tbBrokerBrokerEmail.TabIndex = 16;
             // 
             // tbBrokerBrokerPhoneNumber
             // 
-            this.tbBrokerBrokerPhoneNumber.Location = new System.Drawing.Point(827, 137);
+            this.tbBrokerBrokerPhoneNumber.Location = new System.Drawing.Point(150, 140);
             this.tbBrokerBrokerPhoneNumber.Name = "tbBrokerBrokerPhoneNumber";
             this.tbBrokerBrokerPhoneNumber.Size = new System.Drawing.Size(222, 20);
             this.tbBrokerBrokerPhoneNumber.TabIndex = 15;
             // 
             // tbBrokerBrokerCity
             // 
-            this.tbBrokerBrokerCity.Location = new System.Drawing.Point(827, 111);
+            this.tbBrokerBrokerCity.Location = new System.Drawing.Point(150, 114);
             this.tbBrokerBrokerCity.Name = "tbBrokerBrokerCity";
             this.tbBrokerBrokerCity.Size = new System.Drawing.Size(222, 20);
             this.tbBrokerBrokerCity.TabIndex = 14;
             // 
             // tbBrokerBrokerAdress
             // 
-            this.tbBrokerBrokerAdress.Location = new System.Drawing.Point(827, 85);
+            this.tbBrokerBrokerAdress.Location = new System.Drawing.Point(150, 88);
             this.tbBrokerBrokerAdress.Name = "tbBrokerBrokerAdress";
             this.tbBrokerBrokerAdress.Size = new System.Drawing.Size(222, 20);
             this.tbBrokerBrokerAdress.TabIndex = 13;
             // 
             // tbBrokerBrokerName
             // 
-            this.tbBrokerBrokerName.Location = new System.Drawing.Point(827, 59);
+            this.tbBrokerBrokerName.Location = new System.Drawing.Point(150, 62);
             this.tbBrokerBrokerName.Name = "tbBrokerBrokerName";
             this.tbBrokerBrokerName.Size = new System.Drawing.Size(222, 20);
             this.tbBrokerBrokerName.TabIndex = 12;
             // 
             // tbBrokerBrokerSsnr
             // 
-            this.tbBrokerBrokerSsnr.Location = new System.Drawing.Point(827, 33);
+            this.tbBrokerBrokerSsnr.Location = new System.Drawing.Point(150, 36);
             this.tbBrokerBrokerSsnr.Name = "tbBrokerBrokerSsnr";
             this.tbBrokerBrokerSsnr.Size = new System.Drawing.Size(222, 20);
             this.tbBrokerBrokerSsnr.TabIndex = 11;
-            // 
-            // lblBrokerAllBrokers
-            // 
-            this.lblBrokerAllBrokers.AutoSize = true;
-            this.lblBrokerAllBrokers.Location = new System.Drawing.Point(7, 17);
-            this.lblBrokerAllBrokers.Name = "lblBrokerAllBrokers";
-            this.lblBrokerAllBrokers.Size = new System.Drawing.Size(147, 13);
-            this.lblBrokerAllBrokers.TabIndex = 10;
-            this.lblBrokerAllBrokers.Text = "Alla registrerade mäklare";
             // 
             // dgvBrokerAllBrokers
             // 
@@ -1394,10 +1387,10 @@
             this.dgvBrokerAllBrokers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBrokerAllBrokers.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvBrokerAllBrokers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBrokerAllBrokers.Location = new System.Drawing.Point(6, 36);
+            this.dgvBrokerAllBrokers.Location = new System.Drawing.Point(6, 19);
             this.dgvBrokerAllBrokers.MultiSelect = false;
             this.dgvBrokerAllBrokers.Name = "dgvBrokerAllBrokers";
-            this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(676, 565);
+            this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(666, 603);
             this.dgvBrokerAllBrokers.TabIndex = 9;
             this.dgvBrokerAllBrokers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBrokerAllBrokers_CellClick);
             this.dgvBrokerAllBrokers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvBrokerAllBrokers_DBC);
@@ -1487,6 +1480,16 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
+            // gbBrokerAllBrokers
+            // 
+            this.gbBrokerAllBrokers.Controls.Add(this.dgvBrokerAllBrokers);
+            this.gbBrokerAllBrokers.Location = new System.Drawing.Point(6, 7);
+            this.gbBrokerAllBrokers.Name = "gbBrokerAllBrokers";
+            this.gbBrokerAllBrokers.Size = new System.Drawing.Size(678, 628);
+            this.gbBrokerAllBrokers.TabIndex = 11;
+            this.gbBrokerAllBrokers.TabStop = false;
+            this.gbBrokerAllBrokers.Text = "Alla registrerade mäklare";
+            // 
             // frameMainMainframe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1530,6 +1533,7 @@
             this.bgBrokerAdministrateBroker.ResumeLayout(false);
             this.bgBrokerAdministrateBroker.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).EndInit();
+            this.gbBrokerAllBrokers.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1608,7 +1612,7 @@
         private System.Windows.Forms.GroupBox gbShowingAdministrateBuyer;
         private System.Windows.Forms.TextBox tbShowingBuyerEmail;
         private System.Windows.Forms.TextBox tbShowingBuyerTel;
-        private System.Windows.Forms.TextBox tbBuyerName;
+        private System.Windows.Forms.TextBox tbShowingBuyerName;
         private System.Windows.Forms.TextBox tbShowingBuyerSsnr;
         private System.Windows.Forms.Label lblShowingBuyerEmail;
         private System.Windows.Forms.Label lblShowingBuyerTel;
@@ -1631,7 +1635,6 @@
         private System.Windows.Forms.MenuItem menuItem12;
         private System.Windows.Forms.TabPage tpBrokerBrokerTabPage;
         private System.Windows.Forms.GroupBox bgBrokerAdministrateBroker;
-        private System.Windows.Forms.Label lblBrokerAllBrokers;
         private System.Windows.Forms.DataGridView dgvBrokerAllBrokers;
         private System.Windows.Forms.TextBox tbBrokerBrokerPw;
         private System.Windows.Forms.TextBox tbBrokerBrokerEmail;
@@ -1665,6 +1668,7 @@
         private System.Windows.Forms.Label lblBrokerChoice;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblObjectSearch;
+        private System.Windows.Forms.GroupBox gbBrokerAllBrokers;
 
     }
 }

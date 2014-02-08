@@ -348,14 +348,9 @@ namespace praktikfall
                 + objPrice + ",objRooms ='" + objRooms + "',objUnitType ='"
                 + objUnitType + "' where objNr =" + objNr;
             sqlStr += "update ObjectOwner set phoneNr ='" + phoneNr + "',email ='" + email + "',name ='" + name + "'";
-            MessageBox.Show(sqlStr);
-            //sqlStr += "update HasOwner set ownerSsnr = '" + ownerSsnr + "'where objNr ='" + objNr + "'";
-
-
 
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
-
         }
 
         //Registrera Objekt och dess ägare MÅSTE PLACERAS I RÄTT FOLDER
