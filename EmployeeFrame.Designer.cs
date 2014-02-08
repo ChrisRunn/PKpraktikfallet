@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingBuyerSearch = new System.Windows.Forms.Label();
@@ -730,8 +730,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1504,7 +1504,7 @@
             this.gbObjectUploadPicture.Controls.Add(this.btnObjectUpload);
             this.gbObjectUploadPicture.Location = new System.Drawing.Point(600, 498);
             this.gbObjectUploadPicture.Name = "gbObjectUploadPicture";
-            this.gbObjectUploadPicture.Size = new System.Drawing.Size(173, 141);
+            this.gbObjectUploadPicture.Size = new System.Drawing.Size(173, 138);
             this.gbObjectUploadPicture.TabIndex = 46;
             this.gbObjectUploadPicture.TabStop = false;
             this.gbObjectUploadPicture.Text = "Ladda upp objektbild";
