@@ -1038,6 +1038,22 @@ namespace praktikfall
                 tbBrokerBrokerAdress.Text = "";
             }
         }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            OpenFileDialog fDialog = new OpenFileDialog();
+            fDialog.Title = "Select a picture";
+            //fDialog.Filter = "XML Files|*.xml|UML Files|*.uml";       //Filtrera vilka bildformat som ska kunna laddas upp väljas
+                                                                        // (PB hanterar bitmap, metafile, icon, JPEG, GIF, or PNG file.)
+            fDialog.InitialDirectory = @"C:\";                          
+            if (fDialog.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(fDialog.FileName.ToString());
+                Image image = Image.FromFile(fDialog.FileName.ToString());
+                pbObjectThumbnail.Image = image;
+            }
+            
+        }
     }
 }
 

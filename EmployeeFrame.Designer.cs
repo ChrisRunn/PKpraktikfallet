@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingBuyerSearch = new System.Windows.Forms.Label();
@@ -161,8 +161,8 @@
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.gbBrokerAllBrokers = new System.Windows.Forms.GroupBox();
             this.gbObjectUploadPicture = new System.Windows.Forms.GroupBox();
-            this.btnObjectUpload = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnObjectUploadObjectPicture = new System.Windows.Forms.Button();
+            this.btnObjectBrowseObjectPicture = new System.Windows.Forms.Button();
             this.pbObjectThumbnail = new System.Windows.Forms.PictureBox();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
@@ -730,8 +730,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1500,8 +1500,8 @@
             // gbObjectUploadPicture
             // 
             this.gbObjectUploadPicture.Controls.Add(this.pbObjectThumbnail);
-            this.gbObjectUploadPicture.Controls.Add(this.button2);
-            this.gbObjectUploadPicture.Controls.Add(this.btnObjectUpload);
+            this.gbObjectUploadPicture.Controls.Add(this.btnObjectBrowseObjectPicture);
+            this.gbObjectUploadPicture.Controls.Add(this.btnObjectUploadObjectPicture);
             this.gbObjectUploadPicture.Location = new System.Drawing.Point(6, 497);
             this.gbObjectUploadPicture.Name = "gbObjectUploadPicture";
             this.gbObjectUploadPicture.Size = new System.Drawing.Size(224, 138);
@@ -1509,29 +1509,31 @@
             this.gbObjectUploadPicture.TabStop = false;
             this.gbObjectUploadPicture.Text = "Ladda upp objektbild";
             // 
-            // btnObjectUpload
+            // btnObjectUploadObjectPicture
             // 
-            this.btnObjectUpload.Location = new System.Drawing.Point(137, 109);
-            this.btnObjectUpload.Name = "btnObjectUpload";
-            this.btnObjectUpload.Size = new System.Drawing.Size(75, 23);
-            this.btnObjectUpload.TabIndex = 0;
-            this.btnObjectUpload.Text = "Ladda upp";
-            this.btnObjectUpload.UseVisualStyleBackColor = true;
+            this.btnObjectUploadObjectPicture.Location = new System.Drawing.Point(137, 109);
+            this.btnObjectUploadObjectPicture.Name = "btnObjectUploadObjectPicture";
+            this.btnObjectUploadObjectPicture.Size = new System.Drawing.Size(75, 23);
+            this.btnObjectUploadObjectPicture.TabIndex = 0;
+            this.btnObjectUploadObjectPicture.Text = "Ladda upp";
+            this.btnObjectUploadObjectPicture.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnObjectBrowseObjectPicture
             // 
-            this.button2.Location = new System.Drawing.Point(56, 109);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Bläddra";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnObjectBrowseObjectPicture.Location = new System.Drawing.Point(56, 109);
+            this.btnObjectBrowseObjectPicture.Name = "btnObjectBrowseObjectPicture";
+            this.btnObjectBrowseObjectPicture.Size = new System.Drawing.Size(75, 23);
+            this.btnObjectBrowseObjectPicture.TabIndex = 1;
+            this.btnObjectBrowseObjectPicture.Text = "Bläddra";
+            this.btnObjectBrowseObjectPicture.UseVisualStyleBackColor = true;
+            this.btnObjectBrowseObjectPicture.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // pbObjectThumbnail
             // 
             this.pbObjectThumbnail.Location = new System.Drawing.Point(8, 15);
             this.pbObjectThumbnail.Name = "pbObjectThumbnail";
             this.pbObjectThumbnail.Size = new System.Drawing.Size(204, 88);
+            this.pbObjectThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbObjectThumbnail.TabIndex = 2;
             this.pbObjectThumbnail.TabStop = false;
             // 
@@ -1718,8 +1720,8 @@
         private System.Windows.Forms.GroupBox gbBrokerAllBrokers;
         private System.Windows.Forms.GroupBox gbObjectUploadPicture;
         private System.Windows.Forms.PictureBox pbObjectThumbnail;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnObjectUpload;
+        private System.Windows.Forms.Button btnObjectBrowseObjectPicture;
+        private System.Windows.Forms.Button btnObjectUploadObjectPicture;
 
     }
 }
