@@ -634,7 +634,7 @@
             this.gbObjectPicture.Controls.Add(this.lblObjectObjAddress);
             this.gbObjectPicture.Location = new System.Drawing.Point(10, 6);
             this.gbObjectPicture.Name = "gbObjectPicture";
-            this.gbObjectPicture.Size = new System.Drawing.Size(573, 350);
+            this.gbObjectPicture.Size = new System.Drawing.Size(584, 350);
             this.gbObjectPicture.TabIndex = 42;
             this.gbObjectPicture.TabStop = false;
             this.gbObjectPicture.Text = "Bild";
@@ -645,7 +645,7 @@
             this.pbObjectsObjectPicture.Image = ((System.Drawing.Image)(resources.GetObject("pbObjectsObjectPicture.Image")));
             this.pbObjectsObjectPicture.Location = new System.Drawing.Point(7, 22);
             this.pbObjectsObjectPicture.Name = "pbObjectsObjectPicture";
-            this.pbObjectsObjectPicture.Size = new System.Drawing.Size(552, 284);
+            this.pbObjectsObjectPicture.Size = new System.Drawing.Size(571, 284);
             this.pbObjectsObjectPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbObjectsObjectPicture.TabIndex = 0;
             this.pbObjectsObjectPicture.TabStop = false;
@@ -678,7 +678,7 @@
             // 
             this.btnObjectShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectShowMap.Image")));
             this.btnObjectShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectShowMap.Location = new System.Drawing.Point(502, 318);
+            this.btnObjectShowMap.Location = new System.Drawing.Point(513, 321);
             this.btnObjectShowMap.Name = "btnObjectShowMap";
             this.btnObjectShowMap.Size = new System.Drawing.Size(65, 23);
             this.btnObjectShowMap.TabIndex = 36;
@@ -783,42 +783,42 @@
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectPricePerKvm);
             this.bgObjectObjectInfo2.Location = new System.Drawing.Point(236, 363);
             this.bgObjectObjectInfo2.Name = "bgObjectObjectInfo2";
-            this.bgObjectObjectInfo2.Size = new System.Drawing.Size(347, 272);
+            this.bgObjectObjectInfo2.Size = new System.Drawing.Size(358, 272);
             this.bgObjectObjectInfo2.TabIndex = 38;
             this.bgObjectObjectInfo2.TabStop = false;
             this.bgObjectObjectInfo2.Text = "Information";
             // 
             // tbObjectPrice
             // 
-            this.tbObjectPrice.Location = new System.Drawing.Point(119, 175);
+            this.tbObjectPrice.Location = new System.Drawing.Point(130, 175);
             this.tbObjectPrice.Name = "tbObjectPrice";
             this.tbObjectPrice.Size = new System.Drawing.Size(222, 20);
             this.tbObjectPrice.TabIndex = 7;
             // 
             // tbObjectCity
             // 
-            this.tbObjectCity.Location = new System.Drawing.Point(119, 150);
+            this.tbObjectCity.Location = new System.Drawing.Point(130, 150);
             this.tbObjectCity.Name = "tbObjectCity";
             this.tbObjectCity.Size = new System.Drawing.Size(222, 20);
             this.tbObjectCity.TabIndex = 6;
             // 
             // tbObjectAddress
             // 
-            this.tbObjectAddress.Location = new System.Drawing.Point(119, 124);
+            this.tbObjectAddress.Location = new System.Drawing.Point(130, 124);
             this.tbObjectAddress.Name = "tbObjectAddress";
             this.tbObjectAddress.Size = new System.Drawing.Size(222, 20);
             this.tbObjectAddress.TabIndex = 5;
             // 
             // tbObjectObjectNr
             // 
-            this.tbObjectObjectNr.Location = new System.Drawing.Point(119, 227);
+            this.tbObjectObjectNr.Location = new System.Drawing.Point(130, 227);
             this.tbObjectObjectNr.Name = "tbObjectObjectNr";
             this.tbObjectObjectNr.Size = new System.Drawing.Size(222, 20);
             this.tbObjectObjectNr.TabIndex = 9;
             // 
             // tbObjectBrokerSsnr
             // 
-            this.tbObjectBrokerSsnr.Location = new System.Drawing.Point(119, 201);
+            this.tbObjectBrokerSsnr.Location = new System.Drawing.Point(130, 201);
             this.tbObjectBrokerSsnr.Name = "tbObjectBrokerSsnr";
             this.tbObjectBrokerSsnr.Size = new System.Drawing.Size(222, 20);
             this.tbObjectBrokerSsnr.TabIndex = 8;
@@ -870,28 +870,28 @@
             // 
             // tbObjectPricePerKvm
             // 
-            this.tbObjectPricePerKvm.Location = new System.Drawing.Point(119, 98);
+            this.tbObjectPricePerKvm.Location = new System.Drawing.Point(130, 98);
             this.tbObjectPricePerKvm.Name = "tbObjectPricePerKvm";
             this.tbObjectPricePerKvm.Size = new System.Drawing.Size(222, 20);
             this.tbObjectPricePerKvm.TabIndex = 4;
             // 
             // tbObjectArea
             // 
-            this.tbObjectArea.Location = new System.Drawing.Point(119, 18);
+            this.tbObjectArea.Location = new System.Drawing.Point(130, 18);
             this.tbObjectArea.Name = "tbObjectArea";
             this.tbObjectArea.Size = new System.Drawing.Size(222, 20);
             this.tbObjectArea.TabIndex = 1;
             // 
             // tbObjectType
             // 
-            this.tbObjectType.Location = new System.Drawing.Point(119, 71);
+            this.tbObjectType.Location = new System.Drawing.Point(130, 71);
             this.tbObjectType.Name = "tbObjectType";
             this.tbObjectType.Size = new System.Drawing.Size(222, 20);
             this.tbObjectType.TabIndex = 3;
             // 
             // tbObjectNumberOfRooms
             // 
-            this.tbObjectNumberOfRooms.Location = new System.Drawing.Point(119, 44);
+            this.tbObjectNumberOfRooms.Location = new System.Drawing.Point(130, 44);
             this.tbObjectNumberOfRooms.Name = "tbObjectNumberOfRooms";
             this.tbObjectNumberOfRooms.Size = new System.Drawing.Size(222, 20);
             this.tbObjectNumberOfRooms.TabIndex = 2;
