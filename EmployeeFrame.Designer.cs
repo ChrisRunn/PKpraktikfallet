@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.btnShowingSubmit = new System.Windows.Forms.Button();
@@ -634,7 +634,7 @@
             this.gbObjectPicture.Controls.Add(this.lblObjectObjAddress);
             this.gbObjectPicture.Location = new System.Drawing.Point(10, 6);
             this.gbObjectPicture.Name = "gbObjectPicture";
-            this.gbObjectPicture.Size = new System.Drawing.Size(573, 350);
+            this.gbObjectPicture.Size = new System.Drawing.Size(584, 350);
             this.gbObjectPicture.TabIndex = 42;
             this.gbObjectPicture.TabStop = false;
             this.gbObjectPicture.Text = "Bild";
@@ -645,7 +645,7 @@
             this.pbObjectsObjectPicture.Image = ((System.Drawing.Image)(resources.GetObject("pbObjectsObjectPicture.Image")));
             this.pbObjectsObjectPicture.Location = new System.Drawing.Point(7, 22);
             this.pbObjectsObjectPicture.Name = "pbObjectsObjectPicture";
-            this.pbObjectsObjectPicture.Size = new System.Drawing.Size(552, 284);
+            this.pbObjectsObjectPicture.Size = new System.Drawing.Size(571, 284);
             this.pbObjectsObjectPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbObjectsObjectPicture.TabIndex = 0;
             this.pbObjectsObjectPicture.TabStop = false;
@@ -678,7 +678,7 @@
             // 
             this.btnObjectShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectShowMap.Image")));
             this.btnObjectShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectShowMap.Location = new System.Drawing.Point(502, 318);
+            this.btnObjectShowMap.Location = new System.Drawing.Point(513, 321);
             this.btnObjectShowMap.Name = "btnObjectShowMap";
             this.btnObjectShowMap.Size = new System.Drawing.Size(65, 23);
             this.btnObjectShowMap.TabIndex = 36;
@@ -704,8 +704,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -783,42 +783,42 @@
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectPricePerKvm);
             this.bgObjectObjectInfo2.Location = new System.Drawing.Point(236, 363);
             this.bgObjectObjectInfo2.Name = "bgObjectObjectInfo2";
-            this.bgObjectObjectInfo2.Size = new System.Drawing.Size(347, 272);
+            this.bgObjectObjectInfo2.Size = new System.Drawing.Size(358, 272);
             this.bgObjectObjectInfo2.TabIndex = 38;
             this.bgObjectObjectInfo2.TabStop = false;
             this.bgObjectObjectInfo2.Text = "Information";
             // 
             // tbObjectPrice
             // 
-            this.tbObjectPrice.Location = new System.Drawing.Point(119, 175);
+            this.tbObjectPrice.Location = new System.Drawing.Point(130, 175);
             this.tbObjectPrice.Name = "tbObjectPrice";
             this.tbObjectPrice.Size = new System.Drawing.Size(222, 20);
             this.tbObjectPrice.TabIndex = 7;
             // 
             // tbObjectCity
             // 
-            this.tbObjectCity.Location = new System.Drawing.Point(119, 150);
+            this.tbObjectCity.Location = new System.Drawing.Point(130, 150);
             this.tbObjectCity.Name = "tbObjectCity";
             this.tbObjectCity.Size = new System.Drawing.Size(222, 20);
             this.tbObjectCity.TabIndex = 6;
             // 
             // tbObjectAddress
             // 
-            this.tbObjectAddress.Location = new System.Drawing.Point(119, 124);
+            this.tbObjectAddress.Location = new System.Drawing.Point(130, 124);
             this.tbObjectAddress.Name = "tbObjectAddress";
             this.tbObjectAddress.Size = new System.Drawing.Size(222, 20);
             this.tbObjectAddress.TabIndex = 5;
             // 
             // tbObjectObjectNr
             // 
-            this.tbObjectObjectNr.Location = new System.Drawing.Point(119, 227);
+            this.tbObjectObjectNr.Location = new System.Drawing.Point(130, 227);
             this.tbObjectObjectNr.Name = "tbObjectObjectNr";
             this.tbObjectObjectNr.Size = new System.Drawing.Size(222, 20);
             this.tbObjectObjectNr.TabIndex = 9;
             // 
             // tbObjectBrokerSsnr
             // 
-            this.tbObjectBrokerSsnr.Location = new System.Drawing.Point(119, 201);
+            this.tbObjectBrokerSsnr.Location = new System.Drawing.Point(130, 201);
             this.tbObjectBrokerSsnr.Name = "tbObjectBrokerSsnr";
             this.tbObjectBrokerSsnr.Size = new System.Drawing.Size(222, 20);
             this.tbObjectBrokerSsnr.TabIndex = 8;
@@ -870,28 +870,28 @@
             // 
             // tbObjectPricePerKvm
             // 
-            this.tbObjectPricePerKvm.Location = new System.Drawing.Point(119, 98);
+            this.tbObjectPricePerKvm.Location = new System.Drawing.Point(130, 98);
             this.tbObjectPricePerKvm.Name = "tbObjectPricePerKvm";
             this.tbObjectPricePerKvm.Size = new System.Drawing.Size(222, 20);
             this.tbObjectPricePerKvm.TabIndex = 4;
             // 
             // tbObjectArea
             // 
-            this.tbObjectArea.Location = new System.Drawing.Point(119, 18);
+            this.tbObjectArea.Location = new System.Drawing.Point(130, 18);
             this.tbObjectArea.Name = "tbObjectArea";
             this.tbObjectArea.Size = new System.Drawing.Size(222, 20);
             this.tbObjectArea.TabIndex = 1;
             // 
             // tbObjectType
             // 
-            this.tbObjectType.Location = new System.Drawing.Point(119, 71);
+            this.tbObjectType.Location = new System.Drawing.Point(130, 71);
             this.tbObjectType.Name = "tbObjectType";
             this.tbObjectType.Size = new System.Drawing.Size(222, 20);
             this.tbObjectType.TabIndex = 3;
             // 
             // tbObjectNumberOfRooms
             // 
-            this.tbObjectNumberOfRooms.Location = new System.Drawing.Point(119, 44);
+            this.tbObjectNumberOfRooms.Location = new System.Drawing.Point(130, 44);
             this.tbObjectNumberOfRooms.Name = "tbObjectNumberOfRooms";
             this.tbObjectNumberOfRooms.Size = new System.Drawing.Size(222, 20);
             this.tbObjectNumberOfRooms.TabIndex = 2;
@@ -1067,7 +1067,7 @@
             // 
             this.pbStartLogo.BackColor = System.Drawing.Color.Transparent;
             this.pbStartLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbStartLogo.Image")));
-            this.pbStartLogo.Location = new System.Drawing.Point(297, 3);
+            this.pbStartLogo.Location = new System.Drawing.Point(363, 6);
             this.pbStartLogo.Name = "pbStartLogo";
             this.pbStartLogo.Size = new System.Drawing.Size(333, 138);
             this.pbStartLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1077,7 +1077,7 @@
             // lblStartYourShowings
             // 
             this.lblStartYourShowings.AutoSize = true;
-            this.lblStartYourShowings.Location = new System.Drawing.Point(472, 202);
+            this.lblStartYourShowings.Location = new System.Drawing.Point(535, 217);
             this.lblStartYourShowings.Name = "lblStartYourShowings";
             this.lblStartYourShowings.Size = new System.Drawing.Size(152, 13);
             this.lblStartYourShowings.TabIndex = 5;
@@ -1086,7 +1086,7 @@
             // lblStartYourObjects
             // 
             this.lblStartYourObjects.AutoSize = true;
-            this.lblStartYourObjects.Location = new System.Drawing.Point(6, 202);
+            this.lblStartYourObjects.Location = new System.Drawing.Point(69, 217);
             this.lblStartYourObjects.Name = "lblStartYourObjects";
             this.lblStartYourObjects.Size = new System.Drawing.Size(72, 13);
             this.lblStartYourObjects.TabIndex = 4;
@@ -1099,7 +1099,7 @@
             this.dgvStartYourShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvStartYourShowings.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvStartYourShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStartYourShowings.Location = new System.Drawing.Point(475, 218);
+            this.dgvStartYourShowings.Location = new System.Drawing.Point(538, 233);
             this.dgvStartYourShowings.Name = "dgvStartYourShowings";
             this.dgvStartYourShowings.Size = new System.Drawing.Size(462, 402);
             this.dgvStartYourShowings.TabIndex = 3;
@@ -1110,7 +1110,7 @@
             this.dgvStartYourObjects.AllowUserToDeleteRows = false;
             this.dgvStartYourObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvStartYourObjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStartYourObjects.Location = new System.Drawing.Point(7, 218);
+            this.dgvStartYourObjects.Location = new System.Drawing.Point(70, 233);
             this.dgvStartYourObjects.Name = "dgvStartYourObjects";
             this.dgvStartYourObjects.Size = new System.Drawing.Size(462, 402);
             this.dgvStartYourObjects.TabIndex = 2;
@@ -1120,7 +1120,7 @@
             this.lblStartEmpName.AutoSize = true;
             this.lblStartEmpName.BackColor = System.Drawing.Color.Transparent;
             this.lblStartEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartEmpName.Location = new System.Drawing.Point(20, 93);
+            this.lblStartEmpName.Location = new System.Drawing.Point(94, 68);
             this.lblStartEmpName.Name = "lblStartEmpName";
             this.lblStartEmpName.Size = new System.Drawing.Size(211, 31);
             this.lblStartEmpName.TabIndex = 1;
@@ -1131,7 +1131,7 @@
             this.lblStartWelcome.AutoSize = true;
             this.lblStartWelcome.BackColor = System.Drawing.Color.Transparent;
             this.lblStartWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartWelcome.Location = new System.Drawing.Point(20, 36);
+            this.lblStartWelcome.Location = new System.Drawing.Point(117, 26);
             this.lblStartWelcome.Name = "lblStartWelcome";
             this.lblStartWelcome.Size = new System.Drawing.Size(170, 33);
             this.lblStartWelcome.TabIndex = 0;
