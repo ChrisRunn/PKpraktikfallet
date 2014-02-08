@@ -1010,6 +1010,11 @@ namespace praktikfall
         {
 
         }
+
+        private void lblBrokerSelectedBroker_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
