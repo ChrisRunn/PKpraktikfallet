@@ -76,7 +76,71 @@ namespace praktikfall
                     con.Close();
                 }
             }
+
+            /*string [] columnHeadings = new string[0];
+
+            long l = dataTable.Columns.Count;
+            foreach (DataColumn dc in dataTable.Columns)
+            {
+                
+                string columnName = dc.ColumnName.ToString();
+                columnName = this.StringTranslator(columnName);
+                columnHeadings = Array.Copy(columnHeadings,dataTable, dataTable.Columns.Count);
+            
+            }*/
+
             return dataTable;
+        }
+
+        private string StringTranslator(string stringIn)
+        {
+
+            string stringOut;
+
+            switch (stringIn)
+            {
+                case "objNr":
+                    stringOut = "Objektsnummer";
+                    break;
+                case "cname":
+                    stringOut = "Kursnamn";
+                    break;
+                case "points":
+                    stringOut = "Högskolepoäng";
+                    break;
+                case "pnr":
+                    stringOut = "Personnummer";
+                    break;
+                case "firstname":
+                    stringOut = "Förnamn";
+                    break;
+                case "lastname":
+                    stringOut = "Efternamn";
+                    break;
+                case "phonenr":
+                    stringOut = "Telefonnummer";
+                    break;
+                case "email":
+                    stringOut = "E-post";
+                    break;
+                case "adress":
+                    stringOut = "Adress";
+                    break;
+                case "postcode":
+                    stringOut = "Postnummer";
+                    break;
+                case "city":
+                    stringOut = "Ort";
+                    break;
+                case "grade":
+                    stringOut = "Betyg";
+                    break;
+                default:
+                    stringOut = stringIn;
+                    break;
+            }
+
+            return stringOut;
         }
         #endregion GENERISKA METODER
 
