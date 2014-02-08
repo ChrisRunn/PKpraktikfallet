@@ -18,7 +18,7 @@ namespace praktikfall
         string connectionString = "server=localhost; Trusted_Connection=yes; database=PK Praktikfallet;";
 
         //generisk metod för att skicka query som uppdaterar eller lägger till nya objekt
-        private int ExecuteUpdate(string sqlStr)
+        private int ExecuteUpdate(string sqlStr) 
         {
             SqlConnection con = new SqlConnection(connectionString);
             Debug.WriteLine(sqlStr);
@@ -92,7 +92,7 @@ namespace praktikfall
 
         }
         //Ta bort OBJEKT
-        public int DeleteObject(string objNr)
+        public int DeleteObject(string objNr) 
         {
             string sqlStr = "delete from RealEstateObject where objNr = '" + objNr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
@@ -261,7 +261,7 @@ namespace praktikfall
             return nrOfRows;
         }
         //Ta bort ägare
-        public int RemoveObjectOwner(string ownerSsnr)
+        public int DeleteObjectOwner(string ownerSsnr)
         {
             string sqlStr = "delete from ObjectOwner where ownerSsnr = '" + ownerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
@@ -276,7 +276,7 @@ namespace praktikfall
         }
 
         // Uppdaterar allt i objekt fliken ! MÅSTE PLACERAS I RÄTT FOLDER
-        public int UpdateObjectFlik(string objNr, string objAdress, string objCity,
+        public int UpdateObjectFlap(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string ownerSsnr, string phoneNr, string email, string name)
         {
             string sqlStr = "update RealEstateObject set objAdress ='" + objAdress + "',objArea =" + objArea + ",objCity ='"
@@ -296,7 +296,7 @@ namespace praktikfall
 
         //Registrera Objekt och dess ägare MÅSTE PLACERAS I RÄTT FOLDER
 
-        public int RegisterObjectAndOwner(string objNr, string objAdress, string objCity,
+        public int AddObjectAndOwner(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
@@ -309,7 +309,6 @@ namespace praktikfall
             MessageBox.Show(sqlStr);
             return nrOfRows;
         }
-
 
         //Söka Ägare -- BEHÖVS EVENTUELLT INTE
         public DataTable GetObjectOwner(string ownerSsnr)
@@ -335,7 +334,7 @@ namespace praktikfall
             return dt;
         }
         //Registrera givet OBJEKT med given ÄGARE     HÄR registreras ett objekts ägare
-        public int RegisterObjectOwner(string objNr, string ownerSsnr)
+        public int AddObjectOwner(string objNr, string ownerSsnr)
         {
             string sqlStr = "insert into HasOwner values ('" + objNr + "','" + ownerSsnr + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
@@ -351,7 +350,7 @@ namespace praktikfall
         #endregion HASOWNER
         #region SHOWING
         //Registrera VISNING
-        public int RegisterShowing(string objNr, string buyerSsnr, string showingDate)
+        public int AddShowing(string objNr, string buyerSsnr, string showingDate)
         {
             string sqlStr = "insert into Showing values ('" + objNr + "','" + buyerSsnr + "','" + showingDate + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
@@ -415,11 +414,7 @@ namespace praktikfall
                 
             MessageBox.Show("Det finns ingen användare med detta lösenord, var god försök igen");
             return null;
-            }
-            
-
-
-
+            }          
         }
     }
 }
