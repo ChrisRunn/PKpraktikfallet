@@ -419,11 +419,11 @@ namespace praktikfall
         {
             if (e.RowIndex >= 0)
             {
-              DataGridViewRow row = this.dgvShowingCurrentShowings.Rows[e.RowIndex];
-            string objNr = row.Cells["objNr"].Value.ToString();
-            string buyerSsnr = row.Cells["buyerSsnr"].Value.ToString();
-            lblShowingSelectedBuyerDelete.Text = buyerSsnr;
-            lblShowingSelectedObjNrDelete.Text = objNr;  
+                DataGridViewRow row = this.dgvShowingCurrentShowings.Rows[e.RowIndex];
+                string objNr = row.Cells["objNr"].Value.ToString();
+                string buyerSsnr = row.Cells["buyerSsnr"].Value.ToString();
+                lblShowingSelectedBuyerDelete.Text = buyerSsnr;
+                lblShowingSelectedObjNrDelete.Text = objNr;  
             }
             
         }
