@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingBuyerSearch = new System.Windows.Forms.Label();
@@ -160,6 +160,10 @@
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.gbBrokerAllBrokers = new System.Windows.Forms.GroupBox();
+            this.gbObjectUploadPicture = new System.Windows.Forms.GroupBox();
+            this.btnObjectUpload = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pbObjectThumbnail = new System.Windows.Forms.PictureBox();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -184,6 +188,8 @@
             this.bgBrokerAdministrateBroker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).BeginInit();
             this.gbBrokerAllBrokers.SuspendLayout();
+            this.gbObjectUploadPicture.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbObjectThumbnail)).BeginInit();
             this.SuspendLayout();
             // 
             // tpShowingShowingTabPage
@@ -604,6 +610,7 @@
             // tpObjectObjectTabPage
             // 
             this.tpObjectObjectTabPage.BackColor = System.Drawing.Color.White;
+            this.tpObjectObjectTabPage.Controls.Add(this.gbObjectUploadPicture);
             this.tpObjectObjectTabPage.Controls.Add(this.label1);
             this.tpObjectObjectTabPage.Controls.Add(this.gbObjectObjectInfo);
             this.tpObjectObjectTabPage.Controls.Add(this.gbObjectPicture);
@@ -625,7 +632,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(605, 513);
+            this.label1.Location = new System.Drawing.Point(779, 498);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 45;
@@ -636,7 +643,7 @@
             this.gbObjectObjectInfo.Controls.Add(this.rtbObjectObjectInfo);
             this.gbObjectObjectInfo.Location = new System.Drawing.Point(4, 362);
             this.gbObjectObjectInfo.Name = "gbObjectObjectInfo";
-            this.gbObjectObjectInfo.Size = new System.Drawing.Size(226, 273);
+            this.gbObjectObjectInfo.Size = new System.Drawing.Size(226, 274);
             this.gbObjectObjectInfo.TabIndex = 43;
             this.gbObjectObjectInfo.TabStop = false;
             this.gbObjectObjectInfo.Text = "Objektsbeskrivning";
@@ -646,7 +653,7 @@
             this.rtbObjectObjectInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rtbObjectObjectInfo.Location = new System.Drawing.Point(7, 19);
             this.rtbObjectObjectInfo.Name = "rtbObjectObjectInfo";
-            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(207, 248);
+            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(207, 249);
             this.rtbObjectObjectInfo.TabIndex = 10;
             this.rtbObjectObjectInfo.Text = "";
             // 
@@ -677,7 +684,7 @@
             // 
             this.btnObjectShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectShowMap.Image")));
             this.btnObjectShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectShowMap.Location = new System.Drawing.Point(513, 321);
+            this.btnObjectShowMap.Location = new System.Drawing.Point(519, 320);
             this.btnObjectShowMap.Name = "btnObjectShowMap";
             this.btnObjectShowMap.Size = new System.Drawing.Size(65, 23);
             this.btnObjectShowMap.TabIndex = 36;
@@ -723,8 +730,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -763,7 +770,7 @@
             // tbObjectDeleteObject
             // 
             this.tbObjectDeleteObject.AutoSize = true;
-            this.tbObjectDeleteObject.Location = new System.Drawing.Point(607, 583);
+            this.tbObjectDeleteObject.Location = new System.Drawing.Point(781, 568);
             this.tbObjectDeleteObject.Name = "tbObjectDeleteObject";
             this.tbObjectDeleteObject.Size = new System.Drawing.Size(106, 17);
             this.tbObjectDeleteObject.TabIndex = 40;
@@ -785,7 +792,7 @@
             // 
             this.cbObjectUpdate.AccessibleName = "cbObjUpdate";
             this.cbObjectUpdate.AutoSize = true;
-            this.cbObjectUpdate.Location = new System.Drawing.Point(607, 560);
+            this.cbObjectUpdate.Location = new System.Drawing.Point(781, 545);
             this.cbObjectUpdate.Name = "cbObjectUpdate";
             this.cbObjectUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbObjectUpdate.TabIndex = 6;
@@ -796,7 +803,7 @@
             // cbObjectRegister
             // 
             this.cbObjectRegister.AutoSize = true;
-            this.cbObjectRegister.Location = new System.Drawing.Point(608, 537);
+            this.cbObjectRegister.Location = new System.Drawing.Point(782, 522);
             this.cbObjectRegister.Name = "cbObjectRegister";
             this.cbObjectRegister.Size = new System.Drawing.Size(84, 17);
             this.cbObjectRegister.TabIndex = 8;
@@ -985,7 +992,7 @@
             this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerSsnr);
             this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerName);
             this.gbObjectOwnerInfo.Controls.Add(this.lblObjectOwnerPhoneNR);
-            this.gbObjectOwnerInfo.Location = new System.Drawing.Point(599, 363);
+            this.gbObjectOwnerInfo.Location = new System.Drawing.Point(601, 363);
             this.gbObjectOwnerInfo.Name = "gbObjectOwnerInfo";
             this.gbObjectOwnerInfo.Size = new System.Drawing.Size(476, 129);
             this.gbObjectOwnerInfo.TabIndex = 37;
@@ -1490,6 +1497,44 @@
             this.gbBrokerAllBrokers.TabStop = false;
             this.gbBrokerAllBrokers.Text = "Alla registrerade mäklare";
             // 
+            // gbObjectUploadPicture
+            // 
+            this.gbObjectUploadPicture.Controls.Add(this.pbObjectThumbnail);
+            this.gbObjectUploadPicture.Controls.Add(this.button2);
+            this.gbObjectUploadPicture.Controls.Add(this.btnObjectUpload);
+            this.gbObjectUploadPicture.Location = new System.Drawing.Point(600, 498);
+            this.gbObjectUploadPicture.Name = "gbObjectUploadPicture";
+            this.gbObjectUploadPicture.Size = new System.Drawing.Size(173, 141);
+            this.gbObjectUploadPicture.TabIndex = 46;
+            this.gbObjectUploadPicture.TabStop = false;
+            this.gbObjectUploadPicture.Text = "Ladda upp objektbild";
+            // 
+            // btnObjectUpload
+            // 
+            this.btnObjectUpload.Location = new System.Drawing.Point(89, 109);
+            this.btnObjectUpload.Name = "btnObjectUpload";
+            this.btnObjectUpload.Size = new System.Drawing.Size(75, 23);
+            this.btnObjectUpload.TabIndex = 0;
+            this.btnObjectUpload.Text = "Ladda upp";
+            this.btnObjectUpload.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(8, 109);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Bläddra";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // pbObjectThumbnail
+            // 
+            this.pbObjectThumbnail.Location = new System.Drawing.Point(8, 15);
+            this.pbObjectThumbnail.Name = "pbObjectThumbnail";
+            this.pbObjectThumbnail.Size = new System.Drawing.Size(156, 88);
+            this.pbObjectThumbnail.TabIndex = 2;
+            this.pbObjectThumbnail.TabStop = false;
+            // 
             // frameMainMainframe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1534,6 +1579,8 @@
             this.bgBrokerAdministrateBroker.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).EndInit();
             this.gbBrokerAllBrokers.ResumeLayout(false);
+            this.gbObjectUploadPicture.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbObjectThumbnail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1669,6 +1716,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblObjectSearch;
         private System.Windows.Forms.GroupBox gbBrokerAllBrokers;
+        private System.Windows.Forms.GroupBox gbObjectUploadPicture;
+        private System.Windows.Forms.PictureBox pbObjectThumbnail;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnObjectUpload;
 
     }
 }
