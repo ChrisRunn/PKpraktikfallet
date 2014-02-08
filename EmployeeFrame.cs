@@ -416,12 +416,16 @@ namespace praktikfall
         }
 
         private void dgvShowingCurrentShowings_CellClicked(object sender, DataGridViewCellEventArgs e)
-        {   
-            DataGridViewRow row = this.dgvShowingCurrentShowings.Rows[e.RowIndex];
+        {
+            if (e.RowIndex >= 0)
+            {
+              DataGridViewRow row = this.dgvShowingCurrentShowings.Rows[e.RowIndex];
             string objNr = row.Cells["objNr"].Value.ToString();
             string buyerSsnr = row.Cells["buyerSsnr"].Value.ToString();
             lblShowingSelectedBuyerDelete.Text = buyerSsnr;
-            lblShowingSelectedObjNrDelete.Text = objNr;
+            lblShowingSelectedObjNrDelete.Text = objNr;  
+            }
+            
         }
 
         private void btnShowingDelete_Click(object sender, EventArgs e)                         //Ta bort visning/Ta bort spekulant från visning
