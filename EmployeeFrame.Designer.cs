@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeFrame));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPageVisning = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnShowingSubmit = new System.Windows.Forms.Button();
@@ -68,10 +68,15 @@
             this.btnAddShowing = new System.Windows.Forms.Button();
             this.lblSpekulantVisning = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.picBoxShowObj = new System.Windows.Forms.PictureBox();
+            this.btnObjectSearch = new System.Windows.Forms.Button();
+            this.tbObjSearch = new System.Windows.Forms.TextBox();
+            this.btnShowMap = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dgvObject = new System.Windows.Forms.DataGridView();
-            this.tbObjSearch = new System.Windows.Forms.TextBox();
-            this.btnObjectSearch = new System.Windows.Forms.Button();
             this.cbObjDeleteObject = new System.Windows.Forms.CheckBox();
             this.btnObjSubmit = new System.Windows.Forms.Button();
             this.cbObjUpdate = new System.Windows.Forms.CheckBox();
@@ -104,12 +109,9 @@
             this.lblObjOwnerName = new System.Windows.Forms.Label();
             this.lblObjOwnerPhonenr = new System.Windows.Forms.Label();
             this.lblObjOwnerSsnr = new System.Windows.Forms.Label();
-            this.btnShowMap = new System.Windows.Forms.Button();
             this.lblObjCity = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblObjAddress = new System.Windows.Forms.Label();
-            this.picBoxShowObj = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.imageStartLogotype = new System.Windows.Forms.PictureBox();
             this.labelMyShowings = new System.Windows.Forms.Label();
@@ -155,8 +157,6 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.tabPageVisning.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -165,11 +165,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectShowing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyerShowing)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageStartLogotype)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -178,8 +180,6 @@
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).BeginInit();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageVisning
@@ -601,43 +601,44 @@
             this.tabPage2.Text = "Objekt";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox6
+            // groupBox8
             // 
-            this.groupBox6.Controls.Add(this.dgvObject);
-            this.groupBox6.Location = new System.Drawing.Point(600, 15);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(462, 341);
-            this.groupBox6.TabIndex = 41;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Objekt";
+            this.groupBox8.Controls.Add(this.richTextBox1);
+            this.groupBox8.Location = new System.Drawing.Point(10, 446);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(220, 251);
+            this.groupBox8.TabIndex = 43;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Objektsbeskrivning";
             // 
-            // dgvObject
+            // richTextBox1
             // 
-            this.dgvObject.AllowUserToAddRows = false;
-            this.dgvObject.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObject.Location = new System.Drawing.Point(15, 22);
-            this.dgvObject.Name = "dgvObject";
-            this.dgvObject.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvObject.Size = new System.Drawing.Size(431, 303);
-            this.dgvObject.TabIndex = 16;
-            this.dgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObject_CellClick);
+            this.richTextBox1.Location = new System.Drawing.Point(7, 17);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(207, 228);
+            this.richTextBox1.TabIndex = 10;
+            this.richTextBox1.Text = "";
             // 
-            // tbObjSearch
+            // groupBox7
             // 
-            this.tbObjSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbObjSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbObjSearch.Location = new System.Drawing.Point(600, 369);
-            this.tbObjSearch.Name = "tbObjSearch";
-            this.tbObjSearch.Size = new System.Drawing.Size(101, 20);
-            this.tbObjSearch.TabIndex = 17;
-            this.tbObjSearch.Text = "Sökord";
-            this.tbObjSearch.Click += new System.EventHandler(this.tbObjSearchClick);
+            this.groupBox7.Controls.Add(this.picBoxShowObj);
+            this.groupBox7.Location = new System.Drawing.Point(10, 15);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(573, 341);
+            this.groupBox7.TabIndex = 42;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Bild";
+            // 
+            // picBoxShowObj
+            // 
+            this.picBoxShowObj.ErrorImage = null;
+            this.picBoxShowObj.Image = ((System.Drawing.Image)(resources.GetObject("picBoxShowObj.Image")));
+            this.picBoxShowObj.Location = new System.Drawing.Point(7, 22);
+            this.picBoxShowObj.Name = "picBoxShowObj";
+            this.picBoxShowObj.Size = new System.Drawing.Size(552, 303);
+            this.picBoxShowObj.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxShowObj.TabIndex = 0;
+            this.picBoxShowObj.TabStop = false;
             // 
             // btnObjectSearch
             // 
@@ -652,6 +653,57 @@
             this.btnObjectSearch.UseVisualStyleBackColor = true;
             this.btnObjectSearch.Click += new System.EventHandler(this.button2_Click);
             // 
+            // tbObjSearch
+            // 
+            this.tbObjSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbObjSearch.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbObjSearch.Location = new System.Drawing.Point(600, 369);
+            this.tbObjSearch.Name = "tbObjSearch";
+            this.tbObjSearch.Size = new System.Drawing.Size(101, 20);
+            this.tbObjSearch.TabIndex = 17;
+            this.tbObjSearch.Text = "Sökord";
+            this.tbObjSearch.Click += new System.EventHandler(this.tbObjSearchClick);
+            // 
+            // btnShowMap
+            // 
+            this.btnShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnShowMap.Image")));
+            this.btnShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnShowMap.Location = new System.Drawing.Point(518, 367);
+            this.btnShowMap.Name = "btnShowMap";
+            this.btnShowMap.Size = new System.Drawing.Size(65, 23);
+            this.btnShowMap.TabIndex = 36;
+            this.btnShowMap.Text = " Karta";
+            this.btnShowMap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnShowMap.UseVisualStyleBackColor = true;
+            this.btnShowMap.Click += new System.EventHandler(this.btnShowMap_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.dgvObject);
+            this.groupBox6.Location = new System.Drawing.Point(600, 15);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(462, 341);
+            this.groupBox6.TabIndex = 41;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Objekt";
+            // 
+            // dgvObject
+            // 
+            this.dgvObject.AllowUserToAddRows = false;
+            this.dgvObject.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvObject.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvObject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvObject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvObject.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvObject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObject.Location = new System.Drawing.Point(15, 22);
+            this.dgvObject.Name = "dgvObject";
+            this.dgvObject.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvObject.Size = new System.Drawing.Size(431, 303);
+            this.dgvObject.TabIndex = 16;
+            this.dgvObject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObject_CellClick);
+            // 
             // cbObjDeleteObject
             // 
             this.cbObjDeleteObject.AutoSize = true;
@@ -665,6 +717,7 @@
             // 
             // btnObjSubmit
             // 
+            this.btnObjSubmit.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnObjSubmit.Location = new System.Drawing.Point(584, 582);
             this.btnObjSubmit.Name = "btnObjSubmit";
             this.btnObjSubmit.Size = new System.Drawing.Size(75, 23);
@@ -949,19 +1002,6 @@
             this.lblObjOwnerSsnr.TabIndex = 0;
             this.lblObjOwnerSsnr.Text = "Personnummer:";
             // 
-            // btnShowMap
-            // 
-            this.btnShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnShowMap.Image")));
-            this.btnShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnShowMap.Location = new System.Drawing.Point(518, 367);
-            this.btnShowMap.Name = "btnShowMap";
-            this.btnShowMap.Size = new System.Drawing.Size(65, 23);
-            this.btnShowMap.TabIndex = 36;
-            this.btnShowMap.Text = " Karta";
-            this.btnShowMap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnShowMap.UseVisualStyleBackColor = true;
-            this.btnShowMap.Click += new System.EventHandler(this.btnShowMap_Click);
-            // 
             // lblObjCity
             // 
             this.lblObjCity.AutoSize = true;
@@ -971,14 +1011,6 @@
             this.lblObjCity.Size = new System.Drawing.Size(47, 20);
             this.lblObjCity.TabIndex = 21;
             this.lblObjCity.Text = "Stad";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 17);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(207, 228);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
             // 
             // lblPrice
             // 
@@ -1000,17 +1032,6 @@
             this.lblObjAddress.TabIndex = 1;
             this.lblObjAddress.Text = "Adress";
             this.lblObjAddress.Click += new System.EventHandler(this.lblObjAddress_Click);
-            // 
-            // picBoxShowObj
-            // 
-            this.picBoxShowObj.ErrorImage = null;
-            this.picBoxShowObj.Image = ((System.Drawing.Image)(resources.GetObject("picBoxShowObj.Image")));
-            this.picBoxShowObj.Location = new System.Drawing.Point(7, 22);
-            this.picBoxShowObj.Name = "picBoxShowObj";
-            this.picBoxShowObj.Size = new System.Drawing.Size(552, 303);
-            this.picBoxShowObj.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxShowObj.TabIndex = 0;
-            this.picBoxShowObj.TabStop = false;
             // 
             // tabPage1
             // 
@@ -1429,26 +1450,6 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.picBoxShowObj);
-            this.groupBox7.Location = new System.Drawing.Point(10, 15);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(573, 341);
-            this.groupBox7.TabIndex = 42;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Bild";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.richTextBox1);
-            this.groupBox8.Location = new System.Drawing.Point(10, 446);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(220, 251);
-            this.groupBox8.TabIndex = 43;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Objektsbeskrivning";
-            // 
             // EmployeeFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1472,13 +1473,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProspectiveBuyerShowing)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).EndInit();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvObject)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowObj)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageStartLogotype)).EndInit();
@@ -1489,8 +1492,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
