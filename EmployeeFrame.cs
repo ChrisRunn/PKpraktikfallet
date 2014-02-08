@@ -210,8 +210,6 @@ namespace praktikfall
                 tbObjectCity.Text = row1[2].ToString();
                 tbObjectPrice.Text = row1[3].ToString();
                 lblObjectObjAddress.Text = row1[1].ToString();
-                lblObjCity.Text = row1[2].ToString();
-                lblObjectObjectPrice.Text = row1[3].ToString();
                 tbObjectArea.Text = row1[4].ToString();
                 tbObjectNumberOfRooms.Text = row1[5].ToString();
                 tbObjectType.Text = row1[6].ToString();
@@ -965,8 +963,6 @@ namespace praktikfall
                 btnObjectSubmit.Enabled = true;
                 MakeTbEditable();
                 lblObjectObjAddress.Text = "";
-                lblObjCity.Text = "";
-                lblObjectObjectPrice.Text = "";
                 ClearObjectTb();
             }
             else if (cbObjectRegister.Checked == false)
