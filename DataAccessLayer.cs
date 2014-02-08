@@ -409,10 +409,10 @@ namespace praktikfall
 
             return pw;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 
-            MessageBox.Show("Det finns ingen användare med detta lösenord, var god försök igen");
+            MessageBox.Show("Det finns ingen användare med detta lösenord, var god försök igen. \n" + ex);
             return null;
             }          
         }
