@@ -18,7 +18,7 @@ namespace praktikfall
         string connectionString = "server=localhost; Trusted_Connection=yes; database=PK Praktikfallet;";
 
         //generisk metod för att skicka query som uppdaterar eller lägger till nya objekt
-        private int ExecuteUpdate(string sqlStr)
+        private int ExecuteUpdate(string sqlStr) 
         {
             SqlConnection con = new SqlConnection(connectionString);
             Debug.WriteLine(sqlStr);
@@ -92,7 +92,7 @@ namespace praktikfall
 
         }
         //Ta bort OBJEKT
-        public int DeleteObject(string objNr)
+        public int DeleteObject(string objNr) 
         {
             string sqlStr = "delete from RealEstateObject where objNr = '" + objNr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);

@@ -885,8 +885,7 @@ namespace praktikfall
             {
                 try
                 {
-                    int nrOfRows = controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-                    Populate();
+                    
                     bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
 
                     if (buyerExists)
@@ -895,6 +894,8 @@ namespace praktikfall
                     }
                     else
                     {
+                        int nrOfRows = controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                        Populate();
                         MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till");
                     }
                 }
@@ -1003,6 +1004,11 @@ namespace praktikfall
                 btnObjectSubmit.Enabled = false;
                 MakeTbReadOnly();
             }
+        }
+
+        private void tbShowingSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
