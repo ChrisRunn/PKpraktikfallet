@@ -202,36 +202,30 @@ namespace praktikfall
         private void setSelectedObjectAndOwner(string objNr, DataGridViewRow row)
         {
 
-            DataTable objectInfo = this.controller.GetObject(objNr);
-            foreach (DataRow row1 in objectInfo.Rows)
-            {
-                tbObjectObjectNr.Text = row1[0].ToString();
-                tbObjectAddress.Text = row1[1].ToString();
-                tbObjectCity.Text = row1[2].ToString();
-                tbObjectPrice.Text = row1[3].ToString();
-                lblObjectObjAddress.Text = row1[1].ToString();
-                tbObjectArea.Text = row1[4].ToString();
-                tbObjectNumberOfRooms.Text = row1[5].ToString();
-                tbObjectType.Text = row1[6].ToString();
-                rtbObjectObjectInfo.Text = row1[7].ToString();
-                tbObjectBrokerSsnr.Text = row1[8].ToString();
-                tbObjectOwnerSsnr.Text = row1[9].ToString();
-                string price = row1[3].ToString();
-                string area = row1[4].ToString();
-                int priceperkvm = int.Parse(price) / int.Parse(area);
-                tbObjectPricePerKvm.Text = priceperkvm.ToString();
+            DataRow objectInfo = this.controller.GetObject(objNr).Rows[0];
+            tbObjectObjectNr.Text = objectInfo[0].ToString();
+            tbObjectAddress.Text = objectInfo[1].ToString();
+            tbObjectCity.Text = objectInfo[2].ToString();
+            tbObjectPrice.Text = objectInfo[3].ToString();
+            lblObjectObjAddress.Text = objectInfo[1].ToString();
+            tbObjectArea.Text = objectInfo[4].ToString();
+            tbObjectNumberOfRooms.Text = objectInfo[5].ToString();
+            tbObjectType.Text = objectInfo[6].ToString();
+            rtbObjectObjectInfo.Text = objectInfo[7].ToString();
+            tbObjectBrokerSsnr.Text = objectInfo[8].ToString();
+            tbObjectOwnerSsnr.Text = objectInfo[9].ToString();
 
-            }
+            string price = objectInfo[3].ToString();
+            string area = objectInfo[4].ToString();
+            int priceperkvm = int.Parse(price) / int.Parse(area);
+            tbObjectPricePerKvm.Text = priceperkvm.ToString();
 
-            DataTable ownerInfo = this.controller.GetObjectOwner(tbObjectOwnerSsnr.Text);
-
-            foreach (DataRow row1 in ownerInfo.Rows)
-            {
-                tbObjectOwnerPhoneNr.Text = row1[1].ToString();
-                tbObjectOwnerEmail.Text = row1[2].ToString();
-                tbObjectOwnerName.Text = row1[3].ToString();
-
-            }
+            DataRow ownerInfo = this.controller.GetObjectOwner(tbObjectOwnerSsnr.Text).Rows[0];
+     
+            tbObjectOwnerPhoneNr.Text = ownerInfo[1].ToString();
+            tbObjectOwnerEmail.Text = ownerInfo[2].ToString();
+            tbObjectOwnerName.Text = ownerInfo[3].ToString();
+            
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
