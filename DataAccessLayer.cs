@@ -365,15 +365,12 @@ namespace praktikfall
         }
 
         // Uppdaterar allt i objekt fliken ! MÅSTE PLACERAS I RÄTT FOLDER
-        public int UpdateObjectFlap(string objNr, string objAdress, string objCity,
-            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string ownerSsnr, string phoneNr, string email, string name)
+        public int UpdateObjectFlap(string objAdress, string objCity,
+            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
-            string sqlStr = "update RealEstateObject set objAdress ='" + objAdress + "',objArea =" + objArea + ",objCity ='"
-                + objCity + "',objInfo ='" + objInfo + "',objPrice ="
-                + objPrice + ",objRooms ='" + objRooms + "',objUnitType ='"
-                + objUnitType + "' where objNr =" + objNr;
-            sqlStr += "update ObjectOwner set phoneNr ='" + phoneNr + "',email ='" + email + "',name ='" + name + "'";
-
+            string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "', objCity = '" + objCity + "', objPrice = '" + objPrice + "', objArea = '" + objArea + "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType + "', objInfo = '" + objInfo + "' where objNr = '" + objNr +"' ";
+            sqlStr += "update ObjectOwner set name = '" + name + "', phoneNr = '" + phoneNr + "', email = '" + email + "' where ownerSsnr = '" + ownerSsnr + "'";
+            MessageBox.Show(sqlStr);
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
@@ -391,6 +388,19 @@ namespace praktikfall
             string sqlStr = "select * from ObjectOwner";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
+        }
+        //Kontrollera om ÄGARE finns
+        public bool OwnerExists(string ownerSsnr)
+        {
+            bool ownerExists = false;
+            string sqlStr = "select * from ObjectOwner where ownerSsnr = '" + ownerSsnr + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            if (dt.Rows.Count > 0)
+            {
+                ownerExists = true;
+                return ownerExists;
+            }
+            return ownerExists;
         }
         #endregion OBJEKTÄGARE
         #region HASOWNER

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -100,14 +100,12 @@
             this.lblObjectPrice = new System.Windows.Forms.Label();
             this.lblObjectObjectNr = new System.Windows.Forms.Label();
             this.lblObjectBrokerSsnr = new System.Windows.Forms.Label();
-            this.tbObjectPricePerKvm = new System.Windows.Forms.TextBox();
             this.tbObjectArea = new System.Windows.Forms.TextBox();
             this.tbObjectType = new System.Windows.Forms.TextBox();
             this.tbObjectNumberOfRooms = new System.Windows.Forms.TextBox();
             this.lblObjectType = new System.Windows.Forms.Label();
             this.lblObjectArea = new System.Windows.Forms.Label();
             this.lblObjectNumberOfRooms = new System.Windows.Forms.Label();
-            this.lblObjectPricePerKvm = new System.Windows.Forms.Label();
             this.gbObjectOwnerInfo = new System.Windows.Forms.GroupBox();
             this.tbObjectOwnerEmail = new System.Windows.Forms.TextBox();
             this.lblObjectOwnerEmail = new System.Windows.Forms.Label();
@@ -759,8 +757,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -852,14 +850,12 @@
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectPrice);
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectObjectNr);
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectBrokerSsnr);
-            this.bgObjectObjectInfo2.Controls.Add(this.tbObjectPricePerKvm);
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectArea);
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectType);
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectNumberOfRooms);
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectType);
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectArea);
             this.bgObjectObjectInfo2.Controls.Add(this.lblObjectNumberOfRooms);
-            this.bgObjectObjectInfo2.Controls.Add(this.lblObjectPricePerKvm);
             this.bgObjectObjectInfo2.Location = new System.Drawing.Point(236, 363);
             this.bgObjectObjectInfo2.Name = "bgObjectObjectInfo2";
             this.bgObjectObjectInfo2.Size = new System.Drawing.Size(358, 272);
@@ -947,13 +943,6 @@
             this.lblObjectBrokerSsnr.TabIndex = 23;
             this.lblObjectBrokerSsnr.Text = "Mäklarnr:";
             // 
-            // tbObjectPricePerKvm
-            // 
-            this.tbObjectPricePerKvm.Location = new System.Drawing.Point(130, 98);
-            this.tbObjectPricePerKvm.Name = "tbObjectPricePerKvm";
-            this.tbObjectPricePerKvm.Size = new System.Drawing.Size(222, 20);
-            this.tbObjectPricePerKvm.TabIndex = 4;
-            // 
             // tbObjectArea
             // 
             this.tbObjectArea.Location = new System.Drawing.Point(130, 18);
@@ -1001,15 +990,6 @@
             this.lblObjectNumberOfRooms.Size = new System.Drawing.Size(64, 13);
             this.lblObjectNumberOfRooms.TabIndex = 4;
             this.lblObjectNumberOfRooms.Text = "Antal rum:";
-            // 
-            // lblObjectPricePerKvm
-            // 
-            this.lblObjectPricePerKvm.AutoSize = true;
-            this.lblObjectPricePerKvm.Location = new System.Drawing.Point(7, 101);
-            this.lblObjectPricePerKvm.Name = "lblObjectPricePerKvm";
-            this.lblObjectPricePerKvm.Size = new System.Drawing.Size(81, 13);
-            this.lblObjectPricePerKvm.TabIndex = 2;
-            this.lblObjectPricePerKvm.Text = "Pris per kvm:";
             // 
             // gbObjectOwnerInfo
             // 
@@ -1620,14 +1600,12 @@
         private System.Windows.Forms.Label lblObjectPrice;
         private System.Windows.Forms.Label lblObjectObjectNr;
         private System.Windows.Forms.Label lblObjectBrokerSsnr;
-        private System.Windows.Forms.TextBox tbObjectPricePerKvm;
         private System.Windows.Forms.TextBox tbObjectArea;
         private System.Windows.Forms.TextBox tbObjectType;
         private System.Windows.Forms.TextBox tbObjectNumberOfRooms;
         private System.Windows.Forms.Label lblObjectType;
         private System.Windows.Forms.Label lblObjectArea;
         private System.Windows.Forms.Label lblObjectNumberOfRooms;
-        private System.Windows.Forms.Label lblObjectPricePerKvm;
         private System.Windows.Forms.GroupBox gbObjectOwnerInfo;
         private System.Windows.Forms.Button btnObjectShowMap;
         private System.Windows.Forms.Button btnObjectSearch;

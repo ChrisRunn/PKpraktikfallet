@@ -32,10 +32,10 @@ namespace praktikfall
         }
 
         // Uppdaterar allt i objekt fliken !
-        public int UpdateObjectFlap(string objNr, string objAdress, string objCity,
-            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string ownerSsnr, string phoneNr, string email, string name)
+        public int UpdateObjectFlap(string objAdress, string objCity,
+            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
-            int nrOfRows = dal.UpdateObjectFlap(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, ownerSsnr, phoneNr, email, name);
+            int nrOfRows = dal.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
             return nrOfRows;
         }
 
@@ -204,6 +204,12 @@ namespace praktikfall
         {
             DataTable dt = dal.GetAllObjectOwners();
             return dt;
+        }
+        //Kontrollera om ÄGARE finns
+        public bool OwnerExists(string ownerSsnr)
+        {
+            bool ownerExists = dal.OwnerExists(ownerSsnr);
+            return ownerExists;
         }
         #endregion OBJEKTÄGARE
         #region HASOWNER

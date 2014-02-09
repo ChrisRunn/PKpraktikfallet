@@ -53,7 +53,6 @@ namespace praktikfall
             tbObjectOwnerEmail.ReadOnly = true;
             tbObjectOwnerName.ReadOnly = true;
             tbObjectOwnerPhoneNr.ReadOnly = true;
-            tbObjectPricePerKvm.ReadOnly = true;
         }
 
         public void MakeTbEditable()
@@ -72,11 +71,9 @@ namespace praktikfall
             tbObjectOwnerEmail.ReadOnly = false;
             tbObjectOwnerName.ReadOnly = false;
             tbObjectOwnerPhoneNr.ReadOnly = false;
-            tbObjectPricePerKvm.ReadOnly = false;
             tbObjectOwnerEmail.ReadOnly = false;
             tbObjectOwnerName.ReadOnly = false;
             tbObjectOwnerPhoneNr.ReadOnly = false;
-            tbObjectPricePerKvm.ReadOnly = false;
         }
 
         public void ClearObjectTb()
@@ -95,7 +92,6 @@ namespace praktikfall
             tbObjectOwnerEmail.Text = "";
             tbObjectOwnerName.Text = "";
             tbObjectOwnerPhoneNr.Text = "";
-            tbObjectPricePerKvm.Text = "";
         }
 
         public void Populate()                                                            //Uppdatera ALLA DGVS (utom Christians)
@@ -218,13 +214,12 @@ namespace praktikfall
             string price = objectInfo[3].ToString();
             string area = objectInfo[4].ToString();
             int priceperkvm = int.Parse(price) / int.Parse(area);
-            tbObjectPricePerKvm.Text = priceperkvm.ToString();
 
             DataRow ownerInfo = this.controller.GetObjectOwner(tbObjectOwnerSsnr.Text).Rows[0];
      
-            tbObjectOwnerPhoneNr.Text = ownerInfo[1].ToString();
-            tbObjectOwnerEmail.Text = ownerInfo[2].ToString();
-            tbObjectOwnerName.Text = ownerInfo[3].ToString();
+            tbObjectOwnerName.Text = ownerInfo[1].ToString();
+            tbObjectOwnerPhoneNr.Text = ownerInfo[2].ToString();
+            tbObjectOwnerEmail.Text = ownerInfo[3].ToString();
             
         }
 
@@ -487,16 +482,17 @@ namespace praktikfall
             if (cbObjectUpdate.Checked && !cbObjectRegister.Checked && !cbObjectDeleteObject.Checked) //Update
             {
                 bool objectExists = controller.ObjectExists(objNr);
-                
-                if (objectExists)
+                bool ownerExists = controller.OwnerExists(ownerSsnr);
+
+                if (objectExists && ownerExists)
                 {
-                    int nrOfRows = this.controller.UpdateObjectFlap(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, ownerSsnr, phoneNr, email, name);
+                    int nrOfRows = controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
                     Populate();
                     MessageBox.Show("Objekt med objektnr " + objNr + " uppdaterat.");
                 }
                 else 
                 {
-                    MessageBox.Show("Kan ej uppdatera objektsnummer.");
+                    MessageBox.Show("Kan ej uppdatera objektsnummer eller ägarens personnummer.");
                 }
             }
 
