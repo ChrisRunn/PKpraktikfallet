@@ -88,6 +88,12 @@ namespace praktikfall
             DataTable dt = dal.SearchShowingsByBrokerSsnr(searchString);
             return dt;
         }
+        //Kontrollera om OBJEKT Finns
+        public bool ObjectExists(string objNr)
+        {
+            bool objectExists = dal.ObjectExists(objNr);
+            return objectExists;
+        }
         #endregion OBJEKT
         #region MÄKLARE
         //Lägg till MÄKLARE

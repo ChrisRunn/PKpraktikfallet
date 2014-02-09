@@ -207,6 +207,31 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
+        //Kontrollera om objekt finns
+        public bool ObjectExists(string objNr)
+        {
+            bool objectExists = false;
+            string sqlStr = "select * from RealEstateObject where objNr = '" + objNr + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            if (dt.Rows.Count > 0)
+            {
+                objectExists = true;
+                return objectExists;
+            }
+            return objectExists;
+        }
+        //Registrera Objekt och dess ägare MÅSTE PLACERAS I RÄTT FOLDER
+
+        public int AddObjectAndOwner(string objNr, string objAdress, string objCity,
+            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
+            string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
+        {
+            string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
+            sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "'," + objPrice +
+                "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "')";
+            int nrOfRows = ExecuteUpdate(sqlStr);
+            return nrOfRows;
+        }
         #endregion OBJEKT
         #region MÄKLARE
         //Lägg till MÄKLARE
@@ -350,22 +375,6 @@ namespace praktikfall
             sqlStr += "update ObjectOwner set phoneNr ='" + phoneNr + "',email ='" + email + "',name ='" + name + "'";
 
             int nrOfRows = ExecuteUpdate(sqlStr);
-            return nrOfRows;
-        }
-
-        //Registrera Objekt och dess ägare MÅSTE PLACERAS I RÄTT FOLDER
-
-        public int AddObjectAndOwner(string objNr, string objAdress, string objCity,
-            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
-            string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
-        {
-            string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
-            sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "'," + objPrice +
-                "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr+"')";
-     
-            
-            int nrOfRows = ExecuteUpdate(sqlStr);
-            MessageBox.Show(sqlStr);
             return nrOfRows;
         }
 

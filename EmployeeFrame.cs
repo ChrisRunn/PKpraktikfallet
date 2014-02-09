@@ -482,28 +482,52 @@ namespace praktikfall
             string ownerSsnr = tbObjectOwnerSsnr.Text;
             string phoneNr = tbObjectOwnerPhoneNr.Text;
             string email = tbObjectOwnerEmail.Text;
-            string name = tbObjectOwnerName.Text;
+            string name = tbObjectOwnerName.Text;           
 
-            if (cbObjectUpdate.Checked && !cbObjectRegister.Checked && !tbObjectDeleteObject.Checked)
+            if (cbObjectUpdate.Checked && !cbObjectRegister.Checked && !cbObjectDeleteObject.Checked) //Update
             {
-
-                int nrOfRows = this.controller.UpdateObjectFlap(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, ownerSsnr, phoneNr, email, name);
-                MessageBox.Show(nrOfRows.ToString());
-                Populate();
+                bool objectExists = controller.ObjectExists(objNr);
+                
+                if (objectExists)
+                {
+                    int nrOfRows = this.controller.UpdateObjectFlap(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, ownerSsnr, phoneNr, email, name);
+                    Populate();
+                    MessageBox.Show("Objekt med objektnr " + objNr + " uppdaterat.");
+                }
+                else 
+                {
+                    MessageBox.Show("Kan ej uppdatera objektsnummer.");
+                }
             }
 
-            else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !tbObjectDeleteObject.Checked)
+            else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !cbObjectDeleteObject.Checked) //Register
             {
-                int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
-                MessageBox.Show(nrOfRows.ToString());
-                Populate();
-
+                bool objectExists = controller.ObjectExists(objNr);
+                bool brokerExists = controller.BrokerExists(brokerSsnr);
+                
+                if (objectExists)
+                {
+                    MessageBox.Show("Det finns redan ett objekt med objektnummer " + objNr + " registrerat.");
+                }
+                if (!brokerExists)
+                {
+                    MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
+                }
+                else
+                {
+                    int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                    Populate();
+                    ClearObjectTb();
+                    MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+                }
             }
 
-            else if (tbObjectDeleteObject.Checked && !cbObjectUpdate.Checked && !cbObjectRegister.Checked)
+            else if (cbObjectDeleteObject.Checked && !cbObjectUpdate.Checked && !cbObjectRegister.Checked) //Delete
             {
                 int nrOfRows = this.controller.DeleteObject(objNr);
                 Populate();
+                ClearObjectTb();
+                MessageBox.Show("Objekt borttaget.");
             }
         }
 
@@ -511,12 +535,10 @@ namespace praktikfall
         {
             try
             {
-
                 int parsedValue;
                 if (!int.TryParse(tbShowingBuyerSsnr.Text, out parsedValue))
                 {
                     MessageBox.Show("Personnummer får endast innehålla siffror.");
-
                 }
 
                 else if (tbShowingBuyerName.Text.Equals(""))
@@ -831,7 +853,7 @@ namespace praktikfall
 
                     if (nrOfRows == 0)
                     {
-                        MessageBox.Show("Ingen sådan mäklare finns registrerad. Vänligen försök igen.");
+                        MessageBox.Show("Kan inte uppdatera en mäklares personnummer.");
                     }
                     else
                     {
@@ -930,7 +952,7 @@ namespace praktikfall
                     int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                     if (nrOfRows == 0)
                     {
-                        MessageBox.Show("Ingen sådan spekulant finns. Vänligen försök igen.");
+                        MessageBox.Show("Det går inte att uppdatera en spekulants personnummer.");
                     }
                     else
                     {
@@ -985,13 +1007,13 @@ namespace praktikfall
         private void cbObjDeleteObject_CheckedChanged(object sender, EventArgs e)
         {
             btnObjectSubmit.Enabled = true;
-            if (tbObjectDeleteObject.Checked)
+            if (cbObjectDeleteObject.Checked)
             {
                 btnObjectSubmit.Enabled = true;
                 MakeTbReadOnly();
 
             }
-            else if (tbObjectDeleteObject.Checked == false)
+            else if (cbObjectDeleteObject.Checked == false)
             {
                 btnObjectSubmit.Enabled = false;
                 MakeTbReadOnly();

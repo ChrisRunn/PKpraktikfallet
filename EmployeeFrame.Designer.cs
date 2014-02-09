@@ -85,7 +85,7 @@
             this.dgvObjectAllObjects = new System.Windows.Forms.DataGridView();
             this.tbObjectSearch = new System.Windows.Forms.TextBox();
             this.btnObjectSearch = new System.Windows.Forms.Button();
-            this.tbObjectDeleteObject = new System.Windows.Forms.CheckBox();
+            this.cbObjectDeleteObject = new System.Windows.Forms.CheckBox();
             this.btnObjectSubmit = new System.Windows.Forms.Button();
             this.cbObjectUpdate = new System.Windows.Forms.CheckBox();
             this.cbObjectRegister = new System.Windows.Forms.CheckBox();
@@ -614,7 +614,7 @@
             this.tpObjectObjectTabPage.Controls.Add(this.gbObjectObjectInfo);
             this.tpObjectObjectTabPage.Controls.Add(this.gbObjectPicture);
             this.tpObjectObjectTabPage.Controls.Add(this.gbObjectAllObjects);
-            this.tpObjectObjectTabPage.Controls.Add(this.tbObjectDeleteObject);
+            this.tpObjectObjectTabPage.Controls.Add(this.cbObjectDeleteObject);
             this.tpObjectObjectTabPage.Controls.Add(this.btnObjectSubmit);
             this.tpObjectObjectTabPage.Controls.Add(this.cbObjectUpdate);
             this.tpObjectObjectTabPage.Controls.Add(this.cbObjectRegister);
@@ -796,16 +796,16 @@
             this.btnObjectSearch.UseVisualStyleBackColor = true;
             this.btnObjectSearch.Click += new System.EventHandler(this.button2_Click);
             // 
-            // tbObjectDeleteObject
+            // cbObjectDeleteObject
             // 
-            this.tbObjectDeleteObject.AutoSize = true;
-            this.tbObjectDeleteObject.Location = new System.Drawing.Point(607, 567);
-            this.tbObjectDeleteObject.Name = "tbObjectDeleteObject";
-            this.tbObjectDeleteObject.Size = new System.Drawing.Size(106, 17);
-            this.tbObjectDeleteObject.TabIndex = 40;
-            this.tbObjectDeleteObject.Text = "Ta bort objekt";
-            this.tbObjectDeleteObject.UseVisualStyleBackColor = true;
-            this.tbObjectDeleteObject.CheckedChanged += new System.EventHandler(this.cbObjDeleteObject_CheckedChanged);
+            this.cbObjectDeleteObject.AutoSize = true;
+            this.cbObjectDeleteObject.Location = new System.Drawing.Point(607, 567);
+            this.cbObjectDeleteObject.Name = "cbObjectDeleteObject";
+            this.cbObjectDeleteObject.Size = new System.Drawing.Size(106, 17);
+            this.cbObjectDeleteObject.TabIndex = 40;
+            this.cbObjectDeleteObject.Text = "Ta bort objekt";
+            this.cbObjectDeleteObject.UseVisualStyleBackColor = true;
+            this.cbObjectDeleteObject.CheckedChanged += new System.EventHandler(this.cbObjDeleteObject_CheckedChanged);
             // 
             // btnObjectSubmit
             // 
@@ -1692,7 +1692,7 @@
         private System.Windows.Forms.Label lblBrokerAddress;
         private System.Windows.Forms.Label lblBrokerName;
         private System.Windows.Forms.Label lblBrokerBrokerNumber;
-        private System.Windows.Forms.CheckBox tbObjectDeleteObject;
+        private System.Windows.Forms.CheckBox cbObjectDeleteObject;
         private System.Windows.Forms.Label lblBrokerSelectedBroker;
         private System.Windows.Forms.Button btnShowingSubmit;
         private System.Windows.Forms.CheckBox cbShowingUpdateBuyer;
