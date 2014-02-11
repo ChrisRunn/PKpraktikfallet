@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -395,6 +395,7 @@
             this.dgvShowingCurrentShowings.Location = new System.Drawing.Point(6, 33);
             this.dgvShowingCurrentShowings.MultiSelect = false;
             this.dgvShowingCurrentShowings.Name = "dgvShowingCurrentShowings";
+            this.dgvShowingCurrentShowings.RowHeadersVisible = false;
             this.dgvShowingCurrentShowings.Size = new System.Drawing.Size(457, 260);
             this.dgvShowingCurrentShowings.TabIndex = 12;
             this.dgvShowingCurrentShowings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowingCurrentShowings_CellClicked);
@@ -545,6 +546,7 @@
             this.dgvShowingAllObjects.Location = new System.Drawing.Point(6, 311);
             this.dgvShowingAllObjects.MultiSelect = false;
             this.dgvShowingAllObjects.Name = "dgvShowingAllObjects";
+            this.dgvShowingAllObjects.RowHeadersVisible = false;
             this.dgvShowingAllObjects.Size = new System.Drawing.Size(583, 260);
             this.dgvShowingAllObjects.TabIndex = 8;
             this.dgvShowingAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectShowing_CellClicked);
@@ -570,6 +572,7 @@
             this.dgvShowingAllBuyers.Location = new System.Drawing.Point(6, 32);
             this.dgvShowingAllBuyers.MultiSelect = false;
             this.dgvShowingAllBuyers.Name = "dgvShowingAllBuyers";
+            this.dgvShowingAllBuyers.RowHeadersVisible = false;
             this.dgvShowingAllBuyers.Size = new System.Drawing.Size(583, 240);
             this.dgvShowingAllBuyers.TabIndex = 9;
             this.dgvShowingAllBuyers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyerShowing_CellClicked);
@@ -756,14 +759,15 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvObjectAllObjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObjectAllObjects.Location = new System.Drawing.Point(6, 22);
             this.dgvObjectAllObjects.Name = "dgvObjectAllObjects";
+            this.dgvObjectAllObjects.RowHeadersVisible = false;
             this.dgvObjectAllObjects.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectAllObjects.Size = new System.Drawing.Size(466, 284);
             this.dgvObjectAllObjects.TabIndex = 16;
@@ -1128,6 +1132,7 @@
             this.dgvStartYourShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStartYourShowings.Location = new System.Drawing.Point(538, 233);
             this.dgvStartYourShowings.Name = "dgvStartYourShowings";
+            this.dgvStartYourShowings.RowHeadersVisible = false;
             this.dgvStartYourShowings.Size = new System.Drawing.Size(462, 402);
             this.dgvStartYourShowings.TabIndex = 3;
             // 
@@ -1139,6 +1144,7 @@
             this.dgvStartYourObjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStartYourObjects.Location = new System.Drawing.Point(70, 233);
             this.dgvStartYourObjects.Name = "dgvStartYourObjects";
+            this.dgvStartYourObjects.RowHeadersVisible = false;
             this.dgvStartYourObjects.Size = new System.Drawing.Size(462, 402);
             this.dgvStartYourObjects.TabIndex = 2;
             // 
@@ -1211,6 +1217,7 @@
             this.dgvBrokerAllBrokers.Location = new System.Drawing.Point(6, 19);
             this.dgvBrokerAllBrokers.MultiSelect = false;
             this.dgvBrokerAllBrokers.Name = "dgvBrokerAllBrokers";
+            this.dgvBrokerAllBrokers.RowHeadersVisible = false;
             this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(666, 603);
             this.dgvBrokerAllBrokers.TabIndex = 9;
             this.dgvBrokerAllBrokers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBrokerAllBrokers_CellClick);
@@ -1437,6 +1444,7 @@
             // 
             // menuItem5
             // 
+            this.menuItem5.Index = 0;
             this.menuItem5.Text = "Avsluta";
             this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
