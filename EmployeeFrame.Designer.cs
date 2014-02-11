@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -533,7 +533,7 @@
             // 
             this.dtpShowingShowingDate.Location = new System.Drawing.Point(6, 603);
             this.dtpShowingShowingDate.Name = "dtpShowingShowingDate";
-            this.dtpShowingShowingDate.Size = new System.Drawing.Size(379, 20);
+            this.dtpShowingShowingDate.Size = new System.Drawing.Size(212, 20);
             this.dtpShowingShowingDate.TabIndex = 2;
             // 
             // dgvShowingAllObjects
@@ -555,7 +555,7 @@
             // lblDateShowing
             // 
             this.lblDateShowing.AutoSize = true;
-            this.lblDateShowing.Location = new System.Drawing.Point(6, 574);
+            this.lblDateShowing.Location = new System.Drawing.Point(6, 587);
             this.lblDateShowing.Name = "lblDateShowing";
             this.lblDateShowing.Size = new System.Drawing.Size(66, 13);
             this.lblDateShowing.TabIndex = 7;
@@ -759,8 +759,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;

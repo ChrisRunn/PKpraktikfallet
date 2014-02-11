@@ -752,7 +752,7 @@ namespace praktikfall
             string city = tbBrokerBrokerCity.Text;
             string brokerAddress = tbBrokerBrokerAdress.Text;
 
-            if (cbBrokerRegister.Checked && !cbBrokerDelete.Checked && !cbBrokerUpdate.Checked)
+            if (cbBrokerRegister.Checked && !cbBrokerDelete.Checked && !cbBrokerUpdate.Checked) //Register
             {
                 try
                 {
@@ -806,7 +806,7 @@ namespace praktikfall
                         {
                             controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
                             MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad.");
-                            Populate();
+                            Populate();                           
                         }
 
                     }
