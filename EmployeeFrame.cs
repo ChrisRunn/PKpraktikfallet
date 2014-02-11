@@ -253,11 +253,13 @@ namespace praktikfall
             {
                 MessageBox.Show("Vänligen välj objekt i listan.");
             }
-            if (!showingExists && !(lblShowingSelectedBuyer.Text.Equals("selectedBuyer(invisible)")) && !(lblShowingSelectedObject.Text.Equals("selectedObject(invisible)")))
+            if (!showingExists && !(lblShowingSelectedBuyer.Text.Equals("selectedBuyer(invisible)")) && !(lblShowingSelectedObject.Text.Equals("selectedObject(invisible)"))) //Lägg till
             {
                 int nrOfRows = controller.AddShowing(objNr, buyerSsnr, showingDate);
                 MessageBox.Show("Visning registrerad.");
                 Populate();
+                lblShowingSelectedBuyer.Text = "selectedBuyer(invisible)";
+                lblShowingSelectedObject.Text = "selectedObject(invisible)";
             }
         }
 
@@ -501,29 +503,39 @@ namespace praktikfall
                 bool objectExists = controller.ObjectExists(objNr);
                 bool brokerExists = controller.BrokerExists(brokerSsnr);
                 
-                if (objectExists)
-                {
-                    MessageBox.Show("Det finns redan ett objekt med objektnummer " + objNr + " registrerat.");
-                }
-                if (!brokerExists)
-                {
-                    MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
-                }
-                else
+                if (!objectExists && brokerExists)
                 {
                     int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                     Populate();
                     ClearObjectTb();
                     MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
                 }
+                if (!brokerExists)
+                {
+                    MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
+                }
+                else if (objectExists)
+                {
+                    MessageBox.Show("Det finns redan ett objekt med objektnummer " + objNr + " registrerat.");                  
+                }
             }
 
             else if (cbObjectDeleteObject.Checked && !cbObjectUpdate.Checked && !cbObjectRegister.Checked) //Delete
             {
-                int nrOfRows = this.controller.DeleteObject(objNr);
-                Populate();
-                ClearObjectTb();
-                MessageBox.Show("Objekt borttaget.");
+                
+                bool objectExists = controller.ObjectExists(objNr);
+                if (objectExists)
+                {
+                    int nrOfRows = this.controller.DeleteObject(objNr);
+                    Populate();
+                    ClearObjectTb();
+                    MessageBox.Show("Objekt borttaget.");
+                }
+                else
+                {
+                    MessageBox.Show("Inget sådant objekt finns.");
+                }
+                
             }
         }
 
@@ -673,7 +685,7 @@ namespace praktikfall
         {
             MessageBox.Show(
                 "Version 1.0 BrokerApplication\n\n\n"
-                + "Denna mjukvara är skapad av\n\n"
+                + "Denna mjukvara är utvecklad av\n\n"
                 + "Marcus Jacobsson, marcus.jacobsson@student.lu.se\n"
                 + "Christian Runnström, christian.runnstrom@student.lu.se\n"
                 + "William Svedström, william.svedstrom@student.lu.se\n"
@@ -722,12 +734,7 @@ namespace praktikfall
                 );
         }
 
-        private void menuItem11_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            formLogin form = new formLogin();
-            form.Show();
-        }
+       
 
         private void menuItem12_Click(object sender, EventArgs e)
         {
@@ -893,7 +900,7 @@ namespace praktikfall
             string phoneNr = tbShowingBuyerTel.Text;
             string email = tbShowingBuyerEmail.Text;
 
-            if (cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked)
+            if (cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) //Register
             {
                 try
                 {
@@ -908,7 +915,7 @@ namespace praktikfall
                     {
                         int nrOfRows = controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                         Populate();
-                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till´.");
+                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till.");
                     }
                 }
                 catch (Exception ex)
@@ -916,7 +923,7 @@ namespace praktikfall
                     MessageBox.Show("Spekulant kunde inte regustreras.\n" + ex);
                 }
             }
-            if (!cbShowingRegisterBuyer.Checked && cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked)
+            if (!cbShowingRegisterBuyer.Checked && cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) // Delete
             {
                 try
                 {
@@ -941,7 +948,7 @@ namespace praktikfall
                     MessageBox.Show("Det går inte att ta bort spekulant.\n" + ex);
                 }
             }
-            if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && cbShowingUpdateBuyer.Checked)
+            if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && cbShowingUpdateBuyer.Checked) //Update
             {
                 try
                 {

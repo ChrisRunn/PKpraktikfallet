@@ -150,7 +150,6 @@
             this.tbBrokerBrokerSsnr = new System.Windows.Forms.TextBox();
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItem11 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
@@ -865,35 +864,35 @@
             // 
             // tbObjectPrice
             // 
-            this.tbObjectPrice.Location = new System.Drawing.Point(130, 175);
+            this.tbObjectPrice.Location = new System.Drawing.Point(130, 148);
             this.tbObjectPrice.Name = "tbObjectPrice";
             this.tbObjectPrice.Size = new System.Drawing.Size(222, 20);
             this.tbObjectPrice.TabIndex = 7;
             // 
             // tbObjectCity
             // 
-            this.tbObjectCity.Location = new System.Drawing.Point(130, 150);
+            this.tbObjectCity.Location = new System.Drawing.Point(130, 123);
             this.tbObjectCity.Name = "tbObjectCity";
             this.tbObjectCity.Size = new System.Drawing.Size(222, 20);
             this.tbObjectCity.TabIndex = 6;
             // 
             // tbObjectAddress
             // 
-            this.tbObjectAddress.Location = new System.Drawing.Point(130, 124);
+            this.tbObjectAddress.Location = new System.Drawing.Point(130, 97);
             this.tbObjectAddress.Name = "tbObjectAddress";
             this.tbObjectAddress.Size = new System.Drawing.Size(222, 20);
             this.tbObjectAddress.TabIndex = 5;
             // 
             // tbObjectObjectNr
             // 
-            this.tbObjectObjectNr.Location = new System.Drawing.Point(130, 227);
+            this.tbObjectObjectNr.Location = new System.Drawing.Point(130, 200);
             this.tbObjectObjectNr.Name = "tbObjectObjectNr";
             this.tbObjectObjectNr.Size = new System.Drawing.Size(222, 20);
             this.tbObjectObjectNr.TabIndex = 9;
             // 
             // tbObjectBrokerSsnr
             // 
-            this.tbObjectBrokerSsnr.Location = new System.Drawing.Point(130, 201);
+            this.tbObjectBrokerSsnr.Location = new System.Drawing.Point(130, 174);
             this.tbObjectBrokerSsnr.Name = "tbObjectBrokerSsnr";
             this.tbObjectBrokerSsnr.Size = new System.Drawing.Size(222, 20);
             this.tbObjectBrokerSsnr.TabIndex = 8;
@@ -901,7 +900,7 @@
             // lblObjectCity
             // 
             this.lblObjectCity.AutoSize = true;
-            this.lblObjectCity.Location = new System.Drawing.Point(7, 153);
+            this.lblObjectCity.Location = new System.Drawing.Point(7, 126);
             this.lblObjectCity.Name = "lblObjectCity";
             this.lblObjectCity.Size = new System.Drawing.Size(37, 13);
             this.lblObjectCity.TabIndex = 27;
@@ -910,7 +909,7 @@
             // lblObjectAddress
             // 
             this.lblObjectAddress.AutoSize = true;
-            this.lblObjectAddress.Location = new System.Drawing.Point(7, 127);
+            this.lblObjectAddress.Location = new System.Drawing.Point(7, 100);
             this.lblObjectAddress.Name = "lblObjectAddress";
             this.lblObjectAddress.Size = new System.Drawing.Size(49, 13);
             this.lblObjectAddress.TabIndex = 26;
@@ -919,7 +918,7 @@
             // lblObjectPrice
             // 
             this.lblObjectPrice.AutoSize = true;
-            this.lblObjectPrice.Location = new System.Drawing.Point(7, 178);
+            this.lblObjectPrice.Location = new System.Drawing.Point(7, 151);
             this.lblObjectPrice.Name = "lblObjectPrice";
             this.lblObjectPrice.Size = new System.Drawing.Size(32, 13);
             this.lblObjectPrice.TabIndex = 25;
@@ -928,7 +927,7 @@
             // lblObjectObjectNr
             // 
             this.lblObjectObjectNr.AutoSize = true;
-            this.lblObjectObjectNr.Location = new System.Drawing.Point(7, 228);
+            this.lblObjectObjectNr.Location = new System.Drawing.Point(7, 201);
             this.lblObjectObjectNr.Name = "lblObjectObjectNr";
             this.lblObjectObjectNr.Size = new System.Drawing.Size(65, 13);
             this.lblObjectObjectNr.TabIndex = 24;
@@ -937,7 +936,7 @@
             // lblObjectBrokerSsnr
             // 
             this.lblObjectBrokerSsnr.AutoSize = true;
-            this.lblObjectBrokerSsnr.Location = new System.Drawing.Point(7, 204);
+            this.lblObjectBrokerSsnr.Location = new System.Drawing.Point(7, 177);
             this.lblObjectBrokerSsnr.Name = "lblObjectBrokerSsnr";
             this.lblObjectBrokerSsnr.Size = new System.Drawing.Size(60, 13);
             this.lblObjectBrokerSsnr.TabIndex = 23;
@@ -1433,19 +1432,11 @@
             // 
             this.menuItem1.Index = 0;
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem11,
             this.menuItem5});
             this.menuItem1.Text = "Arkiv";
             // 
-            // menuItem11
-            // 
-            this.menuItem11.Index = 0;
-            this.menuItem11.Text = "Logga ut";
-            this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
-            // 
             // menuItem5
             // 
-            this.menuItem5.Index = 1;
             this.menuItem5.Text = "Avsluta";
             this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
@@ -1647,7 +1638,6 @@
         private System.Windows.Forms.MenuItem menuItem8;
         private System.Windows.Forms.MenuItem menuItem9;
         private System.Windows.Forms.MenuItem menuItem10;
-        private System.Windows.Forms.MenuItem menuItem11;
         private System.Windows.Forms.MenuItem menuItem12;
         private System.Windows.Forms.TabPage tpBrokerBrokerTabPage;
         private System.Windows.Forms.GroupBox bgBrokerAdministrateBroker;

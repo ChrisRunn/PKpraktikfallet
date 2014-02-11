@@ -370,7 +370,6 @@ namespace praktikfall
         {
             string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "', objCity = '" + objCity + "', objPrice = '" + objPrice + "', objArea = '" + objArea + "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType + "', objInfo = '" + objInfo + "' where objNr = '" + objNr +"' ";
             sqlStr += "update ObjectOwner set name = '" + name + "', phoneNr = '" + phoneNr + "', email = '" + email + "' where ownerSsnr = '" + ownerSsnr + "'";
-            MessageBox.Show(sqlStr);
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
