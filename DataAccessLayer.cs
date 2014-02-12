@@ -122,7 +122,7 @@ namespace praktikfall
         // Hämta alla OBJEKT
         public DataTable GetAllObjects()
         {
-            string sqlStr = "select objNr as Objektsnummer,objAdress as Adress from RealEstateObject";
+            string sqlStr = "select objNr as Objektsnummer,objAdress as Adress, brokerSsnr as Mäklare, ownerSsnr as Ägare from RealEstateObject";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }

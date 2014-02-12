@@ -13,6 +13,8 @@ namespace praktikfall
 {
     public partial class frameMainMainframe : Form
     {
+        Controller controller = new Controller();
+
         public frameMainMainframe(string name, bool b)
         {
             InitializeComponent();
@@ -34,8 +36,6 @@ namespace praktikfall
             DataTable dt2 = controller.SearchShowingsByBrokerSsnr(brokerName);
             dgvStartYourShowings.DataSource = dt2;
         }
-
-        Controller controller = new Controller();
 
         public void MakeTbReadOnly()
         {
@@ -136,14 +136,22 @@ namespace praktikfall
 
         }
 
-        private void dgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvObjectAllObjects_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridViewRow row = this.dgvObjectAllObjects.Rows[e.RowIndex];
-                string objNr = row.Cells["Objektsnummer"].Value.ToString();
-                this.setSelectedObjectAndOwner(objNr, row);
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.dgvObjectAllObjects.Rows[e.RowIndex];
+                    string objNr = row.Cells["Objektsnummer"].Value.ToString();
+                    this.setSelectedObjectAndOwner(objNr, row);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem med att ladda från listan. \n" + ex);
+            }
+            
         }
 
         private void setSelectedObjectAndOwner(string objNr, DataGridViewRow row)
@@ -392,7 +400,7 @@ namespace praktikfall
 
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
-            dgvObject_CellClick(dgvObjectAllObjects, new DataGridViewCellEventArgs(0, 0));
+            dgvObjectAllObjects_CellClick(dgvObjectAllObjects, new DataGridViewCellEventArgs(0, 0));
         }
 
         private void btnObjectSubmit_Click(object sender, EventArgs e)
@@ -536,6 +544,11 @@ namespace praktikfall
         private void dgvBrokerAllBrokers_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
         {
             dgvBrokerAllBrokers.ClearSelection();
+        }
+
+        private void dgvObjectAllObjects_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        {
+            dgvObjectAllObjects.ClearSelection();
         }
 
         #region MAINMENU
@@ -957,14 +970,19 @@ namespace praktikfall
                 BinaryReader br = new BinaryReader(fs);
                 img = br.ReadBytes((int)fs.Length);
                 int nrOfRows = controller.addObjectImage(img, objNr);
-
                 pbObjectsObjectPicture.Image = pbObjectThumbnail.Image;
+                MessageBox.Show("En bild har registrerats till objekt med objektsnummer " + objNr);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Bilden kunde inte laddas upp. \n" + ex);
             }
         }
+
+        private void dgvObject(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+
+        }  
 
     }
 }
