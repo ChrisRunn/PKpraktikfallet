@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -396,6 +396,7 @@
             this.dgvShowingCurrentShowings.MultiSelect = false;
             this.dgvShowingCurrentShowings.Name = "dgvShowingCurrentShowings";
             this.dgvShowingCurrentShowings.RowHeadersVisible = false;
+            this.dgvShowingCurrentShowings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingCurrentShowings.Size = new System.Drawing.Size(457, 260);
             this.dgvShowingCurrentShowings.TabIndex = 12;
             this.dgvShowingCurrentShowings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowingCurrentShowings_CellClicked);
@@ -437,9 +438,9 @@
             this.lblShowingChoose.AutoSize = true;
             this.lblShowingChoose.Location = new System.Drawing.Point(3, 13);
             this.lblShowingChoose.Name = "lblShowingChoose";
-            this.lblShowingChoose.Size = new System.Drawing.Size(251, 13);
+            this.lblShowingChoose.Size = new System.Drawing.Size(76, 13);
             this.lblShowingChoose.TabIndex = 13;
-            this.lblShowingChoose.Text = "Välj ett objekt eller en spekulant från listan";
+            this.lblShowingChoose.Text = "Välj visning ";
             // 
             // gbShowing
             // 
@@ -547,6 +548,7 @@
             this.dgvShowingAllObjects.MultiSelect = false;
             this.dgvShowingAllObjects.Name = "dgvShowingAllObjects";
             this.dgvShowingAllObjects.RowHeadersVisible = false;
+            this.dgvShowingAllObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingAllObjects.Size = new System.Drawing.Size(583, 260);
             this.dgvShowingAllObjects.TabIndex = 8;
             this.dgvShowingAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectShowing_CellClicked);
@@ -573,6 +575,7 @@
             this.dgvShowingAllBuyers.MultiSelect = false;
             this.dgvShowingAllBuyers.Name = "dgvShowingAllBuyers";
             this.dgvShowingAllBuyers.RowHeadersVisible = false;
+            this.dgvShowingAllBuyers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingAllBuyers.Size = new System.Drawing.Size(583, 240);
             this.dgvShowingAllBuyers.TabIndex = 9;
             this.dgvShowingAllBuyers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyerShowing_CellClicked);
@@ -759,8 +762,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -769,6 +772,7 @@
             this.dgvObjectAllObjects.Name = "dgvObjectAllObjects";
             this.dgvObjectAllObjects.RowHeadersVisible = false;
             this.dgvObjectAllObjects.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvObjectAllObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvObjectAllObjects.Size = new System.Drawing.Size(466, 284);
             this.dgvObjectAllObjects.TabIndex = 16;
             this.dgvObjectAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObject_CellClick);
@@ -1133,6 +1137,7 @@
             this.dgvStartYourShowings.Location = new System.Drawing.Point(538, 233);
             this.dgvStartYourShowings.Name = "dgvStartYourShowings";
             this.dgvStartYourShowings.RowHeadersVisible = false;
+            this.dgvStartYourShowings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStartYourShowings.Size = new System.Drawing.Size(462, 402);
             this.dgvStartYourShowings.TabIndex = 3;
             // 
@@ -1145,6 +1150,7 @@
             this.dgvStartYourObjects.Location = new System.Drawing.Point(70, 233);
             this.dgvStartYourObjects.Name = "dgvStartYourObjects";
             this.dgvStartYourObjects.RowHeadersVisible = false;
+            this.dgvStartYourObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStartYourObjects.Size = new System.Drawing.Size(462, 402);
             this.dgvStartYourObjects.TabIndex = 2;
             // 
@@ -1218,6 +1224,7 @@
             this.dgvBrokerAllBrokers.MultiSelect = false;
             this.dgvBrokerAllBrokers.Name = "dgvBrokerAllBrokers";
             this.dgvBrokerAllBrokers.RowHeadersVisible = false;
+            this.dgvBrokerAllBrokers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(666, 603);
             this.dgvBrokerAllBrokers.TabIndex = 9;
             this.dgvBrokerAllBrokers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBrokerAllBrokers_CellClick);

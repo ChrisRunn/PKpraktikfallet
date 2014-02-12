@@ -1077,7 +1077,7 @@ namespace praktikfall
                 Image image = Image.FromFile(fDialog.FileName.ToString());
                 pbObjectThumbnail.Image = image;
             }
-            
+
         }
     }
 }
