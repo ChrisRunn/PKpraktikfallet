@@ -411,29 +411,6 @@ namespace praktikfall
             return ownerExists;
         }
         #endregion OBJEKTÄGARE
-        #region HASOWNER
-        //Hämta ÄGARE (hasowner) -- ANVÄNDS INTE LÄNGRE
-        public DataTable GetSelectedObjectsOwner(string objNr)
-        {
-            string sqlStr = "select * from HasOwner where objNr ='" + objNr + "'";
-            DataTable dt = ExecuteQuery(sqlStr);
-            return dt;
-        }
-        //Registrera givet OBJEKT med given ÄGARE     HÄR registreras ett objekts ägare
-        public int AddObjectOwner(string objNr, string ownerSsnr)
-        {
-            string sqlStr = "insert into HasOwner values ('" + objNr + "','" + ownerSsnr + "')";
-            int nrOfRows = ExecuteUpdate(sqlStr);
-            return nrOfRows;
-        }
-        //Hämtar allt från hasowner tabellen
-        public DataTable GetAllHasOwner()
-        {
-            string sqlStr = "select * from HasOwner";
-            DataTable dt = ExecuteQuery(sqlStr);
-            return dt;
-        }
-        #endregion HASOWNER
         #region SHOWING
         //Registrera VISNING
         public int AddShowing(string objNr, string buyerSsnr, string showingDate)
