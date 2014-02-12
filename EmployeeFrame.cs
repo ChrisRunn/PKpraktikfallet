@@ -213,22 +213,19 @@ namespace praktikfall
             rtbObjectObjectInfo.Text = objectInfo[7].ToString();
             tbObjectBrokerSsnr.Text = objectInfo[8].ToString();
             tbObjectOwnerSsnr.Text = objectInfo[9].ToString();
-
             byte[] img = (byte[])objectInfo[10];
             
             if (img != null && img.Length > 0)
             {
                 MemoryStream ms = new MemoryStream(img);
-                pbObjectsObjectPicture.Image = Image.FromStream(ms);
-               
+                pbObjectsObjectPicture.Image = Image.FromStream(ms);               
             }
             
             else
             {
                 pbObjectsObjectPicture.Image = null;
-                MessageBox.Show("jag är  här");
+                pbObjectThumbnail.Image = null;
             }
-
 
             string price = objectInfo[3].ToString();
             string area = objectInfo[4].ToString();
@@ -1094,21 +1091,29 @@ namespace praktikfall
             }
         }
 
-        private void button2_Click_2(object sender, EventArgs e)
+        private void btnObjectBrowse_Click_2(object sender, EventArgs e)
         {
-            string imgLoc;
-            OpenFileDialog fDialog = new OpenFileDialog();
-            fDialog.Title = "Select a picture";
-            fDialog.Filter = "JPG Files|*.jpg|GIF Files|*.gif|All Files (*.*)|*.*";       //Filtrera vilka bildformat som ska kunna laddas upp väljas                                                                       // (PB hanterar bitmap, metafile, icon, JPEG, GIF, or PNG file.)
-            fDialog.InitialDirectory = @"C:\";                          
-            if (fDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                imgLoc = fDialog.FileName.ToString();
-                Image image = Image.FromFile(fDialog.FileName.ToString());
-                pbObjectThumbnail.Image = image;
-                lblObjectFilepath.Text = imgLoc;
+                string imgLoc;
+                OpenFileDialog fDialog = new OpenFileDialog();
+                fDialog.Title = "Välj bild";
+                fDialog.Filter = "JPG Files|*.jpg|GIF Files|*.gif|All Files (*.*)|*.*";       //Filtrera vilka bildformat som ska kunna laddas upp väljas                                                                       // (PB hanterar bitmap, metafile, icon, JPEG, GIF, or PNG file.)
+                fDialog.InitialDirectory = @"C:\";
+                if (fDialog.ShowDialog() == DialogResult.OK)
+                {
+                    imgLoc = fDialog.FileName.ToString();
+                    Image image = Image.FromFile(fDialog.FileName.ToString());
+                    pbObjectThumbnail.Image = image;
+                    lblObjectFilepath.Text = imgLoc;
+                    lblObjectFilepath.Visible = true;
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Det gick inte att välja en bild. \n" + ex);
 
+            }           
         }
 
         private void btnBrokerSearch_Click(object sender, EventArgs e)
@@ -1146,16 +1151,22 @@ namespace praktikfall
 
         private void btnObjectSaveImage_Click(object sender, EventArgs e)
         {
-            string objNr = tbObjectObjectNr.Text;
-            byte[] img = null;
-            string fp = lblObjectFilepath.Text;
-            FileStream fs = new FileStream(fp, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fs);
-            img = br.ReadBytes((int)fs.Length);
-            int nrOfRows = controller.addObjectImage(img, objNr);
+            try
+            {
+                string objNr = tbObjectObjectNr.Text;
+                byte[] img = null;
+                string fp = lblObjectFilepath.Text;
+                FileStream fs = new FileStream(fp, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                img = br.ReadBytes((int)fs.Length);
+                int nrOfRows = controller.addObjectImage(img, objNr);
 
-            pbObjectsObjectPicture.Image = pbObjectThumbnail.Image;
-
+                pbObjectsObjectPicture.Image = pbObjectThumbnail.Image;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bilden kunde inte laddas upp. \n" + ex);
+            }
         }
     }
 }
