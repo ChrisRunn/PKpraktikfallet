@@ -236,7 +236,7 @@ namespace praktikfall
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvShowingAllObjects.Rows[e.RowIndex];
-                string selectedItem = row.Cells["objNr"].Value.ToString();
+                string selectedItem = row.Cells["Objektsnummer"].Value.ToString();
                 lblShowingSelectedObject.Text = selectedItem;
             }
         }
