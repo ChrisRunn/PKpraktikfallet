@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -890,7 +890,7 @@
             this.pbObjectsObjectPicture.InitialImage = null;
             this.pbObjectsObjectPicture.Location = new System.Drawing.Point(7, 22);
             this.pbObjectsObjectPicture.Name = "pbObjectsObjectPicture";
-            this.pbObjectsObjectPicture.Size = new System.Drawing.Size(571, 284);
+            this.pbObjectsObjectPicture.Size = new System.Drawing.Size(571, 293);
             this.pbObjectsObjectPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbObjectsObjectPicture.TabIndex = 0;
             this.pbObjectsObjectPicture.TabStop = false;
@@ -912,7 +912,7 @@
             // 
             this.lblObjectObjAddress.AutoSize = true;
             this.lblObjectObjAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjectObjAddress.Location = new System.Drawing.Point(6, 310);
+            this.lblObjectObjAddress.Location = new System.Drawing.Point(6, 316);
             this.lblObjectObjAddress.Name = "lblObjectObjAddress";
             this.lblObjectObjAddress.Size = new System.Drawing.Size(105, 31);
             this.lblObjectObjAddress.TabIndex = 1;
@@ -934,7 +934,7 @@
             // lblObjectSearch
             // 
             this.lblObjectSearch.AutoSize = true;
-            this.lblObjectSearch.Location = new System.Drawing.Point(5, 324);
+            this.lblObjectSearch.Location = new System.Drawing.Point(15, 324);
             this.lblObjectSearch.Name = "lblObjectSearch";
             this.lblObjectSearch.Size = new System.Drawing.Size(72, 13);
             this.lblObjectSearch.TabIndex = 19;
@@ -944,8 +944,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -956,7 +956,7 @@
             this.dgvObjectAllObjects.RowHeadersVisible = false;
             this.dgvObjectAllObjects.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectAllObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvObjectAllObjects.Size = new System.Drawing.Size(466, 284);
+            this.dgvObjectAllObjects.Size = new System.Drawing.Size(466, 293);
             this.dgvObjectAllObjects.TabIndex = 16;
             this.dgvObjectAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObject_CellClick);
             // 
@@ -964,7 +964,7 @@
             // 
             this.tbObjectSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbObjectSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbObjectSearch.Location = new System.Drawing.Point(141, 321);
+            this.tbObjectSearch.Location = new System.Drawing.Point(143, 320);
             this.tbObjectSearch.Name = "tbObjectSearch";
             this.tbObjectSearch.Size = new System.Drawing.Size(222, 20);
             this.tbObjectSearch.TabIndex = 17;
@@ -974,7 +974,7 @@
             // btnObjectSearch
             // 
             this.btnObjectSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectSearch.Location = new System.Drawing.Point(422, 319);
+            this.btnObjectSearch.Location = new System.Drawing.Point(431, 318);
             this.btnObjectSearch.Name = "btnObjectSearch";
             this.btnObjectSearch.Size = new System.Drawing.Size(40, 23);
             this.btnObjectSearch.TabIndex = 18;
@@ -1291,7 +1291,7 @@
             this.dgvBrokerAllBrokers.ReadOnly = true;
             this.dgvBrokerAllBrokers.RowHeadersVisible = false;
             this.dgvBrokerAllBrokers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(666, 565);
+            this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(666, 574);
             this.dgvBrokerAllBrokers.TabIndex = 9;
             this.dgvBrokerAllBrokers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBrokerAllBrokers_CellClick);
             this.dgvBrokerAllBrokers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvBrokerAllBrokers_DBC);
