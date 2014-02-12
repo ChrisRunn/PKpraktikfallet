@@ -115,7 +115,7 @@ namespace praktikfall
         //Söka OBJEKT
         public DataTable GetObject(string objNr)
         {
-            string sqlStr = "select * from RealEstateObject where objNr = '" + objNr + "'";
+            string sqlStr = "select objNr as Objektsnummer, objAdress as Adress from RealEstateObject where objNr = '" + objNr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -129,7 +129,7 @@ namespace praktikfall
         //Sökknapp i Objekt för att visa objekt med viss sträng
         public DataTable SearchObjectByString(string searchString)
         {
-            string sqlStr = "Select * from RealEstateObject where objNr like '%" + searchString + "%' or objAdress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
+            string sqlStr = "select objNr as Objektsnummer, objAdress as Adress from RealEstateObject where objNr like '%" + searchString + "%' or objAdress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -240,7 +240,7 @@ namespace praktikfall
         //Sökknapp i Objekt för att visa objekt med viss sträng
         public DataTable SearchBrokerByString(string searchString)
         {
-            string sqlStr = "Select * from RealEstateBroker where brokerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or brokerAddress like '%" + searchString + "%' or city like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
+            string sqlStr = "select brokerSsnr as Personnummer, name as Namn, brokerAddress as Adress, city as Stad, phoneNr as Telefon, email as Email, pw as Lösenord from RealEstateBroker where brokerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or brokerAddress like '%" + searchString + "%' or city like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -285,7 +285,7 @@ namespace praktikfall
         //Sökknapp i Spekulant för att visa objekt med viss sträng
         public DataTable SearchProBuyerByString(string searchString)
         {
-            string sqlStr = "Select * from ProspectiveBuyer where buyerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
+            string sqlStr = "select buyerSsnr as Personnummer, name as Namn, phoneNr as Telefon, email as Email from ProspectiveBuyer where buyerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
