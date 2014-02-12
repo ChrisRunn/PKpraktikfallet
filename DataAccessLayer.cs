@@ -145,16 +145,6 @@ namespace praktikfall
         #endregion GENERISKA METODER
 
         #region OBJEKT
-        //Lägg till OBJEKT -- BEHÖVS INTE
-        public int AddObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
-        {
-            string sqlStr = "insert into RealEstateObject values ('";
-            sqlStr += objNr + "','" + objAdress + "','" + objCity + "','" + objPrice +
-                "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "')";
-            int nrOfRows = ExecuteUpdate(sqlStr);
-            return nrOfRows;
-
-        }
         //Ta bort OBJEKT
         public int DeleteObject(string objNr) 
         {
@@ -168,7 +158,7 @@ namespace praktikfall
             string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "',objCity = '" + objCity +
                 "', objPrice = '" + objPrice + "', objArea = '" + objArea +
                 "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType +
-                "', objInfo = '" + objInfo + "',brokerSsnr = '" + brokerSsnr + "' where objNr = '" + objNr + "'";
+                "', objInfo = '" + objInfo + "',brokerSsnr = '" + brokerSsnr + "'" + " where objNr = '" + objNr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
@@ -228,8 +218,22 @@ namespace praktikfall
         {
             string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
             sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "'," + objPrice +
-                "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "')";
+                "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
             int nrOfRows = ExecuteUpdate(sqlStr);
+            MessageBox.Show(sqlStr);
+            return nrOfRows;
+        }
+
+        //Spara bild för objekt
+        public int addObjectImage(byte[] img, string objNr)
+        {
+            string sqlStr = "update RealEstateObject set objImage = @img where objNr = '" + objNr + "'";
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand com = new SqlCommand(sqlStr, con);
+            com.Parameters.Add(new SqlParameter("@img", img));
+            int nrOfRows = com.ExecuteNonQuery();
+            con.Close();
             return nrOfRows;
         }
         #endregion OBJEKT

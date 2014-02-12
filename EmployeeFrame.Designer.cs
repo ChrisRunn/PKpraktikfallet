@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -72,7 +72,7 @@
             this.tpObjectObjectTabPage = new System.Windows.Forms.TabPage();
             this.gbObjectUploadPicture = new System.Windows.Forms.GroupBox();
             this.pbObjectThumbnail = new System.Windows.Forms.PictureBox();
-            this.btnObjectBrowseObjectPicture = new System.Windows.Forms.Button();
+            this.btnObjectBrowseObjectImage = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.gbObjectObjectInfo = new System.Windows.Forms.GroupBox();
             this.rtbObjectObjectInfo = new System.Windows.Forms.RichTextBox();
@@ -126,6 +126,9 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpBrokerBrokerTabPage = new System.Windows.Forms.TabPage();
             this.gbBrokerAllBrokers = new System.Windows.Forms.GroupBox();
+            this.btnBrokerSearch = new System.Windows.Forms.Button();
+            this.tbBrokerSearch = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.dgvBrokerAllBrokers = new System.Windows.Forms.DataGridView();
             this.bgBrokerAdministrateBroker = new System.Windows.Forms.GroupBox();
             this.lblBrokerChoice = new System.Windows.Forms.Label();
@@ -160,9 +163,8 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbBrokerSearch = new System.Windows.Forms.TextBox();
-            this.btnBrokerSearch = new System.Windows.Forms.Button();
+            this.lblObjectFilepath = new System.Windows.Forms.Label();
+            this.btnObjectSaveImage = new System.Windows.Forms.Button();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -639,8 +641,10 @@
             // 
             // gbObjectUploadPicture
             // 
+            this.gbObjectUploadPicture.Controls.Add(this.btnObjectSaveImage);
+            this.gbObjectUploadPicture.Controls.Add(this.lblObjectFilepath);
             this.gbObjectUploadPicture.Controls.Add(this.pbObjectThumbnail);
-            this.gbObjectUploadPicture.Controls.Add(this.btnObjectBrowseObjectPicture);
+            this.gbObjectUploadPicture.Controls.Add(this.btnObjectBrowseObjectImage);
             this.gbObjectUploadPicture.Location = new System.Drawing.Point(6, 497);
             this.gbObjectUploadPicture.Name = "gbObjectUploadPicture";
             this.gbObjectUploadPicture.Size = new System.Drawing.Size(224, 138);
@@ -652,20 +656,20 @@
             // 
             this.pbObjectThumbnail.Location = new System.Drawing.Point(8, 15);
             this.pbObjectThumbnail.Name = "pbObjectThumbnail";
-            this.pbObjectThumbnail.Size = new System.Drawing.Size(204, 88);
+            this.pbObjectThumbnail.Size = new System.Drawing.Size(204, 72);
             this.pbObjectThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbObjectThumbnail.TabIndex = 2;
             this.pbObjectThumbnail.TabStop = false;
             // 
-            // btnObjectBrowseObjectPicture
+            // btnObjectBrowseObjectImage
             // 
-            this.btnObjectBrowseObjectPicture.Location = new System.Drawing.Point(137, 109);
-            this.btnObjectBrowseObjectPicture.Name = "btnObjectBrowseObjectPicture";
-            this.btnObjectBrowseObjectPicture.Size = new System.Drawing.Size(75, 23);
-            this.btnObjectBrowseObjectPicture.TabIndex = 1;
-            this.btnObjectBrowseObjectPicture.Text = "Bläddra";
-            this.btnObjectBrowseObjectPicture.UseVisualStyleBackColor = true;
-            this.btnObjectBrowseObjectPicture.Click += new System.EventHandler(this.button2_Click_2);
+            this.btnObjectBrowseObjectImage.Location = new System.Drawing.Point(62, 109);
+            this.btnObjectBrowseObjectImage.Name = "btnObjectBrowseObjectImage";
+            this.btnObjectBrowseObjectImage.Size = new System.Drawing.Size(75, 23);
+            this.btnObjectBrowseObjectImage.TabIndex = 1;
+            this.btnObjectBrowseObjectImage.Text = "Bläddra";
+            this.btnObjectBrowseObjectImage.UseVisualStyleBackColor = true;
+            this.btnObjectBrowseObjectImage.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // label1
             // 
@@ -768,8 +772,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1225,6 +1229,35 @@
             this.gbBrokerAllBrokers.TabStop = false;
             this.gbBrokerAllBrokers.Text = "Alla registrerade mäklare";
             // 
+            // btnBrokerSearch
+            // 
+            this.btnBrokerSearch.Location = new System.Drawing.Point(253, 589);
+            this.btnBrokerSearch.Name = "btnBrokerSearch";
+            this.btnBrokerSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnBrokerSearch.TabIndex = 12;
+            this.btnBrokerSearch.Text = "Sök";
+            this.btnBrokerSearch.UseVisualStyleBackColor = true;
+            this.btnBrokerSearch.Click += new System.EventHandler(this.btnBrokerSearch_Click);
+            // 
+            // tbBrokerSearch
+            // 
+            this.tbBrokerSearch.ForeColor = System.Drawing.Color.DarkGray;
+            this.tbBrokerSearch.Location = new System.Drawing.Point(110, 590);
+            this.tbBrokerSearch.Name = "tbBrokerSearch";
+            this.tbBrokerSearch.Size = new System.Drawing.Size(100, 20);
+            this.tbBrokerSearch.TabIndex = 11;
+            this.tbBrokerSearch.Text = "Sökterm";
+            this.tbBrokerSearch.Click += new System.EventHandler(this.tbBrokerSearch_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 591);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Sök mäklare";
+            // 
             // dgvBrokerAllBrokers
             // 
             this.dgvBrokerAllBrokers.AllowUserToAddRows = false;
@@ -1525,34 +1558,24 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
-            // label2
+            // lblObjectFilepath
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 591);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Sök mäklare";
+            this.lblObjectFilepath.AutoSize = true;
+            this.lblObjectFilepath.Location = new System.Drawing.Point(6, 90);
+            this.lblObjectFilepath.Name = "lblObjectFilepath";
+            this.lblObjectFilepath.Size = new System.Drawing.Size(41, 13);
+            this.lblObjectFilepath.TabIndex = 3;
+            this.lblObjectFilepath.Text = "label3";
             // 
-            // tbBrokerSearch
+            // btnObjectSaveImage
             // 
-            this.tbBrokerSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbBrokerSearch.Location = new System.Drawing.Point(110, 590);
-            this.tbBrokerSearch.Name = "tbBrokerSearch";
-            this.tbBrokerSearch.Size = new System.Drawing.Size(100, 20);
-            this.tbBrokerSearch.TabIndex = 11;
-            this.tbBrokerSearch.Text = "Sökterm";
-            this.tbBrokerSearch.Click += new System.EventHandler(this.tbBrokerSearch_Click);
-            // 
-            // btnBrokerSearch
-            // 
-            this.btnBrokerSearch.Location = new System.Drawing.Point(253, 589);
-            this.btnBrokerSearch.Name = "btnBrokerSearch";
-            this.btnBrokerSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnBrokerSearch.TabIndex = 12;
-            this.btnBrokerSearch.Text = "Sök";
-            this.btnBrokerSearch.UseVisualStyleBackColor = true;
-            this.btnBrokerSearch.Click += new System.EventHandler(this.btnBrokerSearch_Click);
+            this.btnObjectSaveImage.Location = new System.Drawing.Point(143, 109);
+            this.btnObjectSaveImage.Name = "btnObjectSaveImage";
+            this.btnObjectSaveImage.Size = new System.Drawing.Size(75, 23);
+            this.btnObjectSaveImage.TabIndex = 4;
+            this.btnObjectSaveImage.Text = "Spara bild";
+            this.btnObjectSaveImage.UseVisualStyleBackColor = true;
+            this.btnObjectSaveImage.Click += new System.EventHandler(this.btnObjectSaveImage_Click);
             // 
             // frameMainMainframe
             // 
@@ -1577,6 +1600,7 @@
             this.tpObjectObjectTabPage.ResumeLayout(false);
             this.tpObjectObjectTabPage.PerformLayout();
             this.gbObjectUploadPicture.ResumeLayout(false);
+            this.gbObjectUploadPicture.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObjectThumbnail)).EndInit();
             this.gbObjectObjectInfo.ResumeLayout(false);
             this.gbObjectPicture.ResumeLayout(false);
@@ -1735,10 +1759,12 @@
         private System.Windows.Forms.GroupBox gbBrokerAllBrokers;
         private System.Windows.Forms.GroupBox gbObjectUploadPicture;
         private System.Windows.Forms.PictureBox pbObjectThumbnail;
-        private System.Windows.Forms.Button btnObjectBrowseObjectPicture;
+        private System.Windows.Forms.Button btnObjectBrowseObjectImage;
         private System.Windows.Forms.Button btnBrokerSearch;
         private System.Windows.Forms.TextBox tbBrokerSearch;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblObjectFilepath;
+        private System.Windows.Forms.Button btnObjectSaveImage;
 
     }
 }

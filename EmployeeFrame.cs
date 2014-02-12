@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace praktikfall
 {
@@ -192,6 +193,8 @@ namespace praktikfall
                 DataGridViewRow row = this.dgvObjectAllObjects.Rows[e.RowIndex];
                 string objNr = row.Cells["Objektsnummer"].Value.ToString();
                 this.setSelectedObjectAndOwner(objNr, row);
+
+
             }
         }
 
@@ -210,6 +213,22 @@ namespace praktikfall
             rtbObjectObjectInfo.Text = objectInfo[7].ToString();
             tbObjectBrokerSsnr.Text = objectInfo[8].ToString();
             tbObjectOwnerSsnr.Text = objectInfo[9].ToString();
+            
+            byte[] img = (byte[])objectInfo[10];
+            
+            if (img != null && img.Length > 0)
+            {
+                MemoryStream ms = new MemoryStream(img);
+                pbObjectsObjectPicture.Image = Image.FromStream(ms);
+               
+            }
+            
+            else
+            {
+                pbObjectsObjectPicture.Image = null;
+                MessageBox.Show("jag är  här");
+            }
+
 
             string price = objectInfo[3].ToString();
             string area = objectInfo[4].ToString();
@@ -479,7 +498,7 @@ namespace praktikfall
             string ownerSsnr = tbObjectOwnerSsnr.Text;
             string phoneNr = tbObjectOwnerPhoneNr.Text;
             string email = tbObjectOwnerEmail.Text;
-            string name = tbObjectOwnerName.Text;           
+            string name = tbObjectOwnerName.Text;
 
             if (cbObjectUpdate.Checked && !cbObjectRegister.Checked && !cbObjectDeleteObject.Checked) //Update
             {
@@ -508,9 +527,11 @@ namespace praktikfall
                     int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                     Populate();
                     ClearObjectTb();
+                    pbObjectThumbnail.Image = null;
+                    pbObjectsObjectPicture.Image = null;
                     MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
                 }
-                if (!brokerExists)
+                else if (!brokerExists)
                 {
                     MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
                 }
@@ -1076,7 +1097,7 @@ namespace praktikfall
                 imgLoc = fDialog.FileName.ToString();
                 Image image = Image.FromFile(fDialog.FileName.ToString());
                 pbObjectThumbnail.Image = image;
-                //lblObjectFilepath.Text = imgLoc;
+                lblObjectFilepath.Text = imgLoc;
             }
 
         }
@@ -1112,6 +1133,20 @@ namespace praktikfall
             tbBrokerSearch.Text = "";
             tbBrokerSearch.ForeColor = Color.Black;
         
+        }
+
+        private void btnObjectSaveImage_Click(object sender, EventArgs e)
+        {
+            string objNr = tbObjectObjectNr.Text;
+            byte[] img = null;
+            string fp = lblObjectFilepath.Text;
+            FileStream fs = new FileStream(fp, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            img = br.ReadBytes((int)fs.Length);
+            int nrOfRows = controller.addObjectImage(img, objNr);
+
+            pbObjectsObjectPicture.Image = pbObjectThumbnail.Image;
+
         }
     }
 }

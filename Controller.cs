@@ -12,12 +12,6 @@ namespace praktikfall
     {
         DataAccessLayer dal = new DataAccessLayer();
         #region OBJEKT
-        //Lägg till OBJEKT
-        public int AddObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType,string objInfo, string brokerSsnr)
-        {
-            int nrOfRows = dal.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr);
-            return nrOfRows;
-        }
         //Ta bort OBJEKT
         public int DeleteObject(string objNr)
         {
@@ -94,6 +88,15 @@ namespace praktikfall
             bool objectExists = dal.ObjectExists(objNr);
             return objectExists;
         }
+
+        //Spara bild för objekt
+        public int addObjectImage(byte[] img, string objNr)
+        {
+            int nrOfRows = dal.addObjectImage(img, objNr);
+            return nrOfRows;
+        }
+
+
         #endregion OBJEKT
         #region MÄKLARE
         //Lägg till MÄKLARE
@@ -263,10 +266,10 @@ namespace praktikfall
             string pw =  dal.CheckPw(name, password);
             return pw;
         }
-
+        
      
         }
-        }
+}
     
     
 
