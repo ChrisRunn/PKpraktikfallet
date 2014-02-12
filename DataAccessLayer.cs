@@ -265,7 +265,7 @@ namespace praktikfall
         //Hämta ALLA MÄKLARE
         public DataTable GetAllBrokers()
         {
-            string sqlStr = "select * from RealEstateBroker";
+            string sqlStr = "select brokerSsnr as Personnummer, name as Namn, brokerAddress as Adress, city as Stad, phoneNr as Telefon, email as Email, pw as Lösenord from RealEstateBroker";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -282,6 +282,15 @@ namespace praktikfall
             }
             return brokerExists;
         }
+
+        //Sökknapp i Objekt för att visa objekt med viss sträng
+        public DataTable SearchBrokerByString(string searchString)
+        {
+            string sqlStr = "Select * from RealEstateBroker where brokerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or brokerAddress like '%" + searchString + "%' or city like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+
         #endregion MÄKLARE
         #region SPEKULANT
         //Lägga till spekulant
