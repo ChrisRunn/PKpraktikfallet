@@ -136,7 +136,7 @@ namespace praktikfall
 
         }
 
-        private void dgvObject_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvObjectAllObjects_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -400,7 +400,7 @@ namespace praktikfall
 
         private void cbObjUpdateClick(object sender, EventArgs e)
         {
-            dgvObject_CellClick(dgvObjectAllObjects, new DataGridViewCellEventArgs(0, 0));
+            dgvObjectAllObjects_CellClick(dgvObjectAllObjects, new DataGridViewCellEventArgs(0, 0));
         }
 
         private void btnObjectSubmit_Click(object sender, EventArgs e)
@@ -544,6 +544,11 @@ namespace praktikfall
         private void dgvBrokerAllBrokers_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
         {
             dgvBrokerAllBrokers.ClearSelection();
+        }
+
+        private void dgvObjectAllObjects_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        {
+            dgvObjectAllObjects.ClearSelection();
         }
 
         #region MAINMENU
@@ -973,6 +978,11 @@ namespace praktikfall
                 MessageBox.Show("Bilden kunde inte laddas upp. \n" + ex);
             }
         }
+
+        private void dgvObject(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+
+        }  
 
     }
 }
