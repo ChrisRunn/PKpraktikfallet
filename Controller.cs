@@ -133,6 +133,13 @@ namespace praktikfall
             bool brokerExists = dal.BrokerExists(brokerSsnr);
             return brokerExists;
         }
+
+        //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
+        public DataTable SearchBrokerByString(string searchString)
+        {
+            DataTable dt = dal.SearchBrokerByString(searchString);
+            return dt;
+        }
         #endregion MÄKLARE
         #region SPEKULANT
         //lägga till spekulant
@@ -217,26 +224,6 @@ namespace praktikfall
             return ownerHasMoreObjects;
         }
         #endregion OBJEKTÄGARE
-        #region HASOWNER
-        //Hämta ÄGARE(hasowner)
-        public DataTable GetObjOwner(string objNr)
-        {
-            DataTable dt = dal.GetSelectedObjectsOwner(objNr);
-            return dt;
-        }
-        //Registrera givet OBJEKT med given ÄGARE     HÄR registreras ett objekts ägare
-        public int AddObjectOwner(string objNr, string ownerSsnr)
-        {
-            int nrOfRows = dal.AddObjectOwner(objNr, ownerSsnr);
-            return nrOfRows;
-        }
-        //Hämta allt från hasowner tabellen
-        public DataTable GetAllHasOwner()
-        {
-            DataTable dt = dal.GetAllHasOwner();
-            return dt;
-        }
-        #endregion HASOWNER
         #region SHOWING
         //Registrera VISNING
         public int AddShowing (string objNr, string buyerSsnr, string showingDate)

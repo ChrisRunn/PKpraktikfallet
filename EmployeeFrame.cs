@@ -190,7 +190,7 @@ namespace praktikfall
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvObjectAllObjects.Rows[e.RowIndex];
-                string objNr = row.Cells["objNr"].Value.ToString();
+                string objNr = row.Cells["Objektsnummer"].Value.ToString();
                 this.setSelectedObjectAndOwner(objNr, row);
             }
         }
@@ -297,12 +297,12 @@ namespace praktikfall
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvShowingAllBuyers.Rows[e.RowIndex];
-                string selectedItem = row.Cells["buyerSsnr"].Value.ToString();
+                string selectedItem = row.Cells["Personnummer"].Value.ToString();
                 lblShowingSelectedBuyer.Text = selectedItem;
-                tbShowingBuyerSsnr.Text = row.Cells["buyerSsnr"].Value.ToString();
-                tbShowingBuyerName.Text = row.Cells["name"].Value.ToString();
-                tbShowingBuyerTel.Text = row.Cells["phoneNr"].Value.ToString();
-                tbShowingBuyerEmail.Text = row.Cells["email"].Value.ToString();
+                tbShowingBuyerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
+                tbShowingBuyerName.Text = row.Cells["Namn"].Value.ToString();
+                tbShowingBuyerTel.Text = row.Cells["Telefon"].Value.ToString();
+                tbShowingBuyerEmail.Text = row.Cells["Email"].Value.ToString();
 
             }
         }
@@ -390,7 +390,7 @@ namespace praktikfall
                 MessageBox.Show("Vänligen välj spekulant i listan.");
             }
 
-            if (lblShowingSelectedObject.Text.Equals("selectedObject(invisible)"))
+            else if (lblShowingSelectedObject.Text.Equals("selectedObject(invisible)"))
             {
                 MessageBox.Show("Vänligen välj objekt i listan.");
             }
@@ -409,8 +409,8 @@ namespace praktikfall
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvShowingCurrentShowings.Rows[e.RowIndex];
-                string objNr = row.Cells["objNr"].Value.ToString();
-                string buyerSsnr = row.Cells["buyerSsnr"].Value.ToString();
+                string objNr = row.Cells["Objektsnummer"].Value.ToString();
+                string buyerSsnr = row.Cells["Spekulant"].Value.ToString();
                 lblShowingSelectedBuyerDelete.Text = buyerSsnr;
                 lblShowingSelectedObjNrDelete.Text = objNr;  
             }
@@ -437,12 +437,12 @@ namespace praktikfall
                     lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
                 }
             }
-            if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked)               // Om inget val gjorts, ge feedback
+            else if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked)               // Om inget val gjorts, ge feedback
             {
                 MessageBox.Show("Vänligen välj ett alternativ (ta bort alla visningar eller ta bort spekulant från visning) först.");
             }
 
-            if (rbShowingDeleteBuyer.Checked)                                                   //Om "ta bort spekulant" är valt
+            else if (rbShowingDeleteBuyer.Checked)                                                   //Om "ta bort spekulant" är valt
             {
                 if (lblShowingSelectedBuyerDelete.Text.Equals("selectedForDelete(invisible)"))
                 {
@@ -889,15 +889,15 @@ namespace praktikfall
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvBrokerAllBrokers.Rows[e.RowIndex];
-                string selectedItem = row.Cells["brokerSsnr"].Value.ToString();
+                string selectedItem = row.Cells["Personnummer"].Value.ToString();
                 lblShowingSelectedBuyer.Text = selectedItem;
-                tbBrokerBrokerSsnr.Text = row.Cells["brokerSsnr"].Value.ToString();
-                tbBrokerBrokerName.Text = row.Cells["name"].Value.ToString();
-                tbBrokerBrokerAdress.Text = row.Cells["brokerAddress"].Value.ToString();
-                tbBrokerBrokerCity.Text = row.Cells["city"].Value.ToString();
-                tbBrokerBrokerPhoneNumber.Text = row.Cells["phoneNr"].Value.ToString();
-                tbBrokerBrokerEmail.Text = row.Cells["email"].Value.ToString();
-                tbBrokerBrokerPw.Text = row.Cells["pw"].Value.ToString();
+                tbBrokerBrokerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
+                tbBrokerBrokerName.Text = row.Cells["Namn"].Value.ToString();
+                tbBrokerBrokerAdress.Text = row.Cells["Adress"].Value.ToString();
+                tbBrokerBrokerCity.Text = row.Cells["Stad"].Value.ToString();
+                tbBrokerBrokerPhoneNumber.Text = row.Cells["Telefon"].Value.ToString();
+                tbBrokerBrokerEmail.Text = row.Cells["Email"].Value.ToString();
+                tbBrokerBrokerPw.Text = row.Cells["Lösenord"].Value.ToString();
 
             }
         }
@@ -1075,18 +1075,52 @@ namespace praktikfall
 
         private void button2_Click_2(object sender, EventArgs e)
         {
+            string imgLoc;
             OpenFileDialog fDialog = new OpenFileDialog();
             fDialog.Title = "Select a picture";
-            //fDialog.Filter = "XML Files|*.xml|UML Files|*.uml";       //Filtrera vilka bildformat som ska kunna laddas upp väljas
-                                                                        // (PB hanterar bitmap, metafile, icon, JPEG, GIF, or PNG file.)
+            fDialog.Filter = "JPG Files|*.jpg|GIF Files|*.gif|All Files (*.*)|*.*";       //Filtrera vilka bildformat som ska kunna laddas upp väljas                                                                       // (PB hanterar bitmap, metafile, icon, JPEG, GIF, or PNG file.)
             fDialog.InitialDirectory = @"C:\";                          
             if (fDialog.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(fDialog.FileName.ToString());
+                imgLoc = fDialog.FileName.ToString();
                 Image image = Image.FromFile(fDialog.FileName.ToString());
                 pbObjectThumbnail.Image = image;
+                //lblObjectFilepath.Text = imgLoc;
             }
 
+        }
+
+        private void btnBrokerSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbBrokerSearch.Text.Equals("") || tbBrokerSearch.Text.Equals("Sökord"))
+                {
+                    tbObjectSearch.Text = "";
+                    tbObjectSearch.ForeColor = Color.LightSlateGray;
+                    tbObjectSearch.Text = "Sökord";
+                    Populate();
+                }
+
+                else
+                {
+                    string searchString = tbBrokerSearch.Text;
+                    DataTable dt = controller.SearchBrokerByString(searchString);
+                    dgvBrokerAllBrokers.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem i sökfunktion.\n" + ex);
+            }
+
+        }
+
+        private void tbBrokerSearch_Click(object sender, EventArgs e)
+        {            
+            tbBrokerSearch.Text = "";
+            tbBrokerSearch.ForeColor = Color.Black;
+        
         }
     }
 }

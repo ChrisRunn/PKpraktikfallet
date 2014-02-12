@@ -132,7 +132,7 @@ namespace praktikfall
         // Hämta alla OBJEKT
         public DataTable GetAllObjects()
         {
-            string sqlStr = "select objNr,objAdress from RealEstateObject";
+            string sqlStr = "select objNr as Objektsnummer,objAdress as Adress from RealEstateObject";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -215,7 +215,7 @@ namespace praktikfall
         //Hämta ALLA MÄKLARE
         public DataTable GetAllBrokers()
         {
-            string sqlStr = "select * from RealEstateBroker";
+            string sqlStr = "select brokerSsnr as Personnummer, name as Namn, brokerAddress as Adress, city as Stad, phoneNr as Telefon, email as Email, pw as Lösenord from RealEstateBroker";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -232,6 +232,15 @@ namespace praktikfall
             }
             return brokerExists;
         }
+
+        //Sökknapp i Objekt för att visa objekt med viss sträng
+        public DataTable SearchBrokerByString(string searchString)
+        {
+            string sqlStr = "Select * from RealEstateBroker where brokerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or brokerAddress like '%" + searchString + "%' or city like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            return dt;
+        }
+
         #endregion MÄKLARE
         #region SPEKULANT
         //Lägga till spekulant
@@ -265,7 +274,7 @@ namespace praktikfall
         //Hämta alla spekulanter
         public DataTable GetAllProspectiveBuyers()
         {
-            string sqlStr = "select * from Prospectivebuyer";
+            string sqlStr = "select buyerSsnr as Personnummer, name as Namn, phoneNr as Telefon, email as Email from Prospectivebuyer";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -369,29 +378,6 @@ namespace praktikfall
             }
         }
         #endregion OBJEKTÄGARE
-        #region HASOWNER
-        //Hämta ÄGARE (hasowner) -- ANVÄNDS INTE LÄNGRE
-        public DataTable GetSelectedObjectsOwner(string objNr)
-        {
-            string sqlStr = "select * from HasOwner where objNr ='" + objNr + "'";
-            DataTable dt = ExecuteQuery(sqlStr);
-            return dt;
-        }
-        //Registrera givet OBJEKT med given ÄGARE     HÄR registreras ett objekts ägare
-        public int AddObjectOwner(string objNr, string ownerSsnr)
-        {
-            string sqlStr = "insert into HasOwner values ('" + objNr + "','" + ownerSsnr + "')";
-            int nrOfRows = ExecuteUpdate(sqlStr);
-            return nrOfRows;
-        }
-        //Hämtar allt från hasowner tabellen
-        public DataTable GetAllHasOwner()
-        {
-            string sqlStr = "select * from HasOwner";
-            DataTable dt = ExecuteQuery(sqlStr);
-            return dt;
-        }
-        #endregion HASOWNER
         #region SHOWING
         //Registrera VISNING
         public int AddShowing(string objNr, string buyerSsnr, string showingDate)
@@ -410,7 +396,7 @@ namespace praktikfall
         //Visa alla VISNINGAR
         public DataTable GetShowings()
         {
-            string sqlStr = "select * from Showing";
+            string sqlStr = "select objNr as Objektsnummer, buyerSsnr as Spekulant, showingDate as Visningsdatum from Showing";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
