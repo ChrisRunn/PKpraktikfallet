@@ -133,6 +133,13 @@ namespace praktikfall
             bool brokerExists = dal.BrokerExists(brokerSsnr);
             return brokerExists;
         }
+
+        //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
+        public DataTable SearchBrokerByString(string searchString)
+        {
+            DataTable dt = dal.SearchBrokerByString(searchString);
+            return dt;
+        }
         #endregion MÄKLARE
         #region SPEKULANT
         //lägga till spekulant
