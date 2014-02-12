@@ -182,7 +182,7 @@ namespace praktikfall
         // Hämta alla OBJEKT
         public DataTable GetAllObjects()
         {
-            string sqlStr = "select objNr,objAdress from RealEstateObject";
+            string sqlStr = "select objNr as Objektsnummer,objAdress as Adress from RealEstateObject";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -324,7 +324,7 @@ namespace praktikfall
         //Hämta alla spekulanter
         public DataTable GetAllProspectiveBuyers()
         {
-            string sqlStr = "select * from Prospectivebuyer";
+            string sqlStr = "select buyerSsnr as Personnummer, name as Namn, phoneNr as Telefon, email as Email from Prospectivebuyer";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -452,7 +452,7 @@ namespace praktikfall
         //Visa alla VISNINGAR
         public DataTable GetShowings()
         {
-            string sqlStr = "select * from Showing";
+            string sqlStr = "select objNr as Objektsnummer, buyerSsnr as Spekulant, showingDate as Visningsdatum from Showing";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
