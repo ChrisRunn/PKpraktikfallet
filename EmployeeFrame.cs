@@ -390,7 +390,7 @@ namespace praktikfall
                 MessageBox.Show("Vänligen välj spekulant i listan.");
             }
 
-            if (lblShowingSelectedObject.Text.Equals("selectedObject(invisible)"))
+            else if (lblShowingSelectedObject.Text.Equals("selectedObject(invisible)"))
             {
                 MessageBox.Show("Vänligen välj objekt i listan.");
             }
@@ -437,12 +437,12 @@ namespace praktikfall
                     lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
                 }
             }
-            if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked)               // Om inget val gjorts, ge feedback
+            else if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked)               // Om inget val gjorts, ge feedback
             {
                 MessageBox.Show("Vänligen välj ett alternativ (ta bort alla visningar eller ta bort spekulant från visning) först.");
             }
 
-            if (rbShowingDeleteBuyer.Checked)                                                   //Om "ta bort spekulant" är valt
+            else if (rbShowingDeleteBuyer.Checked)                                                   //Om "ta bort spekulant" är valt
             {
                 if (lblShowingSelectedBuyerDelete.Text.Equals("selectedForDelete(invisible)"))
                 {
@@ -1066,16 +1066,17 @@ namespace praktikfall
 
         private void button2_Click_2(object sender, EventArgs e)
         {
+            string imgLoc;
             OpenFileDialog fDialog = new OpenFileDialog();
             fDialog.Title = "Select a picture";
-            //fDialog.Filter = "XML Files|*.xml|UML Files|*.uml";       //Filtrera vilka bildformat som ska kunna laddas upp väljas
-                                                                        // (PB hanterar bitmap, metafile, icon, JPEG, GIF, or PNG file.)
+            fDialog.Filter = "JPG Files|*.jpg|GIF Files|*.gif|All Files (*.*)|*.*";       //Filtrera vilka bildformat som ska kunna laddas upp väljas                                                                       // (PB hanterar bitmap, metafile, icon, JPEG, GIF, or PNG file.)
             fDialog.InitialDirectory = @"C:\";                          
             if (fDialog.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(fDialog.FileName.ToString());
+                imgLoc = fDialog.FileName.ToString();
                 Image image = Image.FromFile(fDialog.FileName.ToString());
                 pbObjectThumbnail.Image = image;
+                //lblObjectFilepath.Text = imgLoc;
             }
 
         }
