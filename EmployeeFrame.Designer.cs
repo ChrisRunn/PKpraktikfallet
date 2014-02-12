@@ -395,6 +395,7 @@
             this.dgvShowingCurrentShowings.Location = new System.Drawing.Point(6, 33);
             this.dgvShowingCurrentShowings.MultiSelect = false;
             this.dgvShowingCurrentShowings.Name = "dgvShowingCurrentShowings";
+            this.dgvShowingCurrentShowings.ReadOnly = true;
             this.dgvShowingCurrentShowings.RowHeadersVisible = false;
             this.dgvShowingCurrentShowings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingCurrentShowings.Size = new System.Drawing.Size(457, 260);
@@ -547,6 +548,7 @@
             this.dgvShowingAllObjects.Location = new System.Drawing.Point(6, 311);
             this.dgvShowingAllObjects.MultiSelect = false;
             this.dgvShowingAllObjects.Name = "dgvShowingAllObjects";
+            this.dgvShowingAllObjects.ReadOnly = true;
             this.dgvShowingAllObjects.RowHeadersVisible = false;
             this.dgvShowingAllObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingAllObjects.Size = new System.Drawing.Size(583, 260);
@@ -574,6 +576,7 @@
             this.dgvShowingAllBuyers.Location = new System.Drawing.Point(6, 32);
             this.dgvShowingAllBuyers.MultiSelect = false;
             this.dgvShowingAllBuyers.Name = "dgvShowingAllBuyers";
+            this.dgvShowingAllBuyers.ReadOnly = true;
             this.dgvShowingAllBuyers.RowHeadersVisible = false;
             this.dgvShowingAllBuyers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingAllBuyers.Size = new System.Drawing.Size(583, 240);
@@ -770,6 +773,7 @@
             this.dgvObjectAllObjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObjectAllObjects.Location = new System.Drawing.Point(6, 22);
             this.dgvObjectAllObjects.Name = "dgvObjectAllObjects";
+            this.dgvObjectAllObjects.ReadOnly = true;
             this.dgvObjectAllObjects.RowHeadersVisible = false;
             this.dgvObjectAllObjects.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectAllObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1131,11 +1135,12 @@
             // 
             this.dgvStartYourShowings.AllowUserToAddRows = false;
             this.dgvStartYourShowings.AllowUserToDeleteRows = false;
-            this.dgvStartYourShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvStartYourShowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStartYourShowings.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvStartYourShowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStartYourShowings.Location = new System.Drawing.Point(538, 233);
             this.dgvStartYourShowings.Name = "dgvStartYourShowings";
+            this.dgvStartYourShowings.ReadOnly = true;
             this.dgvStartYourShowings.RowHeadersVisible = false;
             this.dgvStartYourShowings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStartYourShowings.Size = new System.Drawing.Size(462, 402);
@@ -1149,6 +1154,7 @@
             this.dgvStartYourObjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStartYourObjects.Location = new System.Drawing.Point(70, 233);
             this.dgvStartYourObjects.Name = "dgvStartYourObjects";
+            this.dgvStartYourObjects.ReadOnly = true;
             this.dgvStartYourObjects.RowHeadersVisible = false;
             this.dgvStartYourObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStartYourObjects.Size = new System.Drawing.Size(462, 402);
@@ -1223,6 +1229,7 @@
             this.dgvBrokerAllBrokers.Location = new System.Drawing.Point(6, 19);
             this.dgvBrokerAllBrokers.MultiSelect = false;
             this.dgvBrokerAllBrokers.Name = "dgvBrokerAllBrokers";
+            this.dgvBrokerAllBrokers.ReadOnly = true;
             this.dgvBrokerAllBrokers.RowHeadersVisible = false;
             this.dgvBrokerAllBrokers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBrokerAllBrokers.Size = new System.Drawing.Size(666, 603);
