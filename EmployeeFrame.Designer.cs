@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.rbShowingDeleteBuyer = new System.Windows.Forms.RadioButton();
             this.dgvShowingCurrentShowings = new System.Windows.Forms.DataGridView();
             this.rbShowingDeleteShowing = new System.Windows.Forms.RadioButton();
-            this.btnShowingDelete = new System.Windows.Forms.Button();
+            this.btnShowingSubmitDelete = new System.Windows.Forms.Button();
             this.lblShowingSelectedObjNrDelete = new System.Windows.Forms.Label();
             this.lblShowingChoose = new System.Windows.Forms.Label();
             this.gbShowing = new System.Windows.Forms.GroupBox();
@@ -349,7 +349,7 @@
             this.gbShowingDeleteShowing.Controls.Add(this.rbShowingDeleteBuyer);
             this.gbShowingDeleteShowing.Controls.Add(this.dgvShowingCurrentShowings);
             this.gbShowingDeleteShowing.Controls.Add(this.rbShowingDeleteShowing);
-            this.gbShowingDeleteShowing.Controls.Add(this.btnShowingDelete);
+            this.gbShowingDeleteShowing.Controls.Add(this.btnShowingSubmitDelete);
             this.gbShowingDeleteShowing.Controls.Add(this.lblShowingSelectedObjNrDelete);
             this.gbShowingDeleteShowing.Controls.Add(this.lblShowingChoose);
             this.gbShowingDeleteShowing.Location = new System.Drawing.Point(607, 285);
@@ -419,15 +419,15 @@
             this.rbShowingDeleteShowing.Text = "Ta bort ett objekts alla visningar";
             this.rbShowingDeleteShowing.UseVisualStyleBackColor = true;
             // 
-            // btnShowingDelete
+            // btnShowingSubmitDelete
             // 
-            this.btnShowingDelete.Location = new System.Drawing.Point(388, 322);
-            this.btnShowingDelete.Name = "btnShowingDelete";
-            this.btnShowingDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnShowingDelete.TabIndex = 17;
-            this.btnShowingDelete.Text = "Utför";
-            this.btnShowingDelete.UseVisualStyleBackColor = true;
-            this.btnShowingDelete.Click += new System.EventHandler(this.btnShowingDelete_Click);
+            this.btnShowingSubmitDelete.Location = new System.Drawing.Point(388, 322);
+            this.btnShowingSubmitDelete.Name = "btnShowingSubmitDelete";
+            this.btnShowingSubmitDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnShowingSubmitDelete.TabIndex = 17;
+            this.btnShowingSubmitDelete.Text = "Utför";
+            this.btnShowingSubmitDelete.UseVisualStyleBackColor = true;
+            this.btnShowingSubmitDelete.Click += new System.EventHandler(this.btnShowingSubmitDelete_Click);
             // 
             // lblShowingSelectedObjNrDelete
             // 
@@ -501,8 +501,7 @@
             this.tbShowingSearch.Size = new System.Drawing.Size(222, 20);
             this.tbShowingSearch.TabIndex = 27;
             this.tbShowingSearch.Text = "Sökord";
-            this.tbShowingSearch.Click += new System.EventHandler(this.tbSearchProBuyer_Click);
-            this.tbShowingSearch.TextChanged += new System.EventHandler(this.tbShowingSearch_TextChanged);
+            this.tbShowingSearch.Click += new System.EventHandler(this.tbShowingSearch_Click);
             // 
             // lblShowingSelectedBuyer
             // 
@@ -524,7 +523,7 @@
             this.btnShowingSearch.Text = "Sök";
             this.btnShowingSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnShowingSearch.UseVisualStyleBackColor = true;
-            this.btnShowingSearch.Click += new System.EventHandler(this.btnSearchProBuyer_Click_1);
+            this.btnShowingSearch.Click += new System.EventHandler(this.btnShowingSearch_Click);
             // 
             // lblShowingSelectedObject
             // 
@@ -558,8 +557,8 @@
             this.dgvShowingAllObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingAllObjects.Size = new System.Drawing.Size(583, 260);
             this.dgvShowingAllObjects.TabIndex = 8;
-            this.dgvShowingAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectShowing_CellClicked);
-            this.dgvShowingAllObjects.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingObject_DBC);
+            this.dgvShowingAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowingAllObjects_CellClicked);
+            this.dgvShowingAllObjects.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingAllObjects_DBC);
             // 
             // lblDateShowing
             // 
@@ -586,8 +585,8 @@
             this.dgvShowingAllBuyers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingAllBuyers.Size = new System.Drawing.Size(583, 240);
             this.dgvShowingAllBuyers.TabIndex = 9;
-            this.dgvShowingAllBuyers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProspectiveBuyerShowing_CellClicked);
-            this.dgvShowingAllBuyers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingProspecitveBuyer_DBC);
+            this.dgvShowingAllBuyers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowingAllBuyers_CellClicked);
+            this.dgvShowingAllBuyers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingAllBuyers_DBC);
             // 
             // lblShowingShowing
             // 
@@ -606,7 +605,7 @@
             this.btnShowingRegisterShowing.TabIndex = 0;
             this.btnShowingRegisterShowing.Text = "Lägg till";
             this.btnShowingRegisterShowing.UseVisualStyleBackColor = true;
-            this.btnShowingRegisterShowing.Click += new System.EventHandler(this.btnAddShowing_Click);
+            this.btnShowingRegisterShowing.Click += new System.EventHandler(this.btnShowingRegisterShowing_Click);
             // 
             // lblShowingBuyer
             // 
@@ -689,7 +688,7 @@
             this.btnObjectBrowseObjectImage.TabIndex = 1;
             this.btnObjectBrowseObjectImage.Text = "Bläddra";
             this.btnObjectBrowseObjectImage.UseVisualStyleBackColor = true;
-            this.btnObjectBrowseObjectImage.Click += new System.EventHandler(this.btnObjectBrowse_Click_2);
+            this.btnObjectBrowseObjectImage.Click += new System.EventHandler(this.btnObjectBrowse_Click);
             // 
             // label1
             // 
@@ -918,7 +917,6 @@
             this.lblObjectObjAddress.Size = new System.Drawing.Size(105, 31);
             this.lblObjectObjAddress.TabIndex = 1;
             this.lblObjectObjAddress.Text = "Adress";
-            this.lblObjectObjAddress.Click += new System.EventHandler(this.lblObjAddress_Click);
             // 
             // gbObjectAllObjects
             // 
@@ -946,8 +944,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -971,7 +969,7 @@
             this.tbObjectSearch.Size = new System.Drawing.Size(222, 20);
             this.tbObjectSearch.TabIndex = 17;
             this.tbObjectSearch.Text = "Sökord";
-            this.tbObjectSearch.Click += new System.EventHandler(this.tbObjSearchClick);
+            this.tbObjectSearch.Click += new System.EventHandler(this.tbObjectSearch_Click);
             // 
             // btnObjectSearch
             // 
@@ -984,7 +982,7 @@
             this.btnObjectSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnObjectSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnObjectSearch.UseVisualStyleBackColor = true;
-            this.btnObjectSearch.Click += new System.EventHandler(this.button2_Click);
+            this.btnObjectSearch.Click += new System.EventHandler(this.btnObjectSearch_Click);
             // 
             // cbObjectDeleteObject
             // 
@@ -995,7 +993,7 @@
             this.cbObjectDeleteObject.TabIndex = 40;
             this.cbObjectDeleteObject.Text = "Ta bort objekt";
             this.cbObjectDeleteObject.UseVisualStyleBackColor = true;
-            this.cbObjectDeleteObject.CheckedChanged += new System.EventHandler(this.cbObjDeleteObject_CheckedChanged);
+            this.cbObjectDeleteObject.CheckedChanged += new System.EventHandler(this.cbObjectDeleteObject_CheckedChanged);
             // 
             // btnObjectSubmit
             // 
@@ -1005,7 +1003,7 @@
             this.btnObjectSubmit.TabIndex = 39;
             this.btnObjectSubmit.Text = "Utför";
             this.btnObjectSubmit.UseVisualStyleBackColor = true;
-            this.btnObjectSubmit.Click += new System.EventHandler(this.btnObjSubmit_Click);
+            this.btnObjectSubmit.Click += new System.EventHandler(this.btnObjectSubmit_Click);
             // 
             // cbObjectUpdate
             // 
@@ -1017,7 +1015,7 @@
             this.cbObjectUpdate.TabIndex = 6;
             this.cbObjectUpdate.Text = "Uppdatera";
             this.cbObjectUpdate.UseVisualStyleBackColor = true;
-            this.cbObjectUpdate.CheckedChanged += new System.EventHandler(this.cbObjUpdate_CheckedChanged);
+            this.cbObjectUpdate.CheckedChanged += new System.EventHandler(this.cbObjectUpdate_CheckedChanged);
             // 
             // cbObjectRegister
             // 
@@ -1028,7 +1026,7 @@
             this.cbObjectRegister.TabIndex = 8;
             this.cbObjectRegister.Text = "Registrera";
             this.cbObjectRegister.UseVisualStyleBackColor = true;
-            this.cbObjectRegister.CheckedChanged += new System.EventHandler(this.cbObjRegister_CheckedChanged);
+            this.cbObjectRegister.CheckedChanged += new System.EventHandler(this.cbObjectRegister_CheckedChanged);
             // 
             // gbObjectOwnerInfo
             // 
@@ -1252,9 +1250,9 @@
             // 
             // btnBrokerSearch
             // 
-            this.btnBrokerSearch.Location = new System.Drawing.Point(597, 599);
+            this.btnBrokerSearch.Location = new System.Drawing.Point(632, 599);
             this.btnBrokerSearch.Name = "btnBrokerSearch";
-            this.btnBrokerSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnBrokerSearch.Size = new System.Drawing.Size(40, 23);
             this.btnBrokerSearch.TabIndex = 12;
             this.btnBrokerSearch.Text = "Sök";
             this.btnBrokerSearch.UseVisualStyleBackColor = true;
@@ -1264,7 +1262,7 @@
             // 
             this.tbBrokerSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBrokerSearch.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbBrokerSearch.Location = new System.Drawing.Point(369, 601);
+            this.tbBrokerSearch.Location = new System.Drawing.Point(404, 602);
             this.tbBrokerSearch.Name = "tbBrokerSearch";
             this.tbBrokerSearch.Size = new System.Drawing.Size(222, 20);
             this.tbBrokerSearch.TabIndex = 11;
@@ -1274,7 +1272,7 @@
             // lblBrokerSearch
             // 
             this.lblBrokerSearch.AutoSize = true;
-            this.lblBrokerSearch.Location = new System.Drawing.Point(271, 604);
+            this.lblBrokerSearch.Location = new System.Drawing.Point(317, 605);
             this.lblBrokerSearch.Name = "lblBrokerSearch";
             this.lblBrokerSearch.Size = new System.Drawing.Size(81, 13);
             this.lblBrokerSearch.TabIndex = 10;
@@ -1346,7 +1344,6 @@
             this.lblBrokerSelectedBroker.TabIndex = 1;
             this.lblBrokerSelectedBroker.Text = "selectedBroker(invisible)";
             this.lblBrokerSelectedBroker.Visible = false;
-            this.lblBrokerSelectedBroker.Click += new System.EventHandler(this.lblBrokerSelectedBroker_Click);
             // 
             // btnBrokerSubmit
             // 
@@ -1656,7 +1653,7 @@
         private System.Windows.Forms.Label lblShowingSelectedObject;
         private System.Windows.Forms.GroupBox gbShowingDeleteShowing;
         private System.Windows.Forms.DataGridView dgvShowingCurrentShowings;
-        private System.Windows.Forms.Button btnShowingDelete;
+        private System.Windows.Forms.Button btnShowingSubmitDelete;
         private System.Windows.Forms.Label lblShowingSelectedObjNrDelete;
         private System.Windows.Forms.Label lblShowingChoose;
         private System.Windows.Forms.Button btnShowingUpdate;
