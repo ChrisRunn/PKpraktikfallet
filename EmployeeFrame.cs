@@ -510,7 +510,7 @@ namespace praktikfall
                     ClearObjectTb();
                     MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
                 }
-                if (!brokerExists)
+                else if (!brokerExists)
                 {
                     MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
                 }
@@ -524,7 +524,16 @@ namespace praktikfall
             {
                 
                 bool objectExists = controller.ObjectExists(objNr);
-                if (objectExists)
+                bool ownerHasMoreObjects = this.controller.OwnerHasOtherObjects(ownerSsnr);
+                if (objectExists && !ownerHasMoreObjects)
+                {
+                    int nrOfRows = this.controller.DeleteObjectOwner(ownerSsnr);
+                    int i = this.controller.DeleteObject(objNr);
+                    Populate();
+                    ClearObjectTb();
+                    MessageBox.Show("Objekt borttaget. Ägaren är även borttagen eftersom ägaren ej äger andra objekt.");
+                }
+                else if (objectExists && ownerHasMoreObjects)
                 {
                     int nrOfRows = this.controller.DeleteObject(objNr);
                     Populate();
@@ -535,7 +544,7 @@ namespace praktikfall
                 {
                     MessageBox.Show("Inget sådant objekt finns.");
                 }
-                
+                btnObjectSubmit.Enabled = true;
             }
         }
 

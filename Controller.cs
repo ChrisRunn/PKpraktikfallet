@@ -211,6 +211,11 @@ namespace praktikfall
             bool ownerExists = dal.OwnerExists(ownerSsnr);
             return ownerExists;
         }
+        public bool OwnerHasOtherObjects(string ownerSsnr)
+        {
+            bool ownerHasMoreObjects = this.dal.OwnerHasOtherObjects(ownerSsnr);
+            return ownerHasMoreObjects;
+        }
         #endregion OBJEKTÄGARE
         #region HASOWNER
         //Hämta ÄGARE(hasowner)
