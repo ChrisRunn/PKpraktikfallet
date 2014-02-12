@@ -92,56 +92,6 @@ namespace praktikfall
             return dataTable;
         }
 
-        private string StringTranslator(string stringIn)
-        {
-
-            string stringOut;
-
-            switch (stringIn)
-            {
-                case "objNr":
-                    stringOut = "Objektsnummer";
-                    break;
-                case "cname":
-                    stringOut = "Kursnamn";
-                    break;
-                case "points":
-                    stringOut = "Högskolepoäng";
-                    break;
-                case "pnr":
-                    stringOut = "Personnummer";
-                    break;
-                case "firstname":
-                    stringOut = "Förnamn";
-                    break;
-                case "lastname":
-                    stringOut = "Efternamn";
-                    break;
-                case "phonenr":
-                    stringOut = "Telefonnummer";
-                    break;
-                case "email":
-                    stringOut = "E-post";
-                    break;
-                case "adress":
-                    stringOut = "Adress";
-                    break;
-                case "postcode":
-                    stringOut = "Postnummer";
-                    break;
-                case "city":
-                    stringOut = "Ort";
-                    break;
-                case "grade":
-                    stringOut = "Betyg";
-                    break;
-                default:
-                    stringOut = stringIn;
-                    break;
-            }
-
-            return stringOut;
-        }
         #endregion GENERISKA METODER
 
         #region OBJEKT
@@ -413,6 +363,23 @@ namespace praktikfall
                 return ownerExists;
             }
             return ownerExists;
+        }
+
+        public bool OwnerHasOtherObjects(string ownerSsnr)
+        {
+            bool ownerHasMoreObjects = true;
+            string sqlStr = "select * from RealEstateObject where ownerSsnr = '" + ownerSsnr + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+
+            if (dt.Rows.Count == 1)
+            {
+                ownerHasMoreObjects = false;
+                return ownerHasMoreObjects;
+            }
+            else
+            {
+                return ownerHasMoreObjects;
+            }
         }
         #endregion OBJEKTÄGARE
         #region SHOWING

@@ -213,7 +213,7 @@ namespace praktikfall
             rtbObjectObjectInfo.Text = objectInfo[7].ToString();
             tbObjectBrokerSsnr.Text = objectInfo[8].ToString();
             tbObjectOwnerSsnr.Text = objectInfo[9].ToString();
-            
+
             byte[] img = (byte[])objectInfo[10];
             
             if (img != null && img.Length > 0)
@@ -498,7 +498,7 @@ namespace praktikfall
             string ownerSsnr = tbObjectOwnerSsnr.Text;
             string phoneNr = tbObjectOwnerPhoneNr.Text;
             string email = tbObjectOwnerEmail.Text;
-            string name = tbObjectOwnerName.Text;
+            string name = tbObjectOwnerName.Text;           
 
             if (cbObjectUpdate.Checked && !cbObjectRegister.Checked && !cbObjectDeleteObject.Checked) //Update
             {
@@ -545,7 +545,16 @@ namespace praktikfall
             {
                 
                 bool objectExists = controller.ObjectExists(objNr);
-                if (objectExists)
+                bool ownerHasMoreObjects = this.controller.OwnerHasOtherObjects(ownerSsnr);
+                if (objectExists && !ownerHasMoreObjects)
+                {
+                    int nrOfRows = this.controller.DeleteObjectOwner(ownerSsnr);
+                    int i = this.controller.DeleteObject(objNr);
+                    Populate();
+                    ClearObjectTb();
+                    MessageBox.Show("Objekt borttaget. Ägaren är även borttagen eftersom ägaren ej äger andra objekt.");
+                }
+                else if (objectExists && ownerHasMoreObjects)
                 {
                     int nrOfRows = this.controller.DeleteObject(objNr);
                     Populate();
@@ -556,7 +565,7 @@ namespace praktikfall
                 {
                     MessageBox.Show("Inget sådant objekt finns.");
                 }
-                
+                btnObjectSubmit.Enabled = true;
             }
         }
 
