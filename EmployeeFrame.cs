@@ -983,7 +983,7 @@ namespace praktikfall
             {
                 string objNr = tbObjectObjectNr.Text;
                 byte[] img = null;
-                string fp = lblObjectFilepath.Text;
+                string fp = tbObjectImageURL.Text;
                 FileStream fs = new FileStream(fp, FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(fs);
                 img = br.ReadBytes((int)fs.Length);

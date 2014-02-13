@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -73,7 +73,6 @@
             this.gbObjectUploadPicture = new System.Windows.Forms.GroupBox();
             this.tbObjectImageURL = new System.Windows.Forms.TextBox();
             this.btnObjectSaveImage = new System.Windows.Forms.Button();
-            this.lblObjectFilepath = new System.Windows.Forms.Label();
             this.pbObjectThumbnail = new System.Windows.Forms.PictureBox();
             this.btnObjectBrowseObjectImage = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -645,7 +644,6 @@
             // 
             this.gbObjectUploadPicture.Controls.Add(this.tbObjectImageURL);
             this.gbObjectUploadPicture.Controls.Add(this.btnObjectSaveImage);
-            this.gbObjectUploadPicture.Controls.Add(this.lblObjectFilepath);
             this.gbObjectUploadPicture.Controls.Add(this.pbObjectThumbnail);
             this.gbObjectUploadPicture.Controls.Add(this.btnObjectBrowseObjectImage);
             this.gbObjectUploadPicture.Location = new System.Drawing.Point(6, 497);
@@ -672,21 +670,11 @@
             this.btnObjectSaveImage.UseVisualStyleBackColor = true;
             this.btnObjectSaveImage.Click += new System.EventHandler(this.btnObjectSaveImage_Click);
             // 
-            // lblObjectFilepath
-            // 
-            this.lblObjectFilepath.AutoSize = true;
-            this.lblObjectFilepath.Location = new System.Drawing.Point(7, 83);
-            this.lblObjectFilepath.Name = "lblObjectFilepath";
-            this.lblObjectFilepath.Size = new System.Drawing.Size(131, 13);
-            this.lblObjectFilepath.TabIndex = 3;
-            this.lblObjectFilepath.Text = "Bildens sökväg(invis.)";
-            this.lblObjectFilepath.Visible = false;
-            // 
             // pbObjectThumbnail
             // 
             this.pbObjectThumbnail.Location = new System.Drawing.Point(8, 15);
             this.pbObjectThumbnail.Name = "pbObjectThumbnail";
-            this.pbObjectThumbnail.Size = new System.Drawing.Size(75, 65);
+            this.pbObjectThumbnail.Size = new System.Drawing.Size(117, 88);
             this.pbObjectThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbObjectThumbnail.TabIndex = 2;
             this.pbObjectThumbnail.TabStop = false;
@@ -973,8 +961,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1607,6 +1595,14 @@
             this.mmHelpAbout.Text = "Om";
             this.mmHelpAbout.Click += new System.EventHandler(this.mmHelpAbout_Click);
             // 
+            // tbObjectImageURL
+            // 
+            this.tbObjectImageURL.Location = new System.Drawing.Point(8, 111);
+            this.tbObjectImageURL.Name = "tbObjectImageURL";
+            this.tbObjectImageURL.ReadOnly = true;
+            this.tbObjectImageURL.Size = new System.Drawing.Size(79, 20);
+            this.tbObjectImageURL.TabIndex = 28;
+            // 
             // frameMainMainframe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1793,7 +1789,6 @@
         private System.Windows.Forms.Button btnBrokerSearch;
         private System.Windows.Forms.TextBox tbBrokerSearch;
         private System.Windows.Forms.Label lblBrokerSearch;
-        private System.Windows.Forms.Label lblObjectFilepath;
         private System.Windows.Forms.Button btnObjectSaveImage;
         private System.Windows.Forms.TextBox tbObjectImageURL;
         private System.Windows.Forms.TextBox tbObjectPricePerKvm;
