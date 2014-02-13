@@ -84,7 +84,7 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Uppdatera OBJEKT
+        /*//Uppdatera OBJEKT
         public int UpdateObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
             string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "',objCity = '" + objCity +
@@ -93,7 +93,7 @@ namespace praktikfall
                 "', objInfo = '" + objInfo + "',brokerSsnr = '" + brokerSsnr + "'" + " where objNr = '" + objNr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
-        }
+        }*/
         //Söka OBJEKT
         public DataTable GetObject(string objNr)
         {

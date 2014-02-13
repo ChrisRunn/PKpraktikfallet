@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -655,9 +655,10 @@
             // 
             // tbObjectImageURL
             // 
-            this.tbObjectImageURL.Location = new System.Drawing.Point(5, 111);
+            this.tbObjectImageURL.Location = new System.Drawing.Point(8, 111);
             this.tbObjectImageURL.Name = "tbObjectImageURL";
-            this.tbObjectImageURL.Size = new System.Drawing.Size(82, 20);
+            this.tbObjectImageURL.ReadOnly = true;
+            this.tbObjectImageURL.Size = new System.Drawing.Size(79, 20);
             this.tbObjectImageURL.TabIndex = 28;
             // 
             // btnObjectSaveImage
@@ -961,8 +962,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1594,14 +1595,6 @@
             this.mmHelpAbout.Index = 1;
             this.mmHelpAbout.Text = "Om";
             this.mmHelpAbout.Click += new System.EventHandler(this.mmHelpAbout_Click);
-            // 
-            // tbObjectImageURL
-            // 
-            this.tbObjectImageURL.Location = new System.Drawing.Point(8, 111);
-            this.tbObjectImageURL.Name = "tbObjectImageURL";
-            this.tbObjectImageURL.ReadOnly = true;
-            this.tbObjectImageURL.Size = new System.Drawing.Size(79, 20);
-            this.tbObjectImageURL.TabIndex = 28;
             // 
             // frameMainMainframe
             // 
