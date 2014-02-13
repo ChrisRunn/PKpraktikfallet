@@ -115,7 +115,7 @@ namespace praktikfall
         //Söka OBJEKT
         public DataTable GetObject(string objNr)
         {
-            string sqlStr = "select objNr as Objektsnummer, objAdress as Adress from RealEstateObject where objNr = '" + objNr + "'";
+            string sqlStr = "select * from RealEstateObject where objNr = '" + objNr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
