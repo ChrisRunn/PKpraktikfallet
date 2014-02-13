@@ -73,7 +73,6 @@
             this.gbObjectUploadPicture = new System.Windows.Forms.GroupBox();
             this.tbObjectImageURL = new System.Windows.Forms.TextBox();
             this.btnObjectSaveImage = new System.Windows.Forms.Button();
-            this.lblObjectFilepath = new System.Windows.Forms.Label();
             this.pbObjectThumbnail = new System.Windows.Forms.PictureBox();
             this.btnObjectBrowseObjectImage = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -645,7 +644,6 @@
             // 
             this.gbObjectUploadPicture.Controls.Add(this.tbObjectImageURL);
             this.gbObjectUploadPicture.Controls.Add(this.btnObjectSaveImage);
-            this.gbObjectUploadPicture.Controls.Add(this.lblObjectFilepath);
             this.gbObjectUploadPicture.Controls.Add(this.pbObjectThumbnail);
             this.gbObjectUploadPicture.Controls.Add(this.btnObjectBrowseObjectImage);
             this.gbObjectUploadPicture.Location = new System.Drawing.Point(6, 497);
@@ -657,9 +655,10 @@
             // 
             // tbObjectImageURL
             // 
-            this.tbObjectImageURL.Location = new System.Drawing.Point(5, 111);
+            this.tbObjectImageURL.Location = new System.Drawing.Point(8, 111);
             this.tbObjectImageURL.Name = "tbObjectImageURL";
-            this.tbObjectImageURL.Size = new System.Drawing.Size(82, 20);
+            this.tbObjectImageURL.ReadOnly = true;
+            this.tbObjectImageURL.Size = new System.Drawing.Size(79, 20);
             this.tbObjectImageURL.TabIndex = 28;
             // 
             // btnObjectSaveImage
@@ -672,21 +671,11 @@
             this.btnObjectSaveImage.UseVisualStyleBackColor = true;
             this.btnObjectSaveImage.Click += new System.EventHandler(this.btnObjectSaveImage_Click);
             // 
-            // lblObjectFilepath
-            // 
-            this.lblObjectFilepath.AutoSize = true;
-            this.lblObjectFilepath.Location = new System.Drawing.Point(7, 83);
-            this.lblObjectFilepath.Name = "lblObjectFilepath";
-            this.lblObjectFilepath.Size = new System.Drawing.Size(131, 13);
-            this.lblObjectFilepath.TabIndex = 3;
-            this.lblObjectFilepath.Text = "Bildens sökväg(invis.)";
-            this.lblObjectFilepath.Visible = false;
-            // 
             // pbObjectThumbnail
             // 
             this.pbObjectThumbnail.Location = new System.Drawing.Point(8, 15);
             this.pbObjectThumbnail.Name = "pbObjectThumbnail";
-            this.pbObjectThumbnail.Size = new System.Drawing.Size(75, 65);
+            this.pbObjectThumbnail.Size = new System.Drawing.Size(117, 88);
             this.pbObjectThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbObjectThumbnail.TabIndex = 2;
             this.pbObjectThumbnail.TabStop = false;
@@ -1793,7 +1782,6 @@
         private System.Windows.Forms.Button btnBrokerSearch;
         private System.Windows.Forms.TextBox tbBrokerSearch;
         private System.Windows.Forms.Label lblBrokerSearch;
-        private System.Windows.Forms.Label lblObjectFilepath;
         private System.Windows.Forms.Button btnObjectSaveImage;
         private System.Windows.Forms.TextBox tbObjectImageURL;
         private System.Windows.Forms.TextBox tbObjectPricePerKvm;

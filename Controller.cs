@@ -18,12 +18,12 @@ namespace praktikfall
             int nrOfRows = dal.DeleteObject(objNr);
             return nrOfRows;
         }
-        //Uppdatera OBJEKT
+        /*//Uppdatera OBJEKT
         public int UpdateObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
             int nrOfRows = dal.UpdateObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr);
             return nrOfRows;
-        }
+        }*/
 
         // Uppdaterar allt i objekt fliken !
         public int UpdateObjectFlap(string objAdress, string objCity,

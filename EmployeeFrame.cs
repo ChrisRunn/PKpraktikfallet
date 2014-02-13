@@ -323,6 +323,8 @@ namespace praktikfall
                     int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
                     MessageBox.Show("Visning uppdaterad. Nytt visningsdatum " + showingDate);
                     Populate();
+                    lblShowingSelectedBuyer.Text = "selectedBuyer(invisible)";
+                    lblShowingSelectedObject.Text = "selectedObject(invisible)";
                 }
             }
             catch (Exception ex)
@@ -435,6 +437,8 @@ namespace praktikfall
                         Populate();
                         MessageBox.Show("Objekt med objektnr " + objNr + " uppdaterat.");
                     }
+
+
                     else
                     {
                         MessageBox.Show("Kan ej uppdatera objektsnummer eller ägarens personnummer.");
@@ -448,6 +452,7 @@ namespace praktikfall
 
                     if (!objectExists && brokerExists)
                     {
+
                         int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                         Populate();
                         ClearObjectTb();
@@ -771,7 +776,8 @@ namespace praktikfall
 
                 if (cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) //Register
                 {
-
+                    int parsedValue;
+                   
                     bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
 
                     if (buyerExists)
@@ -780,9 +786,21 @@ namespace praktikfall
                     }
                     else
                     {
-                        int nrOfRows = controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-                        Populate();
-                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till.");
+                        if (!int.TryParse(tbShowingBuyerSsnr.Text, out parsedValue))
+                        {
+                            MessageBox.Show("Personnummer får endast innehålla siffror.");
+                        }
+
+                        else if (tbShowingBuyerName.Text.Equals(""))
+                        {
+                            MessageBox.Show("Du har ej angivit ett namn.");
+                        }
+                        else
+                        {
+                            int nrOfRows = controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                            Populate();
+                            MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till.");
+                        }
                     }
                 }
                 if (!cbShowingRegisterBuyer.Checked && cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) // Delete
@@ -967,7 +985,7 @@ namespace praktikfall
             {
                 string objNr = tbObjectObjectNr.Text;
                 byte[] img = null;
-                string fp = lblObjectFilepath.Text;
+                string fp = tbObjectImageURL.Text;
                 FileStream fs = new FileStream(fp, FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(fs);
                 img = br.ReadBytes((int)fs.Length);
