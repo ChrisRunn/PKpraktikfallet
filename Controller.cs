@@ -14,45 +14,45 @@ namespace praktikfall
         #region OBJEKT
 
         //This method deletes an object
-        public int DeleteObject(string objNr)
+        public void DeleteObject(string objNr)
         {
-            int nrOfRows = dal.DeleteObject(objNr);
-            return nrOfRows;
+            dal.DeleteObject(objNr);
+
         }
         /*//Uppdatera OBJEKT
-        public int UpdateObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
+        public  UpdateObject(string objNr, string objAdress, string objCity,  objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
-            int nrOfRows = dal.UpdateObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr);
-            return nrOfRows;
+             dal.UpdateObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr);
+            
         }*/
 
         // This method updates everything in the object tab
-        public int UpdateObjectFlap(string objAdress, string objCity,
+        public void UpdateObjectFlap(string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
-            int nrOfRows = dal.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
-            return nrOfRows;
+            dal.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
+
         }
 
         //This metod adds an object and an owner
-        public int AddObjectAndOwner(string objNr, string objAdress, string objCity,
+        public void AddObjectAndOwner(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
-            int nrOfRows = dal.AddObjectAndOwner(objNr, objAdress, objCity,
-            objPrice, objArea, objRooms, objUnitType, objInfo,
-            brokerSsnr, ownerSsnr, phoneNr, email, name);
-            return nrOfRows;
+            dal.AddObjectAndOwner(objNr, objAdress, objCity,
+           objPrice, objArea, objRooms, objUnitType, objInfo,
+           brokerSsnr, ownerSsnr, phoneNr, email, name);
+
         }
         // Adds a real estate object
-        public int AddObject(string objNr, string objAdress, string objCity,
+        public void AddObject(string objNr, string objAdress, string objCity,
            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
            string brokerSsnr, string ownerSsnr)
         {
-            int nrOfrows = this.dal.AddObject(objNr, objAdress, objCity,
-                objPrice, objArea, objRooms, objUnitType, objInfo,
-                brokerSsnr, ownerSsnr);
-            return nrOfrows;
+            this.dal.AddObject(objNr, objAdress, objCity,
+               objPrice, objArea, objRooms, objUnitType, objInfo,
+               brokerSsnr, ownerSsnr);
+
         }
 
         //This method works as a search function for objects
@@ -99,32 +99,32 @@ namespace praktikfall
         }
 
         //This method saves an image for a specific object
-        public int addObjectImage(byte[] img, string objNr)
+        public void addObjectImage(byte[] img, string objNr)
         {
-            int nrOfRows = dal.addObjectImage(img, objNr);
-            return nrOfRows;
+            dal.addObjectImage(img, objNr);
+
         }
 
 
         #endregion OBJEKT
         #region MÄKLARE
         //This method adds a realestate broker to the database
-        public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
+        public void AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-            int nrOfRows = dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
-            return nrOfRows;
+            dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+
         }
         //This method deletes a realestate broker from the database
-        public int DeleteBroker(string brokerSsnr)
+        public void DeleteBroker(string brokerSsnr)
         {
-            int nrOfRows = dal.DeleteBroker(brokerSsnr);
-            return nrOfRows;
+            dal.DeleteBroker(brokerSsnr);
+
         }
         //This method updates a realestate broker in the database
-        public int UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
+        public void UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-            int nrOfRows = dal.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
-            return nrOfRows;
+            dal.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+
         }
         //This method shows a specific realestate broker in the database
         public DataTable GetBroker(string brokerSsnr)
@@ -157,23 +157,23 @@ namespace praktikfall
 
 
         //This method registers a prospective buyer to the database
-        public int AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
+        public void AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
-            int nrOfRows = dal.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-            return nrOfRows;
+            dal.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+
         }
 
         //This method deletes a prospective buyer in the database
-        public int DeleteProspectiveBuyer(string buyerSsnr)
+        public void DeleteProspectiveBuyer(string buyerSsnr)
         {
-            int nrOfRows = dal.DeleteProspectiveBuyer(buyerSsnr);
-            return nrOfRows;
+            dal.DeleteProspectiveBuyer(buyerSsnr);
+
         }
         //This method updates information for a prospective buyer in the database
-        public int UpdateProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
+        public void UpdateProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
-            int nrOfRows = dal.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-            return nrOfRows;
+            dal.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+
         }
         //This method works as a search function for prospective buyers
         public DataTable GetProspectiveBuyer(string buyerSsnr)
@@ -205,25 +205,25 @@ namespace praktikfall
         }
         #endregion SPEKULANT
         #region OBJEKTÄGARE
-        //This method adds an owner to the database.                                        Används inte...
-        /*public int AddObjectOwner(string ownerSsnr, string phoneNr, string email)
+        //This method adds an owner to the database.                                        Används voide...
+        /*public void AddObjectOwner(string ownerSsnr, string phoneNr, string email)
         {
-            int nrOfRows = dal.AddObjectOwner(ownerSsnr, phoneNr, email);
-            return nrOfRows;
+             dal.AddObjectOwner(ownerSsnr, phoneNr, email);
+            
         }
         
-        //This method updates an owner in the database                                       Används inte...
-        public int UpdateObjectOwner(string ownerSsnr, string phoneNr, string email)
+        //This method updates an owner in the database                                       Används voide...
+        public void UpdateObjectOwner(string ownerSsnr, string phoneNr, string email)
         {
-            int nrOfRows = dal.UpdateObjectOwner(ownerSsnr, phoneNr, email);
-            return nrOfRows;
+             dal.UpdateObjectOwner(ownerSsnr, phoneNr, email);
+            
         }*/
 
         //This method deletes an owner in the database
-        public int DeleteObjectOwner(string ownerSsnr)
+        public void DeleteObjectOwner(string ownerSsnr)
         {
-            int nrOfRows = dal.DeleteObjectOwner(ownerSsnr);
-            return nrOfRows;
+            dal.DeleteObjectOwner(ownerSsnr);
+
         }
 
         //This method shows object owner                          
@@ -232,8 +232,8 @@ namespace praktikfall
             DataTable dt = dal.GetObjectOwner(ownerSsnr);
             return dt;
         }
-        
-        /*This method shows all owners                                          Används inte...
+
+        /*This method shows all owners                                          Används voide...
         public DataTable GetAllObjectOwners()
         {
             DataTable dt = dal.GetAllObjectOwners();
@@ -246,7 +246,7 @@ namespace praktikfall
             bool ownerExists = dal.OwnerExists(ownerSsnr);
             return ownerExists;
         }
-        
+
         //This method checks if an owner has got other objects
         public bool OwnerHasOtherObjects(string ownerSsnr)
         {
@@ -256,17 +256,17 @@ namespace praktikfall
         #endregion OBJEKTÄGARE
         #region SHOWING
         //This method registers a showing
-        public int AddShowing(string objNr, string buyerSsnr, string showingDate)
+        public void AddShowing(string objNr, string buyerSsnr, string showingDate)
         {
-            int nrOfRows = dal.AddShowing(objNr, buyerSsnr, showingDate);
-            return nrOfRows;
+            dal.AddShowing(objNr, buyerSsnr, showingDate);
+
         }
 
         //This method updates a showingdate for a showing
-        public int UpdateShowing(string objNr, string buyerSsnr, string showingDate)
+        public void UpdateShowing(string objNr, string buyerSsnr, string showingDate)
         {
-            int nrOfRows = dal.UpdateShowing(objNr, buyerSsnr, showingDate);
-            return nrOfRows;
+            dal.UpdateShowing(objNr, buyerSsnr, showingDate);
+
         }
         //This method displays all showings
         public DataTable GetShowings()
@@ -275,16 +275,16 @@ namespace praktikfall
             return dt;
         }
         //This method deletes a prospective buyer from a showing
-        public int DeleteBuyerFromShowing(string buyerSsnr, string objNr)
+        public void DeleteBuyerFromShowing(string buyerSsnr, string objNr)
         {
-            int nrOfRows = dal.DeleteBuyerFromShowing(buyerSsnr, objNr);
-            return nrOfRows;
+            dal.DeleteBuyerFromShowing(buyerSsnr, objNr);
+
         }
         //This method deletes a showing
-        public int DeleteShowing(string objNr)
+        public void DeleteShowing(string objNr)
         {
-            int nrOfRows = dal.DeleteShowing(objNr);
-            return nrOfRows;
+            dal.DeleteShowing(objNr);
+
         }
         //This method checks if showing exists
         public bool ShowingExists(string objNr, string buyerSsnr)

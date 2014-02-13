@@ -153,7 +153,7 @@ namespace praktikfall
             {
                 MessageBox.Show("Problem med att ladda från listan. \n" + ex);
             }
-            
+
         }
 
         private void setSelectedObjectAndOwner(string objNr, DataGridViewRow row)
@@ -222,7 +222,7 @@ namespace praktikfall
                 }
                 else if (!showingExists && !(lblShowingSelectedBuyer.Text.Equals("selectedBuyer(invisible)")) && !(lblShowingSelectedObject.Text.Equals("selectedObject(invisible)"))) //Lägg till
                 {
-                    int nrOfRows = controller.AddShowing(objNr, buyerSsnr, showingDate);
+                    controller.AddShowing(objNr, buyerSsnr, showingDate);
                     MessageBox.Show("Visning registrerad.");
                     Populate();
                     lblShowingSelectedBuyer.Text = "selectedBuyer(invisible)";
@@ -320,7 +320,7 @@ namespace praktikfall
 
                 else
                 {
-                    int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
+                    controller.UpdateShowing(objNr, buyerSsnr, showingDate);
                     MessageBox.Show("Visning uppdaterad. Nytt visningsdatum " + showingDate);
                     Populate();
                     lblShowingSelectedBuyer.Text = "selectedBuyer(invisible)";
@@ -367,16 +367,16 @@ namespace praktikfall
                     }
                     else
                     {
-                        int nrOfRows = controller.DeleteShowing(objNr);
-                        MessageBox.Show("Visning borttagen.");
+                        controller.DeleteShowing(objNr);
                         Populate();
                         lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
                         lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
+                        MessageBox.Show("Visning borttagen.");
                     }
                 }
                 else if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked)               // Om inget val gjorts, ge feedback
                 {
-                    MessageBox.Show("Vänligen välj ett alternativ (ta bort alla visningar eller ta bort spekulant från visning) först.");
+                    MessageBox.Show("Vänligen gör ett val först.");
                 }
 
                 else if (rbShowingDeleteBuyer.Checked)                                                   //Om "ta bort spekulant" är valt
@@ -387,11 +387,11 @@ namespace praktikfall
                     }
                     else
                     {
-                        int nrOfRows = controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
-                        MessageBox.Show("Spekulant borttagen från visning.");
+                        controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
                         Populate();
                         lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
                         lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
+                        MessageBox.Show("Spekulant borttagen från visning.");
                     }
 
                 }
@@ -433,7 +433,7 @@ namespace praktikfall
 
                     if (objectExists && ownerExists)
                     {
-                        int nrOfRows = controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
+                        controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
                         Populate();
                         MessageBox.Show("Objekt med objektnr " + objNr + " uppdaterat.");
                     }
@@ -450,7 +450,7 @@ namespace praktikfall
 
                     if (!objectExists && brokerExists && !ownerExists)
                     {
-                        int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                        this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                         Populate();
                         ClearObjectTb();
                         pbObjectThumbnail.Image = null;
@@ -459,7 +459,7 @@ namespace praktikfall
                     }
                     else if (!objectExists && brokerExists && ownerExists)
                     {
-                        int nrOfRows = this.controller.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
+                        this.controller.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
                         Populate();
                         ClearObjectTb();
                         pbObjectThumbnail.Image = null;
@@ -483,15 +483,15 @@ namespace praktikfall
                     bool ownerHasMoreObjects = this.controller.OwnerHasOtherObjects(ownerSsnr);
                     if (objectExists && !ownerHasMoreObjects)
                     {
-                        int nrOfRows = this.controller.DeleteObjectOwner(ownerSsnr);
-                        int i = this.controller.DeleteObject(objNr);
+                        this.controller.DeleteObjectOwner(ownerSsnr);
+                        this.controller.DeleteObject(objNr);
                         Populate();
                         ClearObjectTb();
                         MessageBox.Show("Objekt borttaget. Ägaren är även borttagen eftersom ägaren ej äger andra objekt.");
                     }
                     else if (objectExists && ownerHasMoreObjects)
                     {
-                        int nrOfRows = this.controller.DeleteObject(objNr);
+                        this.controller.DeleteObject(objNr);
                         Populate();
                         ClearObjectTb();
                         MessageBox.Show("Objekt borttaget.");
@@ -699,10 +699,10 @@ namespace praktikfall
 
                 if (!cbBrokerRegister.Checked && cbBrokerDelete.Checked && !cbBrokerUpdate.Checked)     //Delete
                 {
+                    bool brokerExists = controller.BrokerExists(brokerSsnr);
+                    controller.DeleteBroker(brokerSsnr);
 
-                    int nrOfRows = controller.DeleteBroker(brokerSsnr);
-
-                    if (nrOfRows == 0)
+                    if (!brokerExists)
                     {
                         MessageBox.Show("Ingen sådan mäklare finns registrerad. Vänligen försök igen.");
                     }
@@ -721,10 +721,10 @@ namespace praktikfall
                 }
                 if (!cbBrokerRegister.Checked && !cbBrokerDelete.Checked && cbBrokerUpdate.Checked)             //Update
                 {
+                    bool brokerExists = controller.BrokerExists(brokerSsnr);
+                    controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
 
-                    int nrOfRows = controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
-
-                    if (nrOfRows == 0)
+                    if (!brokerExists)
                     {
                         MessageBox.Show("Kan inte uppdatera en mäklares personnummer.");
                     }
@@ -783,7 +783,7 @@ namespace praktikfall
                 if (cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) //Register
                 {
                     int parsedValue;
-                   
+
                     bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
 
                     if (buyerExists)
@@ -803,7 +803,7 @@ namespace praktikfall
                         }
                         else
                         {
-                            int nrOfRows = controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                            controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                             Populate();
                             MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till.");
                         }
@@ -811,8 +811,9 @@ namespace praktikfall
                 }
                 if (!cbShowingRegisterBuyer.Checked && cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) // Delete
                 {
-                    int nrOfRows = controller.DeleteProspectiveBuyer(buyerSsnr);
-                    if (nrOfRows == 0)
+                    controller.DeleteProspectiveBuyer(buyerSsnr);
+                    bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
+                    if (!buyerExists)
                     {
                         MessageBox.Show("Ingen sådan spekulant finns. Vänligen försök igen.");
                     }
@@ -829,9 +830,9 @@ namespace praktikfall
                 }
                 if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && cbShowingUpdateBuyer.Checked) //Update
                 {
-
-                    int nrOfRows = controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-                    if (nrOfRows == 0)
+                    bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
+                    controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                    if (!buyerExists)
                     {
                         MessageBox.Show("Det går inte att uppdatera en spekulants personnummer.");
                     }
@@ -995,7 +996,7 @@ namespace praktikfall
                 FileStream fs = new FileStream(fp, FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(fs);
                 img = br.ReadBytes((int)fs.Length);
-                int nrOfRows = controller.addObjectImage(img, objNr);
+                controller.addObjectImage(img, objNr);
                 pbObjectsObjectPicture.Image = pbObjectThumbnail.Image;
                 MessageBox.Show("En bild har registrerats till objekt med objektsnummer " + objNr);
             }
