@@ -452,7 +452,6 @@ namespace praktikfall
 
                     if (!objectExists && brokerExists)
                     {
-
                         int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                         Populate();
                         ClearObjectTb();
