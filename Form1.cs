@@ -22,36 +22,36 @@ namespace praktikfall
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            /*string name = textBox1.Text;
-            string password = textBox2.Text;
+            string name = tbLoginUsername.Text;
+            string password = tbLoginPw.Text;
 
 
-              if(textBox1.Text.ToLower().Equals("admin") && textBox2.Text.ToLower().Equals("password"))
+            if (tbLoginUsername.Text.ToLower().Equals("admin") && tbLoginPw.Text.ToLower().Equals("password"))
             {
                 this.Hide();
                 bool b = true;
-                EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
+                frameMainMainframe openFrame = new frameMainMainframe(tbLoginUsername.Text, b);
                 openFrame.Show();
             }
 
-              else if (textBox2.Text.Equals(c.CheckPw(name, password)))
-              {
-                  this.Hide();
-                  bool b = false;
-                  EmployeeFrame openFrame = new EmployeeFrame(textBox1.Text, b);
-                  openFrame.Show();
+            else if (tbLoginPw.Text.Equals(c.CheckPw(name, password)))
+            {
+                this.Hide();
+                bool b = false;
+                frameMainMainframe openFrame = new frameMainMainframe(tbLoginUsername.Text, b);
+                openFrame.Show();
 
-              }
+            }
 
-             */
 
-            //Radera nedanstående efter vi tagit bort kommentarer ovan. 
+        }
+            /*Radera nedanstående efter vi tagit bort kommentarer ovan. 
             this.Hide();
             bool b = true;
 
             frameMainMainframe openFrame = new frameMainMainframe(tbLoginUsername.Text, b);
             openFrame.Show();
-        }
+        }*/
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {

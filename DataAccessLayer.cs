@@ -142,6 +142,17 @@ namespace praktikfall
             return nrOfRows;
         }
 
+        //Adds a real estate object
+        public int AddObject(string objNr, string objAdress, string objCity,
+            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
+            string brokerSsnr, string ownerSsnr)
+        { 
+        string sqlStr = "insert into RealEstateObject values ('" + objNr + "','" + objAdress + "','" + objCity + "'," + objPrice +
+                "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
+        int nrOfrows = ExecuteUpdate(sqlStr);
+        return nrOfrows;
+        }
+        
         //Saves an image for a specified real estate object
         public int addObjectImage(byte[] img, string objNr)
         {

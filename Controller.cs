@@ -12,7 +12,8 @@ namespace praktikfall
     {
         DataAccessLayer dal = new DataAccessLayer();
         #region OBJEKT
-        //Ta bort OBJEKT
+
+        //This method deletes an object
         public int DeleteObject(string objNr)
         {
             int nrOfRows = dal.DeleteObject(objNr);
@@ -25,7 +26,7 @@ namespace praktikfall
             return nrOfRows;
         }*/
 
-        // Uppdaterar allt i objekt fliken !
+        // This method updates everything in the object tab
         public int UpdateObjectFlap(string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
@@ -33,7 +34,7 @@ namespace praktikfall
             return nrOfRows;
         }
 
-        //Registrera Objekt och ägare
+        //This metod adds an object and an owner
         public int AddObjectAndOwner(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
@@ -43,53 +44,61 @@ namespace praktikfall
             brokerSsnr, ownerSsnr, phoneNr, email, name);
             return nrOfRows;
         }
+        // Adds a real estate object
+        public int AddObject(string objNr, string objAdress, string objCity,
+           string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
+           string brokerSsnr, string ownerSsnr)
+        {
+            int nrOfrows = this.dal.AddObject(objNr, objAdress, objCity,
+                objPrice, objArea, objRooms, objUnitType, objInfo,
+                brokerSsnr, ownerSsnr);
+            return nrOfrows;
+        }
 
-        //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
+        //This method works as a search function for objects
         public DataTable SearchObjectByString(string searchString)
         {
             DataTable dt = dal.SearchObjectByString(searchString);
-            return dt;            
-        }
-        //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
-        public DataTable SearchProBuyerByString(string searchString)
-        {
-            DataTable dt = dal.SearchProBuyerByString(searchString);
             return dt;
         }
-        //Söka OBJEKT
+
+
+        //This function works as a search function for objects  ??????????????????????????? Kolla upp vad denn gör !
         public DataTable GetObject(string objNr)
         {
             DataTable dt = dal.GetObject(objNr);
             return dt;
         }
-        //Hämta alla OBJEKT
+
+        //This method shows all objects
         public DataTable GetAllObjectsNr()
         {
             DataTable dt = dal.GetAllObjects();
             return dt;
         }
 
-        ////Hämta alla objekt med angivet Brokernummer
+        //This method shows all objects for a specific realestate broker
         public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
             DataTable dt = dal.SearchObjectByBrokerSsnr(searchString);
             return dt;
         }
 
-        ////Hämta alla visningar med angivet Brokernummer
+        //This method shows all showings for a realestate broker
         public DataTable SearchShowingsByBrokerSsnr(string searchString)
         {
             DataTable dt = dal.SearchShowingsByBrokerSsnr(searchString);
             return dt;
         }
-        //Kontrollera om OBJEKT Finns
+
+        //This method works as a search function to see if an object with the same object number exists
         public bool ObjectExists(string objNr)
         {
             bool objectExists = dal.ObjectExists(objNr);
             return objectExists;
         }
 
-        //Spara bild för objekt
+        //This method saves an image for a specific object
         public int addObjectImage(byte[] img, string objNr)
         {
             int nrOfRows = dal.addObjectImage(img, objNr);
@@ -99,45 +108,45 @@ namespace praktikfall
 
         #endregion OBJEKT
         #region MÄKLARE
-        //Lägg till MÄKLARE
+        //This method adds a realestate broker to the database
         public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
             int nrOfRows = dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
             return nrOfRows;
         }
-        //Ta bort MÄKLARE
+        //This method deletes a realestate broker from the database
         public int DeleteBroker(string brokerSsnr)
         {
             int nrOfRows = dal.DeleteBroker(brokerSsnr);
             return nrOfRows;
         }
-        //Uppdatea MÄKLARE
+        //This method updates a realestate broker in the database
         public int UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
             int nrOfRows = dal.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
             return nrOfRows;
         }
-        //Söka MÄKLARE
+        //This method shows a specific realestate broker in the database
         public DataTable GetBroker(string brokerSsnr)
         {
             DataTable dt = dal.GetBroker(brokerSsnr);
             return dt;
         }
-        //Hämta ALLA MÄKLARE
+        //This method shows all existing realestate brokers in the database
         public DataTable GetAllBrokers()
         {
             DataTable dt = dal.GetAllBrokers();
             return dt;
         }
 
-        //Kontrollera om mäklare finns
+        //This method checks if a realestate broker with a specific ssnr already exists in the database
         public bool BrokerExists(string brokerSsnr)
         {
             bool brokerExists = dal.BrokerExists(brokerSsnr);
             return brokerExists;
         }
 
-        //Sökknapp i Objekt för att visa ett objekt med en viss söksträng
+        //This method works as search function in the realestate broker database
         public DataTable SearchBrokerByString(string searchString)
         {
             DataTable dt = dal.SearchBrokerByString(searchString);
@@ -145,82 +154,100 @@ namespace praktikfall
         }
         #endregion MÄKLARE
         #region SPEKULANT
-        //lägga till spekulant
+
+
+        //This method registers a prospective buyer to the database
         public int AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
             int nrOfRows = dal.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
             return nrOfRows;
         }
-        //Ta bort spekulant
+
+        //This method deletes a prospective buyer in the database
         public int DeleteProspectiveBuyer(string buyerSsnr)
         {
             int nrOfRows = dal.DeleteProspectiveBuyer(buyerSsnr);
             return nrOfRows;
         }
-        //Uppdatera spekulant
+        //This method updates information for a prospective buyer in the database
         public int UpdateProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
             int nrOfRows = dal.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
             return nrOfRows;
         }
-        //Söka spekulant
+        //This method works as a search function for prospective buyers
         public DataTable GetProspectiveBuyer(string buyerSsnr)
         {
             DataTable dt = dal.GetProspectiveBuyer(buyerSsnr);
             return dt;
         }
 
-        //Hämta alla spekulanter
+        //This method shows all the prospective buyers
         public DataTable GetAllProspectiveBuyers()
         {
             DataTable dt = dal.GetAllProspectiveBuyers();
             return dt;
         }
 
-        //Kontrollera om spekulant finns
+        //This method checks if a prospective buyer with a specific ssnr already exists 
         public bool ProspectiveBuyerExists(string Ssnr)
         {
             bool showingExists = dal.ProspectiveBuyerExists(Ssnr);
             return showingExists;
         }
+
+
+        //This method works as a search function for prospective buyers
+        public DataTable SearchProBuyerByString(string searchString)
+        {
+            DataTable dt = dal.SearchProBuyerByString(searchString);
+            return dt;
+        }
         #endregion SPEKULANT
         #region OBJEKTÄGARE
-        //Lägg till Ägare   ___OBS___ Lägger endast till en ägare i systemet. Kopplingen mellan Object och Owner görs ej här!
-        public int AddObjectOwner(string ownerSsnr, string phoneNr, string email)
+        //This method adds an owner to the database.                                        Används inte...
+        /*public int AddObjectOwner(string ownerSsnr, string phoneNr, string email)
         {
             int nrOfRows = dal.AddObjectOwner(ownerSsnr, phoneNr, email);
             return nrOfRows;
         }
-        //Ta bort Ägare
+        
+        //This method updates an owner in the database                                       Används inte...
+        public int UpdateObjectOwner(string ownerSsnr, string phoneNr, string email)
+        {
+            int nrOfRows = dal.UpdateObjectOwner(ownerSsnr, phoneNr, email);
+            return nrOfRows;
+        }*/
+
+        //This method deletes an owner in the database
         public int DeleteObjectOwner(string ownerSsnr)
         {
             int nrOfRows = dal.DeleteObjectOwner(ownerSsnr);
             return nrOfRows;
         }
-        //Uppdatera Ägare
-        public int UpdateObjectOwner(string ownerSsnr, string phoneNr, string email)
-        {
-            int nrOfRows = dal.UpdateObjectOwner(ownerSsnr, phoneNr, email);
-            return nrOfRows;
-        }
-        //Söka Ägare -- BEHÖVS EVENTUELLT INTE
+
+        //This method shows object owner                          
         public DataTable GetObjectOwner(string ownerSsnr)
         {
             DataTable dt = dal.GetObjectOwner(ownerSsnr);
             return dt;
         }
-        //Hämta alla ägare
+        
+        /*This method shows all owners                                          Används inte...
         public DataTable GetAllObjectOwners()
         {
             DataTable dt = dal.GetAllObjectOwners();
             return dt;
-        }
-        //Kontrollera om ÄGARE finns
+        }*/
+
+        //This method checks if an owner exists. 
         public bool OwnerExists(string ownerSsnr)
         {
             bool ownerExists = dal.OwnerExists(ownerSsnr);
             return ownerExists;
         }
+        
+        //This method checks if an owner has got other objects
         public bool OwnerHasOtherObjects(string ownerSsnr)
         {
             bool ownerHasMoreObjects = this.dal.OwnerHasOtherObjects(ownerSsnr);
@@ -228,37 +255,38 @@ namespace praktikfall
         }
         #endregion OBJEKTÄGARE
         #region SHOWING
-        //Registrera VISNING
-        public int AddShowing (string objNr, string buyerSsnr, string showingDate)
+        //This method registers a showing
+        public int AddShowing(string objNr, string buyerSsnr, string showingDate)
         {
             int nrOfRows = dal.AddShowing(objNr, buyerSsnr, showingDate);
             return nrOfRows;
         }
-        //Uppdatera visningsdatum för VISNING
+
+        //This method updates a showingdate for a showing
         public int UpdateShowing(string objNr, string buyerSsnr, string showingDate)
         {
             int nrOfRows = dal.UpdateShowing(objNr, buyerSsnr, showingDate);
             return nrOfRows;
         }
-        //Hämta alla VISNINGAR
+        //This method displays all showings
         public DataTable GetShowings()
         {
             DataTable dt = dal.GetShowings();
             return dt;
         }
-        //Ta bort spekulant från VISNING
+        //This method deletes a prospective buyer from a showing
         public int DeleteBuyerFromShowing(string buyerSsnr, string objNr)
         {
             int nrOfRows = dal.DeleteBuyerFromShowing(buyerSsnr, objNr);
             return nrOfRows;
         }
-        //Ta bort VISNING
+        //This method deletes a showing
         public int DeleteShowing(string objNr)
         {
             int nrOfRows = dal.DeleteShowing(objNr);
             return nrOfRows;
         }
-        //Kontrollera om VISNING finns
+        //This method checks if showing exists
         public bool ShowingExists(string objNr, string buyerSsnr)
         {
             bool showingExists = dal.ShowingExists(objNr, buyerSsnr);
@@ -266,15 +294,16 @@ namespace praktikfall
         }
         #endregion SHOWING
 
+        //This method checks if a password matches a user in the database
         public string CheckPw(string name, string password)
         {
-            string pw =  dal.CheckPw(name, password);
+            string pw = dal.CheckPw(name, password);
             return pw;
         }
-        
-     
-        }
+
+
+    }
 }
-    
-    
+
+
 
