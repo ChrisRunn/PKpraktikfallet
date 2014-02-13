@@ -437,14 +437,11 @@ namespace praktikfall
                         Populate();
                         MessageBox.Show("Objekt med objektnr " + objNr + " uppdaterat.");
                     }
-
-
                     else
                     {
                         MessageBox.Show("Kan ej uppdatera objektsnummer eller ägarens personnummer.");
                     }
                 }
-
                 else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !cbObjectDeleteObject.Checked) //Register
                 {
                     bool objectExists = controller.ObjectExists(objNr);
@@ -1007,11 +1004,6 @@ namespace praktikfall
                 MessageBox.Show("Bilden kunde inte laddas upp. \n" + ex);
             }
         }
-
-        private void dgvObject(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-
-        }  
 
     }
 }
