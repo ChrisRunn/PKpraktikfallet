@@ -449,10 +449,20 @@ namespace praktikfall
                 {
                     bool objectExists = controller.ObjectExists(objNr);
                     bool brokerExists = controller.BrokerExists(brokerSsnr);
+                    bool ownerExists = this.controller.OwnerExists(ownerSsnr);
 
-                    if (!objectExists && brokerExists)
+                    if (!objectExists && brokerExists && !ownerExists)
                     {
                         int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                        Populate();
+                        ClearObjectTb();
+                        pbObjectThumbnail.Image = null;
+                        pbObjectsObjectPicture.Image = null;
+                        MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+                    }
+                    else if (!objectExists && brokerExists && ownerExists)
+                    {
+                        int nrOfRows = this.controller.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
                         Populate();
                         ClearObjectTb();
                         pbObjectThumbnail.Image = null;
@@ -1001,7 +1011,9 @@ namespace praktikfall
         private void dgvObject(object sender, DataGridViewBindingCompleteEventArgs e)
         {
 
-        }  
+        }
+
+        
 
     }
 }

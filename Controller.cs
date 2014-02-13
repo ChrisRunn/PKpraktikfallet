@@ -44,6 +44,16 @@ namespace praktikfall
             brokerSsnr, ownerSsnr, phoneNr, email, name);
             return nrOfRows;
         }
+        // Adds a real estate object
+        public int AddObject(string objNr, string objAdress, string objCity,
+           string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
+           string brokerSsnr, string ownerSsnr)
+        {
+            int nrOfrows = this.dal.AddObject(objNr, objAdress, objCity,
+                objPrice, objArea, objRooms, objUnitType, objInfo,
+                brokerSsnr, ownerSsnr);
+            return nrOfrows;
+        }
 
         //This method works as a search function for objects
         public DataTable SearchObjectByString(string searchString)
