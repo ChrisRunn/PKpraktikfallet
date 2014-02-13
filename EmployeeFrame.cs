@@ -54,6 +54,7 @@ namespace praktikfall
             tbObjectOwnerEmail.ReadOnly = true;
             tbObjectOwnerName.ReadOnly = true;
             tbObjectOwnerPhoneNr.ReadOnly = true;
+            tbObjectPricePerKvm.ReadOnly = true;
         }
 
         public void MakeTbEditable()
@@ -93,6 +94,7 @@ namespace praktikfall
             tbObjectOwnerEmail.Text = "";
             tbObjectOwnerName.Text = "";
             tbObjectOwnerPhoneNr.Text = "";
+            tbObjectPricePerKvm.Text = "";
         }
 
         public void Populate()                                                            //Uppdatera ALLA DGVS (utom Christians)
@@ -186,6 +188,7 @@ namespace praktikfall
             string price = objectInfo[3].ToString();
             string area = objectInfo[4].ToString();
             int priceperkvm = int.Parse(price) / int.Parse(area);
+            tbObjectPricePerKvm.Text = priceperkvm.ToString();
 
             DataRow ownerInfo = this.controller.GetObjectOwner(tbObjectOwnerSsnr.Text).Rows[0];
 

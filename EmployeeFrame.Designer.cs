@@ -71,6 +71,7 @@
             this.lblShowingBuyer = new System.Windows.Forms.Label();
             this.tpObjectObjectTabPage = new System.Windows.Forms.TabPage();
             this.gbObjectUploadPicture = new System.Windows.Forms.GroupBox();
+            this.tbObjectImageURL = new System.Windows.Forms.TextBox();
             this.btnObjectSaveImage = new System.Windows.Forms.Button();
             this.pbObjectThumbnail = new System.Windows.Forms.PictureBox();
             this.btnObjectBrowseObjectImage = new System.Windows.Forms.Button();
@@ -78,6 +79,8 @@
             this.gbObjectObjectInfo = new System.Windows.Forms.GroupBox();
             this.rtbObjectObjectInfo = new System.Windows.Forms.RichTextBox();
             this.bgObjectObjectInfo2 = new System.Windows.Forms.GroupBox();
+            this.tbObjectPricePerKvm = new System.Windows.Forms.TextBox();
+            this.lblObjectPricePErKvm = new System.Windows.Forms.Label();
             this.tbObjectPrice = new System.Windows.Forms.TextBox();
             this.tbObjectCity = new System.Windows.Forms.TextBox();
             this.tbObjectAddress = new System.Windows.Forms.TextBox();
@@ -164,7 +167,6 @@
             this.mmHelpFAQShowing = new System.Windows.Forms.MenuItem();
             this.mmHelpFAQBuyer = new System.Windows.Forms.MenuItem();
             this.mmHelpAbout = new System.Windows.Forms.MenuItem();
-            this.tbObjectImageURL = new System.Windows.Forms.TextBox();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -651,6 +653,13 @@
             this.gbObjectUploadPicture.TabStop = false;
             this.gbObjectUploadPicture.Text = "Ladda upp objektbild";
             // 
+            // tbObjectImageURL
+            // 
+            this.tbObjectImageURL.Location = new System.Drawing.Point(5, 111);
+            this.tbObjectImageURL.Name = "tbObjectImageURL";
+            this.tbObjectImageURL.Size = new System.Drawing.Size(82, 20);
+            this.tbObjectImageURL.TabIndex = 28;
+            // 
             // btnObjectSaveImage
             // 
             this.btnObjectSaveImage.Location = new System.Drawing.Point(174, 109);
@@ -711,6 +720,8 @@
             // 
             // bgObjectObjectInfo2
             // 
+            this.bgObjectObjectInfo2.Controls.Add(this.tbObjectPricePerKvm);
+            this.bgObjectObjectInfo2.Controls.Add(this.lblObjectPricePErKvm);
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectPrice);
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectCity);
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectAddress);
@@ -733,6 +744,22 @@
             this.bgObjectObjectInfo2.TabIndex = 38;
             this.bgObjectObjectInfo2.TabStop = false;
             this.bgObjectObjectInfo2.Text = "Information";
+            // 
+            // tbObjectPricePerKvm
+            // 
+            this.tbObjectPricePerKvm.Location = new System.Drawing.Point(96, 226);
+            this.tbObjectPricePerKvm.Name = "tbObjectPricePerKvm";
+            this.tbObjectPricePerKvm.Size = new System.Drawing.Size(222, 20);
+            this.tbObjectPricePerKvm.TabIndex = 29;
+            // 
+            // lblObjectPricePErKvm
+            // 
+            this.lblObjectPricePErKvm.AutoSize = true;
+            this.lblObjectPricePErKvm.Location = new System.Drawing.Point(7, 229);
+            this.lblObjectPricePErKvm.Name = "lblObjectPricePErKvm";
+            this.lblObjectPricePErKvm.Size = new System.Drawing.Size(81, 13);
+            this.lblObjectPricePErKvm.TabIndex = 28;
+            this.lblObjectPricePErKvm.Text = "Pris per kvm:";
             // 
             // tbObjectPrice
             // 
@@ -1764,6 +1791,8 @@
         private System.Windows.Forms.Label lblBrokerSearch;
         private System.Windows.Forms.Button btnObjectSaveImage;
         private System.Windows.Forms.TextBox tbObjectImageURL;
+        private System.Windows.Forms.TextBox tbObjectPricePerKvm;
+        private System.Windows.Forms.Label lblObjectPricePErKvm;
 
     }
 }
