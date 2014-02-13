@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -154,17 +154,18 @@
             this.tbBrokerBrokerName = new System.Windows.Forms.TextBox();
             this.tbBrokerBrokerSsnr = new System.Windows.Forms.TextBox();
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
-            this.menuItem12 = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
-            this.menuItem8 = new System.Windows.Forms.MenuItem();
-            this.menuItem9 = new System.Windows.Forms.MenuItem();
-            this.menuItem10 = new System.Windows.Forms.MenuItem();
-            this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.mmArkiv = new System.Windows.Forms.MenuItem();
+            this.mmArkivQuit = new System.Windows.Forms.MenuItem();
+            this.mmAlternative = new System.Windows.Forms.MenuItem();
+            this.mmShow = new System.Windows.Forms.MenuItem();
+            this.mmShowAdmintools = new System.Windows.Forms.MenuItem();
+            this.mmHelp = new System.Windows.Forms.MenuItem();
+            this.mmHelpFAQ = new System.Windows.Forms.MenuItem();
+            this.mmHelpFaqObject = new System.Windows.Forms.MenuItem();
+            this.mmHelpFAQShowing = new System.Windows.Forms.MenuItem();
+            this.mmHelpFAQBuyer = new System.Windows.Forms.MenuItem();
+            this.mmHelpAbout = new System.Windows.Forms.MenuItem();
+            this.tbObjectImageURL = new System.Windows.Forms.TextBox();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -640,6 +641,7 @@
             // 
             // gbObjectUploadPicture
             // 
+            this.gbObjectUploadPicture.Controls.Add(this.tbObjectImageURL);
             this.gbObjectUploadPicture.Controls.Add(this.btnObjectSaveImage);
             this.gbObjectUploadPicture.Controls.Add(this.lblObjectFilepath);
             this.gbObjectUploadPicture.Controls.Add(this.pbObjectThumbnail);
@@ -944,8 +946,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1503,80 +1505,87 @@
             // mainMenu
             // 
             this.mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem1,
-            this.menuItem2,
-            this.menuItem3,
-            this.menuItem4});
+            this.mmArkiv,
+            this.mmAlternative,
+            this.mmShow,
+            this.mmHelp});
             // 
-            // menuItem1
+            // mmArkiv
             // 
-            this.menuItem1.Index = 0;
-            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem5});
-            this.menuItem1.Text = "Arkiv";
+            this.mmArkiv.Index = 0;
+            this.mmArkiv.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mmArkivQuit});
+            this.mmArkiv.Text = "Arkiv";
             // 
-            // menuItem5
+            // mmArkivQuit
             // 
-            this.menuItem5.Index = 0;
-            this.menuItem5.Text = "Avsluta";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            this.mmArkivQuit.Index = 0;
+            this.mmArkivQuit.Text = "Avsluta";
+            this.mmArkivQuit.Click += new System.EventHandler(this.mmArkivQuit_Click);
             // 
-            // menuItem2
+            // mmAlternative
             // 
-            this.menuItem2.Index = 1;
-            this.menuItem2.Text = "Alternativ";
+            this.mmAlternative.Index = 1;
+            this.mmAlternative.Text = "Alternativ";
             // 
-            // menuItem3
+            // mmShow
             // 
-            this.menuItem3.Index = 2;
-            this.menuItem3.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem12});
-            this.menuItem3.Text = "Visa";
+            this.mmShow.Index = 2;
+            this.mmShow.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mmShowAdmintools});
+            this.mmShow.Text = "Visa";
             // 
-            // menuItem12
+            // mmShowAdmintools
             // 
-            this.menuItem12.Index = 0;
-            this.menuItem12.Text = "Adminverktyg";
-            this.menuItem12.Click += new System.EventHandler(this.menuItem12_Click);
+            this.mmShowAdmintools.Index = 0;
+            this.mmShowAdmintools.Text = "Adminverktyg";
+            this.mmShowAdmintools.Click += new System.EventHandler(this.mmShowAdmintools_Click);
             // 
-            // menuItem4
+            // mmHelp
             // 
-            this.menuItem4.Index = 3;
-            this.menuItem4.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem6,
-            this.menuItem7});
-            this.menuItem4.Text = "Hjälp";
+            this.mmHelp.Index = 3;
+            this.mmHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mmHelpFAQ,
+            this.mmHelpAbout});
+            this.mmHelp.Text = "Hjälp";
             // 
-            // menuItem6
+            // mmHelpFAQ
             // 
-            this.menuItem6.Index = 0;
-            this.menuItem6.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem8,
-            this.menuItem9,
-            this.menuItem10});
-            this.menuItem6.Text = "FAQ";
+            this.mmHelpFAQ.Index = 0;
+            this.mmHelpFAQ.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mmHelpFaqObject,
+            this.mmHelpFAQShowing,
+            this.mmHelpFAQBuyer});
+            this.mmHelpFAQ.Text = "FAQ";
             // 
-            // menuItem8
+            // mmHelpFaqObject
             // 
-            this.menuItem8.Index = 0;
-            this.menuItem8.Text = "Objekt";
+            this.mmHelpFaqObject.Index = 0;
+            this.mmHelpFaqObject.Text = "Objekt";
             // 
-            // menuItem9
+            // mmHelpFAQShowing
             // 
-            this.menuItem9.Index = 1;
-            this.menuItem9.Text = "Visning";
-            this.menuItem9.Click += new System.EventHandler(this.menuItem9_Click);
+            this.mmHelpFAQShowing.Index = 1;
+            this.mmHelpFAQShowing.Text = "Visning";
+            this.mmHelpFAQShowing.Click += new System.EventHandler(this.mmHelpFAQShowing_Click);
             // 
-            // menuItem10
+            // mmHelpFAQBuyer
             // 
-            this.menuItem10.Index = 2;
-            this.menuItem10.Text = "Spekulant";
+            this.mmHelpFAQBuyer.Index = 2;
+            this.mmHelpFAQBuyer.Text = "Spekulant";
             // 
-            // menuItem7
+            // mmHelpAbout
             // 
-            this.menuItem7.Index = 1;
-            this.menuItem7.Text = "Om";
-            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
+            this.mmHelpAbout.Index = 1;
+            this.mmHelpAbout.Text = "Om";
+            this.mmHelpAbout.Click += new System.EventHandler(this.mmHelpAbout_Click);
+            // 
+            // tbObjectImageURL
+            // 
+            this.tbObjectImageURL.Location = new System.Drawing.Point(5, 111);
+            this.tbObjectImageURL.Name = "tbObjectImageURL";
+            this.tbObjectImageURL.Size = new System.Drawing.Size(82, 20);
+            this.tbObjectImageURL.TabIndex = 28;
             // 
             // frameMainMainframe
             // 
@@ -1711,17 +1720,17 @@
         private System.Windows.Forms.TextBox tbShowingSearch;
         private System.Windows.Forms.Button btnShowingSearch;
         private System.Windows.Forms.MainMenu mainMenu;
-        private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.MenuItem menuItem2;
-        private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MenuItem menuItem4;
-        private System.Windows.Forms.MenuItem menuItem6;
-        private System.Windows.Forms.MenuItem menuItem7;
-        private System.Windows.Forms.MenuItem menuItem8;
-        private System.Windows.Forms.MenuItem menuItem9;
-        private System.Windows.Forms.MenuItem menuItem10;
-        private System.Windows.Forms.MenuItem menuItem12;
+        private System.Windows.Forms.MenuItem mmArkiv;
+        private System.Windows.Forms.MenuItem mmArkivQuit;
+        private System.Windows.Forms.MenuItem mmAlternative;
+        private System.Windows.Forms.MenuItem mmShow;
+        private System.Windows.Forms.MenuItem mmHelp;
+        private System.Windows.Forms.MenuItem mmHelpFAQ;
+        private System.Windows.Forms.MenuItem mmHelpAbout;
+        private System.Windows.Forms.MenuItem mmHelpFaqObject;
+        private System.Windows.Forms.MenuItem mmHelpFAQShowing;
+        private System.Windows.Forms.MenuItem mmHelpFAQBuyer;
+        private System.Windows.Forms.MenuItem mmShowAdmintools;
         private System.Windows.Forms.TabPage tpBrokerBrokerTabPage;
         private System.Windows.Forms.GroupBox bgBrokerAdministrateBroker;
         private System.Windows.Forms.DataGridView dgvBrokerAllBrokers;
@@ -1766,6 +1775,7 @@
         private System.Windows.Forms.Label lblBrokerSearch;
         private System.Windows.Forms.Label lblObjectFilepath;
         private System.Windows.Forms.Button btnObjectSaveImage;
+        private System.Windows.Forms.TextBox tbObjectImageURL;
 
     }
 }
