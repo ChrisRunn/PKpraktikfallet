@@ -186,6 +186,7 @@ namespace praktikfall
             string price = objectInfo[3].ToString();
             string area = objectInfo[4].ToString();
             int priceperkvm = int.Parse(price) / int.Parse(area);
+            ////tbObjectPricePerKvm.Text = priceperkvm.ToString();
 
             DataRow ownerInfo = this.controller.GetObjectOwner(tbObjectOwnerSsnr.Text).Rows[0];
 

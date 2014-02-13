@@ -165,6 +165,8 @@
             this.menuItem9 = new System.Windows.Forms.MenuItem();
             this.menuItem10 = new System.Windows.Forms.MenuItem();
             this.menuItem7 = new System.Windows.Forms.MenuItem();
+            this.lblObjectPricePerKvm = new System.Windows.Forms.Label();
+            this.tbObjectPricePerKvm = new System.Windows.Forms.TextBox();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -721,6 +723,8 @@
             // 
             // bgObjectObjectInfo2
             // 
+            this.bgObjectObjectInfo2.Controls.Add(this.tbObjectPricePerKvm);
+            this.bgObjectObjectInfo2.Controls.Add(this.lblObjectPricePerKvm);
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectPrice);
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectCity);
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectAddress);
@@ -1578,6 +1582,22 @@
             this.menuItem7.Text = "Om";
             this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
+            // lblObjectPricePerKvm
+            // 
+            this.lblObjectPricePerKvm.AutoSize = true;
+            this.lblObjectPricePerKvm.Location = new System.Drawing.Point(7, 230);
+            this.lblObjectPricePerKvm.Name = "lblObjectPricePerKvm";
+            this.lblObjectPricePerKvm.Size = new System.Drawing.Size(81, 13);
+            this.lblObjectPricePerKvm.TabIndex = 28;
+            this.lblObjectPricePerKvm.Text = "Pris per kvm:";
+            // 
+            // tbObjectPricePerKvm
+            // 
+            this.tbObjectPricePerKvm.Location = new System.Drawing.Point(96, 226);
+            this.tbObjectPricePerKvm.Name = "tbObjectPricePerKvm";
+            this.tbObjectPricePerKvm.Size = new System.Drawing.Size(222, 20);
+            this.tbObjectPricePerKvm.TabIndex = 29;
+            // 
             // frameMainMainframe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1766,6 +1786,8 @@
         private System.Windows.Forms.Label lblBrokerSearch;
         private System.Windows.Forms.Label lblObjectFilepath;
         private System.Windows.Forms.Button btnObjectSaveImage;
+        private System.Windows.Forms.TextBox tbObjectPricePerKvm;
+        private System.Windows.Forms.Label lblObjectPricePerKvm;
 
     }
 }
