@@ -552,7 +552,7 @@ namespace praktikfall
         }
 
         #region MAINMENU
-        private void menuItem7_Click(object sender, EventArgs e)
+        private void mmHelpAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
                 "Version 1.0 BrokerApplication\n\n\n"
@@ -568,12 +568,12 @@ namespace praktikfall
                 );
         }
 
-        private void menuItem5_Click(object sender, EventArgs e)
+        private void mmArkivQuit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void menuItem9_Click(object sender, EventArgs e)
+        private void mmHelpFAQShowing_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
                 "Visningar hanteras under fliken Visning. Här kan användaren lägga till, ta bort eller uppdatera visningar. \n\n"
@@ -607,7 +607,7 @@ namespace praktikfall
 
 
 
-        private void menuItem12_Click(object sender, EventArgs e)
+        private void mmShowAdmintools_Click(object sender, EventArgs e)
         {
             //Visa/dölj en tab för Mäklare
         }
@@ -915,8 +915,7 @@ namespace praktikfall
                     imgLoc = fDialog.FileName.ToString();
                     Image image = Image.FromFile(fDialog.FileName.ToString());
                     pbObjectThumbnail.Image = image;
-                    lblObjectFilepath.Text = imgLoc;
-                    lblObjectFilepath.Visible = true;
+                    tbObjectImageURL.Text = imgLoc;
                 }
             }
             catch (Exception ex)
