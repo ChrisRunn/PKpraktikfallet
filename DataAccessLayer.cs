@@ -170,7 +170,6 @@ namespace praktikfall
             sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "'," + objPrice +
                 "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
             int nrOfRows = ExecuteUpdate(sqlStr);
-            MessageBox.Show(sqlStr);
             return nrOfRows;
         }
 
