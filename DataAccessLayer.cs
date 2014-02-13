@@ -306,7 +306,7 @@ namespace praktikfall
             return nrOfRows;
         }
 
-        //Gets informaiton about a specified owner
+        //Gets information about a specified owner
         public DataTable GetObjectOwner(string ownerSsnr)
         {
             string sqlStr = "select * from ObjectOwner where ownerSsnr = '" + ownerSsnr + "'";
@@ -320,7 +320,7 @@ namespace praktikfall
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Kontrollera om ÄGARE finns
+        //Check if a owner exists
         public bool OwnerExists(string ownerSsnr)
         {
             bool ownerExists = false;
@@ -333,7 +333,7 @@ namespace praktikfall
             }
             return ownerExists;
         }
-
+        // Checks if a owner owns more than one object
         public bool OwnerHasOtherObjects(string ownerSsnr)
         {
             bool ownerHasMoreObjects = true;
@@ -352,7 +352,7 @@ namespace praktikfall
         }
         #endregion OBJEKTÄGARE
         #region SHOWING
-        //Registrera VISNING
+        //Add showing
         public int AddShowing(string objNr, string buyerSsnr, string showingDate)
         {
             string sqlStr = "insert into Showing values ('" + objNr + "','" + buyerSsnr + "','" + showingDate + "')";
