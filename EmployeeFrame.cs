@@ -323,6 +323,8 @@ namespace praktikfall
                     int nrOfRows = controller.UpdateShowing(objNr, buyerSsnr, showingDate);
                     MessageBox.Show("Visning uppdaterad. Nytt visningsdatum " + showingDate);
                     Populate();
+                    lblShowingSelectedBuyer.Text = "selectedBuyer(invisible)";
+                    lblShowingSelectedObject.Text = "selectedObject(invisible)";
                 }
             }
             catch (Exception ex)
