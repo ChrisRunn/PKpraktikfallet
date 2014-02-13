@@ -1001,7 +1001,9 @@ namespace praktikfall
         private void dgvObject(object sender, DataGridViewBindingCompleteEventArgs e)
         {
 
-        }  
+        }
+
+        
 
     }
 }
