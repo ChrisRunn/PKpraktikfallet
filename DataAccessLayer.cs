@@ -359,35 +359,35 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Uppdatera visningsdatum för VISNING
+        //Update showing date
         public int UpdateShowing(string objNr, string buyerSsnr, string showingDate)
         {
             string sqlStr = "update Showing set showingDate = '" + showingDate + "' where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Visa alla VISNINGAR
+        //Show all showings
         public DataTable GetShowings()
         {
             string sqlStr = "select objNr as Objektsnummer, buyerSsnr as Spekulant, showingDate as Visningsdatum from Showing";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Ta bort spekulant från VISNING
+        //Delete prospective buyer from showing
         public int DeleteBuyerFromShowing(string buyerSsnr, string objNr)
         {
             string sqlStr = "delete from Showing where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Ta bort VISNING 
+        //Delete showing 
         public int DeleteShowing(string objNr)
         {
             string sqlStr = "delete from Showing where objNr = '" + objNr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Kontrollera om VISNING finns
+        //Check if showing exists
         public bool ShowingExists(string objNr, string buyerSsnr)
         {
             bool showingExists = false;
@@ -401,7 +401,7 @@ namespace praktikfall
             return showingExists;
         }
         #endregion SHOWING
-
+        // Check password for login
         public String CheckPw(string name, string password)
         {
             try
