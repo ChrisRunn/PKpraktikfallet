@@ -17,7 +17,7 @@ namespace praktikfall
         #region GENERISKA METODER
         string connectionString = "server=localhost; Trusted_Connection=yes; database=PK Praktikfallet;";
 
-        //generisk metod för att skicka query som uppdaterar eller lägger till nya objekt
+        //Generic method for sending a query that updates or adds a new object
         private int ExecuteUpdate(string sqlStr) 
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -49,7 +49,7 @@ namespace praktikfall
             }
         }
 
-        //Generisk metod för att exempelvis söka objekt
+        //Generic method for sending questions to the database. Returns a DataTable
         private DataTable ExecuteQuery(string sqlStr)
         {
             DataTable dataTable = new DataTable();
@@ -76,33 +76,20 @@ namespace praktikfall
                     con.Close();
                 }
             }
-
-            /*string [] columnHeadings = new string[0];
-
-            long l = dataTable.Columns.Count;
-            foreach (DataColumn dc in dataTable.Columns)
-            {
-                
-                string columnName = dc.ColumnName.ToString();
-                columnName = this.StringTranslator(columnName);
-                columnHeadings = Array.Copy(columnHeadings,dataTable, dataTable.Columns.Count);
-            
-            }*/
-
             return dataTable;
         }
 
         #endregion GENERISKA METODER
 
         #region OBJEKT
-        //Ta bort OBJEKT
+        //Delete a real estate object
         public int DeleteObject(string objNr) 
         {
             string sqlStr = "delete from RealEstateObject where objNr = '" + objNr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Uppdatera OBJEKT
+        //Update a a real estate object
         public int UpdateObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
             string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "',objCity = '" + objCity +
@@ -112,42 +99,42 @@ namespace praktikfall
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Söka OBJEKT
+        //Search for a selected real estate object
         public DataTable GetObject(string objNr)
         {
             string sqlStr = "select * from RealEstateObject where objNr = '" + objNr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        // Hämta alla OBJEKT
+        // Get all real estate objects from the database
         public DataTable GetAllObjects()
         {
             string sqlStr = "select objNr as Objektsnummer,objAdress as Adress, brokerSsnr as Mäklare, ownerSsnr as Ägare from RealEstateObject";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Sökknapp i Objekt för att visa objekt med viss sträng
+        //Method for finding real estate objects with a search string
         public DataTable SearchObjectByString(string searchString)
         {
             string sqlStr = "select objNr as Objektsnummer, objAdress as Adress, brokerSsnr as Mäklare, ownerSsnr as Ägare from RealEstateObject where objNr like '%" + searchString + "%' or objAdress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Hämta alla objekt med angivet Brokernummer
+        //Get all objects for a specified broker
         public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
             string sqlStr = "select objNr as Objektnummer, objAdress as Adress, objCity as Stad, objPrice as Pris, objArea as Area, objRooms as 'Antal rum', objUnitType as Typ, objInfo as Beskrivning from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Hämta alla visningar med angivet Brokernummer
+        //Get all showings for a specified broker
         public DataTable SearchShowingsByBrokerSsnr(string searchString)
         {
             string sqlStr = "select s.objNr as Objektsnummer, objAdress as Adress, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Kontrollera om objekt finns
+        //Checks if a object already exists in the database
         public bool ObjectExists(string objNr)
         {
             bool objectExists = false;
@@ -160,7 +147,7 @@ namespace praktikfall
             }
             return objectExists;
         }
-        //Registrera Objekt och dess ägare MÅSTE PLACERAS I RÄTT FOLDER
+        //Adds a real estate object and its owner
 
         public int AddObjectAndOwner(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
@@ -173,7 +160,7 @@ namespace praktikfall
             return nrOfRows;
         }
 
-        //Spara bild för objekt
+        //Saves an image for a specified real estate object
         public int addObjectImage(byte[] img, string objNr)
         {
             string sqlStr = "update RealEstateObject set objImage = @img where objNr = '" + objNr + "'";
@@ -187,35 +174,35 @@ namespace praktikfall
         }
         #endregion OBJEKT
         #region MÄKLARE
-        //Lägg till MÄKLARE
+        //Adds a broker
         public int AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
             string sqlStr = "insert into RealEstateBroker values ('" + brokerSsnr + "','" + name + "','" + brokerAddress + "','" + city + "','" + phoneNr + "','" + email + "','" + pw + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Ta bort MÄKLARE
+        //Delete a broker
         public int DeleteBroker(string brokerSsnr)
         {
             string sqlStr = "delete from RealEstateBroker where brokerSsnr = '" + brokerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Uppdatera MÄKLARE
+        //Update Broker
         public int UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
             string sqlStr = "update RealEstateBroker set name = '" + name + "', brokerAddress = '" + brokerAddress + "', city = '" + city + "', phoneNr = '" + phoneNr + "', email = '" + email + "'," + "pw = '" + pw + "' where brokerSsnr = '" + brokerSsnr +"'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Söka MÄKLARE
+        //search an get the information for a specified broker
         public DataTable GetBroker(string brokerSsnr)
         {
             string sqlStr = "select * from RealEstateBroker where brokerSsnr = '" + brokerSsnr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Hämta ALLA MÄKLARE
+        //Gets all brokers in the databse and their information
         public DataTable GetAllBrokers()
         {
             string sqlStr = "select brokerSsnr as Personnummer, name as Namn, brokerAddress as Adress, city as Stad, phoneNr as Telefon, email as Email, pw as Lösenord from RealEstateBroker";
@@ -223,6 +210,7 @@ namespace praktikfall
             return dt;
         }
 
+        // Checks if a broker already exists
         public bool BrokerExists(string brokerSsnr)
         {
             bool brokerExists = false;
@@ -236,7 +224,7 @@ namespace praktikfall
             return brokerExists;
         }
 
-        //Sökknapp i Objekt för att visa objekt med viss sträng
+        //Method for finding a broker with a searchstring
         public DataTable SearchBrokerByString(string searchString)
         {
             string sqlStr = "select brokerSsnr as Personnummer, name as Namn, brokerAddress as Adress, city as Stad, phoneNr as Telefon, email as Email, pw as Lösenord from RealEstateBroker where brokerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or brokerAddress like '%" + searchString + "%' or city like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
@@ -246,42 +234,42 @@ namespace praktikfall
 
         #endregion MÄKLARE
         #region SPEKULANT
-        //Lägga till spekulant
+        //Adds a prospective buyer
         public int AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
             string sqlStr = "insert into ProspectiveBuyer values('" + buyerSsnr + "','" + name + "','" + phoneNr + "','" + email + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Ta bort spekulant
+        //Delete a prospective buyer
         public int DeleteProspectiveBuyer(string buyerSsnr)
         {
             string sqlStr = "delete from ProspectiveBuyer where buyerSsnr = '" + buyerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Uppdatera spekulant
+        //Updates the information for a selected prospective buyer
         public int UpdateProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
             string sqlStr = "update ProspectiveBuyer set name = '" + name + "', phoneNr = '" + phoneNr + "', email = '" + email + "' where buyerSsnr = '" + buyerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Söka spekulant
+        //Gets information about a specified prospective buyer
         public DataTable GetProspectiveBuyer(string buyerSsnr)
         {
             string sqlStr = "select * from ProspectiveBuyer where buyerSsnr = '" + buyerSsnr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Hämta alla spekulanter
+        //Gets all prospective buyers and their information
         public DataTable GetAllProspectiveBuyers()
         {
             string sqlStr = "select buyerSsnr as Personnummer, name as Namn, phoneNr as Telefon, email as Email from Prospectivebuyer";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        //Sökknapp i Spekulant för att visa objekt med viss sträng
+        //Method for finding a prospective buyer with a search string
         public DataTable SearchProBuyerByString(string searchString)
         {
             string sqlStr = "select buyerSsnr as Personnummer, name as Namn, phoneNr as Telefon, email as Email from ProspectiveBuyer where buyerSsnr like '%" + searchString + "%' or name like '%" + searchString + "%' or phoneNr like '%" + searchString + "%' or email like '%" + searchString + "%'";
@@ -289,7 +277,7 @@ namespace praktikfall
             return dt;
         }
 
-        //Kontrollera om spekulant finns
+        //Checks if prospective buyer already exists
         public bool ProspectiveBuyerExists(string Ssnr)
         {
             bool prospectiveBuyerExists = false;
@@ -304,21 +292,21 @@ namespace praktikfall
         }
         #endregion SPEKULANT
         #region OBJEKTÄGARE
-        //Lägg till Ägare   ___OBS___ Lägger endast till en ägare i systemet. Kopplingen mellan Object och Owner görs ej här!
+        //Adds a owner to the database. Note that this method does not connect an owner to an object
         public int AddObjectOwner(string ownerSsnr, string phoneNr, string email)
         {
             string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "')";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Ta bort ägare
+        //Deletes an owner
         public int DeleteObjectOwner(string ownerSsnr)
         {
             string sqlStr = "delete from ObjectOwner where ownerSsnr = '" + ownerSsnr + "'";
             int nrOfRows = ExecuteUpdate(sqlStr);
             return nrOfRows;
         }
-        //Uppdatera Ägare -- Behövs eventuellt inte
+        //Update information for a specified owner
         public int UpdateObjectOwner(string ownerSsnr, string phoneNr, string email)
         {
             string sqlStr = "update ObjectOwner set phoneNr = '" + phoneNr + "', email = '" + email + "' where ownerSsnr = '" + ownerSsnr + "'";
@@ -326,7 +314,7 @@ namespace praktikfall
             return nrOfRows;
         }
 
-        // Uppdaterar allt i objekt fliken ! MÅSTE PLACERAS I RÄTT FOLDER
+        // Update information for a object and owner for a specified object
         public int UpdateObjectFlap(string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
@@ -336,14 +324,14 @@ namespace praktikfall
             return nrOfRows;
         }
 
-        //Söka Ägare -- BEHÖVS EVENTUELLT INTE
+        //Gets informaiton about a specified owner
         public DataTable GetObjectOwner(string ownerSsnr)
         {
             string sqlStr = "select * from ObjectOwner where ownerSsnr = '" + ownerSsnr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
-        // Hämtar alla ägare (objectOwner)
+        // Get information about all owners
         public DataTable GetAllObjectOwners()
         {
             string sqlStr = "select * from ObjectOwner";
