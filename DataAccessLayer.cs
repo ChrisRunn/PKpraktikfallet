@@ -22,23 +22,12 @@ namespace praktikfall
         {
             SqlConnection con = new SqlConnection(connectionString);
             Debug.WriteLine(sqlStr);
-
-            try
+            try 
             {
                 con.Open();
                 SqlCommand com = new SqlCommand(sqlStr, con);
                 int nrOfRows = com.ExecuteNonQuery();
                 return nrOfRows;
-            }
-            catch (SqlException ex)
-            {
-                Debug.WriteLine("{0} SqlException caught.", ex);
-                return 0;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("{0} Exception caught.", ex);
-                return 0;
             }
             finally
             {
@@ -61,14 +50,7 @@ namespace praktikfall
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlStr, con);
                 dataAdapter.Fill(dataTable);
             }
-            catch (SqlException ex)
-            {
-                Debug.WriteLine("{0} Exception caught.", ex);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("{0} Exception caught.", ex);
-            }
+
             finally
             {
                 if (con.State == ConnectionState.Open)
