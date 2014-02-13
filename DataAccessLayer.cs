@@ -90,7 +90,7 @@ namespace praktikfall
         // Get all real estate objects from the database
         public DataTable GetAllObjects()
         {
-            string sqlStr = "select objNr as Objektsnummer,objAdress as Adress, brokerSsnr as Mäklare, ownerSsnr as Ägare from RealEstateObject";
+            string sqlStr = "select objNr as Objektsnummer, brokerSsnr as Mäklare, objAdress as Address, ownerSsnr as Ägare from RealEstateObject";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -135,9 +135,11 @@ namespace praktikfall
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
             string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
-            sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "'," + objPrice +
-                "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
+            sqlStr += "insert into RealEstateObject values ('" + objNr + "','" + objAdress + "','" + objCity + "','" + objPrice +
+                "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
+            MessageBox.Show(sqlStr);
             ExecuteUpdate(sqlStr);
+            
 
         }
 
@@ -146,8 +148,8 @@ namespace praktikfall
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr)
         {
-            string sqlStr = "insert into RealEstateObject values ('" + objNr + "','" + objAdress + "','" + objCity + "'," + objPrice +
-                    "," + objArea + ",'" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
+            string sqlStr = "insert into RealEstateObject values ('" + objNr + "','" + objAdress + "','" + objCity + "','" + objPrice +
+                    "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
             ExecuteUpdate(sqlStr);
 
         }

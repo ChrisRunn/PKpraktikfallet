@@ -153,7 +153,7 @@ namespace praktikfall
             {
                 MessageBox.Show("Problem med att ladda från listan. \n" + ex);
             }
-            
+
         }
 
         private void setSelectedObjectAndOwner(string objNr, DataGridViewRow row)
@@ -187,8 +187,8 @@ namespace praktikfall
 
             string price = objectInfo[3].ToString();
             string area = objectInfo[4].ToString();
-            int priceperkvm = int.Parse(price) / int.Parse(area);
-            tbObjectPricePerKvm.Text = priceperkvm.ToString();
+            //int priceperkvm = int.Parse(price) / int.Parse(area);
+            //tbObjectPricePerKvm.Text = priceperkvm.ToString();
 
             DataRow ownerInfo = this.controller.GetObjectOwner(tbObjectOwnerSsnr.Text).Rows[0];
 
@@ -450,21 +450,20 @@ namespace praktikfall
 
                     if (!objectExists && brokerExists && !ownerExists)
                     {
-                        
+
                         if (string.IsNullOrEmpty(tbObjectOwnerSsnr.Text.ToString()) || string.IsNullOrEmpty(tbObjectObjectNr.Text.ToString()))
                         {
                             MessageBox.Show("Det går inte att registrera ett objekt utan ägare");
                         }
                         else
                         {
-                        this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
-                        this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
-                        Populate();
-                        ClearObjectTb();
-                        pbObjectThumbnail.Image = null;
-                        pbObjectsObjectPicture.Image = null;
-                        MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
-                            
+                            this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                            Populate();
+                            ClearObjectTb();
+                            pbObjectThumbnail.Image = null;
+                            pbObjectsObjectPicture.Image = null;
+                            MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+
                         }
                     }
                     else if (!objectExists && brokerExists && ownerExists)
@@ -793,7 +792,7 @@ namespace praktikfall
                 if (cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) //Register
                 {
                     int parsedValue;
-                   
+
                     bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
 
                     if (buyerExists)
