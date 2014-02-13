@@ -450,12 +450,21 @@ namespace praktikfall
 
                     if (!objectExists && brokerExists && !ownerExists)
                     {
-                        int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
-                        Populate();
-                        ClearObjectTb();
-                        pbObjectThumbnail.Image = null;
-                        pbObjectsObjectPicture.Image = null;
-                        MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+                        
+                        if (string.IsNullOrEmpty(tbObjectOwnerSsnr.Text.ToString()) || string.IsNullOrEmpty(tbObjectObjectNr.Text.ToString()))
+                        {
+                            MessageBox.Show("Det går inte att registrera ett objekt utan ägare");
+                        }
+                        else
+                        {
+                            int nrOfRows = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                            Populate();
+                            ClearObjectTb();
+                            pbObjectThumbnail.Image = null;
+                            pbObjectsObjectPicture.Image = null;
+                            MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+                            
+                        }
                     }
                     else if (!objectExists && brokerExists && ownerExists)
                     {
