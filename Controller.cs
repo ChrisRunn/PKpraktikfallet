@@ -311,7 +311,8 @@ namespace praktikfall
         public void AddShowing(string objNr, string buyerSsnr, string showingDate)
         {
             dal.AddShowing(objNr, buyerSsnr, showingDate);
-
+            
+           
         }
 
         //This method updates a showingdate for a showing

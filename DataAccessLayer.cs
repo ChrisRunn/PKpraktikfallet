@@ -403,7 +403,7 @@ namespace praktikfall
         public bool ShowingExists(string objNr, string buyerSsnr)
         {
             bool showingExists = false;
-            string sqlStr = "select * from Showing where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
+            string sqlStr = "select * from Showing where objNr = " + objNr + " and buyerSsnr = '" + buyerSsnr + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             if (dt.Rows.Count > 0)
             {
