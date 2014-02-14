@@ -31,9 +31,9 @@ namespace praktikfall
                 tpBrokerBrokerTabPage.Text = "";
             }
             Populate();
-            DataTable dt = controller.SearchObjectByBrokerSsnr(brokerName);
+            DataTable dt = this.controller.SearchObjectByBrokerSsnr(brokerName);
             dgvStartYourObjects.DataSource = dt;
-            DataTable dt2 = controller.SearchShowingsByBrokerSsnr(brokerName);
+            DataTable dt2 = this.controller.SearchShowingsByBrokerSsnr(brokerName);
             dgvStartYourShowings.DataSource = dt2;
         }
 
@@ -99,16 +99,16 @@ namespace praktikfall
 
         public void Populate()                                                            //Uppdatera ALLA DGVS (utom Christians)
         {
-            DataTable dtAllObjects = controller.GetAllObjectsNr();
+            DataTable dtAllObjects = this.controller.GetAllObjectsNr();
             dgvObjectAllObjects.DataSource = dtAllObjects;                                     //Objektfliken, alla objekt i databasen          
             MakeTbReadOnly();
             btnObjectSubmit.Enabled = false;
             dgvShowingAllObjects.DataSource = dtAllObjects;                                   //Visningsfliken, alla objekt i databasen            
-            DataTable dtAllProspectiveBuyers = controller.GetAllProspectiveBuyers();
+            DataTable dtAllProspectiveBuyers = this.controller.GetAllProspectiveBuyers();
             dgvShowingAllBuyers.DataSource = dtAllProspectiveBuyers;                        //Visningsfliken, alla spekulanter i databasen 
-            DataTable dtAllShowings = controller.GetShowings();
+            DataTable dtAllShowings = this.controller.GetShowings();
             dgvShowingCurrentShowings.DataSource = dtAllShowings;                            //Visningsfliken, alla nuvarande visningar i databasen
-            DataTable dtAllBrokers = controller.GetAllBrokers();                             //Mäklarfliken (admin), visa alla mäklare
+            DataTable dtAllBrokers = this.controller.GetAllBrokers();                             //Mäklarfliken (admin), visa alla mäklare
             dgvBrokerAllBrokers.DataSource = dtAllBrokers;
         }
 
@@ -127,7 +127,7 @@ namespace praktikfall
                 else
                 {
                     string searchString = tbObjectSearch.Text;
-                    DataTable dt = controller.SearchObjectByString(searchString);
+                    DataTable dt = this.controller.SearchObjectByString(searchString);
                     dgvObjectAllObjects.DataSource = dt;
                 }
             }
@@ -198,72 +198,22 @@ namespace praktikfall
 
         }
 
-        private void btnShowingRegisterShowing_Click(object sender, EventArgs e)                //Lägg till visning
-        {
-            try
-            {
-                string objNr = lblShowingSelectedObject.Text;
-                string showingDate = dtpShowingShowingDate.Text;
-                string buyerSsnr = lblShowingSelectedBuyer.Text;
-                bool showingExists = controller.ShowingExists(objNr, buyerSsnr);        //Kontrollerar om visningen redan finns
-
-                if (showingExists)
-                {
-                    MessageBox.Show("Visningen finns redan. Vänligen kontrollera dina val. Använd Uppdatera datum-knappen för att uppdatera visningsdatum.");
-                }
-
-                else if (lblShowingSelectedBuyer.Text.Equals("selectedBuyer(invisible)"))
-                {
-                    MessageBox.Show("Vänligen välj spekulant i listan.");
-                }
-                else if (lblShowingSelectedObject.Text.Equals("selectedObject(invisible)"))
-                {
-                    MessageBox.Show("Vänligen välj objekt i listan.");
-                }
-                else if (!showingExists && !(lblShowingSelectedBuyer.Text.Equals("selectedBuyer(invisible)")) && !(lblShowingSelectedObject.Text.Equals("selectedObject(invisible)"))) //Lägg till
-                {
-                    controller.AddShowing(objNr, buyerSsnr, showingDate);
-                    MessageBox.Show("Visning registrerad.");
-                    Populate();
-                    lblShowingSelectedBuyer.Text = "selectedBuyer(invisible)";
-                    lblShowingSelectedObject.Text = "selectedObject(invisible)";
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Det gick inte att registrera visning. \n" + ex);
-            }
-        }
-
         private void tbObjectSearch_Click(object sender, EventArgs e)
         {
             tbObjectSearch.Text = "";
             tbObjectSearch.ForeColor = Color.Black;
         }
 
-        private void dgvShowingAllObjects_CellClicked(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dgvShowingAllObjects.Rows[e.RowIndex];
-                string selectedItem = row.Cells["Objektsnummer"].Value.ToString();
-                lblShowingSelectedObject.Text = selectedItem;
-            }
-        }
 
         private void dgvShowingAllBuyers_CellClicked(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvShowingAllBuyers.Rows[e.RowIndex];
-                string selectedItem = row.Cells["Personnummer"].Value.ToString();
-                lblShowingSelectedBuyer.Text = selectedItem;
                 tbShowingBuyerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
                 tbShowingBuyerName.Text = row.Cells["Namn"].Value.ToString();
                 tbShowingBuyerTel.Text = row.Cells["Telefon"].Value.ToString();
                 tbShowingBuyerEmail.Text = row.Cells["Email"].Value.ToString();
-
             }
         }
 
@@ -300,31 +250,73 @@ namespace praktikfall
 
         }
 
+        private void btnShowingRegisterShowing_Click(object sender, EventArgs e)                //Lägg till visning
+        {
+            try
+            {
+                string showingDate = dtpShowingShowingDate.Text;
+                int selectedBuyersNr = dgvShowingAllBuyers.SelectedRows.Count;
+                int selectedObjectsNr = dgvShowingAllObjects.SelectedRows.Count;
+
+                if (selectedBuyersNr == 0)
+                {
+                    MessageBox.Show("Vänligen välj spekulant i listan.");
+                }
+                else if (selectedObjectsNr == 0)
+                {
+                    MessageBox.Show("Vänligen välj objekt i listan.");
+                }
+                else if (!(selectedBuyersNr == 0) && !(selectedObjectsNr == 0))
+                {
+                    string objNr = dgvShowingAllObjects.SelectedCells[0].Value.ToString();
+                    string buyerSsnr = dgvShowingAllBuyers.SelectedCells[0].Value.ToString();
+                    bool showingExists = this.controller.ShowingExists(objNr, buyerSsnr);
+
+                    if (showingExists)
+                    {
+                        MessageBox.Show("Visningen finns redan. Var vänlig kontorllera dina val.");
+                    }
+                    else
+                    {
+                        this.controller.AddShowing(objNr, buyerSsnr, showingDate);
+                        Populate();
+                        MessageBox.Show("Visning registrerad.");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Det gick inte att registrera visning. \n" + ex);
+            }
+        }
+
         private void btnShowingUpdate_Click(object sender, EventArgs e)          //Uppdatera visningsdatum
         {
             try
             {
-                string objNr = lblShowingSelectedObject.Text;
                 string showingDate = dtpShowingShowingDate.Text;
-                string buyerSsnr = lblShowingSelectedBuyer.Text;
+                int selectedBuyersNr = dgvShowingAllBuyers.SelectedRows.Count;
+                int selectedObjectsNr = dgvShowingAllObjects.SelectedRows.Count;
 
-                if (lblShowingSelectedBuyer.Text.Equals("selectedBuyer(invisible)"))
+                if (selectedBuyersNr == 0)
                 {
                     MessageBox.Show("Vänligen välj spekulant i listan.");
                 }
 
-                else if (lblShowingSelectedObject.Text.Equals("selectedObject(invisible)"))
+                else if (selectedObjectsNr == 0)
                 {
                     MessageBox.Show("Vänligen välj objekt i listan.");
                 }
 
-                else
+                else if (!(selectedBuyersNr == 0) && !(selectedObjectsNr == 0))
                 {
-                    controller.UpdateShowing(objNr, buyerSsnr, showingDate);
+                    string objNr = dgvShowingAllObjects.SelectedCells[0].Value.ToString();
+                    string buyerSsnr = dgvShowingAllBuyers.SelectedCells[0].Value.ToString();
+
+                    this.controller.UpdateShowing(objNr, buyerSsnr, showingDate);
                     MessageBox.Show("Visning uppdaterad. Nytt visningsdatum " + showingDate);
                     Populate();
-                    lblShowingSelectedBuyer.Text = "selectedBuyer(invisible)";
-                    lblShowingSelectedObject.Text = "selectedObject(invisible)";
                 }
             }
             catch (Exception ex)
@@ -333,67 +325,46 @@ namespace praktikfall
             }
         }
 
-        private void dgvShowingCurrentShowings_CellClicked(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = this.dgvShowingCurrentShowings.Rows[e.RowIndex];
-                    string objNr = row.Cells["Objektsnummer"].Value.ToString();
-                    string buyerSsnr = row.Cells["Spekulant"].Value.ToString();
-                    lblShowingSelectedBuyerDelete.Text = buyerSsnr;
-                    lblShowingSelectedObjNrDelete.Text = objNr;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Problem med att ladda info från listan. \n" + ex);
-            }
-        }
-
         private void btnShowingSubmitDelete_Click(object sender, EventArgs e)                         //Ta bort visning/Ta bort spekulant från visning
         {
             try
             {
-                string buyerSsnr = lblShowingSelectedBuyerDelete.Text;
-                string objNr = lblShowingSelectedObjNrDelete.Text;
+                int selectedBuyersNr = dgvShowingCurrentShowings.SelectedRows.Count;
+                int selectedObjectsNr = dgvShowingCurrentShowings.SelectedCells.Count;
 
                 if (rbShowingDeleteShowing.Checked)                                                  //Om "ta bort hela visningen" är valt
                 {
-                    if (lblShowingSelectedObjNrDelete.Text.Equals("selectedForDelete(invisible)"))
+                    if (selectedObjectsNr == 0)
                     {
                         MessageBox.Show("Vänligen välj ett objekt i listan först.");
                     }
                     else
                     {
-                        controller.DeleteShowing(objNr);
+                        string objNr = dgvShowingCurrentShowings.SelectedCells[0].Value.ToString();
+                        this.controller.DeleteShowing(objNr);
                         Populate();
-                        lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
-                        lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
                         MessageBox.Show("Visning borttagen.");
                     }
-                }
-                else if (!rbShowingDeleteBuyer.Checked && !rbShowingDeleteShowing.Checked)               // Om inget val gjorts, ge feedback
-                {
-                    MessageBox.Show("Vänligen gör ett val först.");
                 }
 
                 else if (rbShowingDeleteBuyer.Checked)                                                   //Om "ta bort spekulant" är valt
                 {
-                    if (lblShowingSelectedBuyerDelete.Text.Equals("selectedForDelete(invisible)"))
+                    if (selectedBuyersNr == 0)
                     {
                         MessageBox.Show("Vänligen välj en spekulant i listan först.");
                     }
                     else
                     {
-                        controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
+                        string objNr = dgvShowingCurrentShowings.SelectedCells[0].Value.ToString();
+                        string buyerSsnr = dgvShowingCurrentShowings.SelectedCells[1].Value.ToString();
+                        this.controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
                         Populate();
-                        lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
-                        lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
                         MessageBox.Show("Spekulant borttagen från visning.");
                     }
-
+                }
+                else if ((selectedObjectsNr == 0) && (selectedBuyersNr == 0))               // Om inget val gjorts, ge feedback
+                {
+                    MessageBox.Show("Vänligen gör ett val först.");
                 }
             }
             catch (Exception ex)
@@ -428,14 +399,14 @@ namespace praktikfall
 
                 if (cbObjectUpdate.Checked && !cbObjectRegister.Checked && !cbObjectDeleteObject.Checked) //Update
                 {
-                        this.controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);                       
+                    this.controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
                 }
                 else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !cbObjectDeleteObject.Checked) //Register
-                {       
-                        this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
-                        pbObjectThumbnail.Image = null;
-                        pbObjectsObjectPicture.Image = null;
-                    }
+                {
+                    this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                    pbObjectThumbnail.Image = null;
+                    pbObjectsObjectPicture.Image = null;
+                }
                 else if (cbObjectDeleteObject.Checked && !cbObjectUpdate.Checked && !cbObjectRegister.Checked) //Delete
                 {
                     this.controller.DeleteObject(objNr, ownerSsnr);
@@ -463,7 +434,7 @@ namespace praktikfall
                 else
                 {
                     string searchString = tbShowingSearch.Text;
-                    DataTable dt = controller.SearchProBuyerByString(searchString);
+                    DataTable dt = this.controller.SearchProBuyerByString(searchString);
                     dgvShowingAllBuyers.DataSource = dt;
                 }
             }
@@ -618,7 +589,7 @@ namespace praktikfall
 
                     else
                     {
-                        bool brokerExists = controller.BrokerExists(brokerSsnr);
+                        bool brokerExists = this.controller.BrokerExists(brokerSsnr);
 
                         if (brokerExists)
                         {
@@ -627,7 +598,7 @@ namespace praktikfall
 
                         else
                         {
-                            controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                            this.controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
                             MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad.");
                             Populate();
                         }
@@ -638,8 +609,8 @@ namespace praktikfall
 
                 if (!cbBrokerRegister.Checked && cbBrokerDelete.Checked && !cbBrokerUpdate.Checked)     //Delete
                 {
-                    bool brokerExists = controller.BrokerExists(brokerSsnr);
-                    controller.DeleteBroker(brokerSsnr);
+                    bool brokerExists = this.controller.BrokerExists(brokerSsnr);
+                    this.controller.DeleteBroker(brokerSsnr);
 
                     if (!brokerExists)
                     {
@@ -660,8 +631,8 @@ namespace praktikfall
                 }
                 if (!cbBrokerRegister.Checked && !cbBrokerDelete.Checked && cbBrokerUpdate.Checked)             //Update
                 {
-                    bool brokerExists = controller.BrokerExists(brokerSsnr);
-                    controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                    bool brokerExists = this.controller.BrokerExists(brokerSsnr);
+                    this.controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
 
                     if (!brokerExists)
                     {
@@ -692,8 +663,6 @@ namespace praktikfall
                 if (e.RowIndex >= 0)
                 {
                     DataGridViewRow row = this.dgvBrokerAllBrokers.Rows[e.RowIndex];
-                    string selectedItem = row.Cells["Personnummer"].Value.ToString();
-                    lblShowingSelectedBuyer.Text = selectedItem;
                     tbBrokerBrokerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
                     tbBrokerBrokerName.Text = row.Cells["Namn"].Value.ToString();
                     tbBrokerBrokerAdress.Text = row.Cells["Adress"].Value.ToString();
@@ -710,7 +679,7 @@ namespace praktikfall
             }
         }
 
-        private void btnShowingSubmit_Click(object sender, EventArgs e)
+        private void btnShowingSubmit_Click(object sender, EventArgs e) //Prospective buyer
         {
             try
             {
@@ -721,67 +690,24 @@ namespace praktikfall
 
                 if (cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) //Register
                 {
-                    int parsedValue;
-
-                    bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
-
-                    if (buyerExists)
-                    {
-                        MessageBox.Show("Det finns redan en spekulant med personnummer " + buyerSsnr + " registrerad.");
-                    }
-                    else
-                    {
-                        if (!int.TryParse(tbShowingBuyerSsnr.Text, out parsedValue))
-                        {
-                            MessageBox.Show("Personnummer får endast innehålla siffror.");
-                        }
-
-                        else if (tbShowingBuyerName.Text.Equals(""))
-                        {
-                            MessageBox.Show("Du har ej angivit ett namn.");
-                        }
-                        else
-                        {
-                            controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-                            Populate();
-                            MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till.");
-                        }
-                    }
+                    this.controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                    Populate();
                 }
+
                 if (!cbShowingRegisterBuyer.Checked && cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) // Delete
                 {
-                    controller.DeleteProspectiveBuyer(buyerSsnr);
-                    bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
-                    if (!buyerExists)
-                    {
-                        MessageBox.Show("Ingen sådan spekulant finns. Vänligen försök igen.");
-                    }
-                    else
-                    {
-                        Populate();
-                        tbShowingBuyerEmail.Text = "";
-                        tbShowingBuyerName.Text = "";
-                        tbShowingBuyerSsnr.Text = "";
-                        tbShowingBuyerTel.Text = "";
-                        MessageBox.Show("Spekulant borttagen.");
-                    }
-
+                    this.controller.DeleteProspectiveBuyer(buyerSsnr);
+                    Populate();
+                    tbShowingBuyerEmail.Text = "";
+                    tbShowingBuyerName.Text = "";
+                    tbShowingBuyerSsnr.Text = "";
+                    tbShowingBuyerTel.Text = "";
                 }
                 if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && cbShowingUpdateBuyer.Checked) //Update
                 {
-                    bool buyerExists = controller.ProspectiveBuyerExists(buyerSsnr);
-                    controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-                    if (!buyerExists)
-                    {
-                        MessageBox.Show("Det går inte att uppdatera en spekulants personnummer.");
-                    }
-                    else
-                    {
-                        Populate();
-                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " uppdaterad.");
-                    }
 
-
+                    this.controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                    Populate();
                 }
                 if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked)
                 {
@@ -907,7 +833,7 @@ namespace praktikfall
                 else
                 {
                     string searchString = tbBrokerSearch.Text;
-                    DataTable dt = controller.SearchBrokerByString(searchString);
+                    DataTable dt = this.controller.SearchBrokerByString(searchString);
                     dgvBrokerAllBrokers.DataSource = dt;
                 }
             }
@@ -935,7 +861,7 @@ namespace praktikfall
                 FileStream fs = new FileStream(fp, FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(fs);
                 img = br.ReadBytes((int)fs.Length);
-                controller.addObjectImage(img, objNr);
+                this.controller.addObjectImage(img, objNr);
                 pbObjectsObjectPicture.Image = pbObjectThumbnail.Image;
                 MessageBox.Show("En bild har registrerats till objekt med objektsnummer " + objNr);
             }

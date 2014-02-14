@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -47,21 +47,17 @@
             this.lblShowingBuyerName = new System.Windows.Forms.Label();
             this.lblShowingBuyerSsnr = new System.Windows.Forms.Label();
             this.gbShowingDeleteShowing = new System.Windows.Forms.GroupBox();
-            this.lblShowingSelectedBuyerDelete = new System.Windows.Forms.Label();
             this.lblShowingDeleteChoice = new System.Windows.Forms.Label();
             this.rbShowingDeleteBuyer = new System.Windows.Forms.RadioButton();
             this.dgvShowingCurrentShowings = new System.Windows.Forms.DataGridView();
             this.rbShowingDeleteShowing = new System.Windows.Forms.RadioButton();
             this.btnShowingSubmitDelete = new System.Windows.Forms.Button();
-            this.lblShowingSelectedObjNrDelete = new System.Windows.Forms.Label();
             this.lblShowingChoose = new System.Windows.Forms.Label();
             this.gbShowing = new System.Windows.Forms.GroupBox();
             this.lblShowingBuyerSearch = new System.Windows.Forms.Label();
             this.btnShowingUpdate = new System.Windows.Forms.Button();
             this.tbShowingSearch = new System.Windows.Forms.TextBox();
-            this.lblShowingSelectedBuyer = new System.Windows.Forms.Label();
             this.btnShowingSearch = new System.Windows.Forms.Button();
-            this.lblShowingSelectedObject = new System.Windows.Forms.Label();
             this.dtpShowingShowingDate = new System.Windows.Forms.DateTimePicker();
             this.dgvShowingAllObjects = new System.Windows.Forms.DataGridView();
             this.lblDateShowing = new System.Windows.Forms.Label();
@@ -346,13 +342,11 @@
             // 
             // gbShowingDeleteShowing
             // 
-            this.gbShowingDeleteShowing.Controls.Add(this.lblShowingSelectedBuyerDelete);
             this.gbShowingDeleteShowing.Controls.Add(this.lblShowingDeleteChoice);
             this.gbShowingDeleteShowing.Controls.Add(this.rbShowingDeleteBuyer);
             this.gbShowingDeleteShowing.Controls.Add(this.dgvShowingCurrentShowings);
             this.gbShowingDeleteShowing.Controls.Add(this.rbShowingDeleteShowing);
             this.gbShowingDeleteShowing.Controls.Add(this.btnShowingSubmitDelete);
-            this.gbShowingDeleteShowing.Controls.Add(this.lblShowingSelectedObjNrDelete);
             this.gbShowingDeleteShowing.Controls.Add(this.lblShowingChoose);
             this.gbShowingDeleteShowing.Location = new System.Drawing.Point(607, 285);
             this.gbShowingDeleteShowing.Name = "gbShowingDeleteShowing";
@@ -360,16 +354,6 @@
             this.gbShowingDeleteShowing.TabIndex = 11;
             this.gbShowingDeleteShowing.TabStop = false;
             this.gbShowingDeleteShowing.Text = "Ta bort visning";
-            // 
-            // lblShowingSelectedBuyerDelete
-            // 
-            this.lblShowingSelectedBuyerDelete.AutoSize = true;
-            this.lblShowingSelectedBuyerDelete.Location = new System.Drawing.Point(300, 296);
-            this.lblShowingSelectedBuyerDelete.Name = "lblShowingSelectedBuyerDelete";
-            this.lblShowingSelectedBuyerDelete.Size = new System.Drawing.Size(164, 13);
-            this.lblShowingSelectedBuyerDelete.TabIndex = 21;
-            this.lblShowingSelectedBuyerDelete.Text = "selectedForDelete(invisible)";
-            this.lblShowingSelectedBuyerDelete.Visible = false;
             // 
             // lblShowingDeleteChoice
             // 
@@ -407,7 +391,6 @@
             this.dgvShowingCurrentShowings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingCurrentShowings.Size = new System.Drawing.Size(457, 260);
             this.dgvShowingCurrentShowings.TabIndex = 12;
-            this.dgvShowingCurrentShowings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowingCurrentShowings_CellClicked);
             this.dgvShowingCurrentShowings.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingCurrentShowings_DBC);
             // 
             // rbShowingDeleteShowing
@@ -431,16 +414,6 @@
             this.btnShowingSubmitDelete.UseVisualStyleBackColor = true;
             this.btnShowingSubmitDelete.Click += new System.EventHandler(this.btnShowingSubmitDelete_Click);
             // 
-            // lblShowingSelectedObjNrDelete
-            // 
-            this.lblShowingSelectedObjNrDelete.AutoSize = true;
-            this.lblShowingSelectedObjNrDelete.Location = new System.Drawing.Point(300, 309);
-            this.lblShowingSelectedObjNrDelete.Name = "lblShowingSelectedObjNrDelete";
-            this.lblShowingSelectedObjNrDelete.Size = new System.Drawing.Size(164, 13);
-            this.lblShowingSelectedObjNrDelete.TabIndex = 14;
-            this.lblShowingSelectedObjNrDelete.Text = "selectedForDelete(invisible)";
-            this.lblShowingSelectedObjNrDelete.Visible = false;
-            // 
             // lblShowingChoose
             // 
             this.lblShowingChoose.AutoSize = true;
@@ -455,9 +428,7 @@
             this.gbShowing.Controls.Add(this.lblShowingBuyerSearch);
             this.gbShowing.Controls.Add(this.btnShowingUpdate);
             this.gbShowing.Controls.Add(this.tbShowingSearch);
-            this.gbShowing.Controls.Add(this.lblShowingSelectedBuyer);
             this.gbShowing.Controls.Add(this.btnShowingSearch);
-            this.gbShowing.Controls.Add(this.lblShowingSelectedObject);
             this.gbShowing.Controls.Add(this.dtpShowingShowingDate);
             this.gbShowing.Controls.Add(this.dgvShowingAllObjects);
             this.gbShowing.Controls.Add(this.lblDateShowing);
@@ -505,16 +476,6 @@
             this.tbShowingSearch.Text = "Sökord";
             this.tbShowingSearch.Click += new System.EventHandler(this.tbShowingSearch_Click);
             // 
-            // lblShowingSelectedBuyer
-            // 
-            this.lblShowingSelectedBuyer.AutoSize = true;
-            this.lblShowingSelectedBuyer.Location = new System.Drawing.Point(6, 280);
-            this.lblShowingSelectedBuyer.Name = "lblShowingSelectedBuyer";
-            this.lblShowingSelectedBuyer.Size = new System.Drawing.Size(141, 13);
-            this.lblShowingSelectedBuyer.TabIndex = 11;
-            this.lblShowingSelectedBuyer.Text = "selectedBuyer(invisible)";
-            this.lblShowingSelectedBuyer.Visible = false;
-            // 
             // btnShowingSearch
             // 
             this.btnShowingSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -526,16 +487,6 @@
             this.btnShowingSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnShowingSearch.UseVisualStyleBackColor = true;
             this.btnShowingSearch.Click += new System.EventHandler(this.btnShowingSearch_Click);
-            // 
-            // lblShowingSelectedObject
-            // 
-            this.lblShowingSelectedObject.AutoSize = true;
-            this.lblShowingSelectedObject.Location = new System.Drawing.Point(438, 574);
-            this.lblShowingSelectedObject.Name = "lblShowingSelectedObject";
-            this.lblShowingSelectedObject.Size = new System.Drawing.Size(146, 13);
-            this.lblShowingSelectedObject.TabIndex = 10;
-            this.lblShowingSelectedObject.Text = "selectedObject(invisible)";
-            this.lblShowingSelectedObject.Visible = false;
             // 
             // dtpShowingShowingDate
             // 
@@ -559,7 +510,6 @@
             this.dgvShowingAllObjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowingAllObjects.Size = new System.Drawing.Size(583, 260);
             this.dgvShowingAllObjects.TabIndex = 8;
-            this.dgvShowingAllObjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowingAllObjects_CellClicked);
             this.dgvShowingAllObjects.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvShowingAllObjects_DBC);
             // 
             // lblDateShowing
@@ -962,8 +912,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1668,18 +1618,14 @@
         private System.Windows.Forms.Label lblStartEmpName;
         private System.Windows.Forms.Label lblStartWelcome;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.Label lblShowingSelectedBuyer;
-        private System.Windows.Forms.Label lblShowingSelectedObject;
         private System.Windows.Forms.GroupBox gbShowingDeleteShowing;
         private System.Windows.Forms.DataGridView dgvShowingCurrentShowings;
         private System.Windows.Forms.Button btnShowingSubmitDelete;
-        private System.Windows.Forms.Label lblShowingSelectedObjNrDelete;
         private System.Windows.Forms.Label lblShowingChoose;
         private System.Windows.Forms.Button btnShowingUpdate;
         private System.Windows.Forms.Label lblShowingDeleteChoice;
         private System.Windows.Forms.RadioButton rbShowingDeleteBuyer;
         private System.Windows.Forms.RadioButton rbShowingDeleteShowing;
-        private System.Windows.Forms.Label lblShowingSelectedBuyerDelete;
         private System.Windows.Forms.TabPage tpObjectObjectTabPage;
         private System.Windows.Forms.GroupBox bgObjectObjectInfo2;
         private System.Windows.Forms.TextBox tbObjectPrice;
