@@ -690,67 +690,24 @@ namespace praktikfall
 
                 if (cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) //Register
                 {
-                    int parsedValue;
-
-                    bool buyerExists = this.controller.ProspectiveBuyerExists(buyerSsnr);
-
-                    if (buyerExists)
-                    {
-                        MessageBox.Show("Det finns redan en spekulant med personnummer " + buyerSsnr + " registrerad.");
-                    }
-                    else
-                    {
-                        if (!int.TryParse(tbShowingBuyerSsnr.Text, out parsedValue))
-                        {
-                            MessageBox.Show("Personnummer får endast innehålla siffror.");
-                        }
-
-                        else if (tbShowingBuyerName.Text.Equals(""))
-                        {
-                            MessageBox.Show("Du har ej angivit ett namn.");
-                        }
-                        else
-                        {
-                            this.controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-                            Populate();
-                            MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till.");
-                        }
-                    }
+                    this.controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                    Populate();
                 }
+
                 if (!cbShowingRegisterBuyer.Checked && cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) // Delete
                 {
                     this.controller.DeleteProspectiveBuyer(buyerSsnr);
-                    bool buyerExists = this.controller.ProspectiveBuyerExists(buyerSsnr);
-                    if (!buyerExists)
-                    {
-                        MessageBox.Show("Ingen sådan spekulant finns. Vänligen försök igen.");
-                    }
-                    else
-                    {
-                        Populate();
-                        tbShowingBuyerEmail.Text = "";
-                        tbShowingBuyerName.Text = "";
-                        tbShowingBuyerSsnr.Text = "";
-                        tbShowingBuyerTel.Text = "";
-                        MessageBox.Show("Spekulant borttagen.");
-                    }
-
+                    Populate();
+                    tbShowingBuyerEmail.Text = "";
+                    tbShowingBuyerName.Text = "";
+                    tbShowingBuyerSsnr.Text = "";
+                    tbShowingBuyerTel.Text = "";
                 }
                 if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && cbShowingUpdateBuyer.Checked) //Update
                 {
-                    bool buyerExists = this.controller.ProspectiveBuyerExists(buyerSsnr);
+
                     this.controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-                    if (!buyerExists)
-                    {
-                        MessageBox.Show("Det går inte att uppdatera en spekulants personnummer.");
-                    }
-                    else
-                    {
-                        Populate();
-                        MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " uppdaterad.");
-                    }
-
-
+                    Populate();
                 }
                 if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked)
                 {

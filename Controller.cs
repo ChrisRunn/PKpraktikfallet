@@ -14,11 +14,11 @@ namespace praktikfall
         #region OBJEKT
 
         //This method deletes an object
-        public void DeleteObject(string objNr ,string ownerSsnr)
+        public void DeleteObject(string objNr, string ownerSsnr)
         {
             bool objectExists = ObjectExists(objNr);
             bool ownerHasMoreObjects = OwnerHasOtherObjects(ownerSsnr);
-            
+
             if (objectExists && !ownerHasMoreObjects)
             {
                 dal.DeleteObjectOwner(ownerSsnr);
@@ -67,34 +67,34 @@ namespace praktikfall
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
-            
-             bool objectExists = ObjectExists(objNr);
-             bool brokerExists = BrokerExists(brokerSsnr);
-             bool ownerExists = OwnerExists(ownerSsnr);
+
+            bool objectExists = ObjectExists(objNr);
+            bool brokerExists = BrokerExists(brokerSsnr);
+            bool ownerExists = OwnerExists(ownerSsnr);
 
 
-                    if (!string.IsNullOrEmpty(ownerSsnr) || !string.IsNullOrEmpty(objNr))
-                    {
-                        MessageBox.Show("Ägare kan inte registreras utan objekt, och objekt kan inte registreras utan ägare.");
-                    }
-                    else if (!objectExists && brokerExists && !ownerExists)
-                    {
-                        this.dal.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
-                        MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
-                    }
-                    else if (!objectExists && brokerExists && ownerExists)
-                    {
-                        this.dal.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
-                        MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
-                    }
-                    else if (!brokerExists)
-                    {
-                        MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
-                    }
-                    else if (objectExists)
-                    {
-                        MessageBox.Show("Det finns redan ett objekt med objektnummer " + objNr + " registrerat.");
-                    }
+            if (!string.IsNullOrEmpty(ownerSsnr) || !string.IsNullOrEmpty(objNr))
+            {
+                MessageBox.Show("Ägare kan inte registreras utan objekt, och objekt kan inte registreras utan ägare.");
+            }
+            else if (!objectExists && brokerExists && !ownerExists)
+            {
+                this.dal.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+            }
+            else if (!objectExists && brokerExists && ownerExists)
+            {
+                this.dal.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
+                MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+            }
+            else if (!brokerExists)
+            {
+                MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
+            }
+            else if (objectExists)
+            {
+                MessageBox.Show("Det finns redan ett objekt med objektnummer " + objNr + " registrerat.");
+            }
         }
         // Adds a real estate object
         public void AddObject(string objNr, string objAdress, string objCity,
@@ -211,21 +211,62 @@ namespace praktikfall
         //This method registers a prospective buyer to the database
         public void AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
-            dal.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+            int parsedValue;
+
+            bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
+
+            if (buyerExists)
+            {
+                MessageBox.Show("Det finns redan en spekulant med personnummer " + buyerSsnr + " registrerad.");
+            }
+            else
+            {
+                if (!int.TryParse(buyerSsnr, out parsedValue))
+                {
+                    MessageBox.Show("Personnummer får endast innehålla siffror.");
+                }
+
+                else if (name.Equals(""))
+                {
+                    MessageBox.Show("Du har ej angivit ett namn.");
+                }
+                else
+                {
+                    dal.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                    MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till.");
+                }
+            }
 
         }
 
         //This method deletes a prospective buyer in the database
         public void DeleteProspectiveBuyer(string buyerSsnr)
         {
-            dal.DeleteProspectiveBuyer(buyerSsnr);
+            bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
 
+            if (!buyerExists)
+            {
+                MessageBox.Show("Ingen sådan spekulant finns. Vänligen försök igen.");
+            }
+            else
+            {
+                dal.DeleteProspectiveBuyer(buyerSsnr);
+                MessageBox.Show("Spekulant borttagen.");
+            }
         }
         //This method updates information for a prospective buyer in the database
         public void UpdateProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
-            dal.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-
+            bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
+            if (!buyerExists)
+            {
+                MessageBox.Show("Det går inte att uppdatera en spekulants personnummer.");
+            }
+            else
+            {
+                dal.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " uppdaterad.");
+            }
         }
         //This method works as a search function for prospective buyers
         public DataTable GetProspectiveBuyer(string buyerSsnr)
@@ -311,8 +352,8 @@ namespace praktikfall
         public void AddShowing(string objNr, string buyerSsnr, string showingDate)
         {
             dal.AddShowing(objNr, buyerSsnr, showingDate);
-            
-           
+
+
         }
 
         //This method updates a showingdate for a showing
