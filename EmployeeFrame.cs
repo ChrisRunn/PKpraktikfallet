@@ -187,8 +187,8 @@ namespace praktikfall
 
             string price = objectInfo[3].ToString();
             string area = objectInfo[4].ToString();
-            //int priceperkvm = int.Parse(price) / int.Parse(area);
-            //tbObjectPricePerKvm.Text = priceperkvm.ToString();
+            int priceperkvm = int.Parse(price) / int.Parse(area);
+            tbObjectPricePerKvm.Text = priceperkvm.ToString();
 
             DataRow ownerInfo = this.controller.GetObjectOwner(tbObjectOwnerSsnr.Text).Rows[0];
 
@@ -412,7 +412,7 @@ namespace praktikfall
         {
             try
             {
-                string objNr = tbObjectObjectNr.Text;
+                string objNr = tbObjectObjectNr.Text.ToString();
                 string objAdress = tbObjectAddress.Text;
                 string objCity = tbObjectCity.Text;
                 string objPrice = tbObjectPrice.Text;
@@ -428,89 +428,19 @@ namespace praktikfall
 
                 if (cbObjectUpdate.Checked && !cbObjectRegister.Checked && !cbObjectDeleteObject.Checked) //Update
                 {
-                    bool objectExists = controller.ObjectExists(objNr);
-                    bool ownerExists = controller.OwnerExists(ownerSsnr);
-
-                    if (objectExists && ownerExists)
-                    {
-                        controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
-                        Populate();
-                        MessageBox.Show("Objekt med objektnr " + objNr + " uppdaterat.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Kan ej uppdatera objektsnummer eller ägarens personnummer.");
-                    }
+                        this.controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);                       
                 }
                 else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !cbObjectDeleteObject.Checked) //Register
-                {
-                    bool objectExists = controller.ObjectExists(objNr);
-                    bool brokerExists = controller.BrokerExists(brokerSsnr);
-                    bool ownerExists = this.controller.OwnerExists(ownerSsnr);
-
-                    if (!objectExists && brokerExists && !ownerExists)
-                    {
-
-                        if (string.IsNullOrEmpty(tbObjectOwnerSsnr.Text.ToString()) || string.IsNullOrEmpty(tbObjectObjectNr.Text.ToString()))
-                        {
-                            MessageBox.Show("Det går inte att registrera ett objekt utan ägare");
-                        }
-                        else
-                        {
-                            this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
-                            Populate();
-                            ClearObjectTb();
-                            pbObjectThumbnail.Image = null;
-                            pbObjectsObjectPicture.Image = null;
-                            MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
-
-                        }
-                    }
-                    else if (!objectExists && brokerExists && ownerExists)
-                    {
-                        this.controller.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
-                        Populate();
-                        ClearObjectTb();
+                {       
+                        this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                         pbObjectThumbnail.Image = null;
                         pbObjectsObjectPicture.Image = null;
-                        MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
                     }
-                    else if (!brokerExists)
-                    {
-                        MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
-                    }
-                    else if (objectExists)
-                    {
-                        MessageBox.Show("Det finns redan ett objekt med objektnummer " + objNr + " registrerat.");
-                    }
-                }
-
                 else if (cbObjectDeleteObject.Checked && !cbObjectUpdate.Checked && !cbObjectRegister.Checked) //Delete
                 {
-
-                    bool objectExists = controller.ObjectExists(objNr);
-                    bool ownerHasMoreObjects = this.controller.OwnerHasOtherObjects(ownerSsnr);
-                    if (objectExists && !ownerHasMoreObjects)
-                    {
-                        this.controller.DeleteObjectOwner(ownerSsnr);
-                        this.controller.DeleteObject(objNr);
-                        Populate();
-                        ClearObjectTb();
-                        MessageBox.Show("Objekt borttaget. Ägaren är även borttagen eftersom ägaren ej äger andra objekt.");
-                    }
-                    else if (objectExists && ownerHasMoreObjects)
-                    {
-                        this.controller.DeleteObject(objNr);
-                        Populate();
-                        ClearObjectTb();
-                        MessageBox.Show("Objekt borttaget.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Inget sådant objekt finns.");
-                    }
-                    btnObjectSubmit.Enabled = true;
+                    this.controller.DeleteObject(objNr, ownerSsnr);
                 }
+                Populate();
             }
             catch (Exception ex)
             {

@@ -14,9 +14,26 @@ namespace praktikfall
         #region OBJEKT
 
         //This method deletes an object
-        public void DeleteObject(string objNr)
+        public void DeleteObject(string objNr ,string ownerSsnr)
         {
-            dal.DeleteObject(objNr);
+            bool objectExists = ObjectExists(objNr);
+            bool ownerHasMoreObjects = OwnerHasOtherObjects(ownerSsnr);
+            
+            if (objectExists && !ownerHasMoreObjects)
+            {
+                dal.DeleteObjectOwner(ownerSsnr);
+                dal.DeleteObject(objNr);
+                MessageBox.Show("Objekt borttaget. Ägaren är även borttagen eftersom ägaren ej äger andra objekt.");
+            }
+            else if (objectExists && ownerHasMoreObjects)
+            {
+                dal.DeleteObject(objNr);
+                MessageBox.Show("Objekt borttaget.");
+            }
+            else
+            {
+                MessageBox.Show("Inget sådant objekt finns.");
+            }
 
         }
         /*//Uppdatera OBJEKT
@@ -30,7 +47,18 @@ namespace praktikfall
         public void UpdateObjectFlap(string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
-            dal.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
+            bool objectExists = ObjectExists(objNr);
+            bool ownerExists = OwnerExists(ownerSsnr);
+
+            if (objectExists && ownerExists)
+            {
+                dal.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
+                MessageBox.Show("Objekt med objektnr " + objNr + " uppdaterat.");
+            }
+            else
+            {
+                MessageBox.Show("Kan ej uppdatera objektsnummer eller ägarens personnummer.");
+            }
 
         }
 
@@ -39,10 +67,34 @@ namespace praktikfall
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
-            dal.AddObjectAndOwner(objNr, objAdress, objCity,
-           objPrice, objArea, objRooms, objUnitType, objInfo,
-           brokerSsnr, ownerSsnr, phoneNr, email, name);
+            
+             bool objectExists = ObjectExists(objNr);
+             bool brokerExists = BrokerExists(brokerSsnr);
+             bool ownerExists = OwnerExists(ownerSsnr);
 
+
+                    if (!string.IsNullOrEmpty(ownerSsnr) || !string.IsNullOrEmpty(objNr))
+                    {
+                        MessageBox.Show("Ägare kan inte registreras utan objekt, och objekt kan inte registreras utan ägare.");
+                    }
+                    else if (!objectExists && brokerExists && !ownerExists)
+                    {
+                        this.dal.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                        MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+                    }
+                    else if (!objectExists && brokerExists && ownerExists)
+                    {
+                        this.dal.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
+                        MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+                    }
+                    else if (!brokerExists)
+                    {
+                        MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
+                    }
+                    else if (objectExists)
+                    {
+                        MessageBox.Show("Det finns redan ett objekt med objektnummer " + objNr + " registrerat.");
+                    }
         }
         // Adds a real estate object
         public void AddObject(string objNr, string objAdress, string objCity,
