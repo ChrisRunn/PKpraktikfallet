@@ -708,9 +708,9 @@
             this.lblObjectPricePErKvm.AutoSize = true;
             this.lblObjectPricePErKvm.Location = new System.Drawing.Point(7, 229);
             this.lblObjectPricePErKvm.Name = "lblObjectPricePErKvm";
-            this.lblObjectPricePErKvm.Size = new System.Drawing.Size(81, 13);
+            this.lblObjectPricePErKvm.Size = new System.Drawing.Size(80, 13);
             this.lblObjectPricePErKvm.TabIndex = 28;
-            this.lblObjectPricePErKvm.Text = "Pris per kvm:";
+            this.lblObjectPricePErKvm.Text = "Pris/kvm(kr):";
             // 
             // tbObjectPrice
             // 
@@ -770,9 +770,9 @@
             this.lblObjectPrice.AutoSize = true;
             this.lblObjectPrice.Location = new System.Drawing.Point(7, 151);
             this.lblObjectPrice.Name = "lblObjectPrice";
-            this.lblObjectPrice.Size = new System.Drawing.Size(32, 13);
+            this.lblObjectPrice.Size = new System.Drawing.Size(51, 13);
             this.lblObjectPrice.TabIndex = 25;
-            this.lblObjectPrice.Text = "Pris:";
+            this.lblObjectPrice.Text = "Pris(kr):";
             // 
             // lblObjectObjectNr
             // 
@@ -827,9 +827,9 @@
             this.lblObjectArea.AutoSize = true;
             this.lblObjectArea.Location = new System.Drawing.Point(7, 21);
             this.lblObjectArea.Name = "lblObjectArea";
-            this.lblObjectArea.Size = new System.Drawing.Size(51, 13);
+            this.lblObjectArea.Size = new System.Drawing.Size(82, 13);
             this.lblObjectArea.TabIndex = 5;
-            this.lblObjectArea.Text = "Boarea:";
+            this.lblObjectArea.Text = "Boarea(kvm):";
             // 
             // lblObjectNumberOfRooms
             // 

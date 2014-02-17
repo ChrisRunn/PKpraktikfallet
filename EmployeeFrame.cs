@@ -39,7 +39,6 @@ namespace praktikfall
 
         public void MakeTbReadOnly()
         {
-
             tbObjectObjectNr.ReadOnly = true;
             tbObjectAddress.ReadOnly = true;
             tbObjectCity.ReadOnly = true;
@@ -97,6 +96,24 @@ namespace praktikfall
             tbObjectPricePerKvm.Text = "";
         }
 
+        public void ClearShowingBuyerTb()
+        {
+            tbShowingBuyerEmail.Text = "";
+            tbShowingBuyerName.Text = "";
+            tbShowingBuyerSsnr.Text = "";
+            tbShowingBuyerTel.Text = "";
+        }
+
+        public void ClearBrokerTb()
+        {
+            tbBrokerBrokerAdress.Text = "";
+            tbBrokerBrokerCity.Text = "";
+            tbBrokerBrokerEmail.Text = "";
+            tbBrokerBrokerName.Text = "";
+            tbBrokerBrokerPhoneNumber.Text = "";
+            tbBrokerBrokerPw.Text = "";
+            tbBrokerBrokerSsnr.Text = "";
+        }
         public void Populate()                                                            //Uppdatera ALLA DGVS (utom Christians)
         {
             DataTable dtAllObjects = this.controller.GetAllObjectsNr();
@@ -158,44 +175,49 @@ namespace praktikfall
 
         private void setSelectedObjectAndOwner(string objNr, DataGridViewRow row)
         {
-
-            DataRow objectInfo = this.controller.GetObject(objNr).Rows[0];
-            tbObjectObjectNr.Text = objectInfo[0].ToString();
-            tbObjectAddress.Text = objectInfo[1].ToString();
-            tbObjectCity.Text = objectInfo[2].ToString();
-            tbObjectPrice.Text = objectInfo[3].ToString();
-            lblObjectObjAddress.Text = objectInfo[1].ToString();
-            tbObjectArea.Text = objectInfo[4].ToString();
-            tbObjectNumberOfRooms.Text = objectInfo[5].ToString();
-            tbObjectType.Text = objectInfo[6].ToString();
-            rtbObjectObjectInfo.Text = objectInfo[7].ToString();
-            tbObjectBrokerSsnr.Text = objectInfo[8].ToString();
-            tbObjectOwnerSsnr.Text = objectInfo[9].ToString();
-            byte[] img = (byte[])objectInfo[10];
-
-            if (img != null && img.Length > 0)
+            try
             {
-                MemoryStream ms = new MemoryStream(img);
-                pbObjectsObjectPicture.Image = Image.FromStream(ms);
-            }
+                DataRow objectInfo = this.controller.GetObject(objNr).Rows[0];
+                tbObjectObjectNr.Text = objectInfo[0].ToString();
+                tbObjectAddress.Text = objectInfo[1].ToString();
+                tbObjectCity.Text = objectInfo[2].ToString();
+                tbObjectPrice.Text = objectInfo[3].ToString();
+                lblObjectObjAddress.Text = objectInfo[1].ToString();
+                tbObjectArea.Text = objectInfo[4].ToString();
+                tbObjectNumberOfRooms.Text = objectInfo[5].ToString();
+                tbObjectType.Text = objectInfo[6].ToString();
+                rtbObjectObjectInfo.Text = objectInfo[7].ToString();
+                tbObjectBrokerSsnr.Text = objectInfo[8].ToString();
+                tbObjectOwnerSsnr.Text = objectInfo[9].ToString();
+                byte[] img = (byte[])objectInfo[10];
 
-            else
+                if (img != null && img.Length > 0)
+                {
+                    MemoryStream ms = new MemoryStream(img);
+                    pbObjectsObjectPicture.Image = Image.FromStream(ms);
+                }
+
+                else
+                {
+                    pbObjectsObjectPicture.Image = null;
+                    pbObjectThumbnail.Image = null;
+                }
+
+                string price = objectInfo[3].ToString();
+                string area = objectInfo[4].ToString();
+
+                double pricePerKvm = this.controller.CalculateObjectPricePerKvm(price, area);
+                tbObjectPricePerKvm.Text = pricePerKvm.ToString();
+
+                DataRow ownerInfo = this.controller.GetObjectOwner(tbObjectOwnerSsnr.Text).Rows[0];
+                tbObjectOwnerName.Text = ownerInfo[1].ToString();
+                tbObjectOwnerPhoneNr.Text = ownerInfo[2].ToString();
+                tbObjectOwnerEmail.Text = ownerInfo[3].ToString();
+            }
+            catch (Exception ex)
             {
-                pbObjectsObjectPicture.Image = null;
-                pbObjectThumbnail.Image = null;
+                MessageBox.Show("Något gick fel....\n" + ex); // måste göras snyggare
             }
-
-            string price = objectInfo[3].ToString();
-            string area = objectInfo[4].ToString();
-            int priceperkvm = int.Parse(price) / int.Parse(area);
-            tbObjectPricePerKvm.Text = priceperkvm.ToString();
-
-            DataRow ownerInfo = this.controller.GetObjectOwner(tbObjectOwnerSsnr.Text).Rows[0];
-
-            tbObjectOwnerName.Text = ownerInfo[1].ToString();
-            tbObjectOwnerPhoneNr.Text = ownerInfo[2].ToString();
-            tbObjectOwnerEmail.Text = ownerInfo[3].ToString();
-
         }
 
         private void tbObjectSearch_Click(object sender, EventArgs e)
@@ -204,16 +226,22 @@ namespace praktikfall
             tbObjectSearch.ForeColor = Color.Black;
         }
 
-
         private void dgvShowingAllBuyers_CellClicked(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridViewRow row = this.dgvShowingAllBuyers.Rows[e.RowIndex];
-                tbShowingBuyerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
-                tbShowingBuyerName.Text = row.Cells["Namn"].Value.ToString();
-                tbShowingBuyerTel.Text = row.Cells["Telefon"].Value.ToString();
-                tbShowingBuyerEmail.Text = row.Cells["Email"].Value.ToString();
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.dgvShowingAllBuyers.Rows[e.RowIndex];
+                    tbShowingBuyerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
+                    tbShowingBuyerName.Text = row.Cells["Namn"].Value.ToString();
+                    tbShowingBuyerTel.Text = row.Cells["Telefon"].Value.ToString();
+                    tbShowingBuyerEmail.Text = row.Cells["Email"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem med att ladda från listan.\n" + ex);
             }
         }
 
@@ -226,7 +254,6 @@ namespace praktikfall
         {
             tbShowingSearch.Text = "";
             tbShowingSearch.ForeColor = Color.Black;
-
         }
 
         private void btnShowMap_Click(object sender, EventArgs e)
@@ -247,7 +274,6 @@ namespace praktikfall
             {
                 MessageBox.Show("Det gick ej att ladda kartfunktionen. \n" + ex);
             }
-
         }
 
         private void btnShowingRegisterShowing_Click(object sender, EventArgs e)                //Lägg till visning
@@ -283,7 +309,6 @@ namespace praktikfall
                         MessageBox.Show("Visning registrerad.");
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -357,6 +382,7 @@ namespace praktikfall
                     {
                         string objNr = dgvShowingCurrentShowings.SelectedCells[0].Value.ToString();
                         string buyerSsnr = dgvShowingCurrentShowings.SelectedCells[1].Value.ToString();
+
                         this.controller.DeleteBuyerFromShowing(buyerSsnr, objNr);
                         Populate();
                         MessageBox.Show("Spekulant borttagen från visning.");
@@ -379,7 +405,7 @@ namespace praktikfall
             dgvObjectAllObjects_CellClick(dgvObjectAllObjects, new DataGridViewCellEventArgs(0, 0));
         }
 
-        private void btnObjectSubmit_Click(object sender, EventArgs e)
+        private void btnObjectSubmit_Click(object sender, EventArgs e)              //Object and object owner
         {
             try
             {
@@ -399,17 +425,20 @@ namespace praktikfall
 
                 if (cbObjectUpdate.Checked && !cbObjectRegister.Checked && !cbObjectDeleteObject.Checked) //Update
                 {
-                    this.controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
+                    string feedback = this.controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
+                    MessageBox.Show(feedback);
                 }
                 else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !cbObjectDeleteObject.Checked) //Register
                 {
-                    this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                    string feedback = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                     pbObjectThumbnail.Image = null;
                     pbObjectsObjectPicture.Image = null;
+                    MessageBox.Show(feedback);
                 }
                 else if (cbObjectDeleteObject.Checked && !cbObjectUpdate.Checked && !cbObjectRegister.Checked) //Delete
                 {
-                    this.controller.DeleteObject(objNr, ownerSsnr);
+                    string feedback = this.controller.DeleteObject(objNr, ownerSsnr);
+                    MessageBox.Show(feedback);
                 }
                 Populate();
             }
@@ -551,98 +580,24 @@ namespace praktikfall
 
                 if (cbBrokerRegister.Checked && !cbBrokerDelete.Checked && !cbBrokerUpdate.Checked) //Register
                 {
-                    int parsedValue;
-                    if (!int.TryParse(tbBrokerBrokerSsnr.Text, out parsedValue))
-                    {
-                        MessageBox.Show("Personnummer får endast innehålla siffror.");
-                    }
-
-                    else if (tbBrokerBrokerName.Text.Equals(""))
-                    {
-                        MessageBox.Show("Du har ej angivit ett namn.");
-                    }
-
-                    else if (tbBrokerBrokerAdress.Text.Equals(""))
-                    {
-                        MessageBox.Show("Du har ej angivit en adress.");
-                    }
-
-                    else if (tbBrokerBrokerCity.Text.Equals(""))
-                    {
-                        MessageBox.Show("Du har ej angivit en stad.");
-                    }
-
-                    else if (tbBrokerBrokerPhoneNumber.Text.Equals(""))
-                    {
-                        MessageBox.Show("Du har ej angivit ett telefonnummer.");
-                    }
-
-                    else if (tbBrokerBrokerEmail.Text.Equals(""))
-                    {
-                        MessageBox.Show("Du har ej angivit en email.");
-                    }
-
-                    else if (tbBrokerBrokerPw.Text.Equals(""))
-                    {
-                        MessageBox.Show("Du har ej angivit ett lösenord.");
-                    }
-
-                    else
-                    {
-                        bool brokerExists = this.controller.BrokerExists(brokerSsnr);
-
-                        if (brokerExists)
-                        {
-                            MessageBox.Show("Det finns redan en mäklare med personnummer " + brokerSsnr);
-                        }
-
-                        else
-                        {
-                            this.controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
-                            MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " registrerad.");
-                            Populate();
-                        }
-
-                    }
-
+                    string feedback = this.controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                    Populate();
+                    MessageBox.Show(feedback);
                 }
 
                 if (!cbBrokerRegister.Checked && cbBrokerDelete.Checked && !cbBrokerUpdate.Checked)     //Delete
                 {
-                    bool brokerExists = this.controller.BrokerExists(brokerSsnr);
-                    this.controller.DeleteBroker(brokerSsnr);
-
-                    if (!brokerExists)
-                    {
-                        MessageBox.Show("Ingen sådan mäklare finns registrerad. Vänligen försök igen.");
-                    }
-                    else
-                    {
-                        Populate();
-                        tbBrokerBrokerAdress.Text = "";
-                        tbBrokerBrokerCity.Text = "";
-                        tbBrokerBrokerEmail.Text = "";
-                        tbBrokerBrokerName.Text = "";
-                        tbBrokerBrokerPhoneNumber.Text = "";
-                        tbBrokerBrokerPw.Text = "";
-                        tbBrokerBrokerSsnr.Text = "";
-                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " borttagen");
-                    }
+                    string feedback = this.controller.DeleteBroker(brokerSsnr);
+                    Populate();
+                    ClearBrokerTb();
+                    MessageBox.Show(feedback);
                 }
+
                 if (!cbBrokerRegister.Checked && !cbBrokerDelete.Checked && cbBrokerUpdate.Checked)             //Update
                 {
-                    bool brokerExists = this.controller.BrokerExists(brokerSsnr);
-                    this.controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
-
-                    if (!brokerExists)
-                    {
-                        MessageBox.Show("Kan inte uppdatera en mäklares personnummer.");
-                    }
-                    else
-                    {
-                        Populate();
-                        MessageBox.Show("Mäklare med personnummer " + brokerSsnr + " uppdaterad.");
-                    }
+                    string feedback = this.controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                    Populate();
+                    MessageBox.Show(feedback);
                 }
 
                 if (!cbBrokerRegister.Checked && !cbBrokerDelete.Checked && !cbBrokerUpdate.Checked)
@@ -670,7 +625,6 @@ namespace praktikfall
                     tbBrokerBrokerPhoneNumber.Text = row.Cells["Telefon"].Value.ToString();
                     tbBrokerBrokerEmail.Text = row.Cells["Email"].Value.ToString();
                     tbBrokerBrokerPw.Text = row.Cells["Lösenord"].Value.ToString();
-
                 }
             }
             catch (Exception ex)
@@ -690,24 +644,24 @@ namespace praktikfall
 
                 if (cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) //Register
                 {
-                    this.controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                    string feedback = this.controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                     Populate();
+                    ClearShowingBuyerTb();
+                    MessageBox.Show(feedback);
                 }
 
                 if (!cbShowingRegisterBuyer.Checked && cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) // Delete
                 {
-                    this.controller.DeleteProspectiveBuyer(buyerSsnr);
+                    string feedback = this.controller.DeleteProspectiveBuyer(buyerSsnr);
                     Populate();
-                    tbShowingBuyerEmail.Text = "";
-                    tbShowingBuyerName.Text = "";
-                    tbShowingBuyerSsnr.Text = "";
-                    tbShowingBuyerTel.Text = "";
+                    ClearShowingBuyerTb();
+                    MessageBox.Show(feedback);
                 }
                 if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && cbShowingUpdateBuyer.Checked) //Update
                 {
-
-                    this.controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
+                    string feedback = this.controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                     Populate();
+                    MessageBox.Show(feedback);
                 }
                 if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked)
                 {
@@ -716,7 +670,7 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problem med att utföra ditt val. \n" + ex);
+                MessageBox.Show("Problem med att utföra valet. \n" + ex);
             }
         }
 
@@ -735,7 +689,6 @@ namespace praktikfall
                 btnObjectSubmit.Enabled = false;
                 MakeTbReadOnly();
             }
-
         }
 
         private void cbObjectUpdate_CheckedChanged(object sender, EventArgs e)
@@ -773,10 +726,7 @@ namespace praktikfall
         {
             if (cbShowingRegisterBuyer.Checked)
             {
-                tbShowingBuyerEmail.Text = "";
-                tbShowingBuyerSsnr.Text = "";
-                tbShowingBuyerTel.Text = "";
-                tbShowingBuyerName.Text = "";
+                ClearShowingBuyerTb();
             }
         }
 
@@ -784,13 +734,7 @@ namespace praktikfall
         {
             if (cbBrokerRegister.Checked)
             {
-                tbBrokerBrokerSsnr.Text = "";
-                tbBrokerBrokerPw.Text = "";
-                tbBrokerBrokerPhoneNumber.Text = "";
-                tbBrokerBrokerName.Text = "";
-                tbBrokerBrokerEmail.Text = "";
-                tbBrokerBrokerCity.Text = "";
-                tbBrokerBrokerAdress.Text = "";
+                ClearBrokerTb();
             }
         }
 
@@ -848,10 +792,9 @@ namespace praktikfall
         {
             tbBrokerSearch.Text = "";
             tbBrokerSearch.ForeColor = Color.Black;
-
         }
 
-        private void btnObjectSaveImage_Click(object sender, EventArgs e)
+        private void btnObjectSaveImage_Click(object sender, EventArgs e) //Save image 
         {
             try
             {

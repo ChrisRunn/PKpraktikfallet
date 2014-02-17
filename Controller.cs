@@ -14,7 +14,7 @@ namespace praktikfall
         #region OBJEKT
 
         //This method deletes an object
-        public void DeleteObject(string objNr, string ownerSsnr)
+        public string DeleteObject(string objNr, string ownerSsnr)
         {
             bool objectExists = ObjectExists(objNr);
             bool ownerHasMoreObjects = OwnerHasOtherObjects(ownerSsnr);
@@ -23,16 +23,16 @@ namespace praktikfall
             {
                 dal.DeleteObjectOwner(ownerSsnr);
                 dal.DeleteObject(objNr);
-                MessageBox.Show("Objekt borttaget. Ägaren är även borttagen eftersom ägaren ej äger andra objekt.");
+                return "Objekt borttaget. Ägaren är även borttagen eftersom ägaren ej äger andra objekt.";
             }
             else if (objectExists && ownerHasMoreObjects)
             {
                 dal.DeleteObject(objNr);
-                MessageBox.Show("Objekt borttaget.");
+                return "Objekt borttaget.";
             }
             else
             {
-                MessageBox.Show("Inget sådant objekt finns.");
+                return "Inget sådant objekt finns.";
             }
 
         }
@@ -44,7 +44,7 @@ namespace praktikfall
         }*/
 
         // This method updates everything in the object tab
-        public void UpdateObjectFlap(string objAdress, string objCity,
+        public string UpdateObjectFlap(string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
             bool objectExists = ObjectExists(objNr);
@@ -53,17 +53,17 @@ namespace praktikfall
             if (objectExists && ownerExists)
             {
                 dal.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
-                MessageBox.Show("Objekt med objektnr " + objNr + " uppdaterat.");
+                return "Objekt med objektnr " + objNr + " uppdaterat.";
             }
             else
             {
-                MessageBox.Show("Kan ej uppdatera objektsnummer eller ägarens personnummer.");
+                return "Kan ej uppdatera objektsnummer eller ägarens personnummer.";
             }
 
         }
 
         //This metod adds an object and an owner
-        public void AddObjectAndOwner(string objNr, string objAdress, string objCity,
+        public string AddObjectAndOwner(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
@@ -75,26 +75,27 @@ namespace praktikfall
 
             if (!string.IsNullOrEmpty(ownerSsnr) || !string.IsNullOrEmpty(objNr))
             {
-                MessageBox.Show("Ägare kan inte registreras utan objekt, och objekt kan inte registreras utan ägare.");
+                return "Ägare kan inte registreras utan objekt, och objekt kan inte registreras utan ägare.";
             }
             else if (!objectExists && brokerExists && !ownerExists)
             {
                 this.dal.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
-                MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+                return "Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.";                
             }
             else if (!objectExists && brokerExists && ownerExists)
             {
                 this.dal.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
-                MessageBox.Show("Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.");
+                return "Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.";                
             }
             else if (!brokerExists)
             {
-                MessageBox.Show("Ingen sådan mäklare finns. Vänlig ange rätt mäklare.");
+                return "Ingen sådan mäklare finns. Vänlig ange rätt mäklare.";
             }
             else if (objectExists)
             {
-                MessageBox.Show("Det finns redan ett objekt med objektnummer " + objNr + " registrerat.");
+                return "Det finns redan ett objekt med objektnummer " + objNr + " registrerat.";
             }
+            return "DETTA BORDE INTE KUNNA HÄNDA!";     // :)
         }
         // Adds a real estate object
         public void AddObject(string objNr, string objAdress, string objCity,
@@ -161,21 +162,89 @@ namespace praktikfall
         #endregion OBJEKT
         #region MÄKLARE
         //This method adds a realestate broker to the database
-        public void AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
-        {
-            dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+        public string AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
+        {            
+                int parsedValue;
 
+                if (!int.TryParse(brokerSsnr, out parsedValue))
+                {
+                    return "Personnummer får endast innehålla siffror.";
+                }
+
+                else if (name.Equals(""))
+                {
+                    return "Du har ej angivit ett namn.";
+                }
+
+                else if (brokerAddress.Equals(""))
+                {
+                    return "Du har ej angivit en adress.";
+                }
+
+                else if (city.Equals(""))
+                {
+                    return "Du har ej angivit en stad.";
+                }
+
+                else if (phoneNr.Equals(""))
+                {
+                    return "Du har ej angivit ett telefonnummer.";
+                }
+
+                else if (email.Equals(""))
+                {
+                    return "Du har ej angivit en email.";
+                }
+
+                else if (pw.Equals(""))
+                {
+                    return "Du har ej angivit ett lösenord.";
+                }
+
+                else
+                {
+                    bool brokerExists = BrokerExists(brokerSsnr);
+
+                    if (brokerExists)
+                    {
+                        return "Det finns redan en mäklare med personnummer " + brokerSsnr;
+                    }
+
+                    else
+                    {
+                        dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                        return "Mäklare med personnummer " + brokerSsnr + " registrerad.";
+                    }
+                }           
         }
         //This method deletes a realestate broker from the database
-        public void DeleteBroker(string brokerSsnr)
+        public string DeleteBroker(string brokerSsnr)
         {
-            dal.DeleteBroker(brokerSsnr);
+            bool brokerExists = BrokerExists(brokerSsnr);
 
+            if (!brokerExists)
+            {
+                return "Ingen sådan mäklare finns registrerad. Vänligen försök igen.";
+            }
+            else
+            {
+                dal.DeleteBroker(brokerSsnr);
+                return "Mäklare med personnummer " + brokerSsnr + " borttagen";
+            }
         }
         //This method updates a realestate broker in the database
-        public void UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
+        public string UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
-            dal.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+            bool brokerExists = BrokerExists(brokerSsnr);
+            if (!brokerExists)
+            {
+                return "Kan inte uppdatera en mäklares personnummer.";
+            }
+            else
+            {
+                dal.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                return "Mäklare med personnummer " + brokerSsnr + " uppdaterad.";
+            }         
 
         }
         //This method shows a specific realestate broker in the database
@@ -209,7 +278,7 @@ namespace praktikfall
 
 
         //This method registers a prospective buyer to the database
-        public void AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
+        public string AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
             int parsedValue;
 
@@ -217,55 +286,55 @@ namespace praktikfall
 
             if (buyerExists)
             {
-                MessageBox.Show("Det finns redan en spekulant med personnummer " + buyerSsnr + " registrerad.");
+                return "Det finns redan en spekulant med personnummer " + buyerSsnr + " registrerad.";
             }
             else
             {
                 if (!int.TryParse(buyerSsnr, out parsedValue))
                 {
-                    MessageBox.Show("Personnummer får endast innehålla siffror.");
+                    return "Personnummer får endast innehålla siffror.";
                 }
 
                 else if (name.Equals(""))
                 {
-                    MessageBox.Show("Du har ej angivit ett namn.");
+                    return "Du har ej angivit ett namn.";
                 }
                 else
                 {
                     dal.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-                    MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " har lagts till.");
+                    return "Spekulant med personnummer " + buyerSsnr + " har lagts till.";
                 }
             }
 
         }
 
         //This method deletes a prospective buyer in the database
-        public void DeleteProspectiveBuyer(string buyerSsnr)
+        public string DeleteProspectiveBuyer(string buyerSsnr)
         {
             bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
 
             if (!buyerExists)
             {
-                MessageBox.Show("Ingen sådan spekulant finns. Vänligen försök igen.");
+                return "Ingen sådan spekulant finns. Vänligen försök igen.";
             }
             else
             {
                 dal.DeleteProspectiveBuyer(buyerSsnr);
-                MessageBox.Show("Spekulant borttagen.");
+                return "Spekulant borttagen.";
             }
         }
         //This method updates information for a prospective buyer in the database
-        public void UpdateProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
+        public string UpdateProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
             bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
             if (!buyerExists)
             {
-                MessageBox.Show("Det går inte att uppdatera en spekulants personnummer.");
+                return "Det går inte att uppdatera en spekulants personnummer.";
             }
             else
             {
                 dal.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
-                MessageBox.Show("Spekulant med personnummer " + buyerSsnr + " uppdaterad.");
+                return "Spekulant med personnummer " + buyerSsnr + " uppdaterad.";
             }
         }
         //This method works as a search function for prospective buyers
@@ -395,6 +464,11 @@ namespace praktikfall
             return pw;
         }
 
+        public double CalculateObjectPricePerKvm(string price, string area) 
+        {
+            double pricePerKvm = double.Parse(price) / double.Parse(area);
+            return pricePerKvm;
+        }
 
     }
 }
