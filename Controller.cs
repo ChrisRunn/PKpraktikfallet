@@ -82,12 +82,12 @@ namespace praktikfall
             if (!objectExists && brokerExists && !ownerExists)
             {
                 this.dal.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
-                return "Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.";
+                return "Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.";                
             }
             else if (!objectExists && brokerExists && ownerExists)
             {
                 this.dal.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
-                return "Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.";
+                return "Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.";                
             }
             else if (!brokerExists)
             {
@@ -165,59 +165,59 @@ namespace praktikfall
         #region MÄKLARE
         //This method adds a realestate broker to the database
         public string AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
-        {
-            int parsedValue;
+        {            
+                int parsedValue;
 
-            if (!int.TryParse(brokerSsnr, out parsedValue))
-            {
-                return "Personnummer får endast innehålla siffror.";
-            }
-
-            else if (name.Equals(""))
-            {
-                return "Du har ej angivit ett namn.";
-            }
-
-            else if (brokerAddress.Equals(""))
-            {
-                return "Du har ej angivit en adress.";
-            }
-
-            else if (city.Equals(""))
-            {
-                return "Du har ej angivit en stad.";
-            }
-
-            else if (phoneNr.Equals(""))
-            {
-                return "Du har ej angivit ett telefonnummer.";
-            }
-
-            else if (email.Equals(""))
-            {
-                return "Du har ej angivit en email.";
-            }
-
-            else if (pw.Equals(""))
-            {
-                return "Du har ej angivit ett lösenord.";
-            }
-
-            else
-            {
-                bool brokerExists = BrokerExists(brokerSsnr);
-
-                if (brokerExists)
+                if (!int.TryParse(brokerSsnr, out parsedValue))
                 {
-                    return "Det finns redan en mäklare med personnummer " + brokerSsnr;
+                    return "Personnummer får endast innehålla siffror.";
+                }
+
+                else if (name.Equals(""))
+                {
+                    return "Du har ej angivit ett namn.";
+                }
+
+                else if (brokerAddress.Equals(""))
+                {
+                    return "Du har ej angivit en adress.";
+                }
+
+                else if (city.Equals(""))
+                {
+                    return "Du har ej angivit en stad.";
+                }
+
+                else if (phoneNr.Equals(""))
+                {
+                    return "Du har ej angivit ett telefonnummer.";
+                }
+
+                else if (email.Equals(""))
+                {
+                    return "Du har ej angivit en email.";
+                }
+
+                else if (pw.Equals(""))
+                {
+                    return "Du har ej angivit ett lösenord.";
                 }
 
                 else
                 {
-                    dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
-                    return "Mäklare med personnummer " + brokerSsnr + " registrerad.";
-                }
-            }
+                    bool brokerExists = BrokerExists(brokerSsnr);
+
+                    if (brokerExists)
+                    {
+                        return "Det finns redan en mäklare med personnummer " + brokerSsnr;
+                    }
+
+                    else
+                    {
+                        dal.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
+                        return "Mäklare med personnummer " + brokerSsnr + " registrerad.";
+                    }
+                }           
         }
         //This method deletes a realestate broker from the database
         public string DeleteBroker(string brokerSsnr)
@@ -246,7 +246,7 @@ namespace praktikfall
             {
                 dal.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
                 return "Mäklare med personnummer " + brokerSsnr + " uppdaterad.";
-            }
+            }         
 
         }
         //This method shows a specific realestate broker in the database
@@ -440,8 +440,8 @@ namespace praktikfall
         {
             bool showingExists = ShowingExists(objNr, buyerSsnr);
             if (showingExists)
-            {
-                dal.UpdateShowing(objNr, buyerSsnr, showingDate);
+        {
+            dal.UpdateShowing(objNr, buyerSsnr, showingDate);
                 return "Visningsdatum uppdaterat. Nytt visningsdatum " + showingDate;
             }
             else
@@ -484,9 +484,10 @@ namespace praktikfall
             return pw;
         }
 
-        public double CalculateObjectPricePerKvm(string price, string area)
+        //This method calculates the objects area / the object price
+        public double CalculateObjectPricePerKvm(string price, string area) 
         {
-            double pricePerKvm = Math.Round(double.Parse(price) / double.Parse(area), 2);
+            double pricePerKvm = Math.Round(double.Parse(price) / double.Parse(area), 0);
             return pricePerKvm;
         }
 
