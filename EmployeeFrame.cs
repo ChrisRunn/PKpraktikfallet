@@ -30,7 +30,7 @@ namespace praktikfall
             {
                 bgBrokerAdministrateBroker.Visible = false;
                 gbBrokerAllBrokers.Visible = false;
-                
+
                 tpBrokerBrokerTabPage.Text = "";
             }
             Populate();
@@ -297,7 +297,7 @@ namespace praktikfall
                 MessageBox.Show("Det gick inte att ladda från listan.\n" + ex); // måste göras snyggare
             }
         }
-        
+
         private void dgvShowingAllBuyers_CellClicked(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -317,10 +317,27 @@ namespace praktikfall
             }
         }
 
-        private void EmployeeFrame_FormClosed(object sender, FormClosedEventArgs e)         //Exit application
+        private void dgvBrokerAllBrokers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Application.Exit();
-        }       
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.dgvBrokerAllBrokers.Rows[e.RowIndex];
+                    tbBrokerBrokerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
+                    tbBrokerBrokerName.Text = row.Cells["Namn"].Value.ToString();
+                    tbBrokerBrokerAdress.Text = row.Cells["Adress"].Value.ToString();
+                    tbBrokerBrokerCity.Text = row.Cells["Stad"].Value.ToString();
+                    tbBrokerBrokerPhoneNumber.Text = row.Cells["Telefon"].Value.ToString();
+                    tbBrokerBrokerEmail.Text = row.Cells["Email"].Value.ToString();
+                    tbBrokerBrokerPw.Text = row.Cells["Lösenord"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem med att ladda från listan. \n" + ex);
+            }
+        }
 
         private void btnShowMap_Click(object sender, EventArgs e)
         {
@@ -346,22 +363,7 @@ namespace praktikfall
         {
             try
             {
-                if (dgvShowingAllBuyers.Rows.Count == 0 && dgvShowingAllObjects.Rows.Count == 0)
-                {
-                    MessageBox.Show("Listorna är tomma. Lägg till objekt och spekulanter för att registrera visningar.");
-                }
-
-                else if (dgvShowingAllBuyers.Rows.Count == 0)
-                {
-                    MessageBox.Show("Spekulantlistan är tom. Lägg till en spekulant för att registrera visning.");
-                }
-
-                else if (dgvShowingAllObjects.Rows.Count == 0)
-                {
-                    MessageBox.Show("Objektlistan är tom. Lägg till ett objekt för att registrera visning.");
-                }
-
-                else if (!(dgvShowingAllBuyers.SelectedCells.Count == 0) && !(dgvShowingAllObjects.SelectedCells.Count == 0))
+                if (!(dgvShowingAllBuyers.SelectedCells.Count == 0) && !(dgvShowingAllObjects.SelectedCells.Count == 0))
                 {
                     string showingDate = dtpShowingShowingDate.Text;
                     string buyerSsnr = dgvShowingAllBuyers.SelectedCells[0].Value.ToString();
@@ -375,7 +377,6 @@ namespace praktikfall
                 {
                     MessageBox.Show("Kontrollera om du valt en spekulant och ett objekt i listan.");
                 }
-
             }
             catch (Exception ex)
             {
@@ -387,26 +388,19 @@ namespace praktikfall
         {
             try
             {
-                string showingDate = dtpShowingShowingDate.Text;
-
-                if (dgvShowingAllBuyers.SelectedCells.Count == 0)
-                {
-                    MessageBox.Show("Vänligen välj spekulant i listan.");
-                }
-
-                else if (dgvShowingAllObjects.SelectedCells.Count == 0)
-                {
-                    MessageBox.Show("Vänligen välj objekt i listan.");
-                }
-
-                else if (!(dgvShowingAllBuyers.SelectedCells.Count == 0) && !(dgvShowingAllObjects.SelectedCells.Count == 0))
+                if (!(dgvShowingAllBuyers.SelectedCells.Count == 0) && !(dgvShowingAllObjects.SelectedCells.Count == 0))
                 {
                     string objNr = dgvShowingAllObjects.SelectedCells[0].Value.ToString();
                     string buyerSsnr = dgvShowingAllBuyers.SelectedCells[0].Value.ToString();
+                    string showingDate = dtpShowingShowingDate.Text;
 
                     string feedback = this.controller.UpdateShowing(objNr, buyerSsnr, showingDate);
                     MessageBox.Show(feedback);
                     Populate();
+                }
+                else
+                {
+                    MessageBox.Show("Kontrollera om du valt en spekulant och ett objekt i listan");
                 }
             }
             catch (Exception ex)
@@ -419,12 +413,9 @@ namespace praktikfall
         {
             try
             {
-                int selectedBuyersNr = dgvShowingCurrentShowings.SelectedRows.Count;
-                int selectedObjectsNr = dgvShowingCurrentShowings.SelectedCells.Count;
-
                 if (rbShowingDeleteShowing.Checked)     //Delete an objects showing
                 {
-                    if (selectedObjectsNr == 0)
+                    if (dgvShowingCurrentShowings.SelectedCells.Count == 0)
                     {
                         MessageBox.Show("Vänligen välj ett objekt i listan först.");
                     }
@@ -439,7 +430,7 @@ namespace praktikfall
 
                 else if (rbShowingDeleteBuyer.Checked)     //Delete a buyer from showing
                 {
-                    if (selectedBuyersNr == 0)
+                    if (dgvShowingCurrentShowings.SelectedCells.Count == 0)
                     {
                         MessageBox.Show("Vänligen välj en spekulant i listan först.");
                     }
@@ -453,7 +444,7 @@ namespace praktikfall
                         MessageBox.Show("Spekulant borttagen från visning.");
                     }
                 }
-                else if ((selectedObjectsNr == 0) && (selectedBuyersNr == 0))   //No selection made
+                else if ((dgvShowingCurrentShowings.SelectedCells.Count == 0) && (dgvShowingCurrentShowings.SelectedCells.Count == 0))   //No selection made
                 {
                     MessageBox.Show("Vänligen gör ett val först.");
                 }
@@ -510,7 +501,7 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ett objek med objektsnummret existerar redan.");
+                MessageBox.Show("Ett objek med objektsnummret existerar redan.\n" + ex);
             }
         }
 
@@ -620,7 +611,7 @@ namespace praktikfall
                     MessageBox.Show(feedback);
                 }
 
-                if (!cbBrokerRegister.Checked && cbBrokerDelete.Checked && !cbBrokerUpdate.Checked)     //Delete
+                else if (!cbBrokerRegister.Checked && cbBrokerDelete.Checked && !cbBrokerUpdate.Checked)     //Delete
                 {
                     string feedback = this.controller.DeleteBroker(brokerSsnr);
                     Populate();
@@ -628,14 +619,14 @@ namespace praktikfall
                     MessageBox.Show(feedback);
                 }
 
-                if (!cbBrokerRegister.Checked && !cbBrokerDelete.Checked && cbBrokerUpdate.Checked)             //Update
+                else if (!cbBrokerRegister.Checked && !cbBrokerDelete.Checked && cbBrokerUpdate.Checked)             //Update
                 {
                     string feedback = this.controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
                     Populate();
                     MessageBox.Show(feedback);
                 }
 
-                if (!cbBrokerRegister.Checked && !cbBrokerDelete.Checked && !cbBrokerUpdate.Checked)
+                else if (!cbBrokerRegister.Checked && !cbBrokerDelete.Checked && !cbBrokerUpdate.Checked)
                 {
                     MessageBox.Show("Vänligen gör ett val först.");
                 }
@@ -643,28 +634,6 @@ namespace praktikfall
             catch (Exception ex)
             {
                 MessageBox.Show("Problem med att utföra valet. \n" + ex);
-            }
-        }
-
-        private void dgvBrokerAllBrokers_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = this.dgvBrokerAllBrokers.Rows[e.RowIndex];
-                    tbBrokerBrokerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
-                    tbBrokerBrokerName.Text = row.Cells["Namn"].Value.ToString();
-                    tbBrokerBrokerAdress.Text = row.Cells["Adress"].Value.ToString();
-                    tbBrokerBrokerCity.Text = row.Cells["Stad"].Value.ToString();
-                    tbBrokerBrokerPhoneNumber.Text = row.Cells["Telefon"].Value.ToString();
-                    tbBrokerBrokerEmail.Text = row.Cells["Email"].Value.ToString();
-                    tbBrokerBrokerPw.Text = row.Cells["Lösenord"].Value.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Problem med att ladda från listan. \n" + ex);
             }
         }
 
@@ -709,11 +678,9 @@ namespace praktikfall
             }
         }
 
-
-        
         private void OnCheckChanged(object sender, EventArgs e)
         {
-            
+
             CheckBox cb = (CheckBox)sender;
             if (cb.Checked)
             {
@@ -729,15 +696,15 @@ namespace praktikfall
                 cb.Checked = false;
                 MessageBox.Show("Välj endast ett alternativ.");
             }
-        
+
         }
         private void cbObjectRegister_CheckedChanged(object sender, EventArgs e)
         {
-             
+
             OnCheckChanged(sender, e);
             if (cbObjectRegister.Checked)
             {
-                
+
                 btnObjectSubmit.Enabled = true;
                 MakeTbEditable();
                 lblObjectObjAddress.Text = "";
@@ -748,9 +715,6 @@ namespace praktikfall
                 btnObjectSubmit.Enabled = false;
                 MakeTbReadOnly();
             }
-
-
-            
 
         }
 
@@ -797,7 +761,7 @@ namespace praktikfall
 
         private void cbBrokerRegister_CheckedChanged(object sender, EventArgs e)
         {
-            OnCheckChanged(sender,e);
+            OnCheckChanged(sender, e);
             if (cbBrokerRegister.Checked)
             {
                 ClearBrokerTb();
@@ -846,6 +810,11 @@ namespace praktikfall
             {
                 MessageBox.Show("Bilden kunde inte laddas upp. \n" + ex);
             }
+        }
+
+        private void EmployeeFrame_FormClosed(object sender, FormClosedEventArgs e)         //Exit application
+        {
+            Application.Exit();
         }
 
     }
