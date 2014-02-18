@@ -441,6 +441,7 @@ namespace praktikfall
                     MessageBox.Show(feedback);
                 }
                 Populate();
+                MakeTbEditable();
             }
             catch (Exception ex)
             {
