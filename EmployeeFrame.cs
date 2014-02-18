@@ -28,6 +28,8 @@ namespace praktikfall
             else
             {
                 bgBrokerAdministrateBroker.Visible = false;
+                gbBrokerAllBrokers.Visible = false;
+                
                 tpBrokerBrokerTabPage.Text = "";
             }
             Populate();
