@@ -202,7 +202,7 @@
             this.tpShowingShowingTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.tpShowingShowingTabPage.Size = new System.Drawing.Size(1078, 642);
             this.tpShowingShowingTabPage.TabIndex = 6;
-            this.tpShowingShowingTabPage.Text = "Visnig";
+            this.tpShowingShowingTabPage.Text = "Visning";
             // 
             // gbShowingAdministrateBuyer
             // 
