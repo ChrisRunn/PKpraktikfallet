@@ -68,16 +68,18 @@ namespace praktikfall
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
 
-            bool objectExists = ObjectExists(objNr);
+            
             bool brokerExists = BrokerExists(brokerSsnr);
             bool ownerExists = OwnerExists(ownerSsnr);
 
 
-            if (!string.IsNullOrEmpty(ownerSsnr) || !string.IsNullOrEmpty(objNr))
+            if (string.IsNullOrEmpty(ownerSsnr) || string.IsNullOrEmpty(objNr))
             {
                 return "Ägare kan inte registreras utan objekt, och objekt kan inte registreras utan ägare.";
             }
-            else if (!objectExists && brokerExists && !ownerExists)
+            
+            bool objectExists = ObjectExists(objNr);
+            if (!objectExists && brokerExists && !ownerExists)
             {
                 this.dal.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                 return "Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.";                
