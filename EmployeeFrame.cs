@@ -158,6 +158,81 @@ namespace praktikfall
 
         }
 
+        private void btnShowingSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbShowingSearch.Text.Equals("") || tbShowingSearch.Text.Equals("Sökord"))
+                {
+                    tbShowingSearch.Text = "";
+                    tbShowingSearch.ForeColor = Color.LightSlateGray;
+                    tbShowingSearch.Text = "Sökord";
+                    Populate();
+                }
+
+                else
+                {
+                    string searchString = tbShowingSearch.Text;
+                    DataTable dt = this.controller.SearchProBuyerByString(searchString);
+                    dgvShowingAllBuyers.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem i sökfunktion.\n" + ex);
+            }
+        }
+
+        private void btnBrokerSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbBrokerSearch.Text.Equals("") || tbBrokerSearch.Text.Equals("Sökord"))
+                {
+                    tbObjectSearch.Text = "";
+                    tbObjectSearch.ForeColor = Color.LightSlateGray;
+                    tbObjectSearch.Text = "Sökord";
+                    Populate();
+                }
+
+                else
+                {
+                    string searchString = tbBrokerSearch.Text;
+                    DataTable dt = this.controller.SearchBrokerByString(searchString);
+                    dgvBrokerAllBrokers.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem i sökfunktion.\n" + ex);
+            }
+
+        }
+
+        private void tbBrokerSearch_Click(object sender, EventArgs e)
+        {
+            tbBrokerSearch.Text = "";
+            tbBrokerSearch.ForeColor = Color.Black;
+        }
+
+        private void tbObjectSearch_Click(object sender, EventArgs e)
+        {
+            tbObjectSearch.Text = "";
+            tbObjectSearch.ForeColor = Color.Black;
+        }
+
+        private void tb_clickSearch(object sender, EventArgs e)
+        {
+            tbShowingSearch.Text = "";
+            tbShowingSearch.ForeColor = Color.Black;
+        }
+
+        private void tbShowingSearch_Click(object sender, EventArgs e)
+        {
+            tbShowingSearch.Text = "";
+            tbShowingSearch.ForeColor = Color.Black;
+        }
+
         private void dgvObjectAllObjects_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -219,16 +294,10 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Något gick fel....\n" + ex); // måste göras snyggare
+                MessageBox.Show("Det gick inte att ladda från listan.\n" + ex); // måste göras snyggare
             }
         }
-
-        private void tbObjectSearch_Click(object sender, EventArgs e)
-        {
-            tbObjectSearch.Text = "";
-            tbObjectSearch.ForeColor = Color.Black;
-        }
-
+        
         private void dgvShowingAllBuyers_CellClicked(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -251,13 +320,7 @@ namespace praktikfall
         private void EmployeeFrame_FormClosed(object sender, FormClosedEventArgs e)         //Exit application
         {
             Application.Exit();
-        }
-
-        private void tb_clickSearch(object sender, EventArgs e)
-        {
-            tbShowingSearch.Text = "";
-            tbShowingSearch.ForeColor = Color.Black;
-        }
+        }       
 
         private void btnShowMap_Click(object sender, EventArgs e)
         {
@@ -450,37 +513,6 @@ namespace praktikfall
             {
                 MessageBox.Show("Ett objek med objektsnummret existerar redan.");
             }
-        }
-
-        private void btnShowingSearch_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (tbShowingSearch.Text.Equals("") || tbShowingSearch.Text.Equals("Sökord"))
-                {
-                    tbShowingSearch.Text = "";
-                    tbShowingSearch.ForeColor = Color.LightSlateGray;
-                    tbShowingSearch.Text = "Sökord";
-                    Populate();
-                }
-
-                else
-                {
-                    string searchString = tbShowingSearch.Text;
-                    DataTable dt = this.controller.SearchProBuyerByString(searchString);
-                    dgvShowingAllBuyers.DataSource = dt;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Problem i sökfunktion.\n" + ex);
-            }
-        }
-
-        private void tbShowingSearch_Click(object sender, EventArgs e)
-        {
-            tbShowingSearch.Text = "";
-            tbShowingSearch.ForeColor = Color.Black;
         }
 
         private void dgvShowingAllObjects_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS /Marcus
@@ -794,38 +826,6 @@ namespace praktikfall
                 MessageBox.Show("Det gick inte att välja en bild. \n" + ex);
 
             }
-        }
-
-        private void btnBrokerSearch_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (tbBrokerSearch.Text.Equals("") || tbBrokerSearch.Text.Equals("Sökord"))
-                {
-                    tbObjectSearch.Text = "";
-                    tbObjectSearch.ForeColor = Color.LightSlateGray;
-                    tbObjectSearch.Text = "Sökord";
-                    Populate();
-                }
-
-                else
-                {
-                    string searchString = tbBrokerSearch.Text;
-                    DataTable dt = this.controller.SearchBrokerByString(searchString);
-                    dgvBrokerAllBrokers.DataSource = dt;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Problem i sökfunktion.\n" + ex);
-            }
-
-        }
-
-        private void tbBrokerSearch_Click(object sender, EventArgs e)
-        {
-            tbBrokerSearch.Text = "";
-            tbBrokerSearch.ForeColor = Color.Black;
         }
 
         private void btnObjectSaveImage_Click(object sender, EventArgs e) //Save image 

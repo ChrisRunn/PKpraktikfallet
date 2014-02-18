@@ -447,8 +447,7 @@ namespace praktikfall
             else
             {
                 return "Visningen finns ej. Vänligen kontrollera dina val.";
-            }
-           
+            }           
 
         }
         //This method displays all showings
