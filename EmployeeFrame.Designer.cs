@@ -244,6 +244,7 @@
             this.cbShowingUpdateBuyer.TabIndex = 42;
             this.cbShowingUpdateBuyer.Text = "Uppdatera";
             this.cbShowingUpdateBuyer.UseVisualStyleBackColor = true;
+            this.cbShowingUpdateBuyer.CheckedChanged += new System.EventHandler(this.cbShowingUpdate_CheckedChanged);
             // 
             // cbShowingDeleteBuyer
             // 
@@ -254,6 +255,7 @@
             this.cbShowingDeleteBuyer.TabIndex = 41;
             this.cbShowingDeleteBuyer.Text = "Ta bort";
             this.cbShowingDeleteBuyer.UseVisualStyleBackColor = true;
+            this.cbShowingDeleteBuyer.CheckedChanged += new System.EventHandler(this.cbShowingDelete_CheckedChanged);
             // 
             // btnShowingSubmit
             // 

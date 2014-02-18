@@ -57,6 +57,11 @@ namespace praktikfall
             tbObjectOwnerName.ReadOnly = true;
             tbObjectOwnerPhoneNr.ReadOnly = true;
             tbObjectPricePerKvm.ReadOnly = true;
+
+            tbShowingBuyerSsnr.ReadOnly = true;
+            tbShowingBuyerName.ReadOnly = true;
+            tbShowingBuyerEmail.ReadOnly = true;
+            tbShowingBuyerTel.ReadOnly = true;
         }
 
         public void MakeTbEditable()
@@ -78,6 +83,13 @@ namespace praktikfall
             tbObjectOwnerEmail.ReadOnly = false;
             tbObjectOwnerName.ReadOnly = false;
             tbObjectOwnerPhoneNr.ReadOnly = false;
+
+            tbShowingBuyerSsnr.ReadOnly = false;
+            tbShowingBuyerName.ReadOnly = false;
+            tbShowingBuyerEmail.ReadOnly = false;
+            tbShowingBuyerTel.ReadOnly = false;
+           
+                
         }
 
         public void ClearObjectTb()
@@ -121,7 +133,7 @@ namespace praktikfall
         {
             DataTable dtAllObjects = this.controller.GetAllObjectsNr();
             dgvObjectAllObjects.DataSource = dtAllObjects;                                     //Objektfliken, alla objekt i databasen          
-            MakeTbReadOnly();
+            
             btnObjectSubmit.Enabled = false;
             dgvShowingAllObjects.DataSource = dtAllObjects;                                   //Visningsfliken, alla objekt i databasen            
             DataTable dtAllProspectiveBuyers = this.controller.GetAllProspectiveBuyers();
@@ -130,6 +142,7 @@ namespace praktikfall
             dgvShowingCurrentShowings.DataSource = dtAllShowings;                            //Visningsfliken, alla nuvarande visningar i databasen
             DataTable dtAllBrokers = this.controller.GetAllBrokers();                             //Mäklarfliken (admin), visa alla mäklare
             dgvBrokerAllBrokers.DataSource = dtAllBrokers;
+            MakeTbReadOnly();
         }
 
         private void btnObjectSearch_Click(object sender, EventArgs e)
@@ -636,6 +649,8 @@ namespace praktikfall
             {
                 MessageBox.Show("Problem med att utföra valet. \n" + ex);
             }
+            MakeTbEditable();
+            btnShowingSubmit.Enabled = true;
         }
 
         private void btnShowingSubmit_Click(object sender, EventArgs e) //Prospective buyer
@@ -704,7 +719,6 @@ namespace praktikfall
             OnCheckChanged(sender, e);
             if (cbObjectRegister.Checked)
             {
-
                 btnObjectSubmit.Enabled = true;
                 MakeTbEditable();
                 lblObjectObjAddress.Text = "";
@@ -715,7 +729,6 @@ namespace praktikfall
                 btnObjectSubmit.Enabled = false;
                 MakeTbReadOnly();
             }
-
         }
 
         private void cbObjectUpdate_CheckedChanged(object sender, EventArgs e)
@@ -756,8 +769,46 @@ namespace praktikfall
             if (cbShowingRegisterBuyer.Checked)
             {
                 ClearShowingBuyerTb();
+                MakeTbEditable();
+                btnShowingSubmit.Enabled = true;
+            }
+            else if (cbShowingRegisterBuyer.Checked == false)
+            {
+
+                MakeTbReadOnly();
+                btnShowingSubmit.Enabled = false;
             }
         }
+
+        private void cbShowingUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            OnCheckChanged(sender, e);
+            if (cbShowingUpdateBuyer.Checked)
+            {
+                MakeTbEditable();
+                btnShowingSubmit.Enabled = true;
+            }
+            else if (cbShowingUpdateBuyer.Checked == false)
+            {
+                MakeTbReadOnly();
+                btnShowingSubmit.Enabled = false;
+            }
+        }
+        private void cbShowingDelete_CheckedChanged(object sender, EventArgs e)
+        {
+            OnCheckChanged(sender, e);
+            if (cbShowingDeleteBuyer.Checked)
+            {
+                MakeTbReadOnly();
+                btnShowingSubmit.Enabled = true;
+            }
+            else if (cbShowingDeleteBuyer.Checked == false)
+            {
+                MakeTbReadOnly();
+                btnShowingSubmit.Enabled = false;
+            }
+        }
+     
 
         private void cbBrokerRegister_CheckedChanged(object sender, EventArgs e)
         {
