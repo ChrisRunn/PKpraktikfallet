@@ -468,7 +468,7 @@ namespace praktikfall
 
         public double CalculateObjectPricePerKvm(string price, string area) 
         {
-            double pricePerKvm = Math.Round(double.Parse(price) / double.Parse(area), 2);
+            double pricePerKvm = Math.Round(double.Parse(price) / double.Parse(area), 0);
             return pricePerKvm;
         }
 
