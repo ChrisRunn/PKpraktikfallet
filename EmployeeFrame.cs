@@ -444,7 +444,7 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problem med att utföra valet. \n" + ex);
+                MessageBox.Show("Ett objek med objektsnummret existerar redan.");
             }
         }
 
