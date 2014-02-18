@@ -14,6 +14,7 @@ namespace praktikfall
     public partial class frameMainMainframe : Form
     {
         Controller controller = new Controller();
+        private int counter;
 
         public frameMainMainframe(string name, bool b)
         {
@@ -675,11 +676,35 @@ namespace praktikfall
             }
         }
 
+
+        
+        private void OnCheckChanged(object sender, EventArgs e)
+        {
+            
+            CheckBox cb = (CheckBox)sender;
+            if (cb.Checked)
+            {
+                counter++;
+
+            }
+            else
+            {
+                counter--;
+            }
+            if (counter == 2)
+            {
+                cb.Checked = false;
+                MessageBox.Show("Välj endast ett alternativ.");
+            }
+        
+        }
         private void cbObjectRegister_CheckedChanged(object sender, EventArgs e)
         {
-
+             
+            OnCheckChanged(sender, e);
             if (cbObjectRegister.Checked)
             {
+                
                 btnObjectSubmit.Enabled = true;
                 MakeTbEditable();
                 lblObjectObjAddress.Text = "";
@@ -690,11 +715,15 @@ namespace praktikfall
                 btnObjectSubmit.Enabled = false;
                 MakeTbReadOnly();
             }
+
+
+            
+
         }
 
         private void cbObjectUpdate_CheckedChanged(object sender, EventArgs e)
         {
-
+            OnCheckChanged(sender, e);
             if (cbObjectUpdate.Checked)
             {
                 btnObjectSubmit.Enabled = true;
@@ -709,6 +738,7 @@ namespace praktikfall
 
         private void cbObjectDeleteObject_CheckedChanged(object sender, EventArgs e)
         {
+            OnCheckChanged(sender, e);
             btnObjectSubmit.Enabled = true;
             if (cbObjectDeleteObject.Checked)
             {
@@ -725,6 +755,7 @@ namespace praktikfall
 
         private void cbShowingRegister_CheckedChanged(object sender, EventArgs e)
         {
+            OnCheckChanged(sender, e);
             if (cbShowingRegisterBuyer.Checked)
             {
                 ClearShowingBuyerTb();
@@ -733,6 +764,7 @@ namespace praktikfall
 
         private void cbBrokerRegister_CheckedChanged(object sender, EventArgs e)
         {
+            OnCheckChanged(sender,e);
             if (cbBrokerRegister.Checked)
             {
                 ClearBrokerTb();
