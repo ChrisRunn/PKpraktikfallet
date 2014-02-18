@@ -67,7 +67,7 @@ namespace praktikfall
         //Delete a real estate object
         public void DeleteObject(string objNr)
         {
-            string sqlStr = "delete from RealEstateObject where objNr = '" + objNr + "'";
+            string sqlStr = "delete from RealEstateObject where objNr = " + objNr;
             ExecuteUpdate(sqlStr);
         }
         //Update a a real estate object
@@ -76,14 +76,14 @@ namespace praktikfall
             string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "',objCity = '" + objCity +
                 "', objPrice = '" + objPrice + "', objArea = '" + objArea +
                 "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType +
-                "', objInfo = '" + objInfo + "',brokerSsnr = '" + brokerSsnr + "'" + " where objNr = '" + objNr + "'";
+                "', objInfo = '" + objInfo + "',brokerSsnr = '" + brokerSsnr + "'" + " where objNr = " + objNr;
             ExecuteUpdate(sqlStr);
 
         }
         //Search for a selected real estate object
         public DataTable GetObject(string objNr)
         {
-            string sqlStr = "select * from RealEstateObject where objNr = '" + objNr + "'";
+            string sqlStr = "select * from RealEstateObject where objNr = " + objNr;
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -135,7 +135,7 @@ namespace praktikfall
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
             string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
-            sqlStr += "insert into RealEstateObject values ('" + objNr + "','" + objAdress + "','" + objCity + "','" + objPrice +
+            sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "','" + objPrice +
                 "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
             MessageBox.Show(sqlStr);
             ExecuteUpdate(sqlStr);
@@ -148,7 +148,7 @@ namespace praktikfall
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr)
         {
-            string sqlStr = "insert into RealEstateObject values ('" + objNr + "','" + objAdress + "','" + objCity + "','" + objPrice +
+            string sqlStr = "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "','" + objPrice +
                     "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
             ExecuteUpdate(sqlStr);
 
@@ -157,7 +157,7 @@ namespace praktikfall
         //Saves an image for a specified real estate object
         public void addObjectImage(byte[] img, string objNr)
         {
-            string sqlStr = "update RealEstateObject set objImage = @img where objNr = '" + objNr + "'";
+            string sqlStr = "update RealEstateObject set objImage = @img where objNr = " + objNr;
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             SqlCommand com = new SqlCommand(sqlStr, con);
@@ -312,7 +312,7 @@ namespace praktikfall
         public void UpdateObjectFlap(string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
-            string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "', objCity = '" + objCity + "', objPrice = '" + objPrice + "', objArea = '" + objArea + "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType + "', objInfo = '" + objInfo + "' where objNr = '" + objNr + "' ";
+            string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "', objCity = '" + objCity + "', objPrice = '" + objPrice + "', objArea = '" + objArea + "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType + "', objInfo = '" + objInfo + "' where objNr = " + objNr;
             sqlStr += "update ObjectOwner set name = '" + name + "', phoneNr = '" + phoneNr + "', email = '" + email + "' where ownerSsnr = '" + ownerSsnr + "'";
             ExecuteUpdate(sqlStr);
 
@@ -374,7 +374,7 @@ namespace praktikfall
         //Update showing date
         public void UpdateShowing(string objNr, string buyerSsnr, string showingDate)
         {
-            string sqlStr = "update Showing set showingDate = '" + showingDate + "' where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
+            string sqlStr = "update Showing set showingDate = '" + showingDate + "' where objNr = " + objNr + " and buyerSsnr = '" + buyerSsnr + "'";
             ExecuteUpdate(sqlStr);
 
         }
@@ -388,14 +388,14 @@ namespace praktikfall
         //Delete prospective buyer from showing
         public void DeleteBuyerFromShowing(string buyerSsnr, string objNr)
         {
-            string sqlStr = "delete from Showing where objNr = '" + objNr + "' and buyerSsnr = '" + buyerSsnr + "'";
+            string sqlStr = "delete from Showing where objNr = " + objNr + " and buyerSsnr = '" + buyerSsnr + "'";
             ExecuteUpdate(sqlStr);
 
         }
         //Delete showing 
         public void DeleteShowing(string objNr)
         {
-            string sqlStr = "delete from Showing where objNr = '" + objNr + "'";
+            string sqlStr = "delete from Showing where objNr = " + objNr;
             ExecuteUpdate(sqlStr);
 
         }

@@ -440,10 +440,11 @@ namespace praktikfall
                     MessageBox.Show(feedback);
                 }
                 Populate();
+                MakeTbEditable();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problem med att utföra valet. \n" + ex);
+                MessageBox.Show("Ett objek med objektsnummret existerar redan.");
             }
         }
 
