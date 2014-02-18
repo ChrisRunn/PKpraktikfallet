@@ -238,7 +238,7 @@
             // cbShowingUpdateBuyer
             // 
             this.cbShowingUpdateBuyer.AutoSize = true;
-            this.cbShowingUpdateBuyer.Location = new System.Drawing.Point(14, 175);
+            this.cbShowingUpdateBuyer.Location = new System.Drawing.Point(14, 198);
             this.cbShowingUpdateBuyer.Name = "cbShowingUpdateBuyer";
             this.cbShowingUpdateBuyer.Size = new System.Drawing.Size(85, 17);
             this.cbShowingUpdateBuyer.TabIndex = 42;
@@ -270,7 +270,7 @@
             // cbShowingRegisterBuyer
             // 
             this.cbShowingRegisterBuyer.AutoSize = true;
-            this.cbShowingRegisterBuyer.Location = new System.Drawing.Point(14, 198);
+            this.cbShowingRegisterBuyer.Location = new System.Drawing.Point(14, 175);
             this.cbShowingRegisterBuyer.Name = "cbShowingRegisterBuyer";
             this.cbShowingRegisterBuyer.Size = new System.Drawing.Size(84, 17);
             this.cbShowingRegisterBuyer.TabIndex = 40;
@@ -1330,7 +1330,7 @@
             // 
             this.cbBrokerUpdate.AccessibleName = "";
             this.cbBrokerUpdate.AutoSize = true;
-            this.cbBrokerUpdate.Location = new System.Drawing.Point(14, 252);
+            this.cbBrokerUpdate.Location = new System.Drawing.Point(14, 275);
             this.cbBrokerUpdate.Name = "cbBrokerUpdate";
             this.cbBrokerUpdate.Size = new System.Drawing.Size(85, 17);
             this.cbBrokerUpdate.TabIndex = 25;
@@ -1350,7 +1350,7 @@
             // cbBrokerRegister
             // 
             this.cbBrokerRegister.AutoSize = true;
-            this.cbBrokerRegister.Location = new System.Drawing.Point(14, 275);
+            this.cbBrokerRegister.Location = new System.Drawing.Point(14, 252);
             this.cbBrokerRegister.Name = "cbBrokerRegister";
             this.cbBrokerRegister.Size = new System.Drawing.Size(84, 17);
             this.cbBrokerRegister.TabIndex = 27;
