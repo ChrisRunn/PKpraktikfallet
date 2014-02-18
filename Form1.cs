@@ -34,7 +34,7 @@ namespace praktikfall
                 openFrame.Show();
             }
 
-            else if (tbLoginPw.Text.Equals(c.CheckPw(name, password)))
+            else if (tbLoginPw.Text.ToLower().Equals(c.CheckPw(name, password)))
             {
                 this.Hide();
                 bool b = false;

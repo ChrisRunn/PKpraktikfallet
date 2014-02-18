@@ -498,6 +498,7 @@ namespace praktikfall
                 }
                 Populate();
                 MakeTbEditable();
+                btnObjectSubmit.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -685,7 +686,6 @@ namespace praktikfall
             if (cb.Checked)
             {
                 counter++;
-
             }
             else
             {
