@@ -420,17 +420,35 @@ namespace praktikfall
         #endregion OBJEKTÄGARE
         #region SHOWING
         //This method registers a showing
-        public void AddShowing(string objNr, string buyerSsnr, string showingDate)
+        public string AddShowing(string objNr, string buyerSsnr, string showingDate)
         {
-            dal.AddShowing(objNr, buyerSsnr, showingDate);
+            bool showingExists = ShowingExists(objNr, buyerSsnr);
 
-
+            if (showingExists)
+            {
+                return "Visningen finns redan. Var vänlig kontorllera dina val.";
+            }
+            else
+            {
+                dal.AddShowing(objNr, buyerSsnr, showingDate);
+                return "Visning registrerad.";
+            }
         }
 
         //This method updates a showingdate for a showing
-        public void UpdateShowing(string objNr, string buyerSsnr, string showingDate)
+        public string UpdateShowing(string objNr, string buyerSsnr, string showingDate)
+        {
+            bool showingExists = ShowingExists(objNr, buyerSsnr);
+            if (showingExists)
         {
             dal.UpdateShowing(objNr, buyerSsnr, showingDate);
+                return "Visningsdatum uppdaterat. Nytt visningsdatum " + showingDate;
+            }
+            else
+            {
+                return "Visningen finns ej. Vänligen kontrollera dina val.";
+            }
+           
 
         }
         //This method displays all showings
@@ -466,9 +484,10 @@ namespace praktikfall
             return pw;
         }
 
+        //This method calculates the objects area / the object price
         public double CalculateObjectPricePerKvm(string price, string area) 
         {
-            double pricePerKvm = double.Parse(price) / double.Parse(area);
+            double pricePerKvm = Math.Round(double.Parse(price) / double.Parse(area), 0);
             return pricePerKvm;
         }
 
