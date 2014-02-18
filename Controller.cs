@@ -466,6 +466,7 @@ namespace praktikfall
             return pw;
         }
 
+        //This method calculates the objects area / the object price
         public double CalculateObjectPricePerKvm(string price, string area) 
         {
             double pricePerKvm = Math.Round(double.Parse(price) / double.Parse(area), 0);
