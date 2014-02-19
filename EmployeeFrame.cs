@@ -691,7 +691,7 @@ namespace praktikfall
                     MessageBox.Show(feedback);
                 }
 
-                if (!cbShowingRegisterBuyer.Checked && cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) // Delete
+                else if (!cbShowingRegisterBuyer.Checked && cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked) // Delete
                 {
                     string feedback = this.controller.DeleteProspectiveBuyer(buyerSsnr);
                     Populate();
@@ -699,14 +699,14 @@ namespace praktikfall
                     cbShowingDeleteBuyer.Checked = false;
                     MessageBox.Show(feedback);
                 }
-                if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && cbShowingUpdateBuyer.Checked) //Update
+                else if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && cbShowingUpdateBuyer.Checked) //Update
                 {
                     string feedback = this.controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                     Populate();
                     cbShowingUpdateBuyer.Checked = false;
                     MessageBox.Show(feedback);
                 }
-                if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked)
+                else if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked)
                 {
                     MessageBox.Show("Vänligen gör ett val först.");
                 }
