@@ -62,6 +62,14 @@ namespace praktikfall
             tbShowingBuyerName.ReadOnly = true;
             tbShowingBuyerEmail.ReadOnly = true;
             tbShowingBuyerTel.ReadOnly = true;
+
+            tbBrokerBrokerAdress.ReadOnly = true;
+            tbBrokerBrokerCity.ReadOnly = true;
+            tbBrokerBrokerEmail.ReadOnly = true;
+            tbBrokerBrokerName.ReadOnly = true;
+            tbBrokerBrokerPhoneNumber.ReadOnly = true;
+            tbBrokerBrokerPw.ReadOnly = true;
+            tbBrokerBrokerSsnr.ReadOnly = true;    
         }
 
         public void MakeTbEditable()
@@ -88,8 +96,14 @@ namespace praktikfall
             tbShowingBuyerName.ReadOnly = false;
             tbShowingBuyerEmail.ReadOnly = false;
             tbShowingBuyerTel.ReadOnly = false;
-           
-                
+
+            tbBrokerBrokerAdress.ReadOnly = false;
+            tbBrokerBrokerCity.ReadOnly = false;
+            tbBrokerBrokerEmail.ReadOnly = false;
+            tbBrokerBrokerName.ReadOnly = false;
+            tbBrokerBrokerPhoneNumber.ReadOnly = false;
+            tbBrokerBrokerPw.ReadOnly = false;
+            tbBrokerBrokerSsnr.ReadOnly = false;         
         }
 
         public void ClearObjectTb()
@@ -649,8 +663,9 @@ namespace praktikfall
             {
                 MessageBox.Show("Problem med att utföra valet. \n" + ex);
             }
+            Populate();
             MakeTbEditable();
-            btnShowingSubmit.Enabled = true;
+            btnBrokerSubmit.Enabled = true;
         }
 
         private void btnShowingSubmit_Click(object sender, EventArgs e) //Prospective buyer
@@ -692,6 +707,9 @@ namespace praktikfall
             {
                 MessageBox.Show("Problem med att utföra valet. \n" + ex);
             }
+            Populate();
+            btnShowingSubmit.Enabled = true;
+            MakeTbEditable();
         }
 
         private void OnCheckChanged(object sender, EventArgs e)
@@ -816,7 +834,44 @@ namespace praktikfall
             if (cbBrokerRegister.Checked)
             {
                 ClearBrokerTb();
+                MakeTbEditable();
+                btnBrokerSubmit.Enabled = true;
             }
+            else {
+                btnBrokerSubmit.Enabled = false;
+                MakeTbReadOnly();
+            }
+        }
+
+        private void cbBrokerUpdate_CheckedChange(object sender, EventArgs e)
+        {
+            OnCheckChanged(sender, e);
+
+            if (cbBrokerUpdate.Checked)
+            {
+                MakeTbEditable();
+                btnBrokerSubmit.Enabled = true;
+            }
+            else 
+            {
+                MakeTbReadOnly();
+                btnBrokerSubmit.Enabled = false;
+            }
+        }
+
+        private void cbBrokerDelete_CheckedChange(object sender, EventArgs e)
+        {
+            OnCheckChanged(sender, e);
+
+            if (cbBrokerDelete.Checked)
+            {
+                btnBrokerSubmit.Enabled = true;
+            }
+            else 
+            {
+                btnBrokerSubmit.Enabled = false;
+            }
+
         }
 
         private void btnObjectBrowse_Click(object sender, EventArgs e)
