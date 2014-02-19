@@ -143,18 +143,18 @@ namespace praktikfall
             tbBrokerBrokerPw.Text = "";
             tbBrokerBrokerSsnr.Text = "";
         }
-        public void Populate()                                                            //Uppdatera ALLA DGVS (utom Christians)
+        public void Populate()                                                            
         {
             DataTable dtAllObjects = this.controller.GetAllObjectsNr();
-            dgvObjectAllObjects.DataSource = dtAllObjects;                                     //Objektfliken, alla objekt i databasen          
+            dgvObjectAllObjects.DataSource = dtAllObjects;                                          
 
             btnObjectSubmit.Enabled = false;
-            dgvShowingAllObjects.DataSource = dtAllObjects;                                   //Visningsfliken, alla objekt i databasen            
+            dgvShowingAllObjects.DataSource = dtAllObjects;                                       
             DataTable dtAllProspectiveBuyers = this.controller.GetAllProspectiveBuyers();
-            dgvShowingAllBuyers.DataSource = dtAllProspectiveBuyers;                        //Visningsfliken, alla spekulanter i databasen 
+            dgvShowingAllBuyers.DataSource = dtAllProspectiveBuyers;                       
             DataTable dtAllShowings = this.controller.GetShowings();
-            dgvShowingCurrentShowings.DataSource = dtAllShowings;                            //Visningsfliken, alla nuvarande visningar i databasen
-            DataTable dtAllBrokers = this.controller.GetAllBrokers();                             //Mäklarfliken (admin), visa alla mäklare
+            dgvShowingCurrentShowings.DataSource = dtAllShowings;                            
+            DataTable dtAllBrokers = this.controller.GetAllBrokers();                             
             dgvBrokerAllBrokers.DataSource = dtAllBrokers;
             MakeTbReadOnly();
         }
@@ -176,6 +176,33 @@ namespace praktikfall
                     string searchString = tbObjectSearch.Text;
                     DataTable dt = this.controller.SearchObjectByString(searchString);
                     dgvObjectAllObjects.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem i sökfunktion.\n" + ex);
+            }
+
+        }
+
+
+        private void btnBrokerSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbBrokerSearch.Text.Equals("") || tbBrokerSearch.Text.Equals("Sökord"))
+                {
+                    tbObjectSearch.Text = "";
+                    tbObjectSearch.ForeColor = Color.LightSlateGray;
+                    tbObjectSearch.Text = "Sökord";
+                    Populate();
+                }
+
+                else
+                {
+                    string searchString = tbBrokerSearch.Text;
+                    DataTable dt = this.controller.SearchBrokerByString(searchString);
+                    dgvBrokerAllBrokers.DataSource = dt;
                 }
             }
             catch (Exception ex)
@@ -208,32 +235,6 @@ namespace praktikfall
             {
                 MessageBox.Show("Problem i sökfunktion.\n" + ex);
             }
-        }
-
-        private void btnBrokerSearch_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (tbBrokerSearch.Text.Equals("") || tbBrokerSearch.Text.Equals("Sökord"))
-                {
-                    tbObjectSearch.Text = "";
-                    tbObjectSearch.ForeColor = Color.LightSlateGray;
-                    tbObjectSearch.Text = "Sökord";
-                    Populate();
-                }
-
-                else
-                {
-                    string searchString = tbBrokerSearch.Text;
-                    DataTable dt = this.controller.SearchBrokerByString(searchString);
-                    dgvBrokerAllBrokers.DataSource = dt;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Problem i sökfunktion.\n" + ex);
-            }
-
         }
 
         private void tbBrokerSearch_Click(object sender, EventArgs e)
@@ -276,6 +277,47 @@ namespace praktikfall
                 MessageBox.Show("Problem med att ladda från listan. \n" + ex);
             }
 
+        }
+
+        private void dgvShowingAllBuyers_CellClicked(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.dgvShowingAllBuyers.Rows[e.RowIndex];
+                    tbShowingBuyerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
+                    tbShowingBuyerName.Text = row.Cells["Namn"].Value.ToString();
+                    tbShowingBuyerTel.Text = row.Cells["Telefon"].Value.ToString();
+                    tbShowingBuyerEmail.Text = row.Cells["Email"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem med att ladda från listan.\n" + ex);
+            }
+        }
+
+        private void dgvBrokerAllBrokers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.dgvBrokerAllBrokers.Rows[e.RowIndex];
+                    tbBrokerBrokerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
+                    tbBrokerBrokerName.Text = row.Cells["Namn"].Value.ToString();
+                    tbBrokerBrokerAdress.Text = row.Cells["Adress"].Value.ToString();
+                    tbBrokerBrokerCity.Text = row.Cells["Stad"].Value.ToString();
+                    tbBrokerBrokerPhoneNumber.Text = row.Cells["Telefon"].Value.ToString();
+                    tbBrokerBrokerEmail.Text = row.Cells["Email"].Value.ToString();
+                    tbBrokerBrokerPw.Text = row.Cells["Lösenord"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problem med att ladda från listan. \n" + ex);
+            }
         }
 
         private void setSelectedObjectAndOwner(string objNr, DataGridViewRow row)
@@ -321,48 +363,7 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Det gick inte att ladda från listan.\n" + ex); // måste göras snyggare
-            }
-        }
-
-        private void dgvShowingAllBuyers_CellClicked(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = this.dgvShowingAllBuyers.Rows[e.RowIndex];
-                    tbShowingBuyerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
-                    tbShowingBuyerName.Text = row.Cells["Namn"].Value.ToString();
-                    tbShowingBuyerTel.Text = row.Cells["Telefon"].Value.ToString();
-                    tbShowingBuyerEmail.Text = row.Cells["Email"].Value.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Problem med att ladda från listan.\n" + ex);
-            }
-        }
-
-        private void dgvBrokerAllBrokers_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = this.dgvBrokerAllBrokers.Rows[e.RowIndex];
-                    tbBrokerBrokerSsnr.Text = row.Cells["Personnummer"].Value.ToString();
-                    tbBrokerBrokerName.Text = row.Cells["Namn"].Value.ToString();
-                    tbBrokerBrokerAdress.Text = row.Cells["Adress"].Value.ToString();
-                    tbBrokerBrokerCity.Text = row.Cells["Stad"].Value.ToString();
-                    tbBrokerBrokerPhoneNumber.Text = row.Cells["Telefon"].Value.ToString();
-                    tbBrokerBrokerEmail.Text = row.Cells["Email"].Value.ToString();
-                    tbBrokerBrokerPw.Text = row.Cells["Lösenord"].Value.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Problem med att ladda från listan. \n" + ex);
+                MessageBox.Show("Det gick inte att ladda från listan.\n" + ex);
             }
         }
 
@@ -536,92 +537,31 @@ namespace praktikfall
             }
         }
 
-        private void dgvShowingAllObjects_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS /Marcus
+        //Methods to clear DGV selection on data binding complete
+        private void dgvShowingAllObjects_DBC(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvShowingAllObjects.ClearSelection();
         }
 
-        private void dgvShowingAllBuyers_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS /Marcus
+        private void dgvShowingAllBuyers_DBC(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvShowingAllBuyers.ClearSelection();
         }
 
-        private void dgvShowingCurrentShowings_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS /Marcus
+        private void dgvShowingCurrentShowings_DBC(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvShowingCurrentShowings.ClearSelection();
         }
 
-        private void dgvBrokerAllBrokers_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        private void dgvBrokerAllBrokers_DBC(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvBrokerAllBrokers.ClearSelection();
         }
 
-        private void dgvObjectAllObjects_DBC(object sender, DataGridViewBindingCompleteEventArgs e) //FÖR ATT INTE VÄLJA FÖRSTA RADEN NÄR DGV LADDAS
+        private void dgvObjectAllObjects_DBC(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvObjectAllObjects.ClearSelection();
         }
-
-        #region MAINMENU
-        private void mmHelpAbout_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(
-                "Version 1.0 BrokerApplication\n\n\n"
-                + "Denna mjukvara är utvecklad av\n\n"
-                + "Marcus Jacobsson, marcus.jacobsson@student.lu.se\n"
-                + "Christian Runnström, christian.runnstrom@student.lu.se\n"
-                + "William Svedström, william.svedstrom@student.lu.se\n"
-                + "August Ransnäs, august.ransnas@student.lu.se\n\n"
-                + "Copyright © 2014 Mäklarfirman",
-                "Om",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-                );
-        }
-
-        private void mmArkivQuit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void mmHelpFAQShowing_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(
-                "Visningar hanteras under fliken Visning. Här kan användaren lägga till, ta bort eller uppdatera visningar. \n\n"
-                + "Hur lägger jag till en visning för ett objekt?\n"
-                + "För att lägga till en visning för ett objekt, gör följande:\n"
-                + "(1) välj ett objekt i listan under \"välj objekt\".\n"
-                + "(2) välj vilken spekulant i listan \"Välj spekulant\" som ska gå på visningen.\n"
-                + "(3) välj vilket datum under \"välj datum\" som visningen kommer äga rum.\n"
-                + "(4) tryck på knappen \"Lägg till\" för att registrera din visning.\n\n"
-                + "Hur tar jag bort en visning för ett objekt?\n"
-                + "För att ta bort en visning från ett objekt, gör följande:\n"
-                + "(1) välj ditt objekts objektnummer i listan under \"Ta bort visningar\".\n"
-                + "(2) välj alternativet \"Ta bort alla visningar\" till höger om listan.\n"
-                + "(3) tryck på knappen \"Ta bort\" för att ta bort alla visningar för objektet.\n\n"
-                + "Hur tar jag bort endast en spekulant från ett objekts visning?\n"
-                + "För att ta bort endast en spekulant från en visning, gör följande:\n"
-                + "(1) välj en spekulanten i listan under \"Ta bort visningar\".\n"
-                + "(2) välj alternativet \"Ta bort spekulant från visning\" till höger om listan.\n"
-                + "(3) tryck på knappen \"Ta bort\" för att ta bort spekulanten från objektets visning.\n\n"
-                + "Hur uppdaterar jag ett objekts visningsdatum?\n"
-                + "För att uppdatera en visnings visningsdatum, gör följande:\n"
-                + "(1) välj ett objekt i listan under \"välj objekt\".\n"
-                + "(2) välj vilken spekulant i listan \"Välj spekulant\" som ska uppdateras.\n"
-                + "(3) välj ett nytt datum under \"välj datum\"\n"
-                + "(4) tryck på knappen \"Uppdatera datum\".",
-                "Visning",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-                );
-        }
-
-
-
-        private void mmShowAdmintools_Click(object sender, EventArgs e)
-        {
-            //Visa/dölj en tab för Mäklare
-        }
-        #endregion MAINMENU
 
         private void btnBrokerSubmit_Click(object sender, EventArgs e)
         {
@@ -889,7 +829,7 @@ namespace praktikfall
                 string imgLoc;
                 OpenFileDialog fDialog = new OpenFileDialog();
                 fDialog.Title = "Välj bild";
-                fDialog.Filter = "JPG Files|*.jpg|GIF Files|*.gif|All Files (*.*)|*.*";       //Filtrera vilka bildformat som ska kunna laddas upp väljas                                                                       // (PB hanterar bitmap, metafile, icon, JPEG, GIF, or PNG file.)
+                fDialog.Filter = "JPG Files|*.jpg|GIF Files|*.gif|All Files (*.*)|*.*";  //File format filtering                                                                   
                 fDialog.InitialDirectory = @"C:\";
                 if (fDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -932,6 +872,26 @@ namespace praktikfall
             Application.Exit();
         }
 
+        private void mmHelpAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Version 1.0 BrokerApplication\n\n\n"
+                + "Denna mjukvara är utvecklad av\n\n"
+                + "Marcus Jacobsson, marcus.jacobsson@student.lu.se\n"
+                + "Christian Runnström, christian.runnstrom@student.lu.se\n"
+                + "William Svedström, william.svedstrom@student.lu.se\n"
+                + "August Ransnäs, august.ransnas@student.lu.se\n\n"
+                + "Copyright © 2014 Mäklarfirman",
+                "Om",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+                );
+        }
+
+        private void mmArkivQuit_Click(object sender, EventArgs e) //Menuflap, arkiv quit
+        {
+            Application.Exit();
+        }
     }
 }
 
