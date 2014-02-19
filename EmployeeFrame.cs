@@ -822,7 +822,6 @@ namespace praktikfall
             }
             else if (cbShowingDeleteBuyer.Checked == false)
             {
-                MakeTbReadOnly();
                 btnShowingSubmit.Enabled = false;
             }
         }
