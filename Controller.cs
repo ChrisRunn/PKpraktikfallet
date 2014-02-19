@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
 
 namespace praktikfall
 {
@@ -166,9 +168,8 @@ namespace praktikfall
         //This method adds a realestate broker to the database
         public string AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {            
-                int parsedValue;
 
-                if (!int.TryParse(brokerSsnr, out parsedValue))
+                if (Regex.IsMatch(brokerSsnr, @"^[a-zA-Z]+$"))
                 {
                     return "Personnummer får endast innehålla siffror.";
                 }
@@ -282,8 +283,6 @@ namespace praktikfall
         //This method registers a prospective buyer to the database
         public string AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
-            int parsedValue;
-
             bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
 
             if (buyerExists)
@@ -291,12 +290,11 @@ namespace praktikfall
                 return "Det finns redan en spekulant med personnummer " + buyerSsnr + " registrerad.";
             }
             else
-            {
-                if (!int.TryParse(buyerSsnr, out parsedValue))
+            {                
+                if (Regex.IsMatch(buyerSsnr, @"^[a-zA-Z]+$"))
                 {
                     return "Personnummer får endast innehålla siffror.";
                 }
-
                 else if (name.Equals(""))
                 {
                     return "Du har ej angivit ett namn.";

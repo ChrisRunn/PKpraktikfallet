@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -914,8 +914,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1335,6 +1335,7 @@
             this.cbBrokerUpdate.TabIndex = 25;
             this.cbBrokerUpdate.Text = "Uppdatera";
             this.cbBrokerUpdate.UseVisualStyleBackColor = true;
+            this.cbBrokerUpdate.CheckedChanged += new System.EventHandler(this.cbBrokerUpdate_CheckedChange);
             // 
             // cbBrokerDelete
             // 
@@ -1345,6 +1346,7 @@
             this.cbBrokerDelete.TabIndex = 26;
             this.cbBrokerDelete.Text = "Ta bort";
             this.cbBrokerDelete.UseVisualStyleBackColor = true;
+            this.cbBrokerDelete.CheckedChanged += new System.EventHandler(this.cbBrokerDelete_CheckedChange);
             // 
             // cbBrokerRegister
             // 
