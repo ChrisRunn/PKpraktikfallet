@@ -1162,20 +1162,19 @@
             this.lblStartEmpName.AutoSize = true;
             this.lblStartEmpName.BackColor = System.Drawing.Color.Transparent;
             this.lblStartEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartEmpName.Location = new System.Drawing.Point(94, 68);
+            this.lblStartEmpName.Location = new System.Drawing.Point(94, 66);
             this.lblStartEmpName.Name = "lblStartEmpName";
-            this.lblStartEmpName.Size = new System.Drawing.Size(211, 31);
+            this.lblStartEmpName.Size = new System.Drawing.Size(0, 31);
             this.lblStartEmpName.TabIndex = 1;
-            this.lblStartEmpName.Text = "GetEmpName();";
             // 
             // lblStartWelcome
             // 
             this.lblStartWelcome.AutoSize = true;
             this.lblStartWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lblStartWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartWelcome.Location = new System.Drawing.Point(117, 26);
+            this.lblStartWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartWelcome.Location = new System.Drawing.Point(94, 21);
             this.lblStartWelcome.Name = "lblStartWelcome";
-            this.lblStartWelcome.Size = new System.Drawing.Size(170, 33);
+            this.lblStartWelcome.Size = new System.Drawing.Size(187, 37);
             this.lblStartWelcome.TabIndex = 0;
             this.lblStartWelcome.Text = "Välkommen";
             // 
