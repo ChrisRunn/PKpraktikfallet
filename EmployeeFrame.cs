@@ -681,7 +681,6 @@ namespace praktikfall
                 {
                     string feedback = this.controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                     Populate();
-                    ClearShowingBuyerTb();
                     MessageBox.Show(feedback);
                 }
 
