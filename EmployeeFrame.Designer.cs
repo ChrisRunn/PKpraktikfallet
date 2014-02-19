@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -914,8 +914,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1162,20 +1162,19 @@
             this.lblStartEmpName.AutoSize = true;
             this.lblStartEmpName.BackColor = System.Drawing.Color.Transparent;
             this.lblStartEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartEmpName.Location = new System.Drawing.Point(94, 68);
+            this.lblStartEmpName.Location = new System.Drawing.Point(94, 66);
             this.lblStartEmpName.Name = "lblStartEmpName";
-            this.lblStartEmpName.Size = new System.Drawing.Size(211, 31);
+            this.lblStartEmpName.Size = new System.Drawing.Size(0, 31);
             this.lblStartEmpName.TabIndex = 1;
-            this.lblStartEmpName.Text = "GetEmpName();";
             // 
             // lblStartWelcome
             // 
             this.lblStartWelcome.AutoSize = true;
             this.lblStartWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lblStartWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartWelcome.Location = new System.Drawing.Point(117, 26);
+            this.lblStartWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartWelcome.Location = new System.Drawing.Point(94, 21);
             this.lblStartWelcome.Name = "lblStartWelcome";
-            this.lblStartWelcome.Size = new System.Drawing.Size(170, 33);
+            this.lblStartWelcome.Size = new System.Drawing.Size(187, 37);
             this.lblStartWelcome.TabIndex = 0;
             this.lblStartWelcome.Text = "Välkommen";
             // 
