@@ -69,7 +69,7 @@ namespace praktikfall
             tbBrokerBrokerName.ReadOnly = true;
             tbBrokerBrokerPhoneNumber.ReadOnly = true;
             tbBrokerBrokerPw.ReadOnly = true;
-            tbBrokerBrokerSsnr.ReadOnly = true;    
+            tbBrokerBrokerSsnr.ReadOnly = true;
         }
 
         public void MakeTbEditable()
@@ -103,7 +103,7 @@ namespace praktikfall
             tbBrokerBrokerName.ReadOnly = false;
             tbBrokerBrokerPhoneNumber.ReadOnly = false;
             tbBrokerBrokerPw.ReadOnly = false;
-            tbBrokerBrokerSsnr.ReadOnly = false;         
+            tbBrokerBrokerSsnr.ReadOnly = false;
         }
 
         public void ClearObjectTb()
@@ -147,7 +147,7 @@ namespace praktikfall
         {
             DataTable dtAllObjects = this.controller.GetAllObjectsNr();
             dgvObjectAllObjects.DataSource = dtAllObjects;                                     //Objektfliken, alla objekt i databasen          
-            
+
             btnObjectSubmit.Enabled = false;
             dgvShowingAllObjects.DataSource = dtAllObjects;                                   //Visningsfliken, alla objekt i databasen            
             DataTable dtAllProspectiveBuyers = this.controller.GetAllProspectiveBuyers();
@@ -509,6 +509,7 @@ namespace praktikfall
                 if (cbObjectUpdate.Checked && !cbObjectRegister.Checked && !cbObjectDeleteObject.Checked) //Update
                 {
                     string feedback = this.controller.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
+                    cbObjectUpdate.Checked = false;
                     MessageBox.Show(feedback);
                 }
                 else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !cbObjectDeleteObject.Checked) //Register
@@ -516,11 +517,13 @@ namespace praktikfall
                     string feedback = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                     pbObjectThumbnail.Image = null;
                     pbObjectsObjectPicture.Image = null;
+                    cbObjectRegister.Checked = false;
                     MessageBox.Show(feedback);
                 }
                 else if (cbObjectDeleteObject.Checked && !cbObjectUpdate.Checked && !cbObjectRegister.Checked) //Delete
                 {
                     string feedback = this.controller.DeleteObject(objNr, ownerSsnr);
+                    cbObjectDeleteObject.Checked = false;
                     MessageBox.Show(feedback);
                 }
                 Populate();
@@ -636,6 +639,7 @@ namespace praktikfall
                 {
                     string feedback = this.controller.AddBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
                     Populate();
+                    cbBrokerRegister.Checked = false;
                     MessageBox.Show(feedback);
                 }
 
@@ -644,6 +648,7 @@ namespace praktikfall
                     string feedback = this.controller.DeleteBroker(brokerSsnr);
                     Populate();
                     ClearBrokerTb();
+                    cbBrokerDelete.Checked = false;
                     MessageBox.Show(feedback);
                 }
 
@@ -651,6 +656,7 @@ namespace praktikfall
                 {
                     string feedback = this.controller.UpdateBroker(brokerSsnr, name, brokerAddress, city, phoneNr, email, pw);
                     Populate();
+                    cbBrokerUpdate.Checked = false;
                     MessageBox.Show(feedback);
                 }
 
@@ -681,6 +687,7 @@ namespace praktikfall
                 {
                     string feedback = this.controller.AddProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                     Populate();
+                    cbShowingRegisterBuyer.Checked = false;
                     MessageBox.Show(feedback);
                 }
 
@@ -689,12 +696,14 @@ namespace praktikfall
                     string feedback = this.controller.DeleteProspectiveBuyer(buyerSsnr);
                     Populate();
                     ClearShowingBuyerTb();
+                    cbShowingDeleteBuyer.Checked = false;
                     MessageBox.Show(feedback);
                 }
                 if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && cbShowingUpdateBuyer.Checked) //Update
                 {
                     string feedback = this.controller.UpdateProspectiveBuyer(buyerSsnr, name, phoneNr, email);
                     Populate();
+                    cbShowingUpdateBuyer.Checked = false;
                     MessageBox.Show(feedback);
                 }
                 if (!cbShowingRegisterBuyer.Checked && !cbShowingDeleteBuyer.Checked && !cbShowingUpdateBuyer.Checked)
@@ -825,7 +834,7 @@ namespace praktikfall
                 btnShowingSubmit.Enabled = false;
             }
         }
-     
+
 
         private void cbBrokerRegister_CheckedChanged(object sender, EventArgs e)
         {
@@ -836,7 +845,8 @@ namespace praktikfall
                 MakeTbEditable();
                 btnBrokerSubmit.Enabled = true;
             }
-            else {
+            else
+            {
                 btnBrokerSubmit.Enabled = false;
                 MakeTbReadOnly();
             }
@@ -851,7 +861,7 @@ namespace praktikfall
                 MakeTbEditable();
                 btnBrokerSubmit.Enabled = true;
             }
-            else 
+            else
             {
                 MakeTbReadOnly();
                 btnBrokerSubmit.Enabled = false;
@@ -866,7 +876,7 @@ namespace praktikfall
             {
                 btnBrokerSubmit.Enabled = true;
             }
-            else 
+            else
             {
                 btnBrokerSubmit.Enabled = false;
             }

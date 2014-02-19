@@ -64,10 +64,8 @@ namespace praktikfall
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
 
-
             bool brokerExists = BrokerExists(brokerSsnr);
             bool ownerExists = OwnerExists(ownerSsnr);
-
 
             if (string.IsNullOrEmpty(ownerSsnr) || string.IsNullOrEmpty(objNr))
             {
