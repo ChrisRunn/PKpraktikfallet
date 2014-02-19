@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Scenario;
+
 
 namespace praktikfall
 {
@@ -515,6 +512,7 @@ namespace praktikfall
                 }
                 else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !cbObjectDeleteObject.Checked) //Register
                 {
+                    
                     string feedback = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                     pbObjectThumbnail.Image = null;
                     pbObjectsObjectPicture.Image = null;
@@ -689,6 +687,7 @@ namespace praktikfall
                 MakeTbEditable();
                 lblObjectObjAddress.Text = "";
                 ClearObjectTb();
+                pbObjectsObjectPicture.Image = null;
             }
             else if (cbObjectRegister.Checked == false)
             {
