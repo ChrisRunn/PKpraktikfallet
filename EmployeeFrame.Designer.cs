@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
             this.cbShowingUpdateBuyer = new System.Windows.Forms.CheckBox();
-            this.cbShowingDeleteBuyer = new System.Windows.Forms.CheckBox();
             this.btnShowingSubmit = new System.Windows.Forms.Button();
-            this.cbShowingRegisterBuyer = new System.Windows.Forms.CheckBox();
             this.tbShowingBuyerEmail = new System.Windows.Forms.TextBox();
+            this.cbShowingDeleteBuyer = new System.Windows.Forms.CheckBox();
             this.tbShowingBuyerTel = new System.Windows.Forms.TextBox();
             this.tbShowingBuyerName = new System.Windows.Forms.TextBox();
             this.tbShowingBuyerSsnr = new System.Windows.Forms.TextBox();
+            this.cbShowingRegisterBuyer = new System.Windows.Forms.CheckBox();
             this.lblShowingBuyerEmail = new System.Windows.Forms.Label();
             this.lblShowingBuyerTel = new System.Windows.Forms.Label();
             this.lblShowingBuyerName = new System.Windows.Forms.Label();
@@ -72,8 +72,6 @@
             this.pbObjectThumbnail = new System.Windows.Forms.PictureBox();
             this.btnObjectBrowseObjectImage = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.gbObjectObjectInfo = new System.Windows.Forms.GroupBox();
-            this.rtbObjectObjectInfo = new System.Windows.Forms.RichTextBox();
             this.bgObjectObjectInfo2 = new System.Windows.Forms.GroupBox();
             this.tbObjectPricePerKvm = new System.Windows.Forms.TextBox();
             this.lblObjectPricePErKvm = new System.Windows.Forms.Label();
@@ -97,13 +95,15 @@
             this.pbObjectsObjectPicture = new System.Windows.Forms.PictureBox();
             this.btnObjectShowMap = new System.Windows.Forms.Button();
             this.lblObjectObjAddress = new System.Windows.Forms.Label();
+            this.btnObjectSubmit = new System.Windows.Forms.Button();
+            this.gbObjectObjectInfo = new System.Windows.Forms.GroupBox();
+            this.rtbObjectObjectInfo = new System.Windows.Forms.RichTextBox();
             this.gbObjectAllObjects = new System.Windows.Forms.GroupBox();
             this.lblObjectSearch = new System.Windows.Forms.Label();
             this.dgvObjectAllObjects = new System.Windows.Forms.DataGridView();
             this.tbObjectSearch = new System.Windows.Forms.TextBox();
             this.btnObjectSearch = new System.Windows.Forms.Button();
             this.cbObjectDeleteObject = new System.Windows.Forms.CheckBox();
-            this.btnObjectSubmit = new System.Windows.Forms.Button();
             this.cbObjectUpdate = new System.Windows.Forms.CheckBox();
             this.cbObjectRegister = new System.Windows.Forms.CheckBox();
             this.gbObjectOwnerInfo = new System.Windows.Forms.GroupBox();
@@ -166,10 +166,10 @@
             this.tpObjectObjectTabPage.SuspendLayout();
             this.gbObjectUploadPicture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObjectThumbnail)).BeginInit();
-            this.gbObjectObjectInfo.SuspendLayout();
             this.bgObjectObjectInfo2.SuspendLayout();
             this.gbObjectPicture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObjectsObjectPicture)).BeginInit();
+            this.gbObjectObjectInfo.SuspendLayout();
             this.gbObjectAllObjects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectAllObjects)).BeginInit();
             this.gbObjectOwnerInfo.SuspendLayout();
@@ -239,17 +239,6 @@
             this.cbShowingUpdateBuyer.UseVisualStyleBackColor = true;
             this.cbShowingUpdateBuyer.CheckedChanged += new System.EventHandler(this.cbShowingUpdate_CheckedChanged);
             // 
-            // cbShowingDeleteBuyer
-            // 
-            this.cbShowingDeleteBuyer.AutoSize = true;
-            this.cbShowingDeleteBuyer.Location = new System.Drawing.Point(11, 104);
-            this.cbShowingDeleteBuyer.Name = "cbShowingDeleteBuyer";
-            this.cbShowingDeleteBuyer.Size = new System.Drawing.Size(67, 17);
-            this.cbShowingDeleteBuyer.TabIndex = 41;
-            this.cbShowingDeleteBuyer.Text = "Ta bort";
-            this.cbShowingDeleteBuyer.UseVisualStyleBackColor = true;
-            this.cbShowingDeleteBuyer.CheckedChanged += new System.EventHandler(this.cbShowingDelete_CheckedChanged);
-            // 
             // btnShowingSubmit
             // 
             this.btnShowingSubmit.Location = new System.Drawing.Point(388, 243);
@@ -260,23 +249,23 @@
             this.btnShowingSubmit.UseVisualStyleBackColor = true;
             this.btnShowingSubmit.Click += new System.EventHandler(this.btnShowingSubmit_Click);
             // 
-            // cbShowingRegisterBuyer
-            // 
-            this.cbShowingRegisterBuyer.AutoSize = true;
-            this.cbShowingRegisterBuyer.Location = new System.Drawing.Point(11, 58);
-            this.cbShowingRegisterBuyer.Name = "cbShowingRegisterBuyer";
-            this.cbShowingRegisterBuyer.Size = new System.Drawing.Size(84, 17);
-            this.cbShowingRegisterBuyer.TabIndex = 40;
-            this.cbShowingRegisterBuyer.Text = "Registrera";
-            this.cbShowingRegisterBuyer.UseVisualStyleBackColor = true;
-            this.cbShowingRegisterBuyer.CheckedChanged += new System.EventHandler(this.cbShowingRegister_CheckedChanged);
-            // 
             // tbShowingBuyerEmail
             // 
             this.tbShowingBuyerEmail.Location = new System.Drawing.Point(131, 214);
             this.tbShowingBuyerEmail.Name = "tbShowingBuyerEmail";
             this.tbShowingBuyerEmail.Size = new System.Drawing.Size(222, 20);
             this.tbShowingBuyerEmail.TabIndex = 37;
+            // 
+            // cbShowingDeleteBuyer
+            // 
+            this.cbShowingDeleteBuyer.AutoSize = true;
+            this.cbShowingDeleteBuyer.Location = new System.Drawing.Point(11, 104);
+            this.cbShowingDeleteBuyer.Name = "cbShowingDeleteBuyer";
+            this.cbShowingDeleteBuyer.Size = new System.Drawing.Size(67, 17);
+            this.cbShowingDeleteBuyer.TabIndex = 41;
+            this.cbShowingDeleteBuyer.Text = "Ta bort";
+            this.cbShowingDeleteBuyer.UseVisualStyleBackColor = true;
+            this.cbShowingDeleteBuyer.CheckedChanged += new System.EventHandler(this.cbShowingDelete_CheckedChanged);
             // 
             // tbShowingBuyerTel
             // 
@@ -298,6 +287,17 @@
             this.tbShowingBuyerSsnr.Name = "tbShowingBuyerSsnr";
             this.tbShowingBuyerSsnr.Size = new System.Drawing.Size(222, 20);
             this.tbShowingBuyerSsnr.TabIndex = 31;
+            // 
+            // cbShowingRegisterBuyer
+            // 
+            this.cbShowingRegisterBuyer.AutoSize = true;
+            this.cbShowingRegisterBuyer.Location = new System.Drawing.Point(11, 58);
+            this.cbShowingRegisterBuyer.Name = "cbShowingRegisterBuyer";
+            this.cbShowingRegisterBuyer.Size = new System.Drawing.Size(84, 17);
+            this.cbShowingRegisterBuyer.TabIndex = 40;
+            this.cbShowingRegisterBuyer.Text = "Registrera";
+            this.cbShowingRegisterBuyer.UseVisualStyleBackColor = true;
+            this.cbShowingRegisterBuyer.CheckedChanged += new System.EventHandler(this.cbShowingRegister_CheckedChanged);
             // 
             // lblShowingBuyerEmail
             // 
@@ -644,26 +644,6 @@
             this.label1.TabIndex = 45;
             this.label1.Text = "Välj vad du vill göra";
             // 
-            // gbObjectObjectInfo
-            // 
-            this.gbObjectObjectInfo.Controls.Add(this.rtbObjectObjectInfo);
-            this.gbObjectObjectInfo.Location = new System.Drawing.Point(600, 364);
-            this.gbObjectObjectInfo.Name = "gbObjectObjectInfo";
-            this.gbObjectObjectInfo.Size = new System.Drawing.Size(475, 128);
-            this.gbObjectObjectInfo.TabIndex = 43;
-            this.gbObjectObjectInfo.TabStop = false;
-            this.gbObjectObjectInfo.Text = "Objektsbeskrivning";
-            // 
-            // rtbObjectObjectInfo
-            // 
-            this.rtbObjectObjectInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rtbObjectObjectInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbObjectObjectInfo.Location = new System.Drawing.Point(7, 19);
-            this.rtbObjectObjectInfo.Name = "rtbObjectObjectInfo";
-            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(462, 103);
-            this.rtbObjectObjectInfo.TabIndex = 10;
-            this.rtbObjectObjectInfo.Text = "";
-            // 
             // bgObjectObjectInfo2
             // 
             this.bgObjectObjectInfo2.Controls.Add(this.tbObjectPricePerKvm);
@@ -862,7 +842,7 @@
             // 
             this.btnObjectShowMap.Image = ((System.Drawing.Image)(resources.GetObject("btnObjectShowMap.Image")));
             this.btnObjectShowMap.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnObjectShowMap.Location = new System.Drawing.Point(519, 320);
+            this.btnObjectShowMap.Location = new System.Drawing.Point(513, 320);
             this.btnObjectShowMap.Name = "btnObjectShowMap";
             this.btnObjectShowMap.Size = new System.Drawing.Size(65, 23);
             this.btnObjectShowMap.TabIndex = 36;
@@ -880,6 +860,36 @@
             this.lblObjectObjAddress.Size = new System.Drawing.Size(105, 31);
             this.lblObjectObjAddress.TabIndex = 1;
             this.lblObjectObjAddress.Text = "Adress";
+            // 
+            // btnObjectSubmit
+            // 
+            this.btnObjectSubmit.Location = new System.Drawing.Point(994, 606);
+            this.btnObjectSubmit.Name = "btnObjectSubmit";
+            this.btnObjectSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnObjectSubmit.TabIndex = 39;
+            this.btnObjectSubmit.Text = "Utför";
+            this.btnObjectSubmit.UseVisualStyleBackColor = true;
+            this.btnObjectSubmit.Click += new System.EventHandler(this.btnObjectSubmit_Click);
+            // 
+            // gbObjectObjectInfo
+            // 
+            this.gbObjectObjectInfo.Controls.Add(this.rtbObjectObjectInfo);
+            this.gbObjectObjectInfo.Location = new System.Drawing.Point(600, 364);
+            this.gbObjectObjectInfo.Name = "gbObjectObjectInfo";
+            this.gbObjectObjectInfo.Size = new System.Drawing.Size(475, 128);
+            this.gbObjectObjectInfo.TabIndex = 43;
+            this.gbObjectObjectInfo.TabStop = false;
+            this.gbObjectObjectInfo.Text = "Objektsbeskrivning";
+            // 
+            // rtbObjectObjectInfo
+            // 
+            this.rtbObjectObjectInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rtbObjectObjectInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbObjectObjectInfo.Location = new System.Drawing.Point(7, 19);
+            this.rtbObjectObjectInfo.Name = "rtbObjectObjectInfo";
+            this.rtbObjectObjectInfo.Size = new System.Drawing.Size(462, 103);
+            this.rtbObjectObjectInfo.TabIndex = 10;
+            this.rtbObjectObjectInfo.Text = "";
             // 
             // gbObjectAllObjects
             // 
@@ -907,8 +917,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -958,16 +968,6 @@
             this.cbObjectDeleteObject.Text = "Ta bort objekt";
             this.cbObjectDeleteObject.UseVisualStyleBackColor = true;
             this.cbObjectDeleteObject.CheckedChanged += new System.EventHandler(this.cbObjectDeleteObject_CheckedChanged);
-            // 
-            // btnObjectSubmit
-            // 
-            this.btnObjectSubmit.Location = new System.Drawing.Point(994, 606);
-            this.btnObjectSubmit.Name = "btnObjectSubmit";
-            this.btnObjectSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnObjectSubmit.TabIndex = 39;
-            this.btnObjectSubmit.Text = "Utför";
-            this.btnObjectSubmit.UseVisualStyleBackColor = true;
-            this.btnObjectSubmit.Click += new System.EventHandler(this.btnObjectSubmit_Click);
             // 
             // cbObjectUpdate
             // 
@@ -1520,12 +1520,12 @@
             this.gbObjectUploadPicture.ResumeLayout(false);
             this.gbObjectUploadPicture.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObjectThumbnail)).EndInit();
-            this.gbObjectObjectInfo.ResumeLayout(false);
             this.bgObjectObjectInfo2.ResumeLayout(false);
             this.bgObjectObjectInfo2.PerformLayout();
             this.gbObjectPicture.ResumeLayout(false);
             this.gbObjectPicture.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbObjectsObjectPicture)).EndInit();
+            this.gbObjectObjectInfo.ResumeLayout(false);
             this.gbObjectAllObjects.ResumeLayout(false);
             this.gbObjectAllObjects.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectAllObjects)).EndInit();
