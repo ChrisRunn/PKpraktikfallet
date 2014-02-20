@@ -522,6 +522,7 @@ namespace praktikfall
                 {
                     string feedback = this.controller.DeleteObject(objNr, ownerSsnr);
                     cbObjectDeleteObject.Checked = false;
+                    ClearObjectTb();
                     MessageBox.Show(feedback);
                 }
                 Populate();
@@ -530,7 +531,7 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ett objek med objektsnummret existerar redan.\n" + ex);
+                MessageBox.Show("Uppgifterna är inte korrekt ifyllda.\n" + ex);
             }
         }
 
