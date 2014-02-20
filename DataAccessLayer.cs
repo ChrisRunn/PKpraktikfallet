@@ -134,7 +134,7 @@ namespace praktikfall
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
-            string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
+            string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + name + "','" + phoneNr + "','" + email + "')";
             sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "','" + objPrice +
                 "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
             ExecuteUpdate(sqlStr);
