@@ -116,7 +116,7 @@ namespace praktikfall
             {
                 return "Det finns redan ett objekt med objektnummer " + objNr + " registrerat.";
             }
-            return "DETTA BORDE INTE KUNNA HÄNDA!";    
+            return "DETTA BORDE INTE KUNNA HÄNDA!";
         }
         // Adds a real estate object
         public void AddObject(string objNr, string objAdress, string objCity,
