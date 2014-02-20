@@ -713,7 +713,7 @@ namespace praktikfall
 
         private void OnCheckChanged(object sender, EventArgs e)
         {
-
+            
             CheckBox cb = (CheckBox)sender;
             if (cb.Checked)
             {
