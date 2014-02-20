@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -154,14 +154,7 @@
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.mmArkiv = new System.Windows.Forms.MenuItem();
             this.mmArkivQuit = new System.Windows.Forms.MenuItem();
-            this.mmAlternative = new System.Windows.Forms.MenuItem();
-            this.mmShow = new System.Windows.Forms.MenuItem();
-            this.mmShowAdmintools = new System.Windows.Forms.MenuItem();
             this.mmHelp = new System.Windows.Forms.MenuItem();
-            this.mmHelpFAQ = new System.Windows.Forms.MenuItem();
-            this.mmHelpFaqObject = new System.Windows.Forms.MenuItem();
-            this.mmHelpFAQShowing = new System.Windows.Forms.MenuItem();
-            this.mmHelpFAQBuyer = new System.Windows.Forms.MenuItem();
             this.mmHelpAbout = new System.Windows.Forms.MenuItem();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
@@ -914,8 +907,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1084,7 +1077,6 @@
             // tpStartStartTabPage
             // 
             this.tpStartStartTabPage.BackColor = System.Drawing.SystemColors.Menu;
-            this.tpStartStartTabPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tpStartStartTabPage.BackgroundImage")));
             this.tpStartStartTabPage.Controls.Add(this.pbStartLogo);
             this.tpStartStartTabPage.Controls.Add(this.lblStartYourShowings);
             this.tpStartStartTabPage.Controls.Add(this.lblStartYourObjects);
@@ -1475,8 +1467,6 @@
             // 
             this.mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.mmArkiv,
-            this.mmAlternative,
-            this.mmShow,
             this.mmHelp});
             // 
             // mmArkiv
@@ -1492,60 +1482,16 @@
             this.mmArkivQuit.Text = "Avsluta";
             this.mmArkivQuit.Click += new System.EventHandler(this.mmArkivQuit_Click);
             // 
-            // mmAlternative
-            // 
-            this.mmAlternative.Index = 1;
-            this.mmAlternative.Text = "Alternativ";
-            // 
-            // mmShow
-            // 
-            this.mmShow.Index = 2;
-            this.mmShow.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mmShowAdmintools});
-            this.mmShow.Text = "Visa";
-            // 
-            // mmShowAdmintools
-            // 
-            this.mmShowAdmintools.Index = 0;
-            this.mmShowAdmintools.Text = "Adminverktyg";
-            this.mmShowAdmintools.Click += new System.EventHandler(this.mmShowAdmintools_Click);
-            // 
             // mmHelp
             // 
-            this.mmHelp.Index = 3;
+            this.mmHelp.Index = 1;
             this.mmHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mmHelpFAQ,
             this.mmHelpAbout});
             this.mmHelp.Text = "Hjälp";
             // 
-            // mmHelpFAQ
-            // 
-            this.mmHelpFAQ.Index = 0;
-            this.mmHelpFAQ.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mmHelpFaqObject,
-            this.mmHelpFAQShowing,
-            this.mmHelpFAQBuyer});
-            this.mmHelpFAQ.Text = "FAQ";
-            // 
-            // mmHelpFaqObject
-            // 
-            this.mmHelpFaqObject.Index = 0;
-            this.mmHelpFaqObject.Text = "Objekt";
-            // 
-            // mmHelpFAQShowing
-            // 
-            this.mmHelpFAQShowing.Index = 1;
-            this.mmHelpFAQShowing.Text = "Visning";
-            this.mmHelpFAQShowing.Click += new System.EventHandler(this.mmHelpFAQShowing_Click);
-            // 
-            // mmHelpFAQBuyer
-            // 
-            this.mmHelpFAQBuyer.Index = 2;
-            this.mmHelpFAQBuyer.Text = "Spekulant";
-            // 
             // mmHelpAbout
             // 
-            this.mmHelpAbout.Index = 1;
+            this.mmHelpAbout.Index = 0;
             this.mmHelpAbout.Text = "Om";
             this.mmHelpAbout.Click += new System.EventHandler(this.mmHelpAbout_Click);
             // 
@@ -1680,15 +1626,8 @@
         private System.Windows.Forms.MainMenu mainMenu;
         private System.Windows.Forms.MenuItem mmArkiv;
         private System.Windows.Forms.MenuItem mmArkivQuit;
-        private System.Windows.Forms.MenuItem mmAlternative;
-        private System.Windows.Forms.MenuItem mmShow;
         private System.Windows.Forms.MenuItem mmHelp;
-        private System.Windows.Forms.MenuItem mmHelpFAQ;
         private System.Windows.Forms.MenuItem mmHelpAbout;
-        private System.Windows.Forms.MenuItem mmHelpFaqObject;
-        private System.Windows.Forms.MenuItem mmHelpFAQShowing;
-        private System.Windows.Forms.MenuItem mmHelpFAQBuyer;
-        private System.Windows.Forms.MenuItem mmShowAdmintools;
         private System.Windows.Forms.TabPage tpBrokerBrokerTabPage;
         private System.Windows.Forms.GroupBox bgBrokerAdministrateBroker;
         private System.Windows.Forms.DataGridView dgvBrokerAllBrokers;

@@ -137,9 +137,7 @@ namespace praktikfall
             string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "','" + name + "')";
             sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "','" + objPrice +
                 "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
-            MessageBox.Show(sqlStr);
             ExecuteUpdate(sqlStr);
-            
 
         }
 
@@ -425,7 +423,6 @@ namespace praktikfall
             }
             catch (Exception)
             {
-
                 MessageBox.Show("Det finns ingen användare med detta lösenord, var god försök igen. \n");
                 return null;
             }
