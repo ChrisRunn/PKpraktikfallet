@@ -119,7 +119,7 @@ namespace praktikfall
         public bool ObjectExists(string objNr)
         {
             bool objectExists = false;
-            string sqlStr = "select * from RealEstateObject where objNr = " + objNr;
+            string sqlStr = "select * from RealEstateObject where objNr = " + objNr ;
             DataTable dt = ExecuteQuery(sqlStr);
             if (dt.Rows.Count > 0)
             {

@@ -18,11 +18,18 @@ namespace praktikfall
         //This method deletes an object
         public string DeleteObject(string objNr, string ownerSsnr)
         {
+            if (objNr.Equals(""))
+            {
+                return "Du har inte valt något objekt.";
+            }
+            
+            
             bool objectExists = ObjectExists(objNr);
             bool ownerHasMoreObjects = OwnerHasOtherObjects(ownerSsnr);
 
             if (objectExists && !ownerHasMoreObjects)
             {
+
                 dal.DeleteObjectOwner(ownerSsnr);
                 dal.DeleteObject(objNr);
                 return "Objekt borttaget. Ägaren är även borttagen eftersom ägaren ej äger andra objekt.";
@@ -32,10 +39,11 @@ namespace praktikfall
                 dal.DeleteObject(objNr);
                 return "Objekt borttaget.";
             }
-            else
+            else if (!objectExists) 
             {
                 return "Inget sådant objekt finns.";
             }
+            return "";
 
         }
 
@@ -43,6 +51,10 @@ namespace praktikfall
         public string UpdateObjectFlap(string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
+            if (objNr.Equals(""))
+            {
+                return "Du har inte valt något objekt.";
+            }
             bool objectExists = ObjectExists(objNr);
             bool ownerExists = OwnerExists(ownerSsnr);
 
@@ -73,6 +85,10 @@ namespace praktikfall
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
+            if (objNr.Equals(""))
+            {
+                return "Du har inte valt något objekt.";
+            }
 
             bool brokerExists = BrokerExists(brokerSsnr);
             bool ownerExists = OwnerExists(ownerSsnr);
@@ -168,8 +184,8 @@ namespace praktikfall
         //This method works as a search function to see if an object with the same object number exists
         public bool ObjectExists(string objNr)
         {
-            bool objectExists = dal.ObjectExists(objNr);
-            return objectExists;
+                bool objectExists = dal.ObjectExists(objNr);
+                return objectExists; 
         }
 
         //This method saves an image for a specific object
@@ -185,6 +201,10 @@ namespace praktikfall
         //This method adds a realestate broker to the database
         public string AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
+            if (brokerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon mäklare";
+            }
 
             if (!(Regex.IsMatch(brokerSsnr, "^[0-9]+$")))
             {
@@ -240,6 +260,10 @@ namespace praktikfall
         //This method deletes a realestate broker from the database
         public string DeleteBroker(string brokerSsnr)
         {
+            if (brokerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon mäklare";
+            }
             bool brokerExists = BrokerExists(brokerSsnr);
 
             if (!brokerExists)
@@ -255,6 +279,10 @@ namespace praktikfall
         //This method updates a realestate broker in the database
         public string UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
+            if (brokerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon mäklare";
+            }
             bool brokerExists = BrokerExists(brokerSsnr);
             if (!brokerExists)
             {
@@ -300,6 +328,11 @@ namespace praktikfall
         //This method registers a prospective buyer to the database
         public string AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
+            if (buyerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon spekulant.";
+            }
+
             bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
 
             if (buyerExists)
@@ -328,6 +361,10 @@ namespace praktikfall
         //This method deletes a prospective buyer in the database
         public string DeleteProspectiveBuyer(string buyerSsnr)
         {
+            if (buyerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon spekulant.";
+            }
             bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
 
             if (!buyerExists)
@@ -343,6 +380,10 @@ namespace praktikfall
         //This method updates information for a prospective buyer in the database
         public string UpdateProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
+            if (buyerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon spekulant.";
+            }
             bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
             if (!buyerExists)
             {
