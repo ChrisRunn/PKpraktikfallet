@@ -14,7 +14,7 @@ namespace praktikfall
     {
         DataAccessLayer dal = new DataAccessLayer();
         #region OBJEKT
-
+       
         //This method deletes an object
         public string DeleteObject(string objNr, string ownerSsnr)
         {
@@ -153,7 +153,7 @@ namespace praktikfall
         }
 
 
-        //This function works as a search function for objects  ??????????????????????????? Kolla upp vad denn gör !
+        //This function works as a search function for objects 
         public DataTable GetObject(string objNr)
         {
             DataTable dt = dal.GetObject(objNr);
