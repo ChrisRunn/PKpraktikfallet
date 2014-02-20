@@ -46,7 +46,17 @@ namespace praktikfall
             bool objectExists = ObjectExists(objNr);
             bool ownerExists = OwnerExists(ownerSsnr);
 
-            if (objectExists && ownerExists)
+            if (!(Regex.IsMatch(objPrice, "^[0-9]+$")))
+            {
+                return "Pris får bara innehålla siffror.";
+            }
+
+            else if (!(Regex.IsMatch(objArea, "^[0-9]+$")))
+            {
+                return "Boarean får bara innehålla siffror.";
+            }
+
+            else if (objectExists && ownerExists)
             {
                 dal.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
                 return "Objekt med objektnr " + objNr + " uppdaterat.";
@@ -70,6 +80,16 @@ namespace praktikfall
             if (!(Regex.IsMatch(objNr, "^[0-9]+$")))
             {
                 return "Objektnummer får endast vara siffror.";
+            }
+
+            if (!(Regex.IsMatch(objPrice, "^[0-9]+$")))
+            {
+                return "Pris får bara innehålla siffror.";
+            }
+
+            else if (!(Regex.IsMatch(objArea, "^[0-9]+$")))
+            {
+                return "Bostadsarea får bara innehålla siffror.";
             }
 
             else if (string.IsNullOrEmpty(ownerSsnr) || string.IsNullOrEmpty(objNr))
