@@ -866,6 +866,7 @@ namespace praktikfall
                     this.controller.addObjectImage(img, objNr);
                     pbObjectsObjectPicture.Image = pbObjectThumbnail.Image;
                     tbObjectImageURL.Text = "";
+                    pbObjectThumbnail.Image = null;
                     MessageBox.Show("En bild har registrerats till objekt med objektsnummer " + objNr);
                 }
 
