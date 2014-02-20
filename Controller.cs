@@ -201,6 +201,10 @@ namespace praktikfall
         //This method adds a realestate broker to the database
         public string AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
+            if (brokerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon mäklare";
+            }
 
             if (!(Regex.IsMatch(brokerSsnr, "^[0-9]+$")))
             {
@@ -256,6 +260,10 @@ namespace praktikfall
         //This method deletes a realestate broker from the database
         public string DeleteBroker(string brokerSsnr)
         {
+            if (brokerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon mäklare";
+            }
             bool brokerExists = BrokerExists(brokerSsnr);
 
             if (!brokerExists)
@@ -271,6 +279,10 @@ namespace praktikfall
         //This method updates a realestate broker in the database
         public string UpdateBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
+            if (brokerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon mäklare";
+            }
             bool brokerExists = BrokerExists(brokerSsnr);
             if (!brokerExists)
             {
@@ -316,6 +328,11 @@ namespace praktikfall
         //This method registers a prospective buyer to the database
         public string AddProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
+            if (buyerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon spekulant.";
+            }
+
             bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
 
             if (buyerExists)
@@ -344,6 +361,10 @@ namespace praktikfall
         //This method deletes a prospective buyer in the database
         public string DeleteProspectiveBuyer(string buyerSsnr)
         {
+            if (buyerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon spekulant.";
+            }
             bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
 
             if (!buyerExists)
@@ -359,6 +380,10 @@ namespace praktikfall
         //This method updates information for a prospective buyer in the database
         public string UpdateProspectiveBuyer(string buyerSsnr, string name, string phoneNr, string email)
         {
+            if (buyerSsnr.Equals(""))
+            {
+                return "Du har inte valt någon spekulant.";
+            }
             bool buyerExists = ProspectiveBuyerExists(buyerSsnr);
             if (!buyerExists)
             {
