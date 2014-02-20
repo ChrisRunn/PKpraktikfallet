@@ -266,6 +266,7 @@ namespace praktikfall
                     DataGridViewRow row = this.dgvObjectAllObjects.Rows[e.RowIndex];
                     string objNr = row.Cells["Objektsnummer"].Value.ToString();
                     this.setSelectedObjectAndOwner(objNr, row);
+                    pbObjectThumbnail.Image = null;
                 }
             }
             catch (Exception ex)
@@ -523,6 +524,7 @@ namespace praktikfall
                     string feedback = this.controller.DeleteObject(objNr, ownerSsnr);
                     cbObjectDeleteObject.Checked = false;
                     ClearObjectTb();
+                    pbObjectsObjectPicture.Image = null;
                     MessageBox.Show(feedback);
                 }
                 Populate();
@@ -660,7 +662,7 @@ namespace praktikfall
 
         private void OnCheckChanged(object sender, EventArgs e)
         {
-            
+
             CheckBox cb = (CheckBox)sender;
             if (cb.Checked)
             {
@@ -849,16 +851,24 @@ namespace praktikfall
         {
             try
             {
-                string objNr = tbObjectObjectNr.Text;
-                byte[] img = null;
-                string fp = tbObjectImageURL.Text;
-                FileStream fs = new FileStream(fp, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-                img = br.ReadBytes((int)fs.Length);
-                this.controller.addObjectImage(img, objNr);
-                pbObjectsObjectPicture.Image = pbObjectThumbnail.Image;
-                tbObjectImageURL.Text = "";
-                MessageBox.Show("En bild har registrerats till objekt med objektsnummer " + objNr);
+                if (pbObjectThumbnail.Image == null)
+                {
+                    MessageBox.Show("Vänlig välj en bild att ladda upp först.");
+                }
+                else
+                {
+                    string objNr = tbObjectObjectNr.Text;
+                    byte[] img = null;
+                    string fp = tbObjectImageURL.Text;
+                    FileStream fs = new FileStream(fp, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    img = br.ReadBytes((int)fs.Length);
+                    this.controller.addObjectImage(img, objNr);
+                    pbObjectsObjectPicture.Image = pbObjectThumbnail.Image;
+                    tbObjectImageURL.Text = "";
+                    MessageBox.Show("En bild har registrerats till objekt med objektsnummer " + objNr);
+                }
+
             }
             catch (Exception ex)
             {

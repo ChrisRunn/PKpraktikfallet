@@ -97,21 +97,21 @@ namespace praktikfall
         //Method for finding real estate objects with a search string
         public DataTable SearchObjectByString(string searchString)
         {
-            string sqlStr = "select objNr as Objektsnummer, objAdress as Adress, brokerSsnr as Mäklare, ownerSsnr as Ägare from RealEstateObject where objNr like '%" + searchString + "%' or objAdress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
+            string sqlStr = "select objNr as Objektsnummer, objAdress as Address, brokerSsnr as Mäklare, ownerSsnr as Ägare from RealEstateObject where objNr like '%" + searchString + "%' or objAdress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
         //Get all objects for a specified broker
         public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
-            string sqlStr = "select objNr as Objektnummer, objAdress as Adress, objCity as Stad, objPrice as Pris, objArea as Area, objRooms as 'Antal rum', objUnitType as Typ, objInfo as Beskrivning from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
+            string sqlStr = "select objNr as Objektnummer, objAdress as Address, objCity as Stad, objPrice as Pris, objArea as Area, objRooms as 'Antal rum', objUnitType as Typ, objInfo as Beskrivning from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
         //Get all showings for a specified broker
         public DataTable SearchShowingsByBrokerSsnr(string searchString)
         {
-            string sqlStr = "select s.objNr as Objektsnummer, objAdress as Adress, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
+            string sqlStr = "select s.objNr as Objektsnummer, objAdress as Address, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
