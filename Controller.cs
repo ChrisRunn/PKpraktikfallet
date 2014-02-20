@@ -79,7 +79,7 @@ namespace praktikfall
 
             if (!(Regex.IsMatch(objNr, "^[0-9]+$")))
             {
-                return "Objektnummer får endast vara siffror.";
+                return "Objektnummer får endast innehålla siffror.";
             }
 
             if (!(Regex.IsMatch(objPrice, "^[0-9]+$")))
