@@ -87,7 +87,7 @@ namespace praktikfall
         {
             if (objNr.Equals(""))
             {
-                return "Du har inte valt något objekt.";
+                return "Informationen är inte korrekt ifylld.";
             }
 
             bool brokerExists = BrokerExists(brokerSsnr);
