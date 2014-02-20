@@ -67,7 +67,12 @@ namespace praktikfall
             bool brokerExists = BrokerExists(brokerSsnr);
             bool ownerExists = OwnerExists(ownerSsnr);
 
-            if (string.IsNullOrEmpty(ownerSsnr) || string.IsNullOrEmpty(objNr))
+            if (!(Regex.IsMatch(objNr, "^[0-9]+$")))
+            {
+                return "Objektnummer får endast vara siffror.";
+            }
+
+            else if (string.IsNullOrEmpty(ownerSsnr) || string.IsNullOrEmpty(objNr))
             {
                 return "Ägare kan inte registreras utan objekt, och objekt kan inte registreras utan ägare.";
             }
@@ -91,7 +96,7 @@ namespace praktikfall
             {
                 return "Det finns redan ett objekt med objektnummer " + objNr + " registrerat.";
             }
-            return "DETTA BORDE INTE KUNNA HÄNDA!";     // :)
+            return "DETTA BORDE INTE KUNNA HÄNDA!";    
         }
         // Adds a real estate object
         public void AddObject(string objNr, string objAdress, string objCity,

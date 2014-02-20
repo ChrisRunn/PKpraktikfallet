@@ -140,18 +140,18 @@ namespace praktikfall
             tbBrokerBrokerPw.Text = "";
             tbBrokerBrokerSsnr.Text = "";
         }
-        public void Populate()                                                            
+        public void Populate()
         {
             DataTable dtAllObjects = this.controller.GetAllObjectsNr();
-            dgvObjectAllObjects.DataSource = dtAllObjects;                                          
+            dgvObjectAllObjects.DataSource = dtAllObjects;
 
             btnObjectSubmit.Enabled = false;
-            dgvShowingAllObjects.DataSource = dtAllObjects;                                       
+            dgvShowingAllObjects.DataSource = dtAllObjects;
             DataTable dtAllProspectiveBuyers = this.controller.GetAllProspectiveBuyers();
-            dgvShowingAllBuyers.DataSource = dtAllProspectiveBuyers;                       
+            dgvShowingAllBuyers.DataSource = dtAllProspectiveBuyers;
             DataTable dtAllShowings = this.controller.GetShowings();
-            dgvShowingCurrentShowings.DataSource = dtAllShowings;                            
-            DataTable dtAllBrokers = this.controller.GetAllBrokers();                             
+            dgvShowingCurrentShowings.DataSource = dtAllShowings;
+            DataTable dtAllBrokers = this.controller.GetAllBrokers();
             dgvBrokerAllBrokers.DataSource = dtAllBrokers;
             MakeTbReadOnly();
         }
@@ -512,7 +512,7 @@ namespace praktikfall
                 }
                 else if (cbObjectRegister.Checked && !cbObjectUpdate.Checked && !cbObjectDeleteObject.Checked) //Register
                 {
-                    
+
                     string feedback = this.controller.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                     pbObjectThumbnail.Image = null;
                     pbObjectsObjectPicture.Image = null;
