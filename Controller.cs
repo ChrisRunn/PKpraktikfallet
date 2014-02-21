@@ -416,7 +416,6 @@ namespace praktikfall
             return showingExists;
         }
 
-
         //This method works as a search function for prospective buyers
         public DataTable SearchProBuyerByString(string searchString)
         {
@@ -425,20 +424,6 @@ namespace praktikfall
         }
         #endregion SPEKULANT
         #region OBJEKTÄGARE
-        //This method adds an owner to the database.                                        Används voide...
-        /*public void AddObjectOwner(string ownerSsnr, string phoneNr, string email)
-        {
-             dal.AddObjectOwner(ownerSsnr, phoneNr, email);
-            
-        }
-        
-        //This method updates an owner in the database                                       Används voide...
-        public void UpdateObjectOwner(string ownerSsnr, string phoneNr, string email)
-        {
-             dal.UpdateObjectOwner(ownerSsnr, phoneNr, email);
-            
-        }*/
-
         //This method deletes an owner in the database
         public void DeleteObjectOwner(string ownerSsnr)
         {
@@ -452,13 +437,6 @@ namespace praktikfall
             DataTable dt = dal.GetObjectOwner(ownerSsnr);
             return dt;
         }
-
-        /*This method shows all owners                                          Används voide...
-        public DataTable GetAllObjectOwners()
-        {
-            DataTable dt = dal.GetAllObjectOwners();
-            return dt;
-        }*/
 
         //This method checks if an owner exists. 
         public bool OwnerExists(string ownerSsnr)

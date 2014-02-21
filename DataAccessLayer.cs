@@ -129,7 +129,6 @@ namespace praktikfall
             return objectExists;
         }
         //Adds a real estate object and its owner
-
         public void AddObjectAndOwner(string objNr, string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
@@ -284,13 +283,6 @@ namespace praktikfall
         }
         #endregion SPEKULANT
         #region OBJEKTÄGARE
-        //Adds a owner to the database. Note that this method does not connect an owner to an object
-        public void AddObjectOwner(string ownerSsnr, string phoneNr, string email)
-        {
-            string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + phoneNr + "','" + email + "')";
-            ExecuteUpdate(sqlStr);
-
-        }
         //Deletes an owner
         public void DeleteObjectOwner(string ownerSsnr)
         {
@@ -298,14 +290,6 @@ namespace praktikfall
             ExecuteUpdate(sqlStr);
 
         }
-        //Update information for a specified owner
-        public void UpdateObjectOwner(string ownerSsnr, string phoneNr, string email)
-        {
-            string sqlStr = "update ObjectOwner set phoneNr = '" + phoneNr + "', email = '" + email + "' where ownerSsnr = '" + ownerSsnr + "'";
-            ExecuteUpdate(sqlStr);
-
-        }
-
         // Update information for a object and owner for a specified object
         public void UpdateObjectFlap(string objAdress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
@@ -320,13 +304,6 @@ namespace praktikfall
         public DataTable GetObjectOwner(string ownerSsnr)
         {
             string sqlStr = "select * from ObjectOwner where ownerSsnr = '" + ownerSsnr + "'";
-            DataTable dt = ExecuteQuery(sqlStr);
-            return dt;
-        }
-        // Get information about all owners
-        public DataTable GetAllObjectOwners()
-        {
-            string sqlStr = "select * from ObjectOwner";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
