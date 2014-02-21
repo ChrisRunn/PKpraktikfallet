@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -186,7 +186,7 @@
             // 
             // tpShowingShowingTabPage
             // 
-            this.tpShowingShowingTabPage.BackColor = System.Drawing.Color.White;
+            this.tpShowingShowingTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.tpShowingShowingTabPage.Controls.Add(this.gbShowingAdministrateBuyer);
             this.tpShowingShowingTabPage.Controls.Add(this.gbShowingDeleteShowing);
             this.tpShowingShowingTabPage.Controls.Add(this.gbShowing);
@@ -565,7 +565,7 @@
             // 
             // tpObjectObjectTabPage
             // 
-            this.tpObjectObjectTabPage.BackColor = System.Drawing.Color.White;
+            this.tpObjectObjectTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.tpObjectObjectTabPage.Controls.Add(this.gbObjectUploadPicture);
             this.tpObjectObjectTabPage.Controls.Add(this.label1);
             this.tpObjectObjectTabPage.Controls.Add(this.bgObjectObjectInfo2);
@@ -692,35 +692,35 @@
             this.tbObjectPrice.Location = new System.Drawing.Point(96, 152);
             this.tbObjectPrice.Name = "tbObjectPrice";
             this.tbObjectPrice.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectPrice.TabIndex = 7;
+            this.tbObjectPrice.TabIndex = 10;
             // 
             // tbObjectCity
             // 
             this.tbObjectCity.Location = new System.Drawing.Point(96, 127);
             this.tbObjectCity.Name = "tbObjectCity";
             this.tbObjectCity.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectCity.TabIndex = 6;
+            this.tbObjectCity.TabIndex = 9;
             // 
             // tbObjectAddress
             // 
             this.tbObjectAddress.Location = new System.Drawing.Point(96, 101);
             this.tbObjectAddress.Name = "tbObjectAddress";
             this.tbObjectAddress.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectAddress.TabIndex = 5;
+            this.tbObjectAddress.TabIndex = 8;
             // 
             // tbObjectObjectNr
             // 
             this.tbObjectObjectNr.Location = new System.Drawing.Point(96, 204);
             this.tbObjectObjectNr.Name = "tbObjectObjectNr";
             this.tbObjectObjectNr.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectObjectNr.TabIndex = 9;
+            this.tbObjectObjectNr.TabIndex = 12;
             // 
             // tbObjectBrokerSsnr
             // 
             this.tbObjectBrokerSsnr.Location = new System.Drawing.Point(96, 178);
             this.tbObjectBrokerSsnr.Name = "tbObjectBrokerSsnr";
             this.tbObjectBrokerSsnr.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectBrokerSsnr.TabIndex = 8;
+            this.tbObjectBrokerSsnr.TabIndex = 11;
             // 
             // lblObjectCity
             // 
@@ -772,21 +772,21 @@
             this.tbObjectArea.Location = new System.Drawing.Point(96, 22);
             this.tbObjectArea.Name = "tbObjectArea";
             this.tbObjectArea.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectArea.TabIndex = 1;
+            this.tbObjectArea.TabIndex = 5;
             // 
             // tbObjectType
             // 
             this.tbObjectType.Location = new System.Drawing.Point(96, 75);
             this.tbObjectType.Name = "tbObjectType";
             this.tbObjectType.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectType.TabIndex = 3;
+            this.tbObjectType.TabIndex = 7;
             // 
             // tbObjectNumberOfRooms
             // 
             this.tbObjectNumberOfRooms.Location = new System.Drawing.Point(96, 48);
             this.tbObjectNumberOfRooms.Name = "tbObjectNumberOfRooms";
             this.tbObjectNumberOfRooms.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectNumberOfRooms.TabIndex = 2;
+            this.tbObjectNumberOfRooms.TabIndex = 6;
             // 
             // lblObjectType
             // 
@@ -888,7 +888,7 @@
             this.rtbObjectObjectInfo.Location = new System.Drawing.Point(7, 19);
             this.rtbObjectObjectInfo.Name = "rtbObjectObjectInfo";
             this.rtbObjectObjectInfo.Size = new System.Drawing.Size(462, 103);
-            this.rtbObjectObjectInfo.TabIndex = 10;
+            this.rtbObjectObjectInfo.TabIndex = 13;
             this.rtbObjectObjectInfo.Text = "";
             // 
             // gbObjectAllObjects
@@ -917,8 +917,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1014,7 +1014,7 @@
             this.tbObjectOwnerEmail.Location = new System.Drawing.Point(101, 104);
             this.tbObjectOwnerEmail.Name = "tbObjectOwnerEmail";
             this.tbObjectOwnerEmail.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectOwnerEmail.TabIndex = 13;
+            this.tbObjectOwnerEmail.TabIndex = 4;
             // 
             // lblObjectOwnerEmail
             // 
@@ -1030,21 +1030,21 @@
             this.tbObjectOwnerName.Location = new System.Drawing.Point(101, 52);
             this.tbObjectOwnerName.Name = "tbObjectOwnerName";
             this.tbObjectOwnerName.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectOwnerName.TabIndex = 11;
+            this.tbObjectOwnerName.TabIndex = 2;
             // 
             // tbObjectOwnerPhoneNr
             // 
             this.tbObjectOwnerPhoneNr.Location = new System.Drawing.Point(101, 78);
             this.tbObjectOwnerPhoneNr.Name = "tbObjectOwnerPhoneNr";
             this.tbObjectOwnerPhoneNr.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectOwnerPhoneNr.TabIndex = 12;
+            this.tbObjectOwnerPhoneNr.TabIndex = 3;
             // 
             // tbObjectOwnerSsnr
             // 
             this.tbObjectOwnerSsnr.Location = new System.Drawing.Point(101, 26);
             this.tbObjectOwnerSsnr.Name = "tbObjectOwnerSsnr";
             this.tbObjectOwnerSsnr.Size = new System.Drawing.Size(180, 20);
-            this.tbObjectOwnerSsnr.TabIndex = 10;
+            this.tbObjectOwnerSsnr.TabIndex = 1;
             // 
             // lblObjectOwnerSsnr
             // 
@@ -1076,7 +1076,7 @@
             // 
             // tpStartStartTabPage
             // 
-            this.tpStartStartTabPage.BackColor = System.Drawing.Color.White;
+            this.tpStartStartTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.tpStartStartTabPage.Controls.Add(this.pbStartLogo);
             this.tpStartStartTabPage.Controls.Add(this.lblStartYourShowings);
             this.tpStartStartTabPage.Controls.Add(this.lblStartYourObjects);
@@ -1185,7 +1185,7 @@
             // 
             // tpBrokerBrokerTabPage
             // 
-            this.tpBrokerBrokerTabPage.BackColor = System.Drawing.Color.White;
+            this.tpBrokerBrokerTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.tpBrokerBrokerTabPage.Controls.Add(this.gbBrokerAllBrokers);
             this.tpBrokerBrokerTabPage.Controls.Add(this.bgBrokerAdministrateBroker);
             this.tpBrokerBrokerTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1260,7 +1260,7 @@
             // 
             // bgBrokerAdministrateBroker
             // 
-            this.bgBrokerAdministrateBroker.BackColor = System.Drawing.Color.White;
+            this.bgBrokerAdministrateBroker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.bgBrokerAdministrateBroker.Controls.Add(this.lblBrokerChoice);
             this.bgBrokerAdministrateBroker.Controls.Add(this.lblBrokerSelectedBroker);
             this.bgBrokerAdministrateBroker.Controls.Add(this.btnBrokerSubmit);
