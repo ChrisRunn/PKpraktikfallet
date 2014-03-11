@@ -48,7 +48,7 @@ namespace praktikfall
         }
 
         // This method updates everything in the object tab
-        public string UpdateObjectFlap(string objAdress, string objCity,
+        public string UpdateObjectFlap(string objAddress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
             if (objNr.Equals(""))
@@ -70,7 +70,7 @@ namespace praktikfall
 
             else if (objectExists && ownerExists)
             {
-                dal.UpdateObjectFlap(objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
+                dal.UpdateObjectFlap(objAddress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, objNr, name, phoneNr, email, ownerSsnr);
                 return "Objekt med objektnr " + objNr + " uppdaterat.";
             }
             else
@@ -81,7 +81,7 @@ namespace praktikfall
         }
 
         //This metod adds an object and an owner
-        public string AddObjectAndOwner(string objNr, string objAdress, string objCity,
+        public string AddObjectAndOwner(string objNr, string objAddress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
@@ -116,12 +116,12 @@ namespace praktikfall
             bool objectExists = ObjectExists(objNr);
             if (!objectExists && brokerExists && !ownerExists)
             {
-                this.dal.AddObjectAndOwner(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
+                this.dal.AddObjectAndOwner(objNr, objAddress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr, phoneNr, email, name);
                 return "Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.";
             }
             else if (!objectExists && brokerExists && ownerExists)
             {
-                this.dal.AddObject(objNr, objAdress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
+                this.dal.AddObject(objNr, objAddress, objCity, objPrice, objArea, objRooms, objUnitType, objInfo, brokerSsnr, ownerSsnr);
                 return "Objekt med objnr " + objNr + " och objektägare med personnummer " + ownerSsnr + " registrerad.";
             }
             else if (!brokerExists)
@@ -135,11 +135,11 @@ namespace praktikfall
             return "DETTA BORDE INTE KUNNA HÄNDA!";
         }
         // Adds a real estate object
-        public void AddObject(string objNr, string objAdress, string objCity,
+        public void AddObject(string objNr, string objAddress, string objCity,
            string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
            string brokerSsnr, string ownerSsnr)
         {
-            this.dal.AddObject(objNr, objAdress, objCity,
+            this.dal.AddObject(objNr, objAddress, objCity,
                objPrice, objArea, objRooms, objUnitType, objInfo,
                brokerSsnr, ownerSsnr);
 

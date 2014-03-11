@@ -15,7 +15,7 @@ namespace praktikfall
     class DataAccessLayer
     {
         #region GENERISKA METODER
-        string connectionString = "server=localhost; Trusted_Connection=yes; database=PK Praktikfallet;";
+        string connectionString = "server=localhost; Trusted_Connection=yes; database=MA Praktikfallet;";
 
         //Generic method for sending a query that updates or adds a new object
         private void ExecuteUpdate(string sqlStr)
@@ -71,9 +71,9 @@ namespace praktikfall
             ExecuteUpdate(sqlStr);
         }
         //Update a a real estate object
-        public void UpdateObject(string objNr, string objAdress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
+        public void UpdateObject(string objNr, string objAddress, string objCity, int objPrice, double objArea, string objRooms, string objUnitType, string objInfo, string brokerSsnr)
         {
-            string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "',objCity = '" + objCity +
+            string sqlStr = "update RealEstateObject set objAddress = '" + objAddress + "',objCity = '" + objCity +
                 "', objPrice = '" + objPrice + "', objArea = '" + objArea +
                 "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType +
                 "', objInfo = '" + objInfo + "',brokerSsnr = '" + brokerSsnr + "'" + " where objNr = " + objNr;
@@ -90,28 +90,28 @@ namespace praktikfall
         // Get all real estate objects from the database
         public DataTable GetAllObjects()
         {
-            string sqlStr = "select objNr as Objektsnummer, brokerSsnr as Mäklare, objAdress as Address, ownerSsnr as Ägare from RealEstateObject";
+            string sqlStr = "select objNr as Objektsnummer, brokerSsnr as Mäklare, objAddress as Address, ownerSsnr as Ägare from RealEstateObject";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
         //Method for finding real estate objects with a search string
         public DataTable SearchObjectByString(string searchString)
         {
-            string sqlStr = "select objNr as Objektsnummer, objAdress as Address, brokerSsnr as Mäklare, ownerSsnr as Ägare from RealEstateObject where objNr like '%" + searchString + "%' or objAdress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
+            string sqlStr = "select objNr as Objektsnummer, objAddress as Address, brokerSsnr as Mäklare, ownerSsnr as Ägare from RealEstateObject where objNr like '%" + searchString + "%' or objAddress like '%" + searchString + "%' or objCity like '%" + searchString + "%' or objPrice like '%" + searchString + "%' or objArea like '%" + searchString + "%' or objRooms like '%" + searchString + "%' or objUnitType like '%" + searchString + "%' or brokerSsnr like '%" + searchString + "%'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
         //Get all objects for a specified broker
         public DataTable SearchObjectByBrokerSsnr(string searchString)
         {
-            string sqlStr = "select objNr as Objektnummer, objAdress as Address, objCity as Stad, objPrice as Pris, objArea as Area, objRooms as 'Antal rum', objUnitType as Typ, objInfo as Beskrivning from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
+            string sqlStr = "select objNr as Objektnummer, objAddress as Address, objCity as Stad, objPrice as Pris, objArea as Area, objRooms as 'Antal rum', objUnitType as Typ, objInfo as Beskrivning from RealEstateObject, RealEstateBroker where name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
         //Get all showings for a specified broker
         public DataTable SearchShowingsByBrokerSsnr(string searchString)
         {
-            string sqlStr = "select s.objNr as Objektsnummer, objAdress as Address, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
+            string sqlStr = "select s.objNr as Objektsnummer, objAddress as Address, showingDate as Datum from Showing s, RealEstateBroker, RealEstateObject o where s.objNr = o.objNr and name = '" + searchString + "'";
             DataTable dt = ExecuteQuery(sqlStr);
             return dt;
         }
@@ -129,23 +129,23 @@ namespace praktikfall
             return objectExists;
         }
         //Adds a real estate object and its owner
-        public void AddObjectAndOwner(string objNr, string objAdress, string objCity,
+        public void AddObjectAndOwner(string objNr, string objAddress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr, string phoneNr, string email, string name)
         {
             string sqlStr = "insert into ObjectOwner values ('" + ownerSsnr + "','" + name + "','" + phoneNr + "','" + email + "')";
-            sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "','" + objPrice +
+            sqlStr += "insert into RealEstateObject values (" + objNr + ",'" + objAddress + "','" + objCity + "','" + objPrice +
                 "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
             ExecuteUpdate(sqlStr);
 
         }
 
         //Adds a real estate object
-        public void AddObject(string objNr, string objAdress, string objCity,
+        public void AddObject(string objNr, string objAddress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo,
             string brokerSsnr, string ownerSsnr)
         {
-            string sqlStr = "insert into RealEstateObject values (" + objNr + ",'" + objAdress + "','" + objCity + "','" + objPrice +
+            string sqlStr = "insert into RealEstateObject values (" + objNr + ",'" + objAddress + "','" + objCity + "','" + objPrice +
                     "','" + objArea + "','" + objRooms + "','" + objUnitType + "','" + objInfo + "','" + brokerSsnr + "','" + ownerSsnr + "','')";
             ExecuteUpdate(sqlStr);
 
@@ -291,10 +291,10 @@ namespace praktikfall
 
         }
         // Update information for a object and owner for a specified object
-        public void UpdateObjectFlap(string objAdress, string objCity,
+        public void UpdateObjectFlap(string objAddress, string objCity,
             string objPrice, string objArea, string objRooms, string objUnitType, string objInfo, string objNr, string name, string phoneNr, string email, string ownerSsnr)
         {
-            string sqlStr = "update RealEstateObject set objAdress = '" + objAdress + "', objCity = '" + objCity + "', objPrice = '" + objPrice + "', objArea = '" + objArea + "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType + "', objInfo = '" + objInfo + "' where objNr = " + objNr;
+            string sqlStr = "update RealEstateObject set objAddress = '" + objAddress + "', objCity = '" + objCity + "', objPrice = '" + objPrice + "', objArea = '" + objArea + "', objRooms = '" + objRooms + "', objUnitType = '" + objUnitType + "', objInfo = '" + objInfo + "' where objNr = " + objNr;
             sqlStr += "update ObjectOwner set name = '" + name + "', phoneNr = '" + phoneNr + "', email = '" + email + "' where ownerSsnr = '" + ownerSsnr + "'";
             ExecuteUpdate(sqlStr);
 
