@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using praktikfall.WebServiceUpg1Reference;
 
 
 namespace praktikfall
@@ -901,6 +902,27 @@ namespace praktikfall
         private void mmArkivQuit_Click(object sender, EventArgs e) //Menuflap, arkiv quit
         {
             Application.Exit();
+        }
+
+        private void btnWSbrowse_Click(object sender, EventArgs e)
+        {
+            string filepath;
+
+            OpenFileDialog fDialog = new OpenFileDialog();
+            fDialog.Title = "Välj fil";                                                                  
+            fDialog.InitialDirectory = @"C:\";
+            if (fDialog.ShowDialog() == DialogResult.OK)
+            {
+                filepath = fDialog.FileName.ToString();
+                tbWSfilepath.Text = filepath;
+            }
+        }
+
+        private void btnWSsubmit_Click(object sender, EventArgs e)
+        {
+            string input = tbWSfilepath.Text;
+            WebServiceUpg1SoapClient client = new WebServiceUpg1SoapClient();
+            rtbWSoutput.Text = client.GetFileContent(input);
         }
     }
 }

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -123,7 +123,7 @@
             this.dgvStartYourObjects = new System.Windows.Forms.DataGridView();
             this.lblStartEmpName = new System.Windows.Forms.Label();
             this.lblStartWelcome = new System.Windows.Forms.Label();
-            this.tabControl = new System.Windows.Forms.TabControl();
+            this.TabControl = new System.Windows.Forms.TabControl();
             this.tpBrokerBrokerTabPage = new System.Windows.Forms.TabPage();
             this.gbBrokerAllBrokers = new System.Windows.Forms.GroupBox();
             this.btnBrokerSearch = new System.Windows.Forms.Button();
@@ -156,6 +156,13 @@
             this.mmArkivQuit = new System.Windows.Forms.MenuItem();
             this.mmHelp = new System.Windows.Forms.MenuItem();
             this.mmHelpAbout = new System.Windows.Forms.MenuItem();
+            this.tpWS = new System.Windows.Forms.TabPage();
+            this.gbWSupg1 = new System.Windows.Forms.GroupBox();
+            this.gbWSupg2 = new System.Windows.Forms.GroupBox();
+            this.btnWSsubmit = new System.Windows.Forms.Button();
+            this.btnWSbrowse = new System.Windows.Forms.Button();
+            this.tbWSfilepath = new System.Windows.Forms.TextBox();
+            this.rtbWSoutput = new System.Windows.Forms.RichTextBox();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -177,11 +184,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbStartLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStartYourShowings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStartYourObjects)).BeginInit();
-            this.tabControl.SuspendLayout();
+            this.TabControl.SuspendLayout();
             this.tpBrokerBrokerTabPage.SuspendLayout();
             this.gbBrokerAllBrokers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).BeginInit();
             this.bgBrokerAdministrateBroker.SuspendLayout();
+            this.tpWS.SuspendLayout();
+            this.gbWSupg1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpShowingShowingTabPage
@@ -917,8 +926,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1170,18 +1179,19 @@
             this.lblStartWelcome.TabIndex = 0;
             this.lblStartWelcome.Text = "Välkommen";
             // 
-            // tabControl
+            // TabControl
             // 
-            this.tabControl.Controls.Add(this.tpStartStartTabPage);
-            this.tabControl.Controls.Add(this.tpObjectObjectTabPage);
-            this.tabControl.Controls.Add(this.tpShowingShowingTabPage);
-            this.tabControl.Controls.Add(this.tpBrokerBrokerTabPage);
-            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(4, -1);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1086, 668);
-            this.tabControl.TabIndex = 0;
+            this.TabControl.Controls.Add(this.tpStartStartTabPage);
+            this.TabControl.Controls.Add(this.tpObjectObjectTabPage);
+            this.TabControl.Controls.Add(this.tpShowingShowingTabPage);
+            this.TabControl.Controls.Add(this.tpBrokerBrokerTabPage);
+            this.TabControl.Controls.Add(this.tpWS);
+            this.TabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabControl.Location = new System.Drawing.Point(4, -1);
+            this.TabControl.Name = "TabControl";
+            this.TabControl.SelectedIndex = 0;
+            this.TabControl.Size = new System.Drawing.Size(1086, 668);
+            this.TabControl.TabIndex = 0;
             // 
             // tpBrokerBrokerTabPage
             // 
@@ -1495,13 +1505,82 @@
             this.mmHelpAbout.Text = "Om";
             this.mmHelpAbout.Click += new System.EventHandler(this.mmHelpAbout_Click);
             // 
+            // tpWS
+            // 
+            this.tpWS.Controls.Add(this.gbWSupg2);
+            this.tpWS.Controls.Add(this.gbWSupg1);
+            this.tpWS.Location = new System.Drawing.Point(4, 22);
+            this.tpWS.Name = "tpWS";
+            this.tpWS.Padding = new System.Windows.Forms.Padding(3);
+            this.tpWS.Size = new System.Drawing.Size(1078, 642);
+            this.tpWS.TabIndex = 8;
+            this.tpWS.Text = "WebServices";
+            this.tpWS.UseVisualStyleBackColor = true;
+            // 
+            // gbWSupg1
+            // 
+            this.gbWSupg1.Controls.Add(this.rtbWSoutput);
+            this.gbWSupg1.Controls.Add(this.tbWSfilepath);
+            this.gbWSupg1.Controls.Add(this.btnWSbrowse);
+            this.gbWSupg1.Controls.Add(this.btnWSsubmit);
+            this.gbWSupg1.Location = new System.Drawing.Point(4, 7);
+            this.gbWSupg1.Name = "gbWSupg1";
+            this.gbWSupg1.Size = new System.Drawing.Size(454, 629);
+            this.gbWSupg1.TabIndex = 0;
+            this.gbWSupg1.TabStop = false;
+            this.gbWSupg1.Text = "Hämta filinnehåll";
+            // 
+            // gbWSupg2
+            // 
+            this.gbWSupg2.Location = new System.Drawing.Point(465, 7);
+            this.gbWSupg2.Name = "gbWSupg2";
+            this.gbWSupg2.Size = new System.Drawing.Size(606, 628);
+            this.gbWSupg2.TabIndex = 1;
+            this.gbWSupg2.TabStop = false;
+            this.gbWSupg2.Text = "Uppgift 2";
+            // 
+            // btnWSsubmit
+            // 
+            this.btnWSsubmit.Location = new System.Drawing.Point(373, 600);
+            this.btnWSsubmit.Name = "btnWSsubmit";
+            this.btnWSsubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnWSsubmit.TabIndex = 0;
+            this.btnWSsubmit.Text = "Utför";
+            this.btnWSsubmit.UseVisualStyleBackColor = true;
+            this.btnWSsubmit.Click += new System.EventHandler(this.btnWSsubmit_Click);
+            // 
+            // btnWSbrowse
+            // 
+            this.btnWSbrowse.Location = new System.Drawing.Point(373, 19);
+            this.btnWSbrowse.Name = "btnWSbrowse";
+            this.btnWSbrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnWSbrowse.TabIndex = 1;
+            this.btnWSbrowse.Text = "Bläddra";
+            this.btnWSbrowse.UseVisualStyleBackColor = true;
+            this.btnWSbrowse.Click += new System.EventHandler(this.btnWSbrowse_Click);
+            // 
+            // tbWSfilepath
+            // 
+            this.tbWSfilepath.Location = new System.Drawing.Point(6, 21);
+            this.tbWSfilepath.Name = "tbWSfilepath";
+            this.tbWSfilepath.Size = new System.Drawing.Size(361, 20);
+            this.tbWSfilepath.TabIndex = 2;
+            // 
+            // rtbWSoutput
+            // 
+            this.rtbWSoutput.Location = new System.Drawing.Point(6, 48);
+            this.rtbWSoutput.Name = "rtbWSoutput";
+            this.rtbWSoutput.Size = new System.Drawing.Size(442, 549);
+            this.rtbWSoutput.TabIndex = 3;
+            this.rtbWSoutput.Text = "";
+            // 
             // frameMainMainframe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1091, 668);
-            this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.TabControl);
             this.Menu = this.mainMenu;
             this.Name = "frameMainMainframe";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeFrame_FormClosed);
@@ -1536,13 +1615,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbStartLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStartYourShowings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStartYourObjects)).EndInit();
-            this.tabControl.ResumeLayout(false);
+            this.TabControl.ResumeLayout(false);
             this.tpBrokerBrokerTabPage.ResumeLayout(false);
             this.gbBrokerAllBrokers.ResumeLayout(false);
             this.gbBrokerAllBrokers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).EndInit();
             this.bgBrokerAdministrateBroker.ResumeLayout(false);
             this.bgBrokerAdministrateBroker.PerformLayout();
+            this.tpWS.ResumeLayout(false);
+            this.gbWSupg1.ResumeLayout(false);
+            this.gbWSupg1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1566,7 +1648,7 @@
         private System.Windows.Forms.DataGridView dgvStartYourObjects;
         private System.Windows.Forms.Label lblStartEmpName;
         private System.Windows.Forms.Label lblStartWelcome;
-        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.GroupBox gbShowingDeleteShowing;
         private System.Windows.Forms.DataGridView dgvShowingCurrentShowings;
         private System.Windows.Forms.Button btnShowingSubmitDelete;
@@ -1674,6 +1756,13 @@
         private System.Windows.Forms.TextBox tbObjectImageURL;
         private System.Windows.Forms.TextBox tbObjectPricePerKvm;
         private System.Windows.Forms.Label lblObjectPricePErKvm;
+        private System.Windows.Forms.TabPage tpWS;
+        private System.Windows.Forms.GroupBox gbWSupg2;
+        private System.Windows.Forms.GroupBox gbWSupg1;
+        private System.Windows.Forms.RichTextBox rtbWSoutput;
+        private System.Windows.Forms.TextBox tbWSfilepath;
+        private System.Windows.Forms.Button btnWSbrowse;
+        private System.Windows.Forms.Button btnWSsubmit;
 
     }
 }
