@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data;
 using System.Diagnostics;
-
+using praktikfall.WebServiceUpg1Reference;
 
 
 namespace praktikfall
@@ -152,7 +152,7 @@ namespace praktikfall
         }
 
         //Saves an image for a specified real estate object
-        public void addObjectImage(byte[] img, string objNr)
+        public void AddObjectImage(byte[] img, string objNr)
         {
             string sqlStr = "update RealEstateObject set objImage = @img where objNr = " + objNr;
             SqlConnection con = new SqlConnection(connectionString);
@@ -389,7 +389,7 @@ namespace praktikfall
         }
         #endregion SHOWING
         // Check password for login
-        public String CheckPw(string name, string password)
+        public string CheckPw(string name, string password)
         {
             try
             {
@@ -404,5 +404,12 @@ namespace praktikfall
                 return null;
             }
         }
+
+        public string GetFileContent(string filepath)
+        {
+            WebServiceUpg1SoapClient client = new WebServiceUpg1SoapClient();
+            return client.GetFileContent(filepath);
+        }
+
     }
 }

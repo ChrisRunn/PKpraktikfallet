@@ -3,7 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
-using praktikfall.WebServiceUpg1Reference;
+
 
 
 namespace praktikfall
@@ -921,8 +921,7 @@ namespace praktikfall
         private void btnWSsubmit_Click(object sender, EventArgs e)
         {
             string input = tbWSfilepath.Text;
-            WebServiceUpg1SoapClient client = new WebServiceUpg1SoapClient();
-            rtbWSoutput.Text = client.GetFileContent(input);
+            rtbWSoutput.Text = this.controller.GetFileContent(input);
         }
     }
 }

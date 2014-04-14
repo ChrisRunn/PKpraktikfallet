@@ -191,7 +191,7 @@ namespace praktikfall
         //This method saves an image for a specific object
         public void addObjectImage(byte[] img, string objNr)
         {
-            dal.addObjectImage(img, objNr);
+            dal.AddObjectImage(img, objNr);
 
         }
 
@@ -522,6 +522,12 @@ namespace praktikfall
         {
             double pricePerKvm = Math.Round(double.Parse(price) / double.Parse(area), 0);
             return pricePerKvm;
+        }
+
+        //This method calls a webservice to read a file content
+        public string GetFileContent(string filepath)
+        {
+            return dal.GetFileContent(filepath);
         }
 
     }
