@@ -909,7 +909,7 @@ namespace praktikfall
             string filepath;
 
             OpenFileDialog fDialog = new OpenFileDialog();
-            fDialog.Title = "Välj fil";                                                                  
+            fDialog.Title = "Välj fil";
             fDialog.InitialDirectory = @"C:\";
             if (fDialog.ShowDialog() == DialogResult.OK)
             {
@@ -921,7 +921,14 @@ namespace praktikfall
         private void btnWSsubmit_Click(object sender, EventArgs e)
         {
             string input = tbWSfilepath.Text;
-            rtbWSoutput.Text = this.controller.GetFileContent(input);
+            try
+            {
+                rtbWSoutput.Text = this.controller.GetFileContent(input);
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("Kunde inte utföra valet.");
+            }
         }
     }
 }
