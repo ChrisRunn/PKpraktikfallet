@@ -161,7 +161,13 @@
     <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.GetObjectOwnerResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.GetRealEstateBrokerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.ObjectOwner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.RealEstateBroker.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebServiceUpg2Reference\WebServiceUpg2.wsdl" />
@@ -204,9 +210,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WebServiceUpg2Reference\WebServiceUpg2.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\WebServiceUpg2Reference\configuration91.svcinfo" />
