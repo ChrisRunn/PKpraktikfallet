@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using praktikfall.WebServiceUpg2Reference;
 
 
 namespace praktikfall
@@ -528,6 +529,11 @@ namespace praktikfall
         public string GetFileContent(string filepath)
         {
             return dal.GetFileContent(filepath);
+        }
+
+        public List<ObjectOwner> GetObjectOwners()
+        {
+            return dal.GetObjectOwners();
         }
 
     }

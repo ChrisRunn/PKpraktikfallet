@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -151,18 +151,20 @@
             this.tbBrokerBrokerAdress = new System.Windows.Forms.TextBox();
             this.tbBrokerBrokerName = new System.Windows.Forms.TextBox();
             this.tbBrokerBrokerSsnr = new System.Windows.Forms.TextBox();
+            this.tpWS = new System.Windows.Forms.TabPage();
+            this.gbWSupg2 = new System.Windows.Forms.GroupBox();
+            this.listViewWeb = new System.Windows.Forms.ListView();
+            this.cbWebService = new System.Windows.Forms.ComboBox();
+            this.gbWSupg1 = new System.Windows.Forms.GroupBox();
+            this.rtbWSoutput = new System.Windows.Forms.RichTextBox();
+            this.tbWSfilepath = new System.Windows.Forms.TextBox();
+            this.btnWSbrowse = new System.Windows.Forms.Button();
+            this.btnWSsubmit = new System.Windows.Forms.Button();
             this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.mmArkiv = new System.Windows.Forms.MenuItem();
             this.mmArkivQuit = new System.Windows.Forms.MenuItem();
             this.mmHelp = new System.Windows.Forms.MenuItem();
             this.mmHelpAbout = new System.Windows.Forms.MenuItem();
-            this.tpWS = new System.Windows.Forms.TabPage();
-            this.gbWSupg1 = new System.Windows.Forms.GroupBox();
-            this.gbWSupg2 = new System.Windows.Forms.GroupBox();
-            this.btnWSsubmit = new System.Windows.Forms.Button();
-            this.btnWSbrowse = new System.Windows.Forms.Button();
-            this.tbWSfilepath = new System.Windows.Forms.TextBox();
-            this.rtbWSoutput = new System.Windows.Forms.RichTextBox();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -190,6 +192,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrokerAllBrokers)).BeginInit();
             this.bgBrokerAdministrateBroker.SuspendLayout();
             this.tpWS.SuspendLayout();
+            this.gbWSupg2.SuspendLayout();
             this.gbWSupg1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -926,8 +929,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1473,6 +1476,95 @@
             this.tbBrokerBrokerSsnr.Size = new System.Drawing.Size(222, 20);
             this.tbBrokerBrokerSsnr.TabIndex = 11;
             // 
+            // tpWS
+            // 
+            this.tpWS.Controls.Add(this.gbWSupg2);
+            this.tpWS.Controls.Add(this.gbWSupg1);
+            this.tpWS.Location = new System.Drawing.Point(4, 22);
+            this.tpWS.Name = "tpWS";
+            this.tpWS.Padding = new System.Windows.Forms.Padding(3);
+            this.tpWS.Size = new System.Drawing.Size(1078, 642);
+            this.tpWS.TabIndex = 8;
+            this.tpWS.Text = "WebServices";
+            this.tpWS.UseVisualStyleBackColor = true;
+            // 
+            // gbWSupg2
+            // 
+            this.gbWSupg2.Controls.Add(this.listViewWeb);
+            this.gbWSupg2.Controls.Add(this.cbWebService);
+            this.gbWSupg2.Location = new System.Drawing.Point(465, 7);
+            this.gbWSupg2.Name = "gbWSupg2";
+            this.gbWSupg2.Size = new System.Drawing.Size(606, 628);
+            this.gbWSupg2.TabIndex = 1;
+            this.gbWSupg2.TabStop = false;
+            this.gbWSupg2.Text = "Uppgift 2";
+            // 
+            // listViewWeb
+            // 
+            this.listViewWeb.Location = new System.Drawing.Point(16, 49);
+            this.listViewWeb.Name = "listViewWeb";
+            this.listViewWeb.Size = new System.Drawing.Size(466, 548);
+            this.listViewWeb.TabIndex = 2;
+            this.listViewWeb.UseCompatibleStateImageBehavior = false;
+            this.listViewWeb.View = System.Windows.Forms.View.Details;
+            // 
+            // cbWebService
+            // 
+            this.cbWebService.FormattingEnabled = true;
+            this.cbWebService.Location = new System.Drawing.Point(16, 21);
+            this.cbWebService.Name = "cbWebService";
+            this.cbWebService.Size = new System.Drawing.Size(393, 21);
+            this.cbWebService.TabIndex = 1;
+            this.cbWebService.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // gbWSupg1
+            // 
+            this.gbWSupg1.Controls.Add(this.rtbWSoutput);
+            this.gbWSupg1.Controls.Add(this.tbWSfilepath);
+            this.gbWSupg1.Controls.Add(this.btnWSbrowse);
+            this.gbWSupg1.Controls.Add(this.btnWSsubmit);
+            this.gbWSupg1.Location = new System.Drawing.Point(4, 7);
+            this.gbWSupg1.Name = "gbWSupg1";
+            this.gbWSupg1.Size = new System.Drawing.Size(454, 629);
+            this.gbWSupg1.TabIndex = 0;
+            this.gbWSupg1.TabStop = false;
+            this.gbWSupg1.Text = "Hämta filinnehåll";
+            // 
+            // rtbWSoutput
+            // 
+            this.rtbWSoutput.Location = new System.Drawing.Point(6, 48);
+            this.rtbWSoutput.Name = "rtbWSoutput";
+            this.rtbWSoutput.Size = new System.Drawing.Size(442, 549);
+            this.rtbWSoutput.TabIndex = 3;
+            this.rtbWSoutput.Text = "";
+            // 
+            // tbWSfilepath
+            // 
+            this.tbWSfilepath.Location = new System.Drawing.Point(6, 21);
+            this.tbWSfilepath.Name = "tbWSfilepath";
+            this.tbWSfilepath.Size = new System.Drawing.Size(361, 20);
+            this.tbWSfilepath.TabIndex = 2;
+            // 
+            // btnWSbrowse
+            // 
+            this.btnWSbrowse.Location = new System.Drawing.Point(373, 19);
+            this.btnWSbrowse.Name = "btnWSbrowse";
+            this.btnWSbrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnWSbrowse.TabIndex = 1;
+            this.btnWSbrowse.Text = "Bläddra";
+            this.btnWSbrowse.UseVisualStyleBackColor = true;
+            this.btnWSbrowse.Click += new System.EventHandler(this.btnWSbrowse_Click);
+            // 
+            // btnWSsubmit
+            // 
+            this.btnWSsubmit.Location = new System.Drawing.Point(373, 600);
+            this.btnWSsubmit.Name = "btnWSsubmit";
+            this.btnWSsubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnWSsubmit.TabIndex = 0;
+            this.btnWSsubmit.Text = "Utför";
+            this.btnWSsubmit.UseVisualStyleBackColor = true;
+            this.btnWSsubmit.Click += new System.EventHandler(this.btnWSsubmit_Click);
+            // 
             // mainMenu
             // 
             this.mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
@@ -1504,75 +1596,6 @@
             this.mmHelpAbout.Index = 0;
             this.mmHelpAbout.Text = "Om";
             this.mmHelpAbout.Click += new System.EventHandler(this.mmHelpAbout_Click);
-            // 
-            // tpWS
-            // 
-            this.tpWS.Controls.Add(this.gbWSupg2);
-            this.tpWS.Controls.Add(this.gbWSupg1);
-            this.tpWS.Location = new System.Drawing.Point(4, 22);
-            this.tpWS.Name = "tpWS";
-            this.tpWS.Padding = new System.Windows.Forms.Padding(3);
-            this.tpWS.Size = new System.Drawing.Size(1078, 642);
-            this.tpWS.TabIndex = 8;
-            this.tpWS.Text = "WebServices";
-            this.tpWS.UseVisualStyleBackColor = true;
-            // 
-            // gbWSupg1
-            // 
-            this.gbWSupg1.Controls.Add(this.rtbWSoutput);
-            this.gbWSupg1.Controls.Add(this.tbWSfilepath);
-            this.gbWSupg1.Controls.Add(this.btnWSbrowse);
-            this.gbWSupg1.Controls.Add(this.btnWSsubmit);
-            this.gbWSupg1.Location = new System.Drawing.Point(4, 7);
-            this.gbWSupg1.Name = "gbWSupg1";
-            this.gbWSupg1.Size = new System.Drawing.Size(454, 629);
-            this.gbWSupg1.TabIndex = 0;
-            this.gbWSupg1.TabStop = false;
-            this.gbWSupg1.Text = "Hämta filinnehåll";
-            // 
-            // gbWSupg2
-            // 
-            this.gbWSupg2.Location = new System.Drawing.Point(465, 7);
-            this.gbWSupg2.Name = "gbWSupg2";
-            this.gbWSupg2.Size = new System.Drawing.Size(606, 628);
-            this.gbWSupg2.TabIndex = 1;
-            this.gbWSupg2.TabStop = false;
-            this.gbWSupg2.Text = "Uppgift 2";
-            // 
-            // btnWSsubmit
-            // 
-            this.btnWSsubmit.Location = new System.Drawing.Point(373, 600);
-            this.btnWSsubmit.Name = "btnWSsubmit";
-            this.btnWSsubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnWSsubmit.TabIndex = 0;
-            this.btnWSsubmit.Text = "Utför";
-            this.btnWSsubmit.UseVisualStyleBackColor = true;
-            this.btnWSsubmit.Click += new System.EventHandler(this.btnWSsubmit_Click);
-            // 
-            // btnWSbrowse
-            // 
-            this.btnWSbrowse.Location = new System.Drawing.Point(373, 19);
-            this.btnWSbrowse.Name = "btnWSbrowse";
-            this.btnWSbrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnWSbrowse.TabIndex = 1;
-            this.btnWSbrowse.Text = "Bläddra";
-            this.btnWSbrowse.UseVisualStyleBackColor = true;
-            this.btnWSbrowse.Click += new System.EventHandler(this.btnWSbrowse_Click);
-            // 
-            // tbWSfilepath
-            // 
-            this.tbWSfilepath.Location = new System.Drawing.Point(6, 21);
-            this.tbWSfilepath.Name = "tbWSfilepath";
-            this.tbWSfilepath.Size = new System.Drawing.Size(361, 20);
-            this.tbWSfilepath.TabIndex = 2;
-            // 
-            // rtbWSoutput
-            // 
-            this.rtbWSoutput.Location = new System.Drawing.Point(6, 48);
-            this.rtbWSoutput.Name = "rtbWSoutput";
-            this.rtbWSoutput.Size = new System.Drawing.Size(442, 549);
-            this.rtbWSoutput.TabIndex = 3;
-            this.rtbWSoutput.Text = "";
             // 
             // frameMainMainframe
             // 
@@ -1623,6 +1646,7 @@
             this.bgBrokerAdministrateBroker.ResumeLayout(false);
             this.bgBrokerAdministrateBroker.PerformLayout();
             this.tpWS.ResumeLayout(false);
+            this.gbWSupg2.ResumeLayout(false);
             this.gbWSupg1.ResumeLayout(false);
             this.gbWSupg1.PerformLayout();
             this.ResumeLayout(false);
@@ -1763,6 +1787,8 @@
         private System.Windows.Forms.TextBox tbWSfilepath;
         private System.Windows.Forms.Button btnWSbrowse;
         private System.Windows.Forms.Button btnWSsubmit;
+        private System.Windows.Forms.ComboBox cbWebService;
+        private System.Windows.Forms.ListView listViewWeb;
 
     }
 }

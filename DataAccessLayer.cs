@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Diagnostics;
 using praktikfall.WebServiceUpg1Reference;
+using praktikfall.WebServiceUpg2Reference;
 
 
 namespace praktikfall
@@ -409,6 +410,18 @@ namespace praktikfall
         {
             WebServiceUpg1SoapClient client = new WebServiceUpg1SoapClient();
             return client.GetFileContent(filepath);
+        }
+
+        public List<ObjectOwner> GetObjectOwners() 
+        {
+            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
+            return client.GetObjectOwner();
+        }
+
+        public List<RealEstateBroker> GetRealEstateBroker()
+        {
+            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
+            return client.GetRealEstateBroker();
         }
 
     }

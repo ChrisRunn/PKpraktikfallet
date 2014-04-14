@@ -3,6 +3,8 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.Generic;
+using praktikfall.WebServiceUpg2Reference;
 
 
 
@@ -35,6 +37,13 @@ namespace praktikfall
             dgvStartYourObjects.DataSource = dt;
             DataTable dt2 = this.controller.SearchShowingsByBrokerSsnr(brokerName);
             dgvStartYourShowings.DataSource = dt2;
+
+            String[] methods = {"ObjectOwner","RealEstateBroker","RealEstateObject","Showings"};
+            for (int i = 0; i < methods.Length; i++)
+            {
+                cbWebService.Items.Add(methods[i]);
+            }
+            
         }
 
         public void MakeTbReadOnly()
@@ -928,6 +937,42 @@ namespace praktikfall
             catch (Exception )
             {
                 MessageBox.Show("Kunde inte utföra valet.");
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbWebService.SelectedIndex)
+            { 
+                    
+                case 0:
+                    List<ObjectOwner> objectOwners = controller.GetObjectOwners();
+                    listViewWeb.Columns.Add("Personnummer");
+                    listViewWeb.Columns.Add("Namn");
+                    listViewWeb.Columns.Add("Telefonnummer");
+                    listViewWeb.Columns.Add("Email");
+                    
+                    
+                    foreach (ObjectOwner o in objectOwners)
+                    {
+                        
+                        ListViewItem lvi = new ListViewItem(o.OwnerSsnr);
+                        lvi.SubItems.Add(o.Name);
+                        lvi.SubItems.Add(o.PhoneNr);
+                        lvi.SubItems.Add(o.Email);
+                        listViewWeb.Items.Add(lvi);
+
+                    }
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
             }
         }
     }

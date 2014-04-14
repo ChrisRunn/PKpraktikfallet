@@ -110,6 +110,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\WebServiceUpg2Reference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EmployeeFrame.resx">
       <DependentUpon>EmployeeFrame.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +158,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebServiceUpg1Reference\WebServiceUpg1.wsdl" />
+    <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.GetObjectOwnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.ObjectOwner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceUpg2Reference\WebServiceUpg2.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -179,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\WebServiceUpg1Reference\" />
+    <WCFMetadataStorage Include="Service References\WebServiceUpg2Reference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\WebServiceUpg1Reference\configuration91.svcinfo" />
@@ -188,6 +201,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\WebServiceUpg1Reference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebServiceUpg2Reference\WebServiceUpg2.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebServiceUpg2Reference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebServiceUpg2Reference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebServiceUpg2Reference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
