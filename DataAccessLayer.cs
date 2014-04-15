@@ -424,23 +424,23 @@ namespace praktikfall
             return client.GetRealEstateBroker();
         }
 
-     /*   public List<Showing> GetShowings()
+       public List<Showing> GetShowings()
         {
             WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
             return client.GetShowings();
         }
 
-        public List<RealEstateObject> GetRealEstateObjects()
-        {
-            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-            return client.GetRealEstateObjects();
-        }
+        /* public List<RealEstateObject> GetRealEstateObjects()
+         {
+             WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
+             return client.GetRealEstateObjects();
+         }
 
-        public List<ProspectiveBuyer> GetProspectiveBuyers()
-        {
-            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-            return client.GetProspectiveBuyers();
-        }
-        */
+         public List<ProspectiveBuyer> GetProspectiveBuyers()
+         {
+             WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
+             return client.GetProspectiveBuyers();
+         }
+         */
     }
 }
