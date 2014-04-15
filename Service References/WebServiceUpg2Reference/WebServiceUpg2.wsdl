@@ -72,6 +72,59 @@
           <s:element minOccurs="0" maxOccurs="1" name="ShowingDate" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetProspectiveBuyers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProspectiveBuyersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProspectiveBuyersResult" type="tns:ArrayOfProspectiveBuyer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProspectiveBuyer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProspectiveBuyer" nillable="true" type="tns:ProspectiveBuyer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProspectiveBuyer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuyerSsnr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRealEstateObjects">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRealEstateObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRealEstateObjectsResult" type="tns:ArrayOfRealEstateObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRealEstateObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RealEstateObject" nillable="true" type="tns:RealEstateObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RealEstateObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Objnr" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjCity" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ObjPrice" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ObjArea" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjRooms" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BrokerSsnr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnerSsnr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetObjectOwnerSoapIn">
@@ -92,6 +145,18 @@
   <wsdl:message name="GetShowingSoapOut">
     <wsdl:part name="parameters" element="tns:GetShowingResponse" />
   </wsdl:message>
+  <wsdl:message name="GetProspectiveBuyersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProspectiveBuyers" />
+  </wsdl:message>
+  <wsdl:message name="GetProspectiveBuyersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProspectiveBuyersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRealEstateObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRealEstateObjects" />
+  </wsdl:message>
+  <wsdl:message name="GetRealEstateObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRealEstateObjectsResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceUpg2Soap">
     <wsdl:operation name="GetObjectOwner">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns ObjectOwners</wsdl:documentation>
@@ -107,6 +172,16 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Showings</wsdl:documentation>
       <wsdl:input message="tns:GetShowingSoapIn" />
       <wsdl:output message="tns:GetShowingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectiveBuyers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns ProspectiveBuyers</wsdl:documentation>
+      <wsdl:input message="tns:GetProspectiveBuyersSoapIn" />
+      <wsdl:output message="tns:GetProspectiveBuyersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRealEstateObjects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns RealEstateObjects</wsdl:documentation>
+      <wsdl:input message="tns:GetRealEstateObjectsSoapIn" />
+      <wsdl:output message="tns:GetRealEstateObjectsSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceUpg2Soap" type="tns:WebServiceUpg2Soap">
@@ -138,6 +213,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProspectiveBuyers">
+      <soap:operation soapAction="http://tempuri.org/GetProspectiveBuyers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRealEstateObjects">
+      <soap:operation soapAction="http://tempuri.org/GetRealEstateObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceUpg2Soap12" type="tns:WebServiceUpg2Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -161,6 +254,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetShowing">
       <soap12:operation soapAction="http://tempuri.org/GetShowing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProspectiveBuyers">
+      <soap12:operation soapAction="http://tempuri.org/GetProspectiveBuyers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRealEstateObjects">
+      <soap12:operation soapAction="http://tempuri.org/GetRealEstateObjects" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
