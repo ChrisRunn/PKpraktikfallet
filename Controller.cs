@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using praktikfall.WebServiceUpg2Reference;
 
 
+
 namespace praktikfall
 {
     class Controller
@@ -535,6 +536,28 @@ namespace praktikfall
         {
             return dal.GetObjectOwners();
         }
+
+        public List<RealEstateBroker> GetRealEstateBrokers()
+        {
+            return dal.GetRealEstateBroker();
+        }
+
+       /* public List<Showing> GetShowings()
+        {
+            return dal.GetShowings();
+        }
+
+        public List<RealEstateObject> GetRealEstateObjects()
+        {
+            return dal.GetRealEstateObjects();
+        }
+
+        public List<ProspectiveBuyer> GetProspectiveBuyers()
+        {
+            return dal.GetProspectiveBuyers();
+        }
+
+    */
 
     }
 }

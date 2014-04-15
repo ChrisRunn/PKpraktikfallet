@@ -946,6 +946,7 @@ namespace praktikfall
             { 
                     
                 case 0:
+                    listViewWeb.Clear();
                     List<ObjectOwner> objectOwners = controller.GetObjectOwners();
                     listViewWeb.Columns.Add("Personnummer");
                     listViewWeb.Columns.Add("Namn");
@@ -965,8 +966,31 @@ namespace praktikfall
                     }
                     break;
                 case 1:
+                    
+                    listViewWeb.Clear();
+                    List<RealEstateBroker> realEstateBrokers = controller.GetRealEstateBrokers();
+                    listViewWeb.Columns.Add("Personnummer");
+                    listViewWeb.Columns.Add("Namn");
+                    listViewWeb.Columns.Add("Adress");
+                    listViewWeb.Columns.Add("Stad");
+                    listViewWeb.Columns.Add("Telefonnummer");
+                    listViewWeb.Columns.Add("Email");
 
+
+                    foreach (RealEstateBroker rb in realEstateBrokers)
+                    {
+                        
+                        ListViewItem lvi = new ListViewItem(rb.BrokerSsnr);
+                        lvi.SubItems.Add(rb.Name);
+                        lvi.SubItems.Add(rb.BrokerAddress);
+                        lvi.SubItems.Add(rb.City);
+                        lvi.SubItems.Add(rb.PhoneNr);
+                        lvi.SubItems.Add(rb.Email);
+                        listViewWeb.Items.Add(lvi);
+
+                    }
                     break;
+
                 case 2:
 
                     break;
