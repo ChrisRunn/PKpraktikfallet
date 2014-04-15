@@ -949,6 +949,7 @@ namespace praktikfall
                     listViewWeb.Columns.Add("Email");
                     
                     
+                    
                     foreach (ObjectOwner o in objectOwners)
                     {
                         
@@ -959,6 +960,7 @@ namespace praktikfall
                         listViewWeb.Items.Add(lvi);
 
                     }
+                   
                     break;
                 case 1:
                     
@@ -984,6 +986,7 @@ namespace praktikfall
                         listViewWeb.Items.Add(lvi);
 
                     }
+                   
                     break;
                 /*
                 case 2:
@@ -1062,6 +1065,12 @@ namespace praktikfall
 
                     break;
             }
+            this.ResizeColumnHeaders();
+        }
+        private void ResizeColumnHeaders()
+        {
+            for (int i = 0; i < this.listViewWeb.Columns.Count - 1; i++) this.listViewWeb.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize);
+            this.listViewWeb.Columns[this.listViewWeb.Columns.Count - 1].Width = -2;
         }
     }
 }
