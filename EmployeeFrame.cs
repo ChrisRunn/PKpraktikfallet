@@ -38,7 +38,7 @@ namespace praktikfall
             DataTable dt2 = this.controller.SearchShowingsByBrokerSsnr(brokerName);
             dgvStartYourShowings.DataSource = dt2;
 
-            String[] methods = {"ObjectOwner","RealEstateBroker","RealEstateObject","Showings"};
+            String[] methods = {"Object Owners","Real Estate Brokers","Real Estate Objects","Prospective Buyers", "Showings"};
             for (int i = 0; i < methods.Length; i++)
             {
                 cbWebService.Items.Add(methods[i]);
@@ -992,9 +992,79 @@ namespace praktikfall
                     break;
 
                 case 2:
+                    listViewWeb.Clear();
+                    List<RealEstateObject> realEstateObjects = controller.getRealEstateObjects();
+                    listViewWeb.Columns.Add("Objektsnummer");
+                    listViewWeb.Columns.Add("Adress");
+                    listViewWeb.Columns.Add("Stad");
+                    listViewWeb.Columns.Add("Pris");
+                    listViewWeb.Columns.Add("Area");
+                    listViewWeb.Columns.Add("Antal rum");
+                    listViewWeb.Columns.Add("Typ");
+                    listViewWeb.Columns.Add("Info");
+                    listViewWeb.Columns.Add("Mäklare");
+                    listViewWeb.Columns.Add("Ägare");
+                    listViewWeb.Columns.Add("Bildadress");
+
+
+                    foreach (RealEstateObject ro in realEstateObjects)
+                    {
+
+                        ListViewItem lvi = new ListViewItem(ro.ObjNr);
+                        lvi.SubItems.Add(ro.ObjAddress);
+                        lvi.SubItems.Add(ro.ObjCity);
+                        lvi.SubItems.Add(ro.ObjPrice);
+                        lvi.SubItems.Add(ro.ObjArea);
+                        lvi.SubItems.Add(ro.ObjRooms);
+                        lvi.SubItems.Add(ro.ObjUnitType);
+                        lvi.SubItems.Add(ro.ObjInfo);
+                        lvi.SubItems.Add(ro.BrokerSsnr);
+                        lvi.SubItems.Add(ro.OwnerSsnr);
+                        lvi.SubItems.Add(ro.ObjImage);
+                        listViewWeb.Items.Add(lvi);
+
+                    }
 
                     break;
                 case 3:
+                    listViewWeb.Clear();
+                    List<ProspectiveBuyer> prospectiveBuyers = controller.GetProspectiveBuyers();
+                    listViewWeb.Columns.Add("Personnummer");
+                    listViewWeb.Columns.Add("Namn");
+                    listViewWeb.Columns.Add("Telefonnummer");
+                    listViewWeb.Columns.Add("Email");
+
+
+                    foreach (ProspectiveBuyer pb in prospectiveBuyers)
+                    {
+
+                        ListViewItem lvi = new ListViewItem(pb.BuyerSsnr);
+                        lvi.SubItems.Add(pb.Name);
+                        lvi.SubItems.Add(pb.PhoneNr);
+                        lvi.SubItems.Add(pb.Email);
+                        listViewWeb.Items.Add(lvi);
+
+                    }
+
+                    break;
+
+                case 4:
+                    listViewWeb.Clear();
+                    List<Showing> showings = controller.GetShowings();
+                    listViewWeb.Columns.Add("Objektsnummer");
+                    listViewWeb.Columns.Add("Spekulant");
+                    listViewWeb.Columns.Add("Datum");
+
+
+                    foreach (Showing s in showings)
+                    {
+
+                        ListViewItem lvi = new ListViewItem(s.ObjNr);
+                        lvi.SubItems.Add(s.BuyerSsnr);
+                        lvi.SubItems.Add(s.ShowingDate);
+                        listViewWeb.Items.Add(lvi);
+
+                    }
 
                     break;
             }
