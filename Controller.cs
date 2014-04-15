@@ -546,7 +546,7 @@ namespace praktikfall
         {
             return dal.GetShowing();
         }
-        /*
+        
         public List<RealEstateObject> GetRealEstateObjects()
         {
             return dal.GetRealEstateObjects();
@@ -557,7 +557,6 @@ namespace praktikfall
             return dal.GetProspectiveBuyers();
         }
 
-    */
 
     }
 }

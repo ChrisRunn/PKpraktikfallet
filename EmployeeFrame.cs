@@ -988,10 +988,10 @@ namespace praktikfall
                     }
                    
                     break;
-                /*
+                
                 case 2:
                     listViewWeb.Clear();
-                    List<RealEstateObject> realEstateObjects = controller.getRealEstateObjects();
+                    List<RealEstateObject> realEstateObjects = controller.GetRealEstateObjects();
                     listViewWeb.Columns.Add("Objektsnummer");
                     listViewWeb.Columns.Add("Adress");
                     listViewWeb.Columns.Add("Stad");
@@ -1008,17 +1008,17 @@ namespace praktikfall
                     foreach (RealEstateObject ro in realEstateObjects)
                     {
 
-                        ListViewItem lvi = new ListViewItem(ro.ObjNr);
+                        ListViewItem lvi = new ListViewItem(ro.Objnr.ToString());
                         lvi.SubItems.Add(ro.ObjAddress);
                         lvi.SubItems.Add(ro.ObjCity);
-                        lvi.SubItems.Add(ro.ObjPrice);
-                        lvi.SubItems.Add(ro.ObjArea);
+                        lvi.SubItems.Add(ro.ObjPrice.ToString());
+                        lvi.SubItems.Add(ro.ObjArea.ToString());
                         lvi.SubItems.Add(ro.ObjRooms);
-                        lvi.SubItems.Add(ro.ObjUnitType);
+                        lvi.SubItems.Add(ro.UnitType);
                         lvi.SubItems.Add(ro.ObjInfo);
                         lvi.SubItems.Add(ro.BrokerSsnr);
                         lvi.SubItems.Add(ro.OwnerSsnr);
-                        lvi.SubItems.Add(ro.ObjImage);
+                        lvi.SubItems.Add(ro.Image);
                         listViewWeb.Items.Add(lvi);
 
                     }
@@ -1045,7 +1045,7 @@ namespace praktikfall
                     }
 
                     break;
-                    */
+                   
                 case 4:
                     listViewWeb.Clear();
                     List<Showing> showings = controller.GetShowing();
