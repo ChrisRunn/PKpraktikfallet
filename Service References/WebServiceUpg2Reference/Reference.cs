@@ -231,6 +231,82 @@ namespace praktikfall.WebServiceUpg2Reference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Showing", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Showing : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ObjNrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BuyerSsnrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShowingDateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ObjNr {
+            get {
+                return this.ObjNrField;
+            }
+            set {
+                if ((this.ObjNrField.Equals(value) != true)) {
+                    this.ObjNrField = value;
+                    this.RaisePropertyChanged("ObjNr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string BuyerSsnr {
+            get {
+                return this.BuyerSsnrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BuyerSsnrField, value) != true)) {
+                    this.BuyerSsnrField = value;
+                    this.RaisePropertyChanged("BuyerSsnr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string ShowingDate {
+            get {
+                return this.ShowingDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShowingDateField, value) != true)) {
+                    this.ShowingDateField = value;
+                    this.RaisePropertyChanged("ShowingDate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebServiceUpg2Reference.WebServiceUpg2Soap")]
     public interface WebServiceUpg2Soap {
@@ -248,6 +324,13 @@ namespace praktikfall.WebServiceUpg2Reference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRealEstateBroker", ReplyAction="*")]
         System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetRealEstateBrokerResponse> GetRealEstateBrokerAsync(praktikfall.WebServiceUpg2Reference.GetRealEstateBrokerRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetShowingResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetShowing", ReplyAction="*")]
+        praktikfall.WebServiceUpg2Reference.GetShowingResponse GetShowing(praktikfall.WebServiceUpg2Reference.GetShowingRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetShowing", ReplyAction="*")]
+        System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetShowingResponse> GetShowingAsync(praktikfall.WebServiceUpg2Reference.GetShowingRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -372,6 +455,67 @@ namespace praktikfall.WebServiceUpg2Reference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetShowingRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetShowing", Namespace="http://tempuri.org/", Order=0)]
+        public praktikfall.WebServiceUpg2Reference.GetShowingRequestBody Body;
+        
+        public GetShowingRequest() {
+        }
+        
+        public GetShowingRequest(praktikfall.WebServiceUpg2Reference.GetShowingRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetShowingRequestBody {
+        
+        public GetShowingRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetShowingResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetShowingResponse", Namespace="http://tempuri.org/", Order=0)]
+        public praktikfall.WebServiceUpg2Reference.GetShowingResponseBody Body;
+        
+        public GetShowingResponse() {
+        }
+        
+        public GetShowingResponse(praktikfall.WebServiceUpg2Reference.GetShowingResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetShowingResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.Showing> GetShowingResult;
+        
+        public GetShowingResponseBody() {
+        }
+        
+        public GetShowingResponseBody(System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.Showing> GetShowingResult) {
+            this.GetShowingResult = GetShowingResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebServiceUpg2SoapChannel : praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap, System.ServiceModel.IClientChannel {
     }
@@ -443,6 +587,29 @@ namespace praktikfall.WebServiceUpg2Reference {
             praktikfall.WebServiceUpg2Reference.GetRealEstateBrokerRequest inValue = new praktikfall.WebServiceUpg2Reference.GetRealEstateBrokerRequest();
             inValue.Body = new praktikfall.WebServiceUpg2Reference.GetRealEstateBrokerRequestBody();
             return ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetRealEstateBrokerAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        praktikfall.WebServiceUpg2Reference.GetShowingResponse praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap.GetShowing(praktikfall.WebServiceUpg2Reference.GetShowingRequest request) {
+            return base.Channel.GetShowing(request);
+        }
+        
+        public System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.Showing> GetShowing() {
+            praktikfall.WebServiceUpg2Reference.GetShowingRequest inValue = new praktikfall.WebServiceUpg2Reference.GetShowingRequest();
+            inValue.Body = new praktikfall.WebServiceUpg2Reference.GetShowingRequestBody();
+            praktikfall.WebServiceUpg2Reference.GetShowingResponse retVal = ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetShowing(inValue);
+            return retVal.Body.GetShowingResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetShowingResponse> praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap.GetShowingAsync(praktikfall.WebServiceUpg2Reference.GetShowingRequest request) {
+            return base.Channel.GetShowingAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetShowingResponse> GetShowingAsync() {
+            praktikfall.WebServiceUpg2Reference.GetShowingRequest inValue = new praktikfall.WebServiceUpg2Reference.GetShowingRequest();
+            inValue.Body = new praktikfall.WebServiceUpg2Reference.GetShowingRequestBody();
+            return ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetShowingAsync(inValue);
         }
     }
 }

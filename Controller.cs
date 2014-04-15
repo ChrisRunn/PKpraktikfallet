@@ -542,11 +542,11 @@ namespace praktikfall
             return dal.GetRealEstateBroker();
         }
 
-       /* public List<Showing> GetShowings()
+        public List<Showing> GetShowing()
         {
-            return dal.GetShowings();
+            return dal.GetShowing();
         }
-
+        /*
         public List<RealEstateObject> GetRealEstateObjects()
         {
             return dal.GetRealEstateObjects();

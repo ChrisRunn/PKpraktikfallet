@@ -164,10 +164,16 @@
     <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.GetRealEstateBrokerResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.GetShowingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.ObjectOwner.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.RealEstateBroker.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceUpg2Reference\praktikfall.WebServiceUpg2Reference.Showing.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebServiceUpg2Reference\WebServiceUpg2.wsdl" />

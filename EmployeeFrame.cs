@@ -985,7 +985,7 @@ namespace praktikfall
 
                     }
                     break;
-
+                /*
                 case 2:
                     listViewWeb.Clear();
                     List<RealEstateObject> realEstateObjects = controller.getRealEstateObjects();
@@ -1042,19 +1042,18 @@ namespace praktikfall
                     }
 
                     break;
-
+                    */
                 case 4:
                     listViewWeb.Clear();
-                    List<Showing> showings = controller.GetShowings();
+                    List<Showing> showings = controller.GetShowing();
                     listViewWeb.Columns.Add("Objektsnummer");
                     listViewWeb.Columns.Add("Spekulant");
                     listViewWeb.Columns.Add("Datum");
 
 
                     foreach (Showing s in showings)
-                    {
-
-                        ListViewItem lvi = new ListViewItem(s.ObjNr);
+                    {                      
+                        ListViewItem lvi = new ListViewItem(s.ObjNr.ToString());
                         lvi.SubItems.Add(s.BuyerSsnr);
                         lvi.SubItems.Add(s.ShowingDate);
                         listViewWeb.Items.Add(lvi);
