@@ -438,7 +438,7 @@ namespace praktikfall
             return client.GetShowing();
         }
 
-         public List<RealEstateObject> GetRealEstateObjects()
+        public List<RealEstateObject> GetRealEstateObjects()
          {
              WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
              return client.GetRealEstateObjects();

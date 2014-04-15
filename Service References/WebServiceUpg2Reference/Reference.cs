@@ -307,6 +307,301 @@ namespace praktikfall.WebServiceUpg2Reference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProspectiveBuyer", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class ProspectiveBuyer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BuyerSsnrField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string PhoneNr {
+            get {
+                return this.PhoneNrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNrField, value) != true)) {
+                    this.PhoneNrField = value;
+                    this.RaisePropertyChanged("PhoneNr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string BuyerSsnr {
+            get {
+                return this.BuyerSsnrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BuyerSsnrField, value) != true)) {
+                    this.BuyerSsnrField = value;
+                    this.RaisePropertyChanged("BuyerSsnr");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RealEstateObject", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class RealEstateObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageField;
+        
+        private int ObjnrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObjAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObjCityField;
+        
+        private int ObjPriceField;
+        
+        private int ObjAreaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObjRoomsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObjInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BrokerSsnrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OwnerSsnrField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int Objnr {
+            get {
+                return this.ObjnrField;
+            }
+            set {
+                if ((this.ObjnrField.Equals(value) != true)) {
+                    this.ObjnrField = value;
+                    this.RaisePropertyChanged("Objnr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string ObjAddress {
+            get {
+                return this.ObjAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObjAddressField, value) != true)) {
+                    this.ObjAddressField = value;
+                    this.RaisePropertyChanged("ObjAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string ObjCity {
+            get {
+                return this.ObjCityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObjCityField, value) != true)) {
+                    this.ObjCityField = value;
+                    this.RaisePropertyChanged("ObjCity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public int ObjPrice {
+            get {
+                return this.ObjPriceField;
+            }
+            set {
+                if ((this.ObjPriceField.Equals(value) != true)) {
+                    this.ObjPriceField = value;
+                    this.RaisePropertyChanged("ObjPrice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public int ObjArea {
+            get {
+                return this.ObjAreaField;
+            }
+            set {
+                if ((this.ObjAreaField.Equals(value) != true)) {
+                    this.ObjAreaField = value;
+                    this.RaisePropertyChanged("ObjArea");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string ObjRooms {
+            get {
+                return this.ObjRoomsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObjRoomsField, value) != true)) {
+                    this.ObjRoomsField = value;
+                    this.RaisePropertyChanged("ObjRooms");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string UnitType {
+            get {
+                return this.UnitTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitTypeField, value) != true)) {
+                    this.UnitTypeField = value;
+                    this.RaisePropertyChanged("UnitType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public string ObjInfo {
+            get {
+                return this.ObjInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObjInfoField, value) != true)) {
+                    this.ObjInfoField = value;
+                    this.RaisePropertyChanged("ObjInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public string BrokerSsnr {
+            get {
+                return this.BrokerSsnrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BrokerSsnrField, value) != true)) {
+                    this.BrokerSsnrField = value;
+                    this.RaisePropertyChanged("BrokerSsnr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public string OwnerSsnr {
+            get {
+                return this.OwnerSsnrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerSsnrField, value) != true)) {
+                    this.OwnerSsnrField = value;
+                    this.RaisePropertyChanged("OwnerSsnr");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebServiceUpg2Reference.WebServiceUpg2Soap")]
     public interface WebServiceUpg2Soap {
@@ -331,6 +626,20 @@ namespace praktikfall.WebServiceUpg2Reference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetShowing", ReplyAction="*")]
         System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetShowingResponse> GetShowingAsync(praktikfall.WebServiceUpg2Reference.GetShowingRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetProspectiveBuyersResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProspectiveBuyers", ReplyAction="*")]
+        praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersResponse GetProspectiveBuyers(praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetProspectiveBuyers", ReplyAction="*")]
+        System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersResponse> GetProspectiveBuyersAsync(praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetRealEstateObjectsResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRealEstateObjects", ReplyAction="*")]
+        praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsResponse GetRealEstateObjects(praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRealEstateObjects", ReplyAction="*")]
+        System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsResponse> GetRealEstateObjectsAsync(praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -516,6 +825,128 @@ namespace praktikfall.WebServiceUpg2Reference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetProspectiveBuyersRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetProspectiveBuyers", Namespace="http://tempuri.org/", Order=0)]
+        public praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequestBody Body;
+        
+        public GetProspectiveBuyersRequest() {
+        }
+        
+        public GetProspectiveBuyersRequest(praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetProspectiveBuyersRequestBody {
+        
+        public GetProspectiveBuyersRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetProspectiveBuyersResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetProspectiveBuyersResponse", Namespace="http://tempuri.org/", Order=0)]
+        public praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersResponseBody Body;
+        
+        public GetProspectiveBuyersResponse() {
+        }
+        
+        public GetProspectiveBuyersResponse(praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetProspectiveBuyersResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.ProspectiveBuyer> GetProspectiveBuyersResult;
+        
+        public GetProspectiveBuyersResponseBody() {
+        }
+        
+        public GetProspectiveBuyersResponseBody(System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.ProspectiveBuyer> GetProspectiveBuyersResult) {
+            this.GetProspectiveBuyersResult = GetProspectiveBuyersResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetRealEstateObjectsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetRealEstateObjects", Namespace="http://tempuri.org/", Order=0)]
+        public praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequestBody Body;
+        
+        public GetRealEstateObjectsRequest() {
+        }
+        
+        public GetRealEstateObjectsRequest(praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetRealEstateObjectsRequestBody {
+        
+        public GetRealEstateObjectsRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetRealEstateObjectsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetRealEstateObjectsResponse", Namespace="http://tempuri.org/", Order=0)]
+        public praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsResponseBody Body;
+        
+        public GetRealEstateObjectsResponse() {
+        }
+        
+        public GetRealEstateObjectsResponse(praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetRealEstateObjectsResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.RealEstateObject> GetRealEstateObjectsResult;
+        
+        public GetRealEstateObjectsResponseBody() {
+        }
+        
+        public GetRealEstateObjectsResponseBody(System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.RealEstateObject> GetRealEstateObjectsResult) {
+            this.GetRealEstateObjectsResult = GetRealEstateObjectsResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebServiceUpg2SoapChannel : praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap, System.ServiceModel.IClientChannel {
     }
@@ -610,6 +1041,52 @@ namespace praktikfall.WebServiceUpg2Reference {
             praktikfall.WebServiceUpg2Reference.GetShowingRequest inValue = new praktikfall.WebServiceUpg2Reference.GetShowingRequest();
             inValue.Body = new praktikfall.WebServiceUpg2Reference.GetShowingRequestBody();
             return ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetShowingAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersResponse praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap.GetProspectiveBuyers(praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequest request) {
+            return base.Channel.GetProspectiveBuyers(request);
+        }
+        
+        public System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.ProspectiveBuyer> GetProspectiveBuyers() {
+            praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequest inValue = new praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequest();
+            inValue.Body = new praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequestBody();
+            praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersResponse retVal = ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetProspectiveBuyers(inValue);
+            return retVal.Body.GetProspectiveBuyersResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersResponse> praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap.GetProspectiveBuyersAsync(praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequest request) {
+            return base.Channel.GetProspectiveBuyersAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersResponse> GetProspectiveBuyersAsync() {
+            praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequest inValue = new praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequest();
+            inValue.Body = new praktikfall.WebServiceUpg2Reference.GetProspectiveBuyersRequestBody();
+            return ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetProspectiveBuyersAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsResponse praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap.GetRealEstateObjects(praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequest request) {
+            return base.Channel.GetRealEstateObjects(request);
+        }
+        
+        public System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.RealEstateObject> GetRealEstateObjects() {
+            praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequest inValue = new praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequest();
+            inValue.Body = new praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequestBody();
+            praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsResponse retVal = ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetRealEstateObjects(inValue);
+            return retVal.Body.GetRealEstateObjectsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsResponse> praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap.GetRealEstateObjectsAsync(praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequest request) {
+            return base.Channel.GetRealEstateObjectsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsResponse> GetRealEstateObjectsAsync() {
+            praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequest inValue = new praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequest();
+            inValue.Body = new praktikfall.WebServiceUpg2Reference.GetRealEstateObjectsRequestBody();
+            return ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetRealEstateObjectsAsync(inValue);
         }
     }
 }
