@@ -409,9 +409,17 @@ namespace praktikfall
         public string GetFileContent(string filepath)
         {
             WebServiceUpg1SoapClient client = new WebServiceUpg1SoapClient();
-            return client.GetFileContent(filepath);
-        }
+            try
+            {
+                return client.GetFileContent(filepath);
+            }
+            catch (Exception)
+            {
+                return "Kunde ej konsumera web service.";
+            }
 
+
+        }
         public List<ObjectOwner> GetObjectOwners() 
         {
             WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();

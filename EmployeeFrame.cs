@@ -930,14 +930,9 @@ namespace praktikfall
         private void btnWSsubmit_Click(object sender, EventArgs e)
         {
             string input = tbWSfilepath.Text;
-            try
-            {
-                rtbWSoutput.Text = this.controller.GetFileContent(input);
-            }
-            catch (Exception )
-            {
-                MessageBox.Show("Kunde inte utföra valet.");
-            }
+            
+            rtbWSoutput.Text = this.controller.GetFileContent(input);           
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
