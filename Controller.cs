@@ -200,6 +200,19 @@ namespace praktikfall
 
         #endregion OBJEKT
         #region MÄKLARE
+        //This method checks if a password matches a user in the database
+        public string CheckPw(string name, string password)
+        {
+            string pw = dal.CheckPw(name, password);
+            return pw;
+        }
+
+        //This method calculates the objects area / the object price
+        public double CalculateObjectPricePerKvm(string price, string area)
+        {
+            double pricePerKvm = Math.Round(double.Parse(price) / double.Parse(area), 0);
+            return pricePerKvm;
+        }
         //This method adds a realestate broker to the database
         public string AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
@@ -510,21 +523,7 @@ namespace praktikfall
             bool showingExists = dal.ShowingExists(objNr, buyerSsnr);
             return showingExists;
         }
-        #endregion SHOWING
-
-        //This method checks if a password matches a user in the database
-        public string CheckPw(string name, string password)
-        {
-            string pw = dal.CheckPw(name, password);
-            return pw;
-        }
-
-        //This method calculates the objects area / the object price
-        public double CalculateObjectPricePerKvm(string price, string area)
-        {
-            double pricePerKvm = Math.Round(double.Parse(price) / double.Parse(area), 0);
-            return pricePerKvm;
-        }
+        #endregion SHOWING        
 
         //This method calls a webservice to read a file content
         public string GetFileContent(string filepath)

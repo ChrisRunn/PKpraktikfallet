@@ -63,7 +63,6 @@ namespace praktikfall
         }
 
         #endregion GENERISKA METODER
-
         #region OBJEKT
         //Delete a real estate object
         public void DeleteObject(string objNr)
@@ -120,7 +119,7 @@ namespace praktikfall
         public bool ObjectExists(string objNr)
         {
             bool objectExists = false;
-            string sqlStr = "select * from RealEstateObject where objNr = " + objNr ;
+            string sqlStr = "select * from RealEstateObject where objNr = " + objNr;
             DataTable dt = ExecuteQuery(sqlStr);
             if (dt.Rows.Count > 0)
             {
@@ -166,6 +165,22 @@ namespace praktikfall
         }
         #endregion OBJEKT
         #region MÄKLARE
+        // Check password for login
+        public string CheckPw(string name, string password)
+        {
+            try
+            {
+                string sqlStr = "Select pw from RealEstateBroker where pw = '" + password + "' and name = '" + name + "'";
+                DataTable dt = ExecuteQuery(sqlStr);
+                string pw = dt.Rows[0][0].ToString();
+                return pw;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Det finns ingen användare med detta lösenord, var god försök igen. \n");
+                return null;
+            }
+        }
         //Adds a broker
         public void AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
@@ -389,66 +404,38 @@ namespace praktikfall
             return showingExists;
         }
         #endregion SHOWING
-        // Check password for login
-        public string CheckPw(string name, string password)
-        {
-            try
-            {
-                string sqlStr = "Select pw from RealEstateBroker where pw = '" + password + "' and name = '" + name + "'";
-                DataTable dt = ExecuteQuery(sqlStr);
-                string pw = dt.Rows[0][0].ToString();
-                return pw;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Det finns ingen användare med detta lösenord, var god försök igen. \n");
-                return null;
-            }
-        }
-
+        
+        WebServiceUpg1SoapClient client1 = new WebServiceUpg1SoapClient();
+        WebServiceUpg2SoapClient client2 = new WebServiceUpg2SoapClient();
+        
         public string GetFileContent(string filepath)
-        {
-            WebServiceUpg1SoapClient client = new WebServiceUpg1SoapClient();
-            try
-            {
-                return client.GetFileContent(filepath);
-            }
-            catch (Exception)
-            {
-                return "Kunde ej konsumera web service.";
-            }
-
-
+        {           
+            return client1.GetFileContent(filepath);
         }
-        public List<ObjectOwner> GetObjectOwners() 
-        {
-            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-            return client.GetObjectOwner();
+        public List<ObjectOwner> GetObjectOwners()
+        {            
+            return client2.GetObjectOwner();
         }
 
         public List<RealEstateBroker> GetRealEstateBroker()
-        {
-            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-            return client.GetRealEstateBroker();
+        {            
+            return client2.GetRealEstateBroker();
         }
 
-       public List<Showing> GetShowing()
+        public List<Showing> GetShowing()
         {
-            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-            return client.GetShowing();
+            return client2.GetShowing();
         }
 
         public List<RealEstateObject> GetRealEstateObjects()
-         {
-             WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-             return client.GetRealEstateObjects();
-         }
+        {
+            return client2.GetRealEstateObjects();
+        }
 
-         public List<ProspectiveBuyer> GetProspectiveBuyers()
-         {
-             WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-             return client.GetProspectiveBuyers();
-         }
-         
+        public List<ProspectiveBuyer> GetProspectiveBuyers()
+        {
+            return client2.GetProspectiveBuyers();
+        }
+
     }
 }

@@ -86,6 +86,7 @@
     <Compile Include="EmployeeFrame.Designer.cs">
       <DependentUpon>EmployeeFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="ErrorHandler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
