@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a4b0dfa8-a20c-4a9e-ac88-44691e4abebc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="abaeca76-8091-4cf3-9d86-2ef9d54d0a9b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -24,7 +24,7 @@
     <MetadataSource Address="http://localhost:50895/WebServiceUpg2.asmx?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebServiceUpg2.wsdl" MetadataType="Wsdl" ID="8caa093f-6f0d-4026-8a23-faf68bfe1db7" SourceId="1" SourceUrl="http://localhost:50895/WebServiceUpg2.asmx?WSDL" />
+    <MetadataFile FileName="WebServiceUpg2.wsdl" MetadataType="Wsdl" ID="8d2f9933-200b-477b-a9a3-cf1a629e96d6" SourceId="1" SourceUrl="http://localhost:50895/WebServiceUpg2.asmx?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

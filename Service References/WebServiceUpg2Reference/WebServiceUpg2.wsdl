@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://brokerapplication.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://brokerapplication.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://brokerapplication.org/">
       <s:element name="GetObjectOwner">
         <s:complexType />
       </s:element>
@@ -187,7 +187,7 @@
   <wsdl:binding name="WebServiceUpg2Soap" type="tns:WebServiceUpg2Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetObjectOwner">
-      <soap:operation soapAction="http://tempuri.org/GetObjectOwner" style="document" />
+      <soap:operation soapAction="http://brokerapplication.org/GetObjectOwner" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -196,7 +196,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetRealEstateBroker">
-      <soap:operation soapAction="http://tempuri.org/GetRealEstateBroker" style="document" />
+      <soap:operation soapAction="http://brokerapplication.org/GetRealEstateBroker" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -205,7 +205,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetShowing">
-      <soap:operation soapAction="http://tempuri.org/GetShowing" style="document" />
+      <soap:operation soapAction="http://brokerapplication.org/GetShowing" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -214,7 +214,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetProspectiveBuyers">
-      <soap:operation soapAction="http://tempuri.org/GetProspectiveBuyers" style="document" />
+      <soap:operation soapAction="http://brokerapplication.org/GetProspectiveBuyers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -223,7 +223,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetRealEstateObjects">
-      <soap:operation soapAction="http://tempuri.org/GetRealEstateObjects" style="document" />
+      <soap:operation soapAction="http://brokerapplication.org/GetRealEstateObjects" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -235,7 +235,7 @@
   <wsdl:binding name="WebServiceUpg2Soap12" type="tns:WebServiceUpg2Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetObjectOwner">
-      <soap12:operation soapAction="http://tempuri.org/GetObjectOwner" style="document" />
+      <soap12:operation soapAction="http://brokerapplication.org/GetObjectOwner" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -244,7 +244,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetRealEstateBroker">
-      <soap12:operation soapAction="http://tempuri.org/GetRealEstateBroker" style="document" />
+      <soap12:operation soapAction="http://brokerapplication.org/GetRealEstateBroker" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -253,7 +253,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetShowing">
-      <soap12:operation soapAction="http://tempuri.org/GetShowing" style="document" />
+      <soap12:operation soapAction="http://brokerapplication.org/GetShowing" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -262,7 +262,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetProspectiveBuyers">
-      <soap12:operation soapAction="http://tempuri.org/GetProspectiveBuyers" style="document" />
+      <soap12:operation soapAction="http://brokerapplication.org/GetProspectiveBuyers" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -271,7 +271,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetRealEstateObjects">
-      <soap12:operation soapAction="http://tempuri.org/GetRealEstateObjects" style="document" />
+      <soap12:operation soapAction="http://brokerapplication.org/GetRealEstateObjects" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
