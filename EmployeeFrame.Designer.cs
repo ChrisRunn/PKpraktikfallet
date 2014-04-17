@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frameMainMainframe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tpShowingShowingTabPage = new System.Windows.Forms.TabPage();
             this.gbShowingAdministrateBuyer = new System.Windows.Forms.GroupBox();
             this.lblShowingAdministrateBuyerChoice = new System.Windows.Forms.Label();
@@ -153,9 +153,11 @@
             this.tbBrokerBrokerSsnr = new System.Windows.Forms.TextBox();
             this.tpWS = new System.Windows.Forms.TabPage();
             this.gbWSupg2 = new System.Windows.Forms.GroupBox();
+            this.lblWS2Error = new System.Windows.Forms.Label();
             this.listViewWeb = new System.Windows.Forms.ListView();
             this.cbWebService = new System.Windows.Forms.ComboBox();
             this.gbWSupg1 = new System.Windows.Forms.GroupBox();
+            this.lblWS1Error = new System.Windows.Forms.Label();
             this.rtbWSoutput = new System.Windows.Forms.RichTextBox();
             this.tbWSfilepath = new System.Windows.Forms.TextBox();
             this.btnWSbrowse = new System.Windows.Forms.Button();
@@ -165,8 +167,6 @@
             this.mmArkivQuit = new System.Windows.Forms.MenuItem();
             this.mmHelp = new System.Windows.Forms.MenuItem();
             this.mmHelpAbout = new System.Windows.Forms.MenuItem();
-            this.lblWS1Error = new System.Windows.Forms.Label();
-            this.lblWS2Error = new System.Windows.Forms.Label();
             this.tpShowingShowingTabPage.SuspendLayout();
             this.gbShowingAdministrateBuyer.SuspendLayout();
             this.gbShowingDeleteShowing.SuspendLayout();
@@ -931,8 +931,8 @@
             // 
             this.dgvObjectAllObjects.AllowUserToAddRows = false;
             this.dgvObjectAllObjects.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvObjectAllObjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvObjectAllObjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectAllObjects.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvObjectAllObjects.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1500,7 +1500,18 @@
             this.gbWSupg2.Size = new System.Drawing.Size(571, 628);
             this.gbWSupg2.TabIndex = 1;
             this.gbWSupg2.TabStop = false;
-            this.gbWSupg2.Text = "Uppgift 2";
+            this.gbWSupg2.Text = "Hämta databasinnehåll";
+            // 
+            // lblWS2Error
+            // 
+            this.lblWS2Error.AutoSize = true;
+            this.lblWS2Error.ForeColor = System.Drawing.Color.Red;
+            this.lblWS2Error.Location = new System.Drawing.Point(6, 605);
+            this.lblWS2Error.Name = "lblWS2Error";
+            this.lblWS2Error.Size = new System.Drawing.Size(34, 13);
+            this.lblWS2Error.TabIndex = 3;
+            this.lblWS2Error.Text = "Error";
+            this.lblWS2Error.Visible = false;
             // 
             // listViewWeb
             // 
@@ -1534,6 +1545,17 @@
             this.gbWSupg1.TabIndex = 0;
             this.gbWSupg1.TabStop = false;
             this.gbWSupg1.Text = "Hämta filinnehåll";
+            // 
+            // lblWS1Error
+            // 
+            this.lblWS1Error.AutoSize = true;
+            this.lblWS1Error.ForeColor = System.Drawing.Color.Red;
+            this.lblWS1Error.Location = new System.Drawing.Point(6, 605);
+            this.lblWS1Error.Name = "lblWS1Error";
+            this.lblWS1Error.Size = new System.Drawing.Size(34, 13);
+            this.lblWS1Error.TabIndex = 4;
+            this.lblWS1Error.Text = "Error";
+            this.lblWS1Error.Visible = false;
             // 
             // rtbWSoutput
             // 
@@ -1601,28 +1623,6 @@
             this.mmHelpAbout.Index = 0;
             this.mmHelpAbout.Text = "Om";
             this.mmHelpAbout.Click += new System.EventHandler(this.mmHelpAbout_Click);
-            // 
-            // lblWS1Error
-            // 
-            this.lblWS1Error.AutoSize = true;
-            this.lblWS1Error.ForeColor = System.Drawing.Color.Red;
-            this.lblWS1Error.Location = new System.Drawing.Point(6, 605);
-            this.lblWS1Error.Name = "lblWS1Error";
-            this.lblWS1Error.Size = new System.Drawing.Size(34, 13);
-            this.lblWS1Error.TabIndex = 4;
-            this.lblWS1Error.Text = "Error";
-            this.lblWS1Error.Visible = false;
-            // 
-            // lblWS2Error
-            // 
-            this.lblWS2Error.AutoSize = true;
-            this.lblWS2Error.ForeColor = System.Drawing.Color.Red;
-            this.lblWS2Error.Location = new System.Drawing.Point(6, 605);
-            this.lblWS2Error.Name = "lblWS2Error";
-            this.lblWS2Error.Size = new System.Drawing.Size(34, 13);
-            this.lblWS2Error.TabIndex = 3;
-            this.lblWS2Error.Text = "Error";
-            this.lblWS2Error.Visible = false;
             // 
             // frameMainMainframe
             // 

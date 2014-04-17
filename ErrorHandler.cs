@@ -17,6 +17,10 @@ namespace praktikfall
             {
                 return "Error: EndpointNotFoundException. Web servern kunde inte nås.";
             }
+            else if (exmessage.Contains("The maximum message size quota for incoming messages (65536) has been exceeded."))
+            {
+                return "Error: CommunicationException. Filen är för stor för att läsas. ";
+            }
 
             return "Error: Unknown exception. Någonting gick fel när web service skulle konsumeras.";
 

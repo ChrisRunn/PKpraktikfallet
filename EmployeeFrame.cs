@@ -943,6 +943,7 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 result = eh.HandleError(ex);
             }
             if (result.Contains("Error: "))

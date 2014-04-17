@@ -16,7 +16,7 @@ namespace praktikfall
     class DataAccessLayer
     {
         string connectionString = "server=localhost; Trusted_Connection=yes; database=MA Praktikfallet;";
-    
+
         WebServiceUpg1SoapClient clientUpg1 = new WebServiceUpg1SoapClient();
         WebServiceUpg2SoapClient clientUpg2 = new WebServiceUpg2SoapClient();
 
@@ -168,7 +168,7 @@ namespace praktikfall
         }
         #endregion OBJEKT
         #region MÄKLARE
-       
+
         //Adds a broker
         public void AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
@@ -414,19 +414,12 @@ namespace praktikfall
         //This method calls a webservice to read a file content
         public string GetFileContent(string filepath)
         {
-            try
-            {
-                return clientUpg1.GetFileContent(filepath);
-            }
-            catch (Exception)
-            {
-                return "Kunde ej konsumera web service.";
-            }
+            return clientUpg1.GetFileContent(filepath);
         }
         #endregion WebServiceUpg1
         #region WebServiceUpg2
         //This method calls a webservice to show a specific table and content from the Database
-        public List<ObjectOwner> GetObjectOwners() 
+        public List<ObjectOwner> GetObjectOwners()
         {
             return clientUpg2.GetObjectOwner();
         }
@@ -445,15 +438,15 @@ namespace praktikfall
 
         //This method calls a webservice to show a specific table and content from the Database
         public List<RealEstateObject> GetRealEstateObjects()
-         {
-             return clientUpg2.GetRealEstateObjects();
-         }
+        {
+            return clientUpg2.GetRealEstateObjects();
+        }
 
         //This method calls a webservice to show a specific table and content from the Database
-         public List<ProspectiveBuyer> GetProspectiveBuyers()
-         {
-             return clientUpg2.GetProspectiveBuyers();
-         }
+        public List<ProspectiveBuyer> GetProspectiveBuyers()
+        {
+            return clientUpg2.GetProspectiveBuyers();
+        }
         #endregion WebServiceUpg2
     }
 }
