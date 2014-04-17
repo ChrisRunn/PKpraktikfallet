@@ -168,22 +168,7 @@ namespace praktikfall
         }
         #endregion OBJEKT
         #region MÄKLARE
-        // Check password for login
-        public string CheckPw(string name, string password)
-        {
-            try
-            {
-                string sqlStr = "Select pw from RealEstateBroker where pw = '" + password + "' and name = '" + name + "'";
-                DataTable dt = ExecuteQuery(sqlStr);
-                string pw = dt.Rows[0][0].ToString();
-                return pw;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Det finns ingen användare med detta lösenord, var god försök igen. \n");
-                return null;
-            }
-        }
+       
         //Adds a broker
         public void AddBroker(string brokerSsnr, string name, string brokerAddress, string city, string phoneNr, string email, string pw)
         {
@@ -407,41 +392,6 @@ namespace praktikfall
             return showingExists;
         }
         #endregion SHOWING
-<<<<<<< HEAD
-        
-        WebServiceUpg1SoapClient client1 = new WebServiceUpg1SoapClient();
-        WebServiceUpg2SoapClient client2 = new WebServiceUpg2SoapClient();
-        
-        public string GetFileContent(string filepath)
-        {           
-            return client1.GetFileContent(filepath);
-        }
-        public List<ObjectOwner> GetObjectOwners()
-        {            
-            return client2.GetObjectOwner();
-        }
-
-        public List<RealEstateBroker> GetRealEstateBroker()
-        {            
-            return client2.GetRealEstateBroker();
-        }
-
-        public List<Showing> GetShowing()
-        {
-            return client2.GetShowing();
-        }
-
-        public List<RealEstateObject> GetRealEstateObjects()
-        {
-            return client2.GetRealEstateObjects();
-        }
-
-        public List<ProspectiveBuyer> GetProspectiveBuyers()
-        {
-            return client2.GetProspectiveBuyers();
-        }
-
-=======
         #region Login
         // Check password for login
         public string CheckPw(string name, string password)
@@ -505,6 +455,5 @@ namespace praktikfall
              return clientUpg2.GetProspectiveBuyers();
          }
         #endregion WebServiceUpg2
->>>>>>> b5571c6376314a3dde1f6964596e1da722c51cad
     }
 }
