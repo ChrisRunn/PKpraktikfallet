@@ -532,26 +532,31 @@ namespace praktikfall
             return dal.GetFileContent(filepath);
         }
 
+        //This method calls a webservice to show a specific table and content from the Database
         public List<ObjectOwner> GetObjectOwners()
         {
             return dal.GetObjectOwners();
         }
 
+        //This method calls a webservice to show a specific table and content from the Database
         public List<RealEstateBroker> GetRealEstateBrokers()
         {
             return dal.GetRealEstateBroker();
         }
 
+        //This method calls a webservice to show a specific table and content from the Database
         public List<Showing> GetShowing()
         {
             return dal.GetShowing();
         }
-        
+
+        //This method calls a webservice to show a specific table and content from the Database
         public List<RealEstateObject> GetRealEstateObjects()
         {
             return dal.GetRealEstateObjects();
         }
 
+        //This method calls a webservice to show a specific table and content from the Database
         public List<ProspectiveBuyer> GetProspectiveBuyers()
         {
             return dal.GetProspectiveBuyers();

@@ -15,9 +15,12 @@ namespace praktikfall
 {
     class DataAccessLayer
     {
-        #region GENERISKA METODER
         string connectionString = "server=localhost; Trusted_Connection=yes; database=MA Praktikfallet;";
+    
+        WebServiceUpg1SoapClient clientUpg1 = new WebServiceUpg1SoapClient();
+        WebServiceUpg2SoapClient clientUpg2 = new WebServiceUpg2SoapClient();
 
+        #region GENERISKA METODER
         //Generic method for sending a query that updates or adds a new object
         private void ExecuteUpdate(string sqlStr)
         {
@@ -63,7 +66,6 @@ namespace praktikfall
         }
 
         #endregion GENERISKA METODER
-
         #region OBJEKT
         //Delete a real estate object
         public void DeleteObject(string objNr)
@@ -389,6 +391,7 @@ namespace praktikfall
             return showingExists;
         }
         #endregion SHOWING
+        #region Login
         // Check password for login
         public string CheckPw(string name, string password)
         {
@@ -405,50 +408,51 @@ namespace praktikfall
                 return null;
             }
         }
-
+        #endregion Login
+        #region WebServiceUpg1
+        //This method calls a webservice to read a file content
         public string GetFileContent(string filepath)
         {
-            WebServiceUpg1SoapClient client = new WebServiceUpg1SoapClient();
             try
             {
-                return client.GetFileContent(filepath);
+                return clientUpg1.GetFileContent(filepath);
             }
             catch (Exception)
             {
                 return "Kunde ej konsumera web service.";
             }
-
-
         }
+        #endregion WebServiceUpg1
+        #region WebServiceUpg2
+        //This method calls a webservice to show a specific table and content from the Database
         public List<ObjectOwner> GetObjectOwners() 
         {
-            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-            return client.GetObjectOwner();
+            return clientUpg2.GetObjectOwner();
         }
 
+        //This method calls a webservice to show a specific table and content from the Database
         public List<RealEstateBroker> GetRealEstateBroker()
         {
-            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-            return client.GetRealEstateBroker();
+            return clientUpg2.GetRealEstateBroker();
         }
 
-       public List<Showing> GetShowing()
+        //This method calls a webservice to show a specific table and content from the Database
+        public List<Showing> GetShowing()
         {
-            WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-            return client.GetShowing();
+            return clientUpg2.GetShowing();
         }
 
+        //This method calls a webservice to show a specific table and content from the Database
         public List<RealEstateObject> GetRealEstateObjects()
          {
-             WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-             return client.GetRealEstateObjects();
+             return clientUpg2.GetRealEstateObjects();
          }
 
+        //This method calls a webservice to show a specific table and content from the Database
          public List<ProspectiveBuyer> GetProspectiveBuyers()
          {
-             WebServiceUpg2SoapClient client = new WebServiceUpg2SoapClient();
-             return client.GetProspectiveBuyers();
+             return clientUpg2.GetProspectiveBuyers();
          }
-         
+        #endregion WebServiceUpg2
     }
 }
