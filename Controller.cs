@@ -532,9 +532,9 @@ namespace praktikfall
         }
 
         //This method calls a webservice to show a specific table and content from the Database
-        public List<ObjectOwner> GetObjectOwners()
+        public List<ObjectOwner> GetObjectOwners(ref string errorMessage)
         {
-            return dal.GetObjectOwners();
+            return dal.GetObjectOwners(ref errorMessage);
         }
 
         //This method calls a webservice to show a specific table and content from the Database

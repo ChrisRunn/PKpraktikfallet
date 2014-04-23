@@ -419,9 +419,9 @@ namespace praktikfall
         #endregion WebServiceUpg1
         #region WebServiceUpg2
         //This method calls a webservice to show a specific table and content from the Database
-        public List<ObjectOwner> GetObjectOwners()
+        public List<ObjectOwner> GetObjectOwners(ref string errorMessage)
         {
-            return clientUpg2.GetObjectOwner();
+            return clientUpg2.GetObjectOwner(ref errorMessage);
         }
 
         //This method calls a webservice to show a specific table and content from the Database

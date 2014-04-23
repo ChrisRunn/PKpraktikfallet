@@ -962,19 +962,24 @@ namespace praktikfall
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string errorMessage = "hej från frame";
             try
             {
+                
                 switch (cbWebService.SelectedIndex)
                 {
 
                     case 0:
+                        
+
                         listViewWeb.Clear();
-                        List<ObjectOwner> objectOwners = controller.GetObjectOwners();
+                        List<ObjectOwner> objectOwners = controller.GetObjectOwners(ref errorMessage);
                         listViewWeb.Columns.Add("Personnummer");
                         listViewWeb.Columns.Add("Namn");
                         listViewWeb.Columns.Add("Telefonnummer");
                         listViewWeb.Columns.Add("Email");
-
+                        lblWS2Error.Text = errorMessage;
+                        lblWS2Error.Visible = true;
 
 
                         foreach (ObjectOwner o in objectOwners)
@@ -1091,14 +1096,16 @@ namespace praktikfall
                         }
 
                         break;
+
                 }
-                lblWS2Error.Visible = false;
             }
             catch (Exception ex)
             {
+                lblWS2Error.Text = eh.HandleErrorMessage(errorMessage);
                 lblWS2Error.Visible = true;
-                lblWS2Error.Text = eh.HandleError(ex);                
-            }          
+                //MessageBox.Show(errorMessage);
+            }
+                  
 
             if(listViewWeb.Columns.Count != 0)
             this.ResizeColumnHeaders();

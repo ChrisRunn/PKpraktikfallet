@@ -25,5 +25,12 @@ namespace praktikfall
             return "Error: Unknown exception. Någonting gick fel när web service skulle konsumeras.";
 
         }
+        public string HandleErrorMessage(string errorMessage)
+        {
+            if(errorMessage.Contains("SqlException"))
+               return "Error: SqlException. Något gick fel med databasen. ";
+            
+            return "Error: Unknown exception. Någonting gick fel när web service skulle konsumeras.";
+        }
     }
 }

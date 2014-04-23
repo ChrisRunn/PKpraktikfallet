@@ -231,6 +231,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\WebServiceUpg2Reference\WebServiceUpg2.disco" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Service References\WebServiceUpg2Reference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>

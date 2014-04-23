@@ -606,7 +606,6 @@ namespace praktikfall.WebServiceUpg2Reference {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://brokerapplication.org/", ConfigurationName="WebServiceUpg2Reference.WebServiceUpg2Soap")]
     public interface WebServiceUpg2Soap {
         
-        // CODEGEN: Generating message contract since element name GetObjectOwnerResult from namespace http://brokerapplication.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetObjectOwner", ReplyAction="*")]
         praktikfall.WebServiceUpg2Reference.GetObjectOwnerResponse GetObjectOwner(praktikfall.WebServiceUpg2Reference.GetObjectOwnerRequest request);
         
@@ -644,7 +643,6 @@ namespace praktikfall.WebServiceUpg2Reference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetObjectOwnerRequest {
         
@@ -661,17 +659,22 @@ namespace praktikfall.WebServiceUpg2Reference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
     public partial class GetObjectOwnerRequestBody {
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string errorMessage;
+        
         public GetObjectOwnerRequestBody() {
+        }
+        
+        public GetObjectOwnerRequestBody(string errorMessage) {
+            this.errorMessage = errorMessage;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetObjectOwnerResponse {
         
@@ -688,18 +691,21 @@ namespace praktikfall.WebServiceUpg2Reference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
     public partial class GetObjectOwnerResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.ObjectOwner> GetObjectOwnerResult;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string errorMessage;
+        
         public GetObjectOwnerResponseBody() {
         }
         
-        public GetObjectOwnerResponseBody(System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.ObjectOwner> GetObjectOwnerResult) {
+        public GetObjectOwnerResponseBody(System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.ObjectOwner> GetObjectOwnerResult, string errorMessage) {
             this.GetObjectOwnerResult = GetObjectOwnerResult;
+            this.errorMessage = errorMessage;
         }
     }
     
@@ -979,10 +985,12 @@ namespace praktikfall.WebServiceUpg2Reference {
             return base.Channel.GetObjectOwner(request);
         }
         
-        public System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.ObjectOwner> GetObjectOwner() {
+        public System.Collections.Generic.List<praktikfall.WebServiceUpg2Reference.ObjectOwner> GetObjectOwner(ref string errorMessage) {
             praktikfall.WebServiceUpg2Reference.GetObjectOwnerRequest inValue = new praktikfall.WebServiceUpg2Reference.GetObjectOwnerRequest();
             inValue.Body = new praktikfall.WebServiceUpg2Reference.GetObjectOwnerRequestBody();
+            inValue.Body.errorMessage = errorMessage;
             praktikfall.WebServiceUpg2Reference.GetObjectOwnerResponse retVal = ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetObjectOwner(inValue);
+            errorMessage = retVal.Body.errorMessage;
             return retVal.Body.GetObjectOwnerResult;
         }
         
@@ -991,9 +999,10 @@ namespace praktikfall.WebServiceUpg2Reference {
             return base.Channel.GetObjectOwnerAsync(request);
         }
         
-        public System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetObjectOwnerResponse> GetObjectOwnerAsync() {
+        public System.Threading.Tasks.Task<praktikfall.WebServiceUpg2Reference.GetObjectOwnerResponse> GetObjectOwnerAsync(string errorMessage) {
             praktikfall.WebServiceUpg2Reference.GetObjectOwnerRequest inValue = new praktikfall.WebServiceUpg2Reference.GetObjectOwnerRequest();
             inValue.Body = new praktikfall.WebServiceUpg2Reference.GetObjectOwnerRequestBody();
+            inValue.Body.errorMessage = errorMessage;
             return ((praktikfall.WebServiceUpg2Reference.WebServiceUpg2Soap)(this)).GetObjectOwnerAsync(inValue);
         }
         
