@@ -1103,7 +1103,7 @@ namespace praktikfall
             {
                 lblWS2Error.Text = eh.HandleErrorMessage(errorMessage);
                 lblWS2Error.Visible = true;
-                //MessageBox.Show(errorMessage);
+                MessageBox.Show(errorMessage);
             }
                   
 
