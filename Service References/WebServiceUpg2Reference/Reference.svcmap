@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6fd647b1-6e9f-4d0d-bc14-06c93c3a2538" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="45410b3e-08d5-44ea-bc6a-bc2011e88e94" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -21,11 +21,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:50895/WebServiceUpg2.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:50895/WebServiceUpg2.asmx?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebServiceUpg2.disco" MetadataType="Disco" ID="74515d89-6f71-49ec-8aa0-3e07469d669e" SourceId="1" SourceUrl="http://localhost:50895/WebServiceUpg2.asmx?disco" />
-    <MetadataFile FileName="WebServiceUpg2.wsdl" MetadataType="Wsdl" ID="a5d96e3b-1d89-48e5-bd78-cbd1d827077a" SourceId="1" SourceUrl="http://localhost:50895/WebServiceUpg2.asmx?wsdl" />
+    <MetadataFile FileName="WebServiceUpg2.wsdl" MetadataType="Wsdl" ID="99039486-ce73-4aeb-8dc8-f0d2cb767785" SourceId="1" SourceUrl="http://localhost:50895/WebServiceUpg2.asmx?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

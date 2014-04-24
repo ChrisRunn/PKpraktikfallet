@@ -962,15 +962,15 @@ namespace praktikfall
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string errorMessage = "hej från frame";
+            string errorMessage = "";
             try
             {
-                
+
                 switch (cbWebService.SelectedIndex)
                 {
 
                     case 0:
-                        
+
 
                         listViewWeb.Clear();
                         List<ObjectOwner> objectOwners = controller.GetObjectOwners(ref errorMessage);
@@ -997,7 +997,7 @@ namespace praktikfall
                     case 1:
 
                         listViewWeb.Clear();
-                        List<RealEstateBroker> realEstateBrokers = controller.GetRealEstateBrokers();
+                        List<RealEstateBroker> realEstateBrokers = controller.GetRealEstateBrokers(ref errorMessage);
                         listViewWeb.Columns.Add("Personnummer");
                         listViewWeb.Columns.Add("Namn");
                         listViewWeb.Columns.Add("Adress");
@@ -1023,7 +1023,7 @@ namespace praktikfall
 
                     case 2:
                         listViewWeb.Clear();
-                        List<RealEstateObject> realEstateObjects = controller.GetRealEstateObjects();
+                        List<RealEstateObject> realEstateObjects = controller.GetRealEstateObjects(ref errorMessage);
                         listViewWeb.Columns.Add("Objektsnummer");
                         listViewWeb.Columns.Add("Adress");
                         listViewWeb.Columns.Add("Stad");
@@ -1058,7 +1058,7 @@ namespace praktikfall
                         break;
                     case 3:
                         listViewWeb.Clear();
-                        List<ProspectiveBuyer> prospectiveBuyers = controller.GetProspectiveBuyers();
+                        List<ProspectiveBuyer> prospectiveBuyers = controller.GetProspectiveBuyers(ref errorMessage);
                         listViewWeb.Columns.Add("Personnummer");
                         listViewWeb.Columns.Add("Namn");
                         listViewWeb.Columns.Add("Telefonnummer");
@@ -1080,7 +1080,7 @@ namespace praktikfall
 
                     case 4:
                         listViewWeb.Clear();
-                        List<Showing> showings = controller.GetShowing();
+                        List<Showing> showings = controller.GetShowing(ref errorMessage);
                         listViewWeb.Columns.Add("Objektsnummer");
                         listViewWeb.Columns.Add("Spekulant");
                         listViewWeb.Columns.Add("Datum");
@@ -1101,14 +1101,24 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                lblWS2Error.Text = eh.HandleErrorMessage(errorMessage);
-                lblWS2Error.Visible = true;
-                MessageBox.Show(errorMessage);
-            }
-                  
+                if (errorMessage != "")
+                    lblWS2Error.Text = eh.HandleErrorMessage(errorMessage);
 
-            if(listViewWeb.Columns.Count != 0)
-            this.ResizeColumnHeaders();
+                else
+                {
+                    lblWS2Error.Text = eh.HandleError(ex);
+                }
+
+                lblWS2Error.Visible = true;
+<<<<<<< HEAD
+                MessageBox.Show(errorMessage);
+=======
+>>>>>>> e6d465a8da83f8298a7943a379d1f202e46de1e1
+            }
+
+
+            if (listViewWeb.Columns.Count != 0)
+                this.ResizeColumnHeaders();
 
         }
         private void ResizeColumnHeaders()

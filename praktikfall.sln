@@ -1,12 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "praktikfall", "praktikfall.csproj", "{49B8434D-90A4-4D83-B072-F4876938869F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E20ECECD-7F38-4C1F-9340-E1427A9287E8} = {E20ECECD-7F38-4C1F-9340-E1427A9287E8}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "..\Webservice\WebService\WebService\WebService.csproj", "{E20ECECD-7F38-4C1F-9340-E1427A9287E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,10 +15,6 @@ Global
 		{49B8434D-90A4-4D83-B072-F4876938869F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49B8434D-90A4-4D83-B072-F4876938869F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49B8434D-90A4-4D83-B072-F4876938869F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E20ECECD-7F38-4C1F-9340-E1427A9287E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E20ECECD-7F38-4C1F-9340-E1427A9287E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E20ECECD-7F38-4C1F-9340-E1427A9287E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E20ECECD-7F38-4C1F-9340-E1427A9287E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

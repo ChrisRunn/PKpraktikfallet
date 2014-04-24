@@ -9,6 +9,7 @@ namespace praktikfall
     class ErrorHandler
     {
 
+        //Handles errors thrown from client
         public string HandleError(Exception ex)
         {
             string exmessage = ex.Message;
@@ -25,6 +26,8 @@ namespace praktikfall
             return "Error: Unknown exception. Någonting gick fel när web service skulle konsumeras.";
 
         }
+
+        //Handles errors thrown from WebService
         public string HandleErrorMessage(string errorMessage)
         {
             if(errorMessage.Contains("SqlException"))
