@@ -425,27 +425,27 @@ namespace praktikfall
         }
 
         //This method calls a webservice to show a specific table and content from the Database
-        public List<RealEstateBroker> GetRealEstateBroker()
+        public List<RealEstateBroker> GetRealEstateBroker(ref string errorMessage)
         {
-            return clientUpg2.GetRealEstateBroker();
+            return clientUpg2.GetRealEstateBroker(ref errorMessage);
         }
 
         //This method calls a webservice to show a specific table and content from the Database
-        public List<Showing> GetShowing()
+        public List<Showing> GetShowing(ref string errorMessage)
         {
-            return clientUpg2.GetShowing();
+            return clientUpg2.GetShowing(ref errorMessage);
         }
 
         //This method calls a webservice to show a specific table and content from the Database
-        public List<RealEstateObject> GetRealEstateObjects()
+        public List<RealEstateObject> GetRealEstateObjects(ref string errorMessage)
         {
-            return clientUpg2.GetRealEstateObjects();
+            return clientUpg2.GetRealEstateObjects(ref errorMessage);
         }
 
         //This method calls a webservice to show a specific table and content from the Database
-        public List<ProspectiveBuyer> GetProspectiveBuyers()
+        public List<ProspectiveBuyer> GetProspectiveBuyers(ref string errorMessage)
         {
-            return clientUpg2.GetProspectiveBuyers();
+            return clientUpg2.GetProspectiveBuyers(ref errorMessage);
         }
         #endregion WebServiceUpg2
     }

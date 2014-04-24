@@ -32,12 +32,17 @@
         </s:sequence>
       </s:complexType>
       <s:element name="GetRealEstateBroker">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="GetRealEstateBrokerResponse">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetRealEstateBrokerResult" type="tns:ArrayOfRealEstateBroker" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -57,12 +62,17 @@
         </s:sequence>
       </s:complexType>
       <s:element name="GetShowing">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="GetShowingResponse">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetShowingResult" type="tns:ArrayOfShowing" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -79,12 +89,17 @@
         </s:sequence>
       </s:complexType>
       <s:element name="GetProspectiveBuyers">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="GetProspectiveBuyersResponse">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetProspectiveBuyersResult" type="tns:ArrayOfProspectiveBuyer" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -102,12 +117,17 @@
         </s:sequence>
       </s:complexType>
       <s:element name="GetRealEstateObjects">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="GetRealEstateObjectsResponse">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="GetRealEstateObjectsResult" type="tns:ArrayOfRealEstateObject" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
