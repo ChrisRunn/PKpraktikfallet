@@ -1530,7 +1530,7 @@
             this.cbWebService.Name = "cbWebService";
             this.cbWebService.Size = new System.Drawing.Size(403, 21);
             this.cbWebService.TabIndex = 1;
-            this.cbWebService.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbWebService.SelectedIndexChanged += new System.EventHandler(this.cbWebService_SelectedIndexChanged);
             // 
             // gbWSupg1
             // 

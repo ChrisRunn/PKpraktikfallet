@@ -959,10 +959,16 @@ namespace praktikfall
 
 
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+       
+        private void ResizeColumnHeaders()
         {
-            string errorMessage = "";
+            for (int i = 0; i < this.listViewWeb.Columns.Count - 1; i++) this.listViewWeb.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize);
+            this.listViewWeb.Columns[this.listViewWeb.Columns.Count - 1].Width = -2;
+
+        }
+
+        private void cbWebService_SelectedIndexChanged(object sender, EventArgs e)
+        {
             try
             {
 
@@ -971,15 +977,13 @@ namespace praktikfall
 
                     case 0:
 
-
                         listViewWeb.Clear();
-                        List<ObjectOwner> objectOwners = controller.GetObjectOwners(ref errorMessage);
+                        List<ObjectOwner> objectOwners = controller.GetObjectOwners();
                         listViewWeb.Columns.Add("Personnummer");
                         listViewWeb.Columns.Add("Namn");
                         listViewWeb.Columns.Add("Telefonnummer");
                         listViewWeb.Columns.Add("Email");
-                        lblWS2Error.Text = errorMessage;
-                        lblWS2Error.Visible = true;
+                        
 
 
                         foreach (ObjectOwner o in objectOwners)
@@ -997,7 +1001,7 @@ namespace praktikfall
                     case 1:
 
                         listViewWeb.Clear();
-                        List<RealEstateBroker> realEstateBrokers = controller.GetRealEstateBrokers(ref errorMessage);
+                        List<RealEstateBroker> realEstateBrokers = controller.GetRealEstateBrokers();
                         listViewWeb.Columns.Add("Personnummer");
                         listViewWeb.Columns.Add("Namn");
                         listViewWeb.Columns.Add("Adress");
@@ -1023,7 +1027,7 @@ namespace praktikfall
 
                     case 2:
                         listViewWeb.Clear();
-                        List<RealEstateObject> realEstateObjects = controller.GetRealEstateObjects(ref errorMessage);
+                        List<RealEstateObject> realEstateObjects = controller.GetRealEstateObjects();
                         listViewWeb.Columns.Add("Objektsnummer");
                         listViewWeb.Columns.Add("Adress");
                         listViewWeb.Columns.Add("Stad");
@@ -1058,7 +1062,7 @@ namespace praktikfall
                         break;
                     case 3:
                         listViewWeb.Clear();
-                        List<ProspectiveBuyer> prospectiveBuyers = controller.GetProspectiveBuyers(ref errorMessage);
+                        List<ProspectiveBuyer> prospectiveBuyers = controller.GetProspectiveBuyers( );
                         listViewWeb.Columns.Add("Personnummer");
                         listViewWeb.Columns.Add("Namn");
                         listViewWeb.Columns.Add("Telefonnummer");
@@ -1080,7 +1084,7 @@ namespace praktikfall
 
                     case 4:
                         listViewWeb.Clear();
-                        List<Showing> showings = controller.GetShowing(ref errorMessage);
+                        List<Showing> showings = controller.GetShowing( );
                         listViewWeb.Columns.Add("Objektsnummer");
                         listViewWeb.Columns.Add("Spekulant");
                         listViewWeb.Columns.Add("Datum");
@@ -1101,31 +1105,19 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                if (errorMessage != "")
-                    lblWS2Error.Text = eh.HandleErrorMessage(errorMessage);
+                
 
-                else
-                {
+                
                     lblWS2Error.Text = eh.HandleError(ex);
-                }
-
+                
                 lblWS2Error.Visible = true;
-<<<<<<< HEAD
-                MessageBox.Show(errorMessage);
-=======
->>>>>>> e6d465a8da83f8298a7943a379d1f202e46de1e1
+             
+
             }
 
 
             if (listViewWeb.Columns.Count != 0)
                 this.ResizeColumnHeaders();
-
-        }
-        private void ResizeColumnHeaders()
-        {
-            for (int i = 0; i < this.listViewWeb.Columns.Count - 1; i++) this.listViewWeb.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize);
-            this.listViewWeb.Columns[this.listViewWeb.Columns.Count - 1].Width = -2;
-
         }
     }
 }
