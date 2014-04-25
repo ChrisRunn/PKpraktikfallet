@@ -943,7 +943,6 @@ namespace praktikfall
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 result = eh.HandleError(ex);
             }
             if (result.Contains("Error: "))
@@ -959,7 +958,7 @@ namespace praktikfall
 
 
         }
-       
+
         private void ResizeColumnHeaders()
         {
             for (int i = 0; i < this.listViewWeb.Columns.Count - 1; i++) this.listViewWeb.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -983,8 +982,6 @@ namespace praktikfall
                         listViewWeb.Columns.Add("Namn");
                         listViewWeb.Columns.Add("Telefonnummer");
                         listViewWeb.Columns.Add("Email");
-                        
-
 
                         foreach (ObjectOwner o in objectOwners)
                         {
@@ -1062,7 +1059,7 @@ namespace praktikfall
                         break;
                     case 3:
                         listViewWeb.Clear();
-                        List<ProspectiveBuyer> prospectiveBuyers = controller.GetProspectiveBuyers( );
+                        List<ProspectiveBuyer> prospectiveBuyers = controller.GetProspectiveBuyers();
                         listViewWeb.Columns.Add("Personnummer");
                         listViewWeb.Columns.Add("Namn");
                         listViewWeb.Columns.Add("Telefonnummer");
@@ -1084,7 +1081,7 @@ namespace praktikfall
 
                     case 4:
                         listViewWeb.Clear();
-                        List<Showing> showings = controller.GetShowing( );
+                        List<Showing> showings = controller.GetShowing();
                         listViewWeb.Columns.Add("Objektsnummer");
                         listViewWeb.Columns.Add("Spekulant");
                         listViewWeb.Columns.Add("Datum");
@@ -1102,19 +1099,13 @@ namespace praktikfall
                         break;
 
                 }
+                lblWS2Error.Visible = false;
             }
             catch (Exception ex)
             {
-                
-
-                
-                    lblWS2Error.Text = eh.HandleError(ex);
-                
+                lblWS2Error.Text = eh.HandleError(ex);
                 lblWS2Error.Visible = true;
-             
-
             }
-
 
             if (listViewWeb.Columns.Count != 0)
                 this.ResizeColumnHeaders();
